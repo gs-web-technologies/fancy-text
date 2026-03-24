@@ -1,0 +1,167 @@
+html, body {
+	background-color: #fafafa;
+}
+
+input, textarea {
+	border-radius: 2px;
+	border: 1px solid #a6a6a6;
+}
+
+input {
+	height: 33px;
+	font-size: 22px;
+	padding-left: 4px;
+}
+
+.main-container {
+	width: 600px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.page-title h1 {
+	text-align:center;
+	font-size:70px;
+}
+
+
+#tab-buttons {
+	text-align:center;
+	border-bottom: solid 1px #aaaaaa;
+}
+#tab-buttons .button {
+	margin-right:14px;
+	font-size: 14px;
+	font-weight:bold;
+	cursor:pointer;
+    padding: 4px;
+}
+/*#tab-buttons .button:hover {
+	background-color: #1e1e1e;
+}*/
+.selected-tab {
+	background-color: #8bb9dc;
+}
+.hover-tab {
+	background-color: #e1e1e1;
+}
+
+.tab-container {
+	display:none;
+}
+.tab-container.options {
+	display:inline;
+}
+
+.name-container {
+	margin-top: 30px;
+}
+.name-container input {
+	width:590px;
+	padding-left: 4px;
+}
+.subtitle-container {
+	margin-top: 30px;
+}
+.subtitle-container input {
+	width:590px;
+	padding-left: 4px;
+}
+
+.lang-container {
+	margin-top:30px;
+}
+.lang-container input {
+	width:289px;
+}
+
+.list-container {
+	margin-top:10px;
+
+}
+
+.list-container textarea {
+    line-height: 25px;
+}
+
+.list-container .list1,
+.list-container .list2 {
+	width: 274px;
+	height: 450px;
+	display:inline-block;
+	padding:10px;
+	color: #333333;
+	resize: none;
+	white-space: pre;
+	overflow-y: auto;
+	overflow-x:scroll;
+}
+
+.list-container .list1 {
+    text-align: right;
+}
+
+
+.description-container {
+	margin-top:40px;
+}
+.description-container textarea {
+	width:590px;
+    height: 200px;
+	border-radius:3px;
+	resize: none;
+}
+
+.email-container {
+	margin-top:40px;
+}
+.email-container input {
+	width:590px;
+
+}
+
+
+.extras textarea {
+	width:590px;
+	height: 120px;
+	border-radius:3px;
+	resize: none;
+	white-space: nowrap;
+	overflow-x:scroll;
+	overflow-y:auto;
+}
+
+.info-box {
+	background: #eee;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 1px 1px 0 #c7c7c7;
+    box-shadow: inset 0 1px 1px 0 #c7c7c7;
+    float: left;
+    padding: 10px 10px 10px 10px;
+    display: block;
+    height: auto;
+    text-align: center;
+    width: 580px;
+	margin-top: 20px;
+    line-height: 160%;
+}
+
+.save-wrapper {
+	width:80px;
+	height:27px;
+	position: fixed;
+	top: 3px;
+	right: 3px;
+	text-align:center;
+}
+
+.save-wrapper button{
+	width:100%;
+	height:100%;
+	font-size: 18px;
+}
+
+
+
+

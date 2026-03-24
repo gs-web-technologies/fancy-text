@@ -1,0 +1,30 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "fancy-text-generator": "^1.2.0",
+    "flip-text": "^1.2.0",
+    "jquery": "^4.0.0",
+    "morse": "^0.1.0",
+    "next": "16.2.1",
+    "number-to-words": "^1.2.4",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "string-to-binary": "^0.1.2",
+    "zalgo-generator": "^1.5.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.1",
+    "tailwindcss": "^4"
+  }
+}
