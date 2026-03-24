@@ -24,7 +24,7 @@ export default function Home() {
                             <div className="box-shadow-1 h-[400px] p-4 text-gray-500 text-2xl">
                                 <textarea
                                     id="english-text"
-                                    className="w-full outline-none "
+                                    className="w-full outline-none  h-[400px]"
                                     placeholder="English goes here..."
                                     onChange={(e) => setText(e.target.value)}
                                 ></textarea>
