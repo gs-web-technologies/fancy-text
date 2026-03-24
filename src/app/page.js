@@ -17,14 +17,14 @@ export default function Home() {
 
                     <h2 className="subtitle"></h2>
                 </div>
-                <div class="container mx-auto">
+                <div className="container mx-auto">
 
                     <div className="grid grid-cols-2 gap-4 mx-auto">
                         <div className="bg-white m-2 h-100vh">
                             <div className="box-shadow-1 h-[400px] p-4 text-gray-500 text-2xl">
                                 <textarea
                                     id="english-text"
-                                    className="w-full outline-none "
+                                    className="w-full outline-none  h-[400px]"
                                     placeholder="English goes here..."
                                     onChange={(e) => setText(e.target.value)}
                                 ></textarea>
@@ -50,7 +50,7 @@ export default function Home() {
                                     <div className="pb-8 text-black text-4xl">{transformText(text, "fancy1")}</div>
                                     <div className="pb-8 text-black text-4xl">{transformText(text, "fancy2")}</div>
                                     <div className="pb-8 text-black text-4xl">{transformText(text, "fancy3")}</div>
-                                    <div className="pb-8 text-black text-4xl">{transformText(text, "aurebeshMap")}</div>
+                                    {/* <div className="pb-8 text-black text-4xl">{transformText(text, "aurebeshMap")}</div> */}
                                     <div className="pb-8 text-black text-4xl">{zalgoGeneration(text, 1, 1, 1)}</div>
                                     <div className="pb-8 text-black text-4xl">{flipText(text)}</div>
                                     <div className="pb-8 text-black text-4xl">{morse.encode(text)}</div>
