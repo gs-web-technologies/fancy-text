@@ -41,11 +41,11 @@ const schema = z.object({
 });
 
 export default function EmailSignature() {
-    const { register,handleSubmit,formState: { errors }} = useForm({resolver: zodResolver(schema)});
+    const { register,handleSubmit, reset,formState: { errors }} = useForm({resolver: zodResolver(schema)});
     const [data, SetData] = useState("");
     const [isloding, setLoading] = useState(false);
     const [issubmitted, setSubmitted] = useState(false);
-    const { pending } = useFormStatus(); 
+
  
     const onSubmit = async (formdata) => {
         setLoading(true);
@@ -58,6 +58,7 @@ export default function EmailSignature() {
 
             const result = await res.json();
             if (res.success) setSubmitted(true);
+            reset();
         } catch (err) {
             console.log(err);
         } finally {
@@ -125,7 +126,7 @@ export default function EmailSignature() {
                     <Button
                         type="submit"
                         label="Submit"
-                        pending = {pending} />
+                        pending = {isloding} />
 
                 </div>
 
