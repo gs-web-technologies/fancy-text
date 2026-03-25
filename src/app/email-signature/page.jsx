@@ -8,11 +8,35 @@ import Button from "@/components/forms/Button";
 
 
 const schema = z.object({
-    full_name: z.string().min(3).max(100),
-    email: z.email(),
-    job_title: z.string().min(3).max(100),
-    phone_no: z.string().min(9).max(15),
-    address: z.string().min(3).max(500),
+    full_name: z
+        .string()
+        .min(3, { message: "Full name must be at least 3 characters long." })
+        .max(100, { message: "Full name must not exceed 100 characters." }),
+
+    email: z
+        .string()
+        .email({ message: "Please enter a valid email address." })
+        .min(5, { message: "Email must be at least 5 characters long." })
+        .max(50, { message: "Email must not exceed 50 characters." }),
+
+    job_title: z
+        .string()
+        .min(3, { message: "Job title must be at least 3 characters long." })
+        .max(50, { message: "Job title must not exceed 50 characters." }),
+
+    phone_no: z
+        .string()
+        .min(10, { message: "Phone number must be at least 10 digits." })
+        .max(15, { message: "Phone number must not exceed 15 digits." })
+        .regex(/^[0-9]+$/, {
+            message: "Phone number should contain only numbers.",
+        }),
+
+    organization_name: z
+        .string()
+        .min(5, { message: "Organization Name must be at least 5 characters long." })
+        .max(500, { message: "Organization Name must not exceed 500 characters." }),
+
 });
 
 export default function EmailSignature() {
@@ -73,24 +97,25 @@ export default function EmailSignature() {
                         error={errors.phone_no} />
 
                     <Input
-                        name="address"
+                        name="organization_name"
                         type="text"
-                        placeholder="Address"
+                        placeholder="Organization Name"
                         register={register}
-                        error={errors.address} />
+                        error={errors.organization_name} />
 
                     <Input
                         name="logo"
                         type="file"
                         placeholder="Logo"
-                        accept = '.png, .jpeg, .jpg'
+                        accept='.png, .jpeg, .jpg'
+                        description = 'png, jpg, up to 2MB'
                         register={register}
                         error={errors.logo} />
 
-                   <Button 
-                     type="submit"
-                     label="Submit" /> 
-                  
+                    <Button
+                        type="submit"
+                        label="Submit" />
+
                 </div>
 
             </form>
