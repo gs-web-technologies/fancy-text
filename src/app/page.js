@@ -9,6 +9,7 @@ import Description from "@/components/Description";
 
 export default function Home() {
     const [text, setText] = useState("");
+    
     return (
         <>
             <div className="main-title">

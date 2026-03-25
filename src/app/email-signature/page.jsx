@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod";
 import Input from "@/components/forms/Input";
 import Button from "@/components/forms/Button";
+import { useFormStatus } from "react-dom";
 
 
 const schema = z.object({
@@ -40,20 +41,29 @@ const schema = z.object({
 });
 
 export default function EmailSignature() {
-    const { register,
-        handleSubmit,
-        formState: { errors }
-    } = useForm({
-        resolver: zodResolver(schema)
-    }
-    );
+    const { register,handleSubmit,formState: { errors }} = useForm({resolver: zodResolver(schema)});
     const [data, SetData] = useState("");
+    const [isloding, setLoading] = useState(false);
+    const [issubmitted, setSubmitted] = useState(false);
+    const { pending } = useFormStatus(); 
+ 
+    const onSubmit = async (formdata) => {
+        setLoading(true);
+        try {
+            const res = await fetch('/api/submit', {
+                method: "POST",
+                header: { "Content/type": "application/json" },
+                body: JSON.stringify(formdata)
+            });
 
-
-    const onSubmit = (formData) => {
-        SetData(JSON.stringify(formData));
-        console.log(data);
-    };
+            const result = await res.json();
+            if (res.success) setSubmitted(true);
+        } catch (err) {
+            console.log(err);
+        } finally {
+            setLoading(false);
+        }
+    }
 
     return (
         <div className="min-h-screen flex pl-8 bg-gray-50">
@@ -108,13 +118,14 @@ export default function EmailSignature() {
                         type="file"
                         placeholder="Logo"
                         accept='.png, .jpeg, .jpg'
-                        description = 'png, jpg, up to 2MB'
+                        description='png, jpg, up to 2MB'
                         register={register}
                         error={errors.logo} />
 
                     <Button
                         type="submit"
-                        label="Submit" />
+                        label="Submit"
+                        pending = {pending} />
 
                 </div>
 
