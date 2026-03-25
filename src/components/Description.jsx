@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default function Description() {
     return (
         <div className="bg-white p-4 max-w-7xl mx-auto mt-8">
@@ -43,5 +45,5 @@ export default function Description() {
                 </p>
             </div>
         </div>
-    );
+    )
 }

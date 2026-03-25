@@ -5,13 +5,12 @@ import flipText from "flip-text";
 import { zalgoGeneration } from "zalgo-generator";
 import transformText from "fancy-text-generator";
 import morse from "morse";
-import Description from "./description/description";
-import EmailSignature from "./email-signature/email-signature";
+import Description from "@/components/Description";
 
 export default function Home() {
     const [text, setText] = useState("");
     return (
-        <div>
+        <>
             <div className="main-title">
                 <h1>Text Generator</h1>
 
@@ -60,13 +59,8 @@ export default function Home() {
 
                 </div>
 
-                {/* description */}
                 <Description />
-
-            <div className="mt-6">
-                <EmailSignature />
             </div>
-            </div>
-        </div >
+        </ >
     );
 }
