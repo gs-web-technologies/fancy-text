@@ -6,6 +6,8 @@ import * as z from "zod";
 import Input from "@/components/forms/Input";
 import Button from "@/components/forms/Button";
 import { useFormStatus } from "react-dom";
+import First from "@/components/email-signature/First";
+
 
 
 const schema = z.object({
@@ -41,12 +43,12 @@ const schema = z.object({
 });
 
 export default function EmailSignature() {
-    const { register,handleSubmit, reset,formState: { errors }} = useForm({resolver: zodResolver(schema)});
+    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm({ resolver: zodResolver(schema) });
     const [data, SetData] = useState("");
     const [isloding, setLoading] = useState(false);
     const [issubmitted, setSubmitted] = useState(false);
+    const formValues = watch();
 
- 
     const onSubmit = async (formdata) => {
         setLoading(true);
         try {
@@ -126,11 +128,16 @@ export default function EmailSignature() {
                     <Button
                         type="submit"
                         label="Submit"
-                        pending = {isloding} />
+                        pending={isloding} />
 
                 </div>
 
             </form>
+
+            {formValues && 
+              <First name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} />
+            }
+
         </div>
     );
 }
