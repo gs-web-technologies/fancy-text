@@ -83,6 +83,7 @@ export default function EmailSignature() {
                         name="logo"
                         type="file"
                         placeholder="Logo"
+                        accept = '.png, .jpeg, .jpg'
                         register={register}
                         error={errors.logo} />
 
