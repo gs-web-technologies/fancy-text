@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "fancy-text-generator": "^1.2.0",
     "flip-text": "^1.2.0",
     "jquery": "^4.0.0",
@@ -17,8 +18,10 @@
     "number-to-words": "^1.2.4",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "react-hook-form": "^7.72.0",
     "string-to-binary": "^0.1.2",
-    "zalgo-generator": "^1.5.1"
+    "zalgo-generator": "^1.5.1",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
