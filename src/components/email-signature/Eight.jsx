@@ -385,68 +385,79 @@ function Eight({ name, email, job_title, phone_no, organization, logo, linkedin,
                     backgroundColor: "#1e3a8a",
                     padding: "8px 18px",
                     display: "flex",
-                    justifyContent: "flex-end",
+                    justifyContent: "space-between",
                     alignItems: "center",
                     gap: "8px",
                 }}
             >
-                {/* Facebook */}
-                <Link href={facebook || "https://facebook.com"}>
-                    <div
-                        style={{
-                            width: "26px",
-                            height: "26px",
-                            backgroundColor: "#ffffff",
-                            borderRadius: "50%",
-                            textAlign: "center",
-                            lineHeight: "26px",
-                            fontSize: "11px",
-                            fontWeight: "700",
-                            color: "#1e3a8a",
-                            fontFamily: "Arial, sans-serif",
-                        }}
-                    >
-                        f
-                    </div>
-                </Link>
-                {/* Twitter */}
-                <Link href={twitter|| "https://x.com"}>
-                    <div
-                        style={{
-                            width: "26px",
-                            height: "26px",
-                            backgroundColor: "#ffffff",
-                            borderRadius: "50%",
-                            textAlign: "center",
-                            lineHeight: "26px",
-                            fontSize: "11px",
-                            fontWeight: "700",
-                            color: "#1e3a8a",
-                            fontFamily: "Arial, sans-serif",
-                        }}
-                    >
-                        t
-                    </div>
-                </Link>
-                {/* LinkedIn */}
-                <Link href={linkedin|| "https://linkedin.com"}>
-                    <div
-                        style={{
-                            width: "26px",
-                            height: "26px",
-                            backgroundColor: "#ffffff",
-                            borderRadius: "50%",
-                            textAlign: "center",
-                            lineHeight: "26px",
-                            fontSize: "11px",
-                            fontWeight: "700",
-                            color: "#1e3a8a",
-                            fontFamily: "Arial, sans-serif",
-                        }}
-                    >
-                        in
-                    </div>
-                </Link>
+                <div>
+                    <span style={{ color:"white", fontSize:"10px" }}><i>Powered by <strong>thynktales</strong></i></span>
+                </div>
+                <div style={{
+                    padding: "8px 18px",
+                    display: "flex",
+                    justifyContent: "justify-end",
+                    alignItems: "center",
+                    gap: "8px",
+                }}>
+                    {/* Facebook */}
+                    <Link href={facebook || "https://facebook.com"}>
+                        <div
+                            style={{
+                                width: "26px",
+                                height: "26px",
+                                backgroundColor: "#ffffff",
+                                borderRadius: "50%",
+                                textAlign: "center",
+                                lineHeight: "26px",
+                                fontSize: "11px",
+                                fontWeight: "700",
+                                color: "#1e3a8a",
+                                fontFamily: "Arial, sans-serif",
+                            }}
+                        >
+                            f
+                        </div>
+                    </Link>
+                    {/* Twitter */}
+                    <Link href={twitter || "https://x.com"}>
+                        <div
+                            style={{
+                                width: "26px",
+                                height: "26px",
+                                backgroundColor: "#ffffff",
+                                borderRadius: "50%",
+                                textAlign: "center",
+                                lineHeight: "26px",
+                                fontSize: "11px",
+                                fontWeight: "700",
+                                color: "#1e3a8a",
+                                fontFamily: "Arial, sans-serif",
+                            }}
+                        >
+                            t
+                        </div>
+                    </Link>
+                    {/* LinkedIn */}
+                    <Link href={linkedin || "https://linkedin.com"}>
+                        <div
+                            style={{
+                                width: "26px",
+                                height: "26px",
+                                backgroundColor: "#ffffff",
+                                borderRadius: "50%",
+                                textAlign: "center",
+                                lineHeight: "26px",
+                                fontSize: "11px",
+                                fontWeight: "700",
+                                color: "#1e3a8a",
+                                fontFamily: "Arial, sans-serif",
+                            }}
+                        >
+                            in
+                        </div>
+                    </Link>
+                </div>
             </div>
 
             {/* Bottom-left decorative circles */}

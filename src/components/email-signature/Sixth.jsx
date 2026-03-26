@@ -108,10 +108,18 @@ function Sixth({ name, email, job_title, phone_no, organization, logo, linkedin,
                                 padding: "8px 18px",
                                 fontSize: "11px",
                                 color: "#2563eb",
+                                display: "flex",
+                                justifyContent: "space-between"
                             }}
                         >
-                            {linkedin ? linkedin : 'www.techflow.com'} &nbsp;|&nbsp;
-                            <span style={{ color: "#64748b" }}>{job_title ? job_title : 'CA'}</span>
+                            <div>
+
+                                {linkedin ? linkedin : 'www.techflow.com'} &nbsp;|&nbsp;
+                                <span style={{ color: "#64748b" }}>{job_title ? job_title : 'CA'}</span>
+                            </div>
+                            <div>
+                                <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>thynktales</strong></i></span>
+                            </div>
                         </td>
                     </tr>
                 </tbody>

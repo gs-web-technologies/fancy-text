@@ -54,7 +54,7 @@ function Secound({ name, email, job_title, phone_no, organization, logo, linkedi
   ];
 
   return (
-    <div style={{width:"600px", backgroundColor: "#e5e7eb", display: "flex", justifyContent: "center" }}>
+    <div style={{ width: "600px", backgroundColor: "#e5e7eb", display: "flex", justifyContent: "center" }}>
       <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "680px", borderRadius: "6px", overflow: "hidden", boxShadow: "0 3px 18px rgba(0,0,0,0.18)" }}>
         <tbody>
           <tr>
@@ -82,6 +82,9 @@ function Secound({ name, email, job_title, phone_no, organization, logo, linkedi
                   alt="Profile"
                   style={{ width: "210px", height: "155px", objectFit: "cover", objectPosition: "top", display: "block", marginTop: "-10px" }}
                 />
+              </div>
+              <div style={{ display:"flex" , marginTop:"5px" , justifyContent: "center" }}>
+                <span style={{ color: "white", fontSize: "10px" }}><i>Powered by <strong>thynktales</strong></i></span>
               </div>
             </td>
 

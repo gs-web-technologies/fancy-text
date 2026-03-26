@@ -192,6 +192,9 @@ function Ninth({ name, email, job_title, phone_no, organization, logo, linkedin,
                           ))}
                         </tbody>
                       </table>
+                       <div>
+                                    <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>thynktales</strong></i></span>
+                                </div>
                     </td>
                   </tr>
                 </tbody>

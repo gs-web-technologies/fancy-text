@@ -84,7 +84,7 @@ function Tenth({ name, email, job_title, phone_no, organization, logo, linkedin,
                                         fontFamily: "'Arial', sans-serif",
                                     }}
                                 >
-                                   {job_title ? job_title : ''}
+                                    {job_title ? job_title : ''}
                                 </p>
 
                                 {/* Contact Table */}
@@ -93,7 +93,7 @@ function Tenth({ name, email, job_title, phone_no, organization, logo, linkedin,
                                         {[
                                             { label: "mobile:", value: phone_no || "+1 729 855 4555", href: "tel:+17298554555" },
                                             { label: "email:", value: email || "pope@mysignature.io", href: `mailto:${email}` },
-                                            { label: "LinkedIn:", value: linkedin || "mysignature.io", href: {linkedin} },
+                                            { label: "LinkedIn:", value: linkedin || "mysignature.io", href: { linkedin } },
                                             { label: "address:", value: organization || "10 California st, fl 6", href: null },
                                         ].map((row) => (
                                             <tr key={row.label}>
@@ -140,7 +140,7 @@ function Tenth({ name, email, job_title, phone_no, organization, logo, linkedin,
 
                         {/* Social Icons Row */}
                         <tr>
-                            <td colSpan="3" style={{ padding: "0 24px 10px 24px" }}>
+                            <td colSpan="3" style={{ padding: "0 24px 10px 24px", display: "flex", justifyContent: "space-end" }}>
                                 <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse" }}>
                                     <tbody>
                                         <tr>
@@ -206,7 +206,9 @@ function Tenth({ name, email, job_title, phone_no, organization, logo, linkedin,
                                                 </a>
                                             </td>
                                         </tr>
+
                                     </tbody>
+
                                 </table>
                             </td>
                         </tr>
@@ -276,8 +278,13 @@ function Tenth({ name, email, job_title, phone_no, organization, logo, linkedin,
                                         >
                                             Join our Facebook group
                                         </span>
+
+                                        <div>
+                                            <span style={{ color: "white", fontSize: "10px", marginRight:"5rem" }}><i>Powered by <strong>thynktales</strong></i></span>
+                                        </div>
                                     </div>
                                 </a>
+
                             </td>
                         </tr>
                     </tbody>

@@ -80,7 +80,7 @@ function First({ name, email, job_title, phone_no, organization, logo, linkedin,
     ];
 
     return (
-        <div style={{  width:"600px", backgroundColor: "#f3f4f6", display: "flex", justifyContent: "center" }}>
+        <div style={{ width: "600px", backgroundColor: "#f3f4f6", display: "flex", justifyContent: "center" }}>
             <table
                 cellPadding="0"
                 cellSpacing="0"
@@ -114,7 +114,7 @@ function First({ name, email, job_title, phone_no, organization, logo, linkedin,
 
                                 {/* Title */}
                                 <p style={{ position: "relative", zIndex: 1, margin: "0 0 14px", fontSize: "11px", color: "#888", fontFamily: "Arial, sans-serif", fontStyle: "italic" }}>
-                                      {job_title ? job_title : 'JOB TITLE'}
+                                    {job_title ? job_title : 'JOB TITLE'}
                                 </p>
 
                                 {/* Contacts */}
@@ -152,19 +152,23 @@ function First({ name, email, job_title, phone_no, organization, logo, linkedin,
                                     <polygon points="110,0 160,0 160,80" fill="#e91e8c" opacity="0.35" />
                                 </svg>
                             </div>
-                             {/* CENTER: Logo + social */}
-                        <td style={{ width: "140px", verticalAlign: "middle", textAlign: "center", padding: "20px 10px", background: "#fff", borderLeft: "1px solid #f0f0f0", borderRight: "1px solid #f0f0f0" }}>
-                            {/* Social icons */}
-                            <div style={{ display: "flex", justifyContent: "center", gap: "7px" }}>
-                                {socialLinks.map((s) => (
-                                    <a key={s.href} href={s.href} style={{ textDecoration: "none" }}>
-                                        <div style={{ width: "26px", height: "26px", backgroundColor: s.bg, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            {s.icon}
-                                        </div>
-                                    </a>
-                                ))}
-                            </div>
-                        </td>
+                            {/* CENTER: Logo + social */}
+                            <td style={{ width: "140px", verticalAlign: "middle", textAlign: "center", padding: "20px 10px", background: "#fff", borderLeft: "1px solid #f0f0f0", borderRight: "1px solid #f0f0f0" }}>
+                                {/* Social icons */}
+
+                                <div style={{ display: "flex", justifyContent: "center", gap: "7px" }}>
+                                    {socialLinks.map((s) => (
+                                        <a key={s.href} href={s.href} style={{ textDecoration: "none" }}>
+                                            <div style={{ width: "26px", height: "26px", backgroundColor: s.bg, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                {s.icon}
+                                            </div>
+                                        </a>
+                                    ))}
+                                </div>
+                                <div>
+                                    <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>thynktales</strong></i></span>
+                                </div>
+                            </td>
                         </td>
                     </tr>
 

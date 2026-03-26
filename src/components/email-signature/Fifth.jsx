@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Fifth({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
-     const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
+    const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
     const contacts = [
         {
             icon: (
@@ -59,7 +59,7 @@ function Fifth({ name, email, job_title, phone_no, organization, logo, linkedin,
     ];
 
     return (
-        <div style={{ padding: "",width:"600px", backgroundColor: "", display: "flex", justifyContent: "center" }}>
+        <div style={{ padding: "", width: "600px", backgroundColor: "", display: "flex", justifyContent: "center" }}>
             <table
                 cellPadding="0"
                 cellSpacing="0"
@@ -93,6 +93,7 @@ function Fifth({ name, email, job_title, phone_no, organization, logo, linkedin,
                                     alt="Jonathan Hansen"
                                     style={{ width: "80px", height: "80px", objectFit: "cover", display: "block" }}
                                 />
+                                
                             </div>
                         </td>
 
@@ -131,8 +132,8 @@ function Fifth({ name, email, job_title, phone_no, organization, logo, linkedin,
                                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.36 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6.04 6.04l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
                                             </svg>
                                         </td>
-                                       <td style={{ fontSize: "12px", color: "#374151", fontFamily: "Arial, sans-serif", paddingBottom: "3px" }}>
-                                            <a href="tel:+1234567891" style={{ color: "#374151", textDecoration: "none" }}> { phone_no ? phone_no : '+000 1234 56789' }</a>
+                                        <td style={{ fontSize: "12px", color: "#374151", fontFamily: "Arial, sans-serif", paddingBottom: "3px" }}>
+                                            <a href="tel:+1234567891" style={{ color: "#374151", textDecoration: "none" }}> {phone_no ? phone_no : '+000 1234 56789'}</a>
                                         </td>
                                     </tr>
 
@@ -156,7 +157,7 @@ function Fifth({ name, email, job_title, phone_no, organization, logo, linkedin,
                                             </svg>
                                         </td>
                                         <td colSpan="3" style={{ fontSize: "12px", color: "#374151", fontFamily: "Arial, sans-serif", paddingBottom: "3px" }}>
-                                            <a href="https://www.yourwebsite.com" style={{ color: "#374151", textDecoration: "none" }}>{ linkedin ? linkedin : 'www.google.com'}</a>
+                                            <a href="https://www.yourwebsite.com" style={{ color: "#374151", textDecoration: "none" }}>{linkedin ? linkedin : 'www.google.com'}</a>
                                         </td>
                                     </tr>
 
@@ -168,7 +169,7 @@ function Fifth({ name, email, job_title, phone_no, organization, logo, linkedin,
                                             </svg>
                                         </td>
                                         <td colSpan="3" style={{ fontSize: "12px", color: "#374151", fontFamily: "Arial, sans-serif" }}>
-                                             {organization ? organization : 'Organization'}
+                                            {organization ? organization : 'Organization'}
                                         </td>
                                     </tr>
                                 </tbody>
@@ -181,7 +182,7 @@ function Fifth({ name, email, job_title, phone_no, organization, logo, linkedin,
                         {/* Brand + social icons */}
                         <td style={{ padding: "20px 24px", verticalAlign: "middle", textAlign: "center", width: "110px" }}>
                             {/* Brand box */}
-                          
+
 
                             {/* Social icons */}
                             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
@@ -202,6 +203,9 @@ function Fifth({ name, email, job_title, phone_no, organization, logo, linkedin,
                                         </div>
                                     </a>
                                 ))}
+                            </div>
+                            <div>
+                                <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>thynktales</strong></i></span>
                             </div>
                         </td>
 
