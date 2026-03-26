@@ -78,6 +78,7 @@ export default function EmailSignature() {
     const [isloding, setLoading] = useState(false);
     const [issubmitted, setSubmitted] = useState(false);
     const formValues = watch();
+    const [selectedFile, SetSelectedFile] = useState();
 
     const onSubmit = async (formdata) => {
         setLoading(true);
@@ -99,8 +100,8 @@ export default function EmailSignature() {
     }
 
     return (
-        <div className="min-h-screen grid grid-cols-3 pl-8 bg-gray-50">
-            <div className="p-4 max-w-sm bg-white p-6 rounded rounded-base shadow-xs">
+        <div className="grid grid-cols-3 gap-1">
+            <div className="p-4 ml-4 max-w-sm bg-white p-6 rounded rounded-base shadow-lg self-start">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                     className="max-w-md mx-auto"
@@ -148,16 +149,6 @@ export default function EmailSignature() {
                             error={errors.organization_name} />
 
 
-                        <FileInput
-                            name="logo"
-                            type="file"
-                            placeholder="Logo"
-                            accept='.png, .jpeg, .jpg'
-                            description='png, jpg, up to 2MB'
-                            register={register}
-                            setValue={setValue}
-                            error={errors.logo} />
-
                         <div className="grid grid-cols-2 gap-2">
                             <Input
                                 name="linkedin"
@@ -191,6 +182,16 @@ export default function EmailSignature() {
                                 error={errors.twitter} />
                         </div>
 
+                        <FileInput
+                            name="logo"
+                            type="file"
+                            placeholder="Logo"
+                            accept='.png, .jpeg, .jpg'
+                            description='png, jpg, up to 2MB'
+                            register={register}
+                            setValue={setValue}
+                            SetSelectedFile = {SetSelectedFile}
+                            error={errors.logo} />
 
 
                         <Button
@@ -205,16 +206,16 @@ export default function EmailSignature() {
 
             {formValues &&
                 (
-                    <div className="col-span-2 mt-4 p-4">
+                    <div className="col-span-2 p-4 mr-4 bg-white p-6 rounded rounded-base shadow-lg self-start ">
                         <div className="grid grid-cols-1 justify-content-center align-items-center gap-4">
-                            <Eight name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
-                            <Fifth name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
-                            <Fourth name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
-                            {/* <First name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} /> */}
-                            <Secound name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
-                            <Sixth name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
-                            <Third name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
-                            <Seventh name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
+                            <Eight name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} />
+                            <Fifth name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} />
+                            <Fourth name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} />
+                            {/* <First name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} /> */}
+                            <Secound name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} />
+                            <Sixth name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} />
+                            <Third name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} />
+                            <Seventh name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} />
                         </div>
                     </div>
                 )

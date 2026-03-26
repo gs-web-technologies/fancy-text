@@ -1,7 +1,7 @@
 import React from 'react';
 import { MAX_SIZE, ALLOWED_TYPES } from "@/utils/const";
 
-function FileInput({ name, type, placeholder, accept, description, register, setValue, error }) {
+function FileInput({ name, type, placeholder, accept, description, register, setValue, SetSelectedFile, error }) {
     return (
         <div className="relative z-0 w-full mb-3 group">
 
@@ -18,6 +18,7 @@ function FileInput({ name, type, placeholder, accept, description, register, set
                 if(file && ALLOWED_TYPES.includes(file.type) && file.size <= MAX_SIZE){
                     const previewURL = URL.createObjectURL(file);
                     setValue("logo",previewURL);
+                    SetSelectedFile(previewURL);
                 }
             }}
             />
