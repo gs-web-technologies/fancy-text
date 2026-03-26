@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
    try {
       const body = await req.json();
-      const { full_name, email, job_title, phone_no, organization_name } = body;
+      const { full_name, email, job_title, phone_no, organization_name, linkedin, instagram, facebook, twitter } = body;
 
       const auth = new google.auth.GoogleAuth({
          credentials: {
@@ -17,7 +17,7 @@ export async function POST(req) {
 
       await sheets.spreadsheets.values.append({
          spreadsheetId: process.env.GOOGLE_SHEET_ID,
-         range: "Sheet1!A:F",
+         range: "Sheet1!A:J",
          valueInputOption: "USER_ENTERED",
          requestBody: {
             values: [[
@@ -27,6 +27,10 @@ export async function POST(req) {
                job_title,
                phone_no,
                organization_name,
+               linkedin,
+               instagram,
+               facebook,
+               twitter,
             ]],
          },
       });

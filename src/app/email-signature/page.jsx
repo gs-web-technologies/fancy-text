@@ -8,7 +8,14 @@ import Button from "@/components/forms/Button";
 import { useFormStatus } from "react-dom";
 import First from "@/components/email-signature/First";
 import FileInput from "@/components/forms/FileInput";
-
+import { ALLOWED_TYPES, MAX_SIZE } from "@/utils/const";
+import Secound from "@/components/email-signature/Secound";
+import Third from "@/components/email-signature/Third";
+import Fourth from "@/components/email-signature/Fourth";
+import Fifth from "@/components/email-signature/Fifth";
+import Sixth from "@/components/email-signature/Sixth";
+import Seventh from "@/components/email-signature/Seventh";
+import Eight from "@/components/email-signature/Eight";
 
 const schema = z.object({
     full_name: z
@@ -39,7 +46,28 @@ const schema = z.object({
         .string()
         .min(5, { message: "Organization Name must be at least 5 characters long." })
         .max(500, { message: "Organization Name must not exceed 500 characters." }),
-        
+
+    logo: z
+        .refine((files) => {
+            if (!files || files.length === 0) return true;
+            const file = files[0];
+            return ALLOWED_TYPES.includes(file.type);
+        }, {
+            message: "Only PNG or JPEG allowed",
+        })
+        .refine((files) => {
+            if (!files || files.length === 0) return true;
+            const file = files[0];
+            return file.size <= MAX_SIZE;
+        }, {
+            message: "Max size is 2MB",
+        }),
+
+
+    linkedin: z.url('LinkedIn must be a valid URL'),
+    instagram: z.url('Instagram must be a valid URL'),
+    facebook: z.url('Facebook must be a valid URL'),
+    twitter: z.url('X must be a valid URL'),
 
 
 });
@@ -62,7 +90,7 @@ export default function EmailSignature() {
 
             const result = await res.json();
             if (res.success) setSubmitted(true);
-            reset();
+            // reset();
         } catch (err) {
             console.log(err);
         } finally {
@@ -71,75 +99,125 @@ export default function EmailSignature() {
     }
 
     return (
-        <div className="min-h-screen flex pl-8 bg-gray-50">
-            <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="max-w-md mx-auto"
-            >
-                <h2 className="text-2xl font-semibold text-gray-800 text-start">
-                    Email Signature Form
-                </h2>
+        <div className="min-h-screen grid grid-cols-3 pl-8 bg-gray-50">
+            <div className="p-4 max-w-sm bg-white p-6 rounded rounded-base shadow-xs">
+                <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="max-w-md mx-auto"
+                >
+                    <h2 className="text-2xl font-semibold text-gray-800 text-start">
+                        Email Signature Form
+                    </h2>
 
-                <div className="text-start">
+                    <div className="text-start">
 
-                    <Input
-                        name="full_name"
-                        type="text"
-                        placeholder="Full Name"
-                        register={register}
-                        error={errors.full_name} />
-
-
-                    <Input
-                        name="email"
-                        type="text"
-                        placeholder="Email"
-                        register={register}
-                        error={errors.email} />
-
-                    <Input
-                        name="job_title"
-                        type="text"
-                        placeholder="Job Title"
-                        register={register}
-                        error={errors.job_title} />
-
-                    <Input
-                        name="phone_no"
-                        type="tel"
-                        placeholder="Phone Number"
-                        register={register}
-                        error={errors.phone_no} />
-
-                    <Input
-                        name="organization_name"
-                        type="text"
-                        placeholder="Organization Name"
-                        register={register}
-                        error={errors.organization_name} />
+                        <Input
+                            name="full_name"
+                            type="text"
+                            placeholder="Full Name"
+                            register={register}
+                            error={errors.full_name} />
 
 
-                    <FileInput
-                        name="logo"
-                        type="file"
-                        placeholder="Logo"
-                        accept='.png, .jpeg, .jpg'
-                        description='png, jpg, up to 2MB'
-                        register={register}
-                        setValue = {setValue}
-                        error={errors.logo} />
+                        <Input
+                            name="email"
+                            type="text"
+                            placeholder="Email"
+                            register={register}
+                            error={errors.email} />
 
-                    <Button
-                        type="submit"
-                        label="Submit"
-                        pending={isloding} />
+                        <Input
+                            name="job_title"
+                            type="text"
+                            placeholder="Job Title"
+                            register={register}
+                            error={errors.job_title} />
 
-                </div>
+                        <Input
+                            name="phone_no"
+                            type="tel"
+                            placeholder="Phone Number"
+                            register={register}
+                            error={errors.phone_no} />
 
-            </form>
+                        <Input
+                            name="organization_name"
+                            type="text"
+                            placeholder="Organization Name"
+                            register={register}
+                            error={errors.organization_name} />
 
-            {formValues && 
-              <First name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
+
+                        <FileInput
+                            name="logo"
+                            type="file"
+                            placeholder="Logo"
+                            accept='.png, .jpeg, .jpg'
+                            description='png, jpg, up to 2MB'
+                            register={register}
+                            setValue={setValue}
+                            error={errors.logo} />
+
+                        <div className="grid grid-cols-2 gap-2">
+                            <Input
+                                name="linkedin"
+                                type="text"
+                                placeholder="LinkedIn"
+                                register={register}
+                                error={errors.linkedin} />
+
+                            <Input
+                                name="instagram"
+                                type="text"
+                                placeholder="Instagram"
+                                register={register}
+                                error={errors.instagram} />
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-2">
+
+                            <Input
+                                name="facebook"
+                                type="text"
+                                placeholder="FaceBook"
+                                register={register}
+                                error={errors.facebook} />
+
+                            <Input
+                                name="twitter"
+                                type="text"
+                                placeholder="x"
+                                register={register}
+                                error={errors.twitter} />
+                        </div>
+
+
+
+                        <Button
+                            type="submit"
+                            label="Submit"
+                            pending={isloding} />
+
+                    </div>
+
+                </form>
+            </div>
+
+            {formValues &&
+                (
+                    <div className="col-span-2 mt-4 p-4">
+                        <div className="grid grid-cols-1 justify-content-center align-items-center gap-4">
+                            <Eight name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
+                            <Fifth name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
+                            <Fourth name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
+                            {/* <First name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} /> */}
+                            <Secound name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
+                            <Sixth name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
+                            <Third name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
+                            <Seventh name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
+                        </div>
+                    </div>
+                )
             }
 
         </div>
