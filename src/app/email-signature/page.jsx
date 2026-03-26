@@ -7,7 +7,7 @@ import Input from "@/components/forms/Input";
 import Button from "@/components/forms/Button";
 import { useFormStatus } from "react-dom";
 import First from "@/components/email-signature/First";
-
+import FileInput from "@/components/forms/FileInput";
 
 
 const schema = z.object({
@@ -39,11 +39,13 @@ const schema = z.object({
         .string()
         .min(5, { message: "Organization Name must be at least 5 characters long." })
         .max(500, { message: "Organization Name must not exceed 500 characters." }),
+        
+
 
 });
 
 export default function EmailSignature() {
-    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm({ resolver: zodResolver(schema) });
+    const { register, setValue, handleSubmit, reset, watch, formState: { errors } } = useForm({ resolver: zodResolver(schema) });
     const [data, SetData] = useState("");
     const [isloding, setLoading] = useState(false);
     const [issubmitted, setSubmitted] = useState(false);
@@ -116,13 +118,15 @@ export default function EmailSignature() {
                         register={register}
                         error={errors.organization_name} />
 
-                    <Input
+
+                    <FileInput
                         name="logo"
                         type="file"
                         placeholder="Logo"
                         accept='.png, .jpeg, .jpg'
                         description='png, jpg, up to 2MB'
                         register={register}
+                        setValue = {setValue}
                         error={errors.logo} />
 
                     <Button
@@ -135,7 +139,7 @@ export default function EmailSignature() {
             </form>
 
             {formValues && 
-              <First name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} />
+              <First name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={formValues.logo} />
             }
 
         </div>
