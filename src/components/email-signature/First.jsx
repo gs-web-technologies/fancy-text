@@ -1,16 +1,15 @@
 import React from 'react';
 
 function First({ name, email, job_title, phone_no, organization, logo }) {
-     const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.jpg";
+     const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";
     return (
         <div>
-            <table cellPadding="0" cellSpacing="0" border="0" style={{ fontFamily: "Arial, sans-serif", margin: "5rem" }}>
+            <table cellPadding="0" cellSpacing="0" border="0" style={{ fontFamily: "Arial, sans-serif" }}>
                 <tbody>
                     <tr>
                         <td style={{ paddingRight: "10px" }}>
                             <img src={imageSrc} width="70" height="70" style={{ borderRadius: "50%" }} />
                         </td>
-
                         <td>
                             <p style={{ margin: "0", fontSize: "16px", fontWeight: "bold", color: "#333" }}>
                                 {name ? name : 'YourName'}
