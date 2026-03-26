@@ -210,11 +210,11 @@ export default function EmailSignature() {
             </div>
 
             {formValues && (
-                <div className=" rounded-base shadow-lg justify-center items-center">
-                    <div className="">
-                        <div className="flex flex-wrap gap-2">
+                <div className="col-span-2 p- p-6 rounded rounded-base shadow-lg justify-center items-center">
+                    <div className="rounded rounded-base overflow-x-hidden" ref={emblaRef}>
+                        <div className="flex">
 
-                            {[Eight, Fifth,First, Tenth, Ninth, Sixth,Secound].map(
+                            {[Eight, Fifth, First, Tenth, Ninth, Sixth, Secound].map(
                                 (CardComponent, index) => (
                                     <div className="min-w-full" key={index}>
                                         <CardComponent
@@ -235,6 +235,19 @@ export default function EmailSignature() {
 
                         </div>
 
+                    </div>
+
+                    <div className="mt-3">
+                        <Third name={formValues.full_name}
+                            email={formValues.email}
+                            job_title={formValues.job_title}
+                            phone_no={formValues.phone_no}
+                            organization={formValues.organization_name}
+                            logo={selectedFile}
+                            linkedin={formValues.linkedin}
+                            instagram={formValues.instagram}
+                            twitter={formValues.twitter}
+                            facebook={formValues.facebook} />
                     </div>
                 </div>
             )}
