@@ -16,6 +16,10 @@ import Fifth from "@/components/email-signature/Fifth";
 import Sixth from "@/components/email-signature/Sixth";
 import Seventh from "@/components/email-signature/Seventh";
 import Eight from "@/components/email-signature/Eight";
+import Ninth from "@/components/email-signature/Ninth";
+import Tenth from "@/components/email-signature/Tenth";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 const schema = z.object({
     full_name: z
@@ -79,6 +83,7 @@ export default function EmailSignature() {
     const [issubmitted, setSubmitted] = useState(false);
     const formValues = watch();
     const [selectedFile, SetSelectedFile] = useState();
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 2500 })]);
 
     const onSubmit = async (formdata) => {
         setLoading(true);
@@ -190,7 +195,7 @@ export default function EmailSignature() {
                             description='png, jpg, up to 2MB'
                             register={register}
                             setValue={setValue}
-                            SetSelectedFile = {SetSelectedFile}
+                            SetSelectedFile={SetSelectedFile}
                             error={errors.logo} />
 
 
@@ -204,22 +209,36 @@ export default function EmailSignature() {
                 </form>
             </div>
 
-            {formValues &&
-                (
-                    <div className="col-span-2 p-4 mr-4 bg-white p-6 rounded rounded-base shadow-lg self-start ">
-                        <div className="grid grid-cols-1 justify-content-center align-items-center gap-4">
-                            <Eight name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} />
-                            <Fifth name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} />
-                            <Fourth name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} />
-                            {/* <First name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} /> */}
-                            <Secound name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} />
-                            <Sixth name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} />
-                            <Third name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} />
-                            <Seventh name={formValues.full_name} email={formValues.email} job_title={formValues.job_title} phone_no={formValues.phone_no} organization={formValues.organization_name} logo={selectedFile} />
+            {formValues && (
+                <div className=" rounded-base shadow-lg justify-center items-center">
+                    <div className="">
+                        <div className="flex flex-wrap gap-2">
+
+                            {[Eight, Fifth,First, Tenth, Ninth, Sixth,Secound].map(
+                                (CardComponent, index) => (
+                                    <div className="min-w-full" key={index}>
+                                        <CardComponent
+                                            name={formValues.full_name}
+                                            email={formValues.email}
+                                            job_title={formValues.job_title}
+                                            phone_no={formValues.phone_no}
+                                            organization={formValues.organization_name}
+                                            logo={selectedFile}
+                                            linkedin={formValues.linkedin}
+                                            instagram={formValues.instagram}
+                                            twitter={formValues.twitter}
+                                            facebook={formValues.facebook}
+                                        />
+                                    </div>
+                                )
+                            )}
+
                         </div>
+
                     </div>
-                )
-            }
+                </div>
+            )}
+
 
         </div>
     );

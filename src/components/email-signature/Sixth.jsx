@@ -1,10 +1,12 @@
 import React from 'react'
 
-function Sixth({ name, email, job_title, phone_no, organization, logo }) {
+function Sixth({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+    const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
     return (
         <div
             id="s1"
             style={{
+                width: "600px",
                 background: "#ffffff",
                 border: "1px solid #e2e8f0",
                 borderTop: "3px solid #2563eb",
@@ -24,26 +26,28 @@ function Sixth({ name, email, job_title, phone_no, organization, logo }) {
                                         <td style={{ paddingRight: "14px" }}>
                                             <div
                                                 style={{
-                                                    width: "52px",
-                                                    height: "52px",
+                                                    width: "96px",
+                                                    height: "96px",
                                                     borderRadius: "50%",
-                                                    background: "#2563eb",
-                                                    display: "flex",
-                                                    alignItems: "center",
-                                                    justifyContent: "center",
-                                                    fontSize: "20px",
-                                                    fontWeight: "700",
-                                                    color: "#fff",
+                                                    overflow: "hidden",
+                                                    border: "3px solid #ffffff",
                                                 }}
                                             >
-                                                JR
+                                                {/* Replace src with your actual photo */}
+                                                <img
+                                                    src={imageSrc}
+                                                    alt="Micheal Smith"
+                                                    width="96"
+                                                    height="96"
+                                                    style={{ display: "block", objectFit: "cover", objectPosition: "center", width: "100%", height: "100%" }}
+                                                />
                                             </div>
                                         </td>
 
                                         {/* Name + Role */}
                                         <td>
                                             <div style={{ fontSize: "17px", fontWeight: "700", color: "#1e293b" }}>
-                                                 {name ? name : 'YourName'}
+                                                {name ? name : 'YourName'}
                                             </div>
                                             <div
                                                 style={{
@@ -54,14 +58,14 @@ function Sixth({ name, email, job_title, phone_no, organization, logo }) {
                                                     marginTop: "2px",
                                                 }}
                                             >
-                                               {job_title ? job_title : 'Job Title'}
+                                                {job_title ? job_title : 'Job Title'}
                                             </div>
                                         </td>
 
                                         {/* Company */}
                                         <td style={{ textAlign: "right" }}>
                                             <div style={{ fontSize: "15px", fontWeight: "700", color: "#2563eb" }}>
-                                              {organization ? organization : 'Ogranization'}
+                                                {organization ? organization : 'Ogranization'}
                                             </div>
                                         </td>
                                     </tr>
@@ -89,7 +93,7 @@ function Sixth({ name, email, job_title, phone_no, organization, logo }) {
                                             <span style={{ color: "#2563eb" }}>✉</span>&nbsp; {email ? email : 'youremail@gmail.com'}
                                         </td>
 
-                                       
+
                                     </tr>
                                 </tbody>
                             </table>
@@ -106,8 +110,8 @@ function Sixth({ name, email, job_title, phone_no, organization, logo }) {
                                 color: "#2563eb",
                             }}
                         >
-                            www.techflow.io &nbsp;|&nbsp;
-                            <span style={{ color: "#64748b" }}>San Francisco, CA</span>
+                            {linkedin ? linkedin : 'www.techflow.com'} &nbsp;|&nbsp;
+                            <span style={{ color: "#64748b" }}>{job_title ? job_title : 'CA'}</span>
                         </td>
                     </tr>
                 </tbody>

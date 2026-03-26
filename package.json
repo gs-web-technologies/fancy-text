@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
     "fancy-text-generator": "^1.2.0",
     "flip-text": "^1.2.0",
     "googleapis": "^171.4.0",

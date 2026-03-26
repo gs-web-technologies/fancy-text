@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
 
-function Eight({ name, email, job_title, phone_no, organization, logo }) {
-     const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";
+function Eight({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+    const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";
     return (
         <div
             style={{
@@ -14,7 +15,7 @@ function Eight({ name, email, job_title, phone_no, organization, logo }) {
                 backgroundColor: "#ffffff",
             }}
         >
-          
+
             <div
                 style={{
                     position: "absolute",
@@ -103,7 +104,7 @@ function Eight({ name, email, job_title, phone_no, organization, logo }) {
                                             alt="Micheal Smith"
                                             width="96"
                                             height="96"
-                                            style={{ display: "block", objectFit: "cover",   objectPosition: "center", width: "100%", height: "100%" }}
+                                            style={{ display: "block", objectFit: "cover", objectPosition: "center", width: "100%", height: "100%" }}
                                         />
                                     </div>
                                 </div>
@@ -137,7 +138,7 @@ function Eight({ name, email, job_title, phone_no, organization, logo }) {
                                                     fontFamily: "Arial, sans-serif",
                                                 }}
                                             >
-                                               {name ? name : 'Your Name'}
+                                                {name ? name : 'Your Name'}
                                             </div>
                                             <div
                                                 style={{
@@ -147,7 +148,7 @@ function Eight({ name, email, job_title, phone_no, organization, logo }) {
                                                     fontFamily: "Arial, sans-serif",
                                                 }}
                                             >
-                                               {job_title ? job_title : 'JOB TITLE'}
+                                                {job_title ? job_title : 'JOB TITLE'}
                                             </div>
                                         </td>
                                         <td style={{ verticalAlign: "middle", textAlign: "right", paddingLeft: "12px" }}>
@@ -185,7 +186,7 @@ function Eight({ name, email, job_title, phone_no, organization, logo }) {
                                                                 fontFamily: "Arial, sans-serif",
                                                             }}
                                                         >
-                                                             {organization ? organization : 'Organization'}
+                                                            {organization ? organization : 'Organization'}
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -246,26 +247,10 @@ function Eight({ name, email, job_title, phone_no, organization, logo }) {
                                                                 fontFamily: "Arial, sans-serif",
                                                             }}
                                                         >
-                                                            { phone_no ? phone_no : '+000 1234 56789' }
+                                                            {phone_no ? phone_no : '+000 1234 56789'}
                                                         </td>
-                                                        <td
-                                                            style={{
-                                                                fontSize: "12px",
-                                                                color: "#94a3b8",
-                                                                paddingRight: "10px",
-                                                            }}
-                                                        >
-                                                            |
-                                                        </td>
-                                                        <td
-                                                            style={{
-                                                                fontSize: "12px",
-                                                                color: "#374151",
-                                                                fontFamily: "Arial, sans-serif",
-                                                            }}
-                                                        >
-                                                            {email ? email : 'youremail@gmail.com'}
-                                                        </td>
+
+
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -309,7 +294,7 @@ function Eight({ name, email, job_title, phone_no, organization, logo }) {
                                                                 fontFamily: "Arial, sans-serif",
                                                             }}
                                                         >
-                                                            youremail@gmail.com
+                                                            {email ? email : 'youremail@gmail.com'}
                                                         </td>
                                                         {/* Globe icon */}
                                                         <td style={{ paddingRight: "6px", verticalAlign: "middle" }}>
@@ -336,7 +321,7 @@ function Eight({ name, email, job_title, phone_no, organization, logo }) {
                                                                 fontFamily: "Arial, sans-serif",
                                                             }}
                                                         >
-                                                            www.webname.com
+                                                            {linkedin ? linkedin : 'www.yourlinkedIn.com'}
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -406,56 +391,62 @@ function Eight({ name, email, job_title, phone_no, organization, logo }) {
                 }}
             >
                 {/* Facebook */}
-                <div
-                    style={{
-                        width: "26px",
-                        height: "26px",
-                        backgroundColor: "#ffffff",
-                        borderRadius: "50%",
-                        textAlign: "center",
-                        lineHeight: "26px",
-                        fontSize: "11px",
-                        fontWeight: "700",
-                        color: "#1e3a8a",
-                        fontFamily: "Arial, sans-serif",
-                    }}
-                >
-                    f
-                </div>
+                <Link href={facebook || "https://facebook.com"}>
+                    <div
+                        style={{
+                            width: "26px",
+                            height: "26px",
+                            backgroundColor: "#ffffff",
+                            borderRadius: "50%",
+                            textAlign: "center",
+                            lineHeight: "26px",
+                            fontSize: "11px",
+                            fontWeight: "700",
+                            color: "#1e3a8a",
+                            fontFamily: "Arial, sans-serif",
+                        }}
+                    >
+                        f
+                    </div>
+                </Link>
                 {/* Twitter */}
-                <div
-                    style={{
-                        width: "26px",
-                        height: "26px",
-                        backgroundColor: "#ffffff",
-                        borderRadius: "50%",
-                        textAlign: "center",
-                        lineHeight: "26px",
-                        fontSize: "11px",
-                        fontWeight: "700",
-                        color: "#1e3a8a",
-                        fontFamily: "Arial, sans-serif",
-                    }}
-                >
-                    t
-                </div>
+                <Link href={twitter|| "https://x.com"}>
+                    <div
+                        style={{
+                            width: "26px",
+                            height: "26px",
+                            backgroundColor: "#ffffff",
+                            borderRadius: "50%",
+                            textAlign: "center",
+                            lineHeight: "26px",
+                            fontSize: "11px",
+                            fontWeight: "700",
+                            color: "#1e3a8a",
+                            fontFamily: "Arial, sans-serif",
+                        }}
+                    >
+                        t
+                    </div>
+                </Link>
                 {/* LinkedIn */}
-                <div
-                    style={{
-                        width: "26px",
-                        height: "26px",
-                        backgroundColor: "#ffffff",
-                        borderRadius: "50%",
-                        textAlign: "center",
-                        lineHeight: "26px",
-                        fontSize: "11px",
-                        fontWeight: "700",
-                        color: "#1e3a8a",
-                        fontFamily: "Arial, sans-serif",
-                    }}
-                >
-                    in
-                </div>
+                <Link href={linkedin|| "https://linkedin.com"}>
+                    <div
+                        style={{
+                            width: "26px",
+                            height: "26px",
+                            backgroundColor: "#ffffff",
+                            borderRadius: "50%",
+                            textAlign: "center",
+                            lineHeight: "26px",
+                            fontSize: "11px",
+                            fontWeight: "700",
+                            color: "#1e3a8a",
+                            fontFamily: "Arial, sans-serif",
+                        }}
+                    >
+                        in
+                    </div>
+                </Link>
             </div>
 
             {/* Bottom-left decorative circles */}
