@@ -1,7 +1,9 @@
+import Link from 'next/link';
 import React from 'react'
 
-function SignatureTemlateN() {
-    return (
+function SignatureTemlateN({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+  const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
+  return (
     <table
       cellPadding="0"
       cellSpacing="0"
@@ -70,7 +72,7 @@ function SignatureTemlateN() {
                       }}
                     >
                       <img
-                        src="https://via.placeholder.com/110"
+                        src={imageSrc}
                         alt="Bella Warren"
                         style={{
                           width: "110px",
@@ -115,12 +117,12 @@ function SignatureTemlateN() {
                           <td
                             style={{
                               fontSize: "12px",
-                              color: "#555555",
+                               color: "#38c9c0",
                               fontStyle: "italic",
                               fontFamily: "Georgia, serif",
                             }}
                           >
-                            BellaVie
+                           { job_title ? job_title : 'Job Title' }
                           </td>
                         </tr>
                       </tbody>
@@ -142,31 +144,16 @@ function SignatureTemlateN() {
                         lineHeight: "1.1",
                       }}
                     >
-                      Bella Warren
+                      {name ? name : 'Your Name'}
                     </p>
                   </td>
                 </tr>
 
-                {/* Title */}
-                <tr>
-                  <td style={{ paddingBottom: "14px" }}>
-                    <p
-                      style={{
-                        margin: "0",
-                        fontSize: "12px",
-                        color: "#38c9c0",
-                        fontFamily: "Arial, sans-serif",
-                        fontWeight: "600",
-                      }}
-                    >
-                      Makeup Artist
-                    </p>
-                  </td>
-                </tr>
+             
 
                 {/* Email */}
                 <tr>
-                  <td style={{ paddingBottom: "7px" }}>
+                  <td style={{ padding: "7px 0px 2px 0px" }}>
                     <table cellPadding="0" cellSpacing="0">
                       <tbody>
                         <tr>
@@ -189,7 +176,7 @@ function SignatureTemlateN() {
                             </div>
                           </td>
                           <td style={{ fontSize: "12px", color: "#555555", fontFamily: "Arial, sans-serif" }}>
-                            bella@email.com
+                            {email ? email : 'youremail@gmail.com'}
                           </td>
                         </tr>
                       </tbody>
@@ -199,7 +186,7 @@ function SignatureTemlateN() {
 
                 {/* Phone */}
                 <tr>
-                  <td style={{ paddingBottom: "7px" }}>
+                  <td style={{ padding: "7px 0px 2px 0px" }}>
                     <table cellPadding="0" cellSpacing="0">
                       <tbody>
                         <tr>
@@ -221,7 +208,7 @@ function SignatureTemlateN() {
                             </div>
                           </td>
                           <td style={{ fontSize: "12px", color: "#555555", fontFamily: "Arial, sans-serif" }}>
-                            (380) 355-0128
+                            {phone_no ? phone_no : '(380) 355-0128'}
                           </td>
                         </tr>
                       </tbody>
@@ -231,7 +218,7 @@ function SignatureTemlateN() {
 
                 {/* Website */}
                 <tr>
-                  <td style={{ paddingBottom: "7px" }}>
+                  <td style={{ padding: "7px 0px 2px 0px" }}>
                     <table cellPadding="0" cellSpacing="0">
                       <tbody>
                         <tr>
@@ -254,7 +241,7 @@ function SignatureTemlateN() {
                             </div>
                           </td>
                           <td style={{ fontSize: "12px", color: "#555555", fontFamily: "Arial, sans-serif" }}>
-                            www.bellavie.com
+                            {linkedin ? linkedin : 'Your LinkedIn'}
                           </td>
                         </tr>
                       </tbody>
@@ -268,7 +255,7 @@ function SignatureTemlateN() {
                     <table cellPadding="0" cellSpacing="0">
                       <tbody>
                         <tr>
-                          <td style={{ paddingRight: "8px", verticalAlign: "middle" }}>
+                          <td style={{ padding: "7px 0px 2px 0px", verticalAlign: "middle" }}>
                             <div
                               style={{
                                 width: "16px",
@@ -286,8 +273,8 @@ function SignatureTemlateN() {
                               </svg>
                             </div>
                           </td>
-                          <td style={{ fontSize: "12px", color: "#555555", fontFamily: "Arial, sans-serif" }}>
-                            2464 Royal Ln. Mesa, New Jersey 45463
+                          <td style={{ padding: "7px 0px 2px 0px", fontSize: "12px", color: "#555555", fontFamily: "Arial, sans-serif" }}>
+                            {organization ? organization : 'Organization'}
                           </td>
                         </tr>
                       </tbody>
@@ -304,22 +291,24 @@ function SignatureTemlateN() {
               width: "40px",
               background: "linear-gradient(180deg, #a8edea 0%, #38c9c0 50%, #3b9fd4 100%)",
               verticalAlign: "middle",
-              padding: "16px 0",
+              padding: "16px 4px 4px 5px",
             }}
           >
-            <table cellPadding="0" cellSpacing="0" style={{ width: "100%" }}>
+            <table cellPadding="" cellSpacing="0" style={{ width: "100%" }}>
               <tbody>
                 {[
                   {
-                    label: "TikTok",
+                    label: "Twitter",
+                    href: twitter || 'https://x.com',
                     svg: (
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
-                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" />
+                        <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 0 0 1.88-2.37 8.59 8.59 0 0 1-2.72 1.04 4.28 4.28 0 0 0-7.29 3.9A12.13 12.13 0 0 1 3.15 4.9a4.28 4.28 0 0 0 1.32 5.71 4.22 4.22 0 0 1-1.94-.54v.05a4.29 4.29 0 0 0 3.43 4.2 4.3 4.3 0 0 1-1.93.07 4.29 4.29 0 0 0 4 2.97A8.6 8.6 0 0 1 2 19.54a12.12 12.12 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.2v-.56A8.7 8.7 0 0 0 22.46 6z" />
                       </svg>
                     ),
                   },
                   {
                     label: "Facebook",
+                    href: facebook || 'https://facebook.com',
                     svg: (
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
                         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
@@ -328,6 +317,7 @@ function SignatureTemlateN() {
                   },
                   {
                     label: "Instagram",
+                    href: instagram || 'https://instagram.com',
                     svg: (
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -337,10 +327,11 @@ function SignatureTemlateN() {
                     ),
                   },
                   {
-                    label: "YouTube",
+                    label: "LinkedIn",
+                    href: linkedin || 'https://linkedin.com',
                     svg: (
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
-                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" />
+                        <path d="M19 0h-14C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.56a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM20.45 20.45h-3.56v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96v5.7H9.3V9h3.41v1.56h.05c.48-.9 1.66-1.85 3.42-1.85 3.66 0 4.34 2.41 4.34 5.54v6.2z" />
                       </svg>
                     ),
                   },
@@ -353,7 +344,9 @@ function SignatureTemlateN() {
                         paddingBottom: "10px",
                       }}
                     >
+                      <Link href={item.href}>
                       {item.svg}
+                      </Link>
                     </td>
                   </tr>
                 ))}

@@ -1,8 +1,42 @@
 import React from 'react'
 
-function SignatureTemlateM() {
+function SignatureTemlateM({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+  const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";
+  const SocialLinks = [
+    {
+      label: 'X',
+      icon: (<svg width="13" height="13" viewBox="0 0 24 24" fill="white">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>),
+      href: twitter || 'https://x.com',
+    },
+    {
+      label: 'instagram',
+      icon: (<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+      </svg>),
+      href: instagram || 'https://instagram.com',
+    },
+    {
+      label: 'facebook',
+      icon: (<svg width="13" height="13" viewBox="0 0 24 24" fill="white">
+        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+      </svg>),
+      href: facebook || 'https://facebook.com',
+    },
+    {
+      label: 'linkedIn',
+      icon: (  <svg width="13" height="13" viewBox="0 0 24 24" fill="white">
+                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                        <circle cx="4" cy="4" r="2" fill="white" />
+                      </svg>),
+      href: linkedin || 'https://linkedin.com',
+    }
+  ]
   return (
-    <div style={{display: "flex", justifyContent: "center" }}>
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <table
         cellPadding="0"
         cellSpacing="0"
@@ -53,7 +87,7 @@ function SignatureTemlateM() {
               {/* Profile photo — bottom-aligned, no circle */}
               <div style={{ textAlign: "center", paddingTop: "24px" }}>
                 <img
-                  src="/profile.jpg"
+                  src={imageSrc}
                   alt="Julian Flores"
                   width="150"
                   height="160"
@@ -91,19 +125,9 @@ function SignatureTemlateM() {
                 lineHeight: "1.1",
                 letterSpacing: "-0.5px",
               }}>
-                Julian
+                {name ? name : 'Your Name'}
               </div>
-              {/* Last name */}
-              <div style={{
-                fontSize: "28px",
-                fontWeight: "700",
-                color: "#1a1a1a",
-                lineHeight: "1.1",
-                letterSpacing: "-0.5px",
-                marginBottom: "8px",
-              }}>
-                Flores
-              </div>
+
               {/* Job title */}
               <div style={{
                 fontSize: "10.5px",
@@ -113,7 +137,7 @@ function SignatureTemlateM() {
                 textTransform: "uppercase",
                 marginBottom: "0",
               }}>
-                SOFTWARE ENGINEER
+                {job_title ? job_title : 'Job Title'}
               </div>
             </td>
 
@@ -134,7 +158,7 @@ function SignatureTemlateM() {
                         PHONE
                       </div>
                       <div style={{ fontSize: "12.5px", color: "#1a1a1a", fontWeight: "500" }}>
-                        (406) 555-0120
+                        {phone_no ? phone_no : '(406) 555-0120'}
                       </div>
                     </td>
                   </tr>
@@ -142,10 +166,10 @@ function SignatureTemlateM() {
                   <tr>
                     <td style={{ paddingBottom: "12px" }}>
                       <div style={{ fontSize: "8.5px", color: "#aaaaaa", letterSpacing: "1.5px", textTransform: "uppercase", marginBottom: "2px" }}>
-                        WEBSITE
+                        LinkedIn
                       </div>
                       <div style={{ fontSize: "12.5px", color: "#1a1a1a", fontWeight: "500" }}>
-                        www.codingpro.io
+                        {linkedin ? linkedin : 'Your linkedIn'}
                       </div>
                     </td>
                   </tr>
@@ -156,7 +180,7 @@ function SignatureTemlateM() {
                         EMAIL
                       </div>
                       <div style={{ fontSize: "12.5px", color: "#1a1a1a", fontWeight: "500" }}>
-                        julian.flores@email.com
+                        {email ? email : 'Your email'}
                       </div>
                     </td>
                   </tr>
@@ -189,14 +213,14 @@ function SignatureTemlateM() {
                         display: "inline-flex", alignItems: "center", justifyContent: "center",
                       }}>
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                          <circle cx="12" cy="10" r="3"/>
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                          <circle cx="12" cy="10" r="3" />
                         </svg>
                       </div>
                     </td>
                     <td style={{ verticalAlign: "middle" }}>
                       <span style={{ fontSize: "11.5px", color: "#555555" }}>
-                        1500 Legal Lane, Suite 500 Washington, DC 20001 USA
+                        {organization ? organization : 'Organization'}
                       </span>
                     </td>
                   </tr>
@@ -228,14 +252,14 @@ function SignatureTemlateM() {
                         display: "inline-flex", alignItems: "center", justifyContent: "center",
                       }}>
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="16 18 22 12 16 6"/>
-                          <polyline points="8 6 2 12 8 18"/>
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
                         </svg>
                       </div>
                     </td>
                     <td style={{ verticalAlign: "middle" }}>
                       <span style={{ fontSize: "13px", fontWeight: "600", color: "#ffffff", letterSpacing: "0.2px" }}>
-                        Coding.pro
+
                       </span>
                     </td>
                   </tr>
@@ -256,30 +280,10 @@ function SignatureTemlateM() {
               <table cellPadding="0" cellSpacing="0" style={{ marginLeft: "auto" }}>
                 <tbody>
                   <tr>
-                    {[
-                      /* X / Twitter */
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="white">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                      </svg>,
-                      /* Instagram */
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                      </svg>,
-                      /* Facebook */
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="white">
-                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-                      </svg>,
-                      /* LinkedIn */
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="white">
-                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
-                        <circle cx="4" cy="4" r="2" fill="white"/>
-                      </svg>,
-                    ].map((icon, i) => (
+                    {SocialLinks.map((s, i) => (
                       <td key={i} style={{ paddingLeft: i > 0 ? "14px" : "0" }}>
-                        <a href="#" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}>
-                          {icon}
+                        <a href={s.href} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}>
+                          {s.icon}
                         </a>
                       </td>
                     ))}
