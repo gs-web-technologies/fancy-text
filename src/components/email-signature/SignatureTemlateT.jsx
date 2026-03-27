@@ -1,7 +1,38 @@
+import Link from 'next/link';
 import React from 'react'
 
-function SignatureTemlateT() {
- return (
+function SignatureTemlateT({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+  const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar5.png";
+  const SocialLinks = [
+    {
+      label: "facebook",
+      icon: (<svg key="fb" width="12" height="12" viewBox="0 0 24 24" fill="white">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+      </svg>
+      ),
+      href: facebook || "https://facebook.com",
+    },
+    {
+      label: "linkedIn",
+      icon: (<svg key="li" width="12" height="12" viewBox="0 0 24 24" fill="white">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
+        <circle cx="4" cy="4" r="2" fill="white" />
+      </svg>
+      ),
+      href: linkedin || "https://linkedin.com",
+    },
+    {
+      label: "Instagram",
+      icon: (<svg key="ig" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="0.8" fill="white" stroke="none" />
+      </svg>
+      ),
+      href: instagram || "https://instagram.com",
+    }
+  ];
+  return (
     <table
       cellPadding="0"
       cellSpacing="0"
@@ -32,14 +63,14 @@ function SignatureTemlateT() {
                           {/* Name + badge */}
                           <td style={{ verticalAlign: "top" }}>
                             <p style={{ margin: "0 0 4px 0", fontSize: "22px", fontWeight: "900", color: "#1a3a35", letterSpacing: "1.5px", textTransform: "uppercase", fontFamily: "Arial Black, Arial, sans-serif", lineHeight: "1" }}>
-                              YOUR NAME
+                              {name ? name : 'Your Name'}
                             </p>
                             <table cellPadding="0" cellSpacing="0">
                               <tbody>
                                 <tr>
                                   <td style={{ backgroundColor: "#1abc9c", padding: "2px 10px", borderRadius: "2px" }}>
                                     <span style={{ fontSize: "8px", color: "#ffffff", fontWeight: "bold", letterSpacing: "1.2px", textTransform: "uppercase", fontFamily: "Arial, sans-serif" }}>
-                                      MARKETING EXPERT
+                                      {job_title ? job_title : 'Job Title'}
                                     </span>
                                   </td>
                                 </tr>
@@ -52,38 +83,31 @@ function SignatureTemlateT() {
                             <table cellPadding="0" cellSpacing="0" style={{ marginLeft: "auto" }}>
                               <tbody>
                                 <tr>
-                                  {/* 3D Cube */}
-                                  <td style={{ paddingRight: "8px", verticalAlign: "middle" }}>
-                                    <svg width="50" height="50" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-                                      {/* checkerboard cube top face */}
-                                      <polygon points="30,2 56,16 30,30 4,16" fill="#17a589"/>
-                                      <polygon points="30,2 43,9 30,16 17,9" fill="#1abc9c"/>
-                                      <polygon points="43,9 56,16 43,23 30,16" fill="#27ae60"/>
-                                      <polygon points="17,9 30,16 17,23 4,16" fill="#148f77"/>
-                                      <polygon points="30,16 43,23 30,30 17,23" fill="#1abc9c"/>
-                                      {/* left face */}
-                                      <polygon points="4,16 4,42 30,56 30,30" fill="#0e6655"/>
-                                      {/* right face */}
-                                      <polygon points="56,16 56,42 30,56 30,30" fill="#17a589"/>
-                                      {/* checkerboard on left face */}
-                                      <polygon points="4,16 17,23 17,37 4,30" fill="#0a5244"/>
-                                      <polygon points="17,23 30,30 30,44 17,37" fill="#148f77"/>
-                                      <polygon points="4,30 17,37 17,51 4,44" fill="#148f77"/>
-                                      <polygon points="17,37 30,44 30,56 17,51" fill="#0a5244"/>
-                                      {/* checkerboard on right face */}
-                                      <polygon points="56,16 43,23 43,37 56,30" fill="#13816b"/>
-                                      <polygon points="43,23 30,30 30,44 43,37" fill="#1a9e84"/>
-                                      <polygon points="56,30 43,37 43,51 56,44" fill="#1a9e84"/>
-                                      <polygon points="43,37 30,44 30,56 43,51" fill="#13816b"/>
-                                    </svg>
-                                  </td>
                                   <td style={{ verticalAlign: "middle" }}>
-                                    <p style={{ margin: "0", fontSize: "17px", fontWeight: "900", color: "#1a3a35", letterSpacing: "2px", textTransform: "uppercase", fontFamily: "Arial Black, Arial, sans-serif", lineHeight: "1.1" }}>
-                                      BRAND
-                                    </p>
-                                    <p style={{ margin: "2px 0 0 0", fontSize: "8px", color: "#1abc9c", letterSpacing: "2px", textTransform: "uppercase", fontFamily: "Arial, sans-serif" }}>
-                                      TAGLINE
-                                    </p>
+                                    {/* Circular photo */}
+                                    <div
+                                      style={{
+                                        width: "90px",
+                                        height: "90px",
+                                        borderRadius: "50%",
+                                        overflow: "hidden",
+                                        border: "3px solid #1abc9c",
+                                        position: "relative",
+                                        zIndex: "1",
+                                        margin: "0 auto",
+                                      }}
+                                    >
+                                      <img
+                                        src={imageSrc}
+                                        alt="Michel Hansen"
+                                        style={{
+                                          width: "90px",
+                                          height: "90px",
+                                          objectFit: "cover",
+                                          display: "block",
+                                        }}
+                                      />
+                                    </div>
                                   </td>
                                 </tr>
                               </tbody>
@@ -120,7 +144,7 @@ function SignatureTemlateT() {
                                       </svg>
                                     </div>
                                   </td>
-                                  <td style={{ fontSize: "11px", color: "#2c3e50", fontFamily: "Arial, sans-serif" }}>000 1234 56789</td>
+                                  <td style={{ fontSize: "11px", color: "#2c3e50", fontFamily: "Arial, sans-serif" }}>{phone_no ? phone_no : "000 1234 56789"}</td>
                                 </tr>
                               </tbody>
                             </table>
@@ -139,7 +163,7 @@ function SignatureTemlateT() {
                                       </svg>
                                     </div>
                                   </td>
-                                  <td style={{ fontSize: "11px", color: "#2c3e50", fontFamily: "Arial, sans-serif" }}>Your mail name here</td>
+                                  <td style={{ fontSize: "11px", color: "#2c3e50", fontFamily: "Arial, sans-serif" }}>{email ? email : "your_email@gmail.com"}</td>
                                 </tr>
                               </tbody>
                             </table>
@@ -160,7 +184,7 @@ function SignatureTemlateT() {
                                       </svg>
                                     </div>
                                   </td>
-                                  <td style={{ fontSize: "11px", color: "#2c3e50", fontFamily: "Arial, sans-serif" }}>website name here</td>
+                                  <td style={{ fontSize: "11px", color: "#2c3e50", fontFamily: "Arial, sans-serif" }}>{linkedin ? linkedin : "Your linkedIn"}</td>
                                 </tr>
                               </tbody>
                             </table>
@@ -179,7 +203,7 @@ function SignatureTemlateT() {
                                       </svg>
                                     </div>
                                   </td>
-                                  <td style={{ fontSize: "11px", color: "#2c3e50", fontFamily: "Arial, sans-serif" }}>Your City Address here</td>
+                                  <td style={{ fontSize: "11px", color: "#2c3e50", fontFamily: "Arial, sans-serif" }}>{organization ? organization : 'Organization'}</td>
                                 </tr>
                               </tbody>
                             </table>
@@ -200,20 +224,18 @@ function SignatureTemlateT() {
               width: "32px",
               background: "linear-gradient(180deg, #1abc9c 0%, #16a085 100%)",
               verticalAlign: "middle",
-              padding: "14px 0",
+              padding: "14px 10px",
               textAlign: "center",
             }}
           >
             <table cellPadding="0" cellSpacing="0" style={{ width: "100%" }}>
               <tbody>
-                {[
-                  <svg key="fb" width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>,
-                  <svg key="li" width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" fill="white" /></svg>,
-                  <svg key="ig" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.8" fill="white" stroke="none" /></svg>,
-                ].map((icon, i) => (
+                {SocialLinks.map((item, i) => (
                   <tr key={i}>
                     <td style={{ textAlign: "center", paddingTop: i === 0 ? "2px" : "10px" }}>
-                      {icon}
+                      <Link href={item.href}>
+                        {item.icon}
+                      </Link>
                     </td>
                   </tr>
                 ))}
