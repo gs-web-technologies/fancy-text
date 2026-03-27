@@ -153,7 +153,7 @@ function First({ name, email, job_title, phone_no, organization, logo, linkedin,
                                 </svg>
                             </div>
                             {/* CENTER: Logo + social */}
-                            <td style={{ width: "140px", verticalAlign: "middle", textAlign: "center", padding: "20px 10px", background: "#fff", borderLeft: "1px solid #f0f0f0", borderRight: "1px solid #f0f0f0" }}>
+                            <div style={{ width: "140px", verticalAlign: "middle", textAlign: "center", padding: "10px 10px" }}>
                                 {/* Social icons */}
 
                                 <div style={{ display: "flex", justifyContent: "center", gap: "7px" }}>
@@ -168,7 +168,7 @@ function First({ name, email, job_title, phone_no, organization, logo, linkedin,
                                 <div>
                                     <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>thynktales</strong></i></span>
                                 </div>
-                            </td>
+                            </div>
                         </td>
                     </tr>
 

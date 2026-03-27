@@ -1,10 +1,10 @@
 import React from 'react'
 
 function Third({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
-    const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar1.jpg";
-    const contacts = [
+  const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
+  const contacts = [
     {
-      rows: [phne_no || "000 0000 00000", phone_no || "000 0000 00000"],
+      rows: [phone_no || "000 0000 00000", phone_no || "000 0000 00000"],
       href: `tel:${phone_no}`,
       icon: (
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2356" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -13,7 +13,7 @@ function Third({ name, email, job_title, phone_no, organization, logo, linkedin,
       ),
     },
     {
-      rows: [linkedin],
+      rows: ["linkedIn"],
       href: linkedin || '',
       icon: (
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2356" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -33,7 +33,7 @@ function Third({ name, email, job_title, phone_no, organization, logo, linkedin,
       ),
     },
     {
-      rows: ["organization" || organization],
+      rows: [organization || "organization"],
       href: null,
       icon: (
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1a2356" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -56,7 +56,7 @@ function Third({ name, email, job_title, phone_no, organization, logo, linkedin,
       ),
     },
     {
-      href: twitter ||  "https://twitter.com",
+      href: twitter || "https://twitter.com",
       icon: (
         <svg width="13" height="13" viewBox="0 0 24 24" fill="white">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -75,7 +75,7 @@ function Third({ name, email, job_title, phone_no, organization, logo, linkedin,
   ];
 
   return (
-    <div style={{ padding: "2rem", backgroundColor: "#e5e7eb", display: "flex", justifyContent: "center" }}>
+    <div style={{ width: "600px", backgroundColor: "#e5e7eb", display: "flex", justifyContent: "center" }}>
       <table
         cellPadding="0"
         cellSpacing="0"
@@ -130,6 +130,9 @@ function Third({ name, email, job_title, phone_no, organization, logo, linkedin,
                   ))}
                 </div>
               </div>
+              <div>
+                <span style={{ color: "white", fontSize: "10px", padding: "0px 12px", }}><i>Powered by <strong>thynktales</strong></i></span>
+              </div>
             </td>
 
             {/* CENTER: Organic blob photo */}
@@ -140,7 +143,7 @@ function Third({ name, email, job_title, phone_no, organization, logo, linkedin,
                 {/* Photo blob */}
                 <div style={{ position: "absolute", top: "0", left: "0", width: "110px", height: "120px", borderRadius: "60% 40% 55% 45% / 50% 45% 55% 50%", overflow: "hidden" }}>
                   <img
-                    src="/images/profile.jpg"
+                    src={imageSrc}
                     alt="Profile"
                     style={{ width: "110px", height: "120px", objectFit: "cover", display: "block" }}
                   />
