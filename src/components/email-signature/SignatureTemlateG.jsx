@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Sixth({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateG({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
     const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
     return (
         <div
@@ -128,4 +128,4 @@ function Sixth({ name, email, job_title, phone_no, organization, logo, linkedin,
     );
 }
 
-export default Sixth
+export default SignatureTemlateG

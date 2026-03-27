@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Ninth({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateF({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
    const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";   
   const contacts = [
     {
@@ -196,4 +196,4 @@ function Ninth({ name, email, job_title, phone_no, organization, logo, linkedin,
   );
 }
 
-export default Ninth
+export default SignatureTemlateF

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-function Third({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateB({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
   const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
   const contacts = [
     {
@@ -122,7 +122,7 @@ function Third({ name, email, job_title, phone_no, organization, logo, linkedin,
                 {/* Social icons */}
                 <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
                   {socialLinks.map((s, i) => (
-                    <a key={i} href={s.href} style={{ textDecoration: "none" }}>
+                    <a key={`${s.href}-${i}`} href={s.href} style={{ textDecoration: "none" }}>
                       <div style={{ width: "30px", height: "30px", borderRadius: "50%", border: "1.5px solid rgba(255,255,255,0.3)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                         {s.icon}
                       </div>
@@ -203,4 +203,4 @@ function Third({ name, email, job_title, phone_no, organization, logo, linkedin,
   );
 }
 
-export default Third
+export default SignatureTemlateB

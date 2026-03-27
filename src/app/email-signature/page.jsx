@@ -6,20 +6,20 @@ import * as z from "zod";
 import Input from "@/components/forms/Input";
 import Button from "@/components/forms/Button";
 import { useFormStatus } from "react-dom";
-import First from "@/components/email-signature/First";
+import SignatureTemlateD from "@/components/email-signature/SignatureTemlateD";
 import FileInput from "@/components/forms/FileInput";
 import { ALLOWED_TYPES, MAX_SIZE } from "@/utils/const";
 import Secound from "@/components/email-signature/Secound";
-import Third from "@/components/email-signature/Third";
-import Fourth from "@/components/email-signature/Fourth";
-import Fifth from "@/components/email-signature/Fifth";
-import Sixth from "@/components/email-signature/Sixth";
-import Seventh from "@/components/email-signature/Seventh";
-import Eight from "@/components/email-signature/Eight";
-import Ninth from "@/components/email-signature/Ninth";
-import Tenth from "@/components/email-signature/Tenth";
+import SignatureTemlateB from "@/components/email-signature/SignatureTemlateB";
+import SignatureTemlateC from "@/components/email-signature/SignatureTemlateC";
+import SignatureTemlateG from "@/components/email-signature/SignatureTemlateG";
+import SignatureTemlateA from "@/components/email-signature/SignatureTemlateA";
+import SignatureTemlateF from "@/components/email-signature/SignatureTemlateF";
+import SignatureTemlateE from "@/components/email-signature/SignatureTemlateE";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import SignatureTemlateI from "@/components/email-signature/SignatureTemlateI";
+import SignatureTemlateJ from "@/components/email-signature/SignatureTemlateJ";
 
 const schema = z.object({
     full_name: z
@@ -214,7 +214,7 @@ export default function EmailSignature() {
                     <div className="">
                         <div className="flex flex-wrap gap-2">
 
-                            {[Eight,Third, Fifth, First, Tenth, Ninth, Sixth, Secound].map(
+                            {[SignatureTemlateA,SignatureTemlateB, SignatureTemlateC, SignatureTemlateD, SignatureTemlateE, SignatureTemlateF, SignatureTemlateG, Secound, SignatureTemlateI,SignatureTemlateJ].map(
                                 (CardComponent, index) => (
                                     <div className="min-w-full" key={index}>
                                         <CardComponent

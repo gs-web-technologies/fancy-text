@@ -1,6 +1,6 @@
 import React from 'react';
 
-function First({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateD({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
     const mail = email || 'email@domain.com';
     const tel = phone_no || '00000000000';
     const linkedIn = linkedin || "https://yourwebsite.com";
@@ -157,8 +157,8 @@ function First({ name, email, job_title, phone_no, organization, logo, linkedin,
                                 {/* Social icons */}
 
                                 <div style={{ display: "flex", justifyContent: "center", gap: "7px" }}>
-                                    {socialLinks.map((s) => (
-                                        <a key={s.href} href={s.href} style={{ textDecoration: "none" }}>
+                                    {socialLinks.map((s,i) => (
+                                        <a key={`${s.href}-${i}`} href={s.href} style={{ textDecoration: "none" }}>
                                             <div style={{ width: "26px", height: "26px", backgroundColor: s.bg, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
                                                 {s.icon}
                                             </div>
@@ -182,4 +182,4 @@ function First({ name, email, job_title, phone_no, organization, logo, linkedin,
     );
 }
 
-export default First
+export default SignatureTemlateD

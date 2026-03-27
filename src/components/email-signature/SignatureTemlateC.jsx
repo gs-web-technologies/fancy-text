@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Fifth({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateC({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
     const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
     const contacts = [
         {
@@ -186,8 +186,8 @@ function Fifth({ name, email, job_title, phone_no, organization, logo, linkedin,
 
                             {/* Social icons */}
                             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
-                                {socialLinks.map((s) => (
-                                    <a key={s.href} href={s.href} style={{ textDecoration: "none" }}>
+                                {socialLinks.map((s,i) => (
+                                    <a key={`${s.href}-${i}`} href={s.href} style={{ textDecoration: "none" }}>
                                         <div
                                             style={{
                                                 width: "26px",
@@ -219,4 +219,4 @@ function Fifth({ name, email, job_title, phone_no, organization, logo, linkedin,
 
 }
 
-export default Fifth
+export default SignatureTemlateC

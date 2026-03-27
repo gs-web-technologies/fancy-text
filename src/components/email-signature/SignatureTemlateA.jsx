@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-function Eight({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateA({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
     const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";
     return (
         <div
@@ -493,4 +493,4 @@ function Eight({ name, email, job_title, phone_no, organization, logo, linkedin,
     )
 }
 
-export default Eight
+export default SignatureTemlateA

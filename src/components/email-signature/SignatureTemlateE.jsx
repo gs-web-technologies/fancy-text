@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Tenth({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateE({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
     const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";
     return (
         <div>
@@ -294,4 +294,4 @@ function Tenth({ name, email, job_title, phone_no, organization, logo, linkedin,
     )
 }
 
-export default Tenth
+export default SignatureTemlateE
