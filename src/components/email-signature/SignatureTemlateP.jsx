@@ -1,8 +1,26 @@
 import React from 'react'
 
-function SignatureTemlateP() {
+function SignatureTemlateP({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+  const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar5.png";
+  const SocialLinks = [
+    {
+      label: "Facebook",
+      href: facebook || "https://facebook.com",
+      icon: (<svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>),
+    }, 
+    {
+      label: "Instagram",
+      href: instagram || "https://instagram.com",
+      icon: (<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>),
+    }, 
+    {
+      label: "X",
+      href: twitter || "https://x.com",
+      icon: (<svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" /></svg>),
+    }
+  ];
   return (
-    <div style={{  display: "flex", justifyContent: "center" }}>
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <table
         cellPadding="0"
         cellSpacing="0"
@@ -125,7 +143,7 @@ function SignatureTemlateP() {
                   }}
                 >
                   <img
-                    src="/profile.jpg"
+                    src={imageSrc}
                     alt="Michael Jonshon"
                     width="90"
                     height="90"
@@ -167,22 +185,15 @@ function SignatureTemlateP() {
                   <table cellPadding="0" cellSpacing="0">
                     <tbody>
                       <tr>
-                        {[
-                          /* Facebook */
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>,
-                          /* Instagram */
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>,
-                          /* Twitter */
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>,
-                        ].map((icon, i) => (
+                        {SocialLinks.map((s, i) => (
                           <td key={i} style={{ paddingRight: i < 2 ? "7px" : "0" }}>
-                            <a href="#" style={{
+                            <a href={s.href} style={{
                               display: "inline-flex", alignItems: "center", justifyContent: "center",
                               width: "24px", height: "24px", borderRadius: "50%",
                               backgroundColor: "rgba(255,255,255,0.2)",
                               textDecoration: "none",
                             }}>
-                              {icon}
+                              {s.icon}
                             </a>
                           </td>
                         ))}
@@ -213,8 +224,7 @@ function SignatureTemlateP() {
                 marginBottom: "2px",
                 textTransform: "uppercase",
               }}>
-                MICHAEL{" "}
-                <span style={{ color: "#e8192c" }}>JONSHON</span>
+                <span style={{ color: "#e8192c" }}>{name ? name : "Your Name"}</span>
               </div>
 
               {/* Title */}
@@ -226,7 +236,7 @@ function SignatureTemlateP() {
                 marginBottom: "18px",
                 fontWeight: "500",
               }}>
-                CEO &amp; FOUNDER
+                { job_title ? job_title : 'Job Title' }
               </div>
 
               {/* Thin red divider */}
@@ -245,31 +255,28 @@ function SignatureTemlateP() {
                     {
                       icon: (
                         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#e8192c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                          <circle cx="12" cy="10" r="3"/>
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                          <circle cx="12" cy="10" r="3" />
                         </svg>
                       ),
-                      text: "Your Street Address Here",
-                      sub: "New York NY 1234",
+                      text: organization || "Organization",
                     },
                     {
                       icon: (
                         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#e8192c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 12.07a19.79 19.79 0 01-3.07-8.64A2 2 0 011.9 1.11h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/>
+                          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 12.07a19.79 19.79 0 01-3.07-8.64A2 2 0 011.9 1.11h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z" />
                         </svg>
                       ),
-                      text: "+00 123 456 7890",
-                      sub: "+00 324-456-0990",
+                      text: phone_no || "+00 123 456 7890",
                     },
                     {
                       icon: (
                         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#e8192c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                          <polyline points="22,6 12,13 2,6"/>
+                          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                          <polyline points="22,6 12,13 2,6" />
                         </svg>
                       ),
-                      text: "hello@example.com",
-                      sub: null,
+                      text: email || "hello@example.com",
                     },
                   ].map((item, i) => (
                     <tr key={i}>
@@ -309,9 +316,9 @@ function SignatureTemlateP() {
 
               {/* Dot pattern decoration — bottom right */}
               <div style={{ textAlign: "right", marginTop: "4px" }}>
-                {[0,1,2].map(row => (
+                {[0].map(row => (
                   <div key={row} style={{ marginBottom: "4px" }}>
-                    {[0,1,2,3].map(col => (
+                    {[0, 1, 2, 3].map(col => (
                       <span key={col} style={{
                         display: "inline-block",
                         width: "4px", height: "4px",
