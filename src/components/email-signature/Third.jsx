@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 function Third({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
   const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
@@ -157,7 +157,7 @@ function Third({ name, email, job_title, phone_no, organization, logo, linkedin,
                 <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "100%" }}>
                   <tbody>
                     {contacts.map((c, i) => (
-                      <>
+                      <Fragment key={i}>
                         <tr key={`row-${i}`}>
                           <td style={{ padding: "5px 12px 5px 0", verticalAlign: "middle", width: "30px" }}>
                             <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: "#f5a623", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -189,7 +189,7 @@ function Third({ name, email, job_title, phone_no, organization, logo, linkedin,
                             </td>
                           </tr>
                         )}
-                      </>
+                      </Fragment>
                     ))}
                   </tbody>
                 </table>

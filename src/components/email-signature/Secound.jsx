@@ -93,6 +93,7 @@ function Secound({ name, email, job_title, phone_no, organization, logo, linkedi
               <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "100%", height: "100%" }}>
                 <tbody>
                   <tr><td style={{ background: "#3a9e3f", height: "4px", padding: "0" }} /></tr>
+                  <tr><td style={{ color:"#3a9e3f", padding: "17px 0px 0px 13px" }}><b>{ name ? name : 'Your Name' } </b></td></tr>
                   <tr>
                     <td style={{ padding: "18px 18px 16px 18px", verticalAlign: "top" }}>
                       <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "100%" }}>
@@ -135,8 +136,8 @@ function Secound({ name, email, job_title, phone_no, organization, logo, linkedi
                   <tr>
                     <td style={{ padding: "14px 22px 18px 22px", verticalAlign: "bottom" }}>
                       <div style={{ display: "flex", gap: "7px", alignItems: "center" }}>
-                        {socialLinks.map((s) => (
-                          <a key={s.href} href={s.href} style={{ textDecoration: "none" }}>
+                        {socialLinks.map((s,i) => (
+                          <a key={`${s.href}-${i}`} href={s.href} style={{ textDecoration: "none" }}>
                             <div style={{ width: "26px", height: "26px", backgroundColor: s.bg, borderRadius: "4px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                               {s.icon}
                             </div>
