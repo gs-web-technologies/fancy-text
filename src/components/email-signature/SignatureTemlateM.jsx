@@ -2,7 +2,7 @@ import React from 'react'
 
 function SignatureTemlateM() {
   return (
-    <div style={{ backgroundColor: "#e8f5e9", padding: "40px", display: "flex", justifyContent: "center" }}>
+    <div style={{display: "flex", justifyContent: "center" }}>
       <table
         cellPadding="0"
         cellSpacing="0"

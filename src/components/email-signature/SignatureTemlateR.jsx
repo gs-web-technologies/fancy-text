@@ -1,0 +1,219 @@
+import React from 'react'
+
+function SignatureTemlateR() {
+   return (
+    <div style={{ backgroundColor: "#f0f0f0", padding: "40px", display: "flex", justifyContent: "center" }}>
+      <table
+        cellPadding="0"
+        cellSpacing="0"
+        style={{
+          width: "580px",
+          minWidth: "580px",
+          backgroundColor: "#ffffff",
+          borderRadius: "14px",
+          overflow: "hidden",
+          fontFamily: "'Segoe UI', Arial, sans-serif",
+          boxShadow: "0 3px 18px rgba(0,0,0,0.13)",
+          border: "1.5px solid #eeeeee",
+        }}
+      >
+        <tbody>
+          <tr>
+
+            {/* FAR LEFT — Red vertical bar */}
+            <td style={{ width: "10px", backgroundColor: "#e8192c", padding: "0" }} />
+
+            {/* LEFT SECTION — Photo box + social icons */}
+            <td
+              style={{
+                width: "120px",
+                padding: "18px 14px 18px 14px",
+                verticalAlign: "top",
+                backgroundColor: "#ffffff",
+              }}
+            >
+              {/* Photo — rounded square with red border */}
+              <div
+                style={{
+                  width: "92px",
+                  height: "92px",
+                  borderRadius: "10px",
+                  overflow: "hidden",
+                  border: "2.5px solid #e8192c",
+                  backgroundColor: "#fce8ea",
+                  marginBottom: "12px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <img
+                  src="/profile.jpg"
+                  alt="Your Name"
+                  width="92"
+                  height="92"
+                  style={{ objectFit: "cover", display: "block" }}
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                    e.target.parentNode.innerHTML = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e8192c" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`;
+                  }}
+                />
+              </div>
+
+              {/* Social icons — vertical stack */}
+              <table cellPadding="0" cellSpacing="0">
+                <tbody>
+                  {[
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>,
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>,
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>,
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" fill="white"/></svg>,
+                  ].map((icon, i) => (
+                    <tr key={i}>
+                      <td style={{ paddingBottom: i < 3 ? "7px" : "0" }}>
+                        <a href="#" style={{
+                          display: "inline-flex", alignItems: "center", justifyContent: "center",
+                          width: "22px", height: "22px", borderRadius: "5px",
+                          backgroundColor: "#e8192c", textDecoration: "none",
+                        }}>
+                          {icon}
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </td>
+
+            {/* MIDDLE SECTION — Name, title, contacts */}
+            <td
+              style={{
+                padding: "18px 18px 18px 10px",
+                verticalAlign: "top",
+                backgroundColor: "#ffffff",
+              }}
+            >
+              {/* Name */}
+              <div style={{
+                fontSize: "17px", fontWeight: "800", color: "#1a1a1a",
+                letterSpacing: "0.2px", marginBottom: "2px",
+              }}>
+                Your Name
+              </div>
+
+              {/* Title */}
+              <div style={{
+                fontSize: "10px", color: "#e8192c", fontWeight: "600",
+                letterSpacing: "1.2px", textTransform: "uppercase", marginBottom: "10px",
+              }}>
+                Job / Design
+              </div>
+
+              {/* Red divider */}
+              <div style={{
+                height: "1.5px", backgroundColor: "#e8192c",
+                width: "100%", marginBottom: "12px", borderRadius: "2px",
+              }} />
+
+              {/* Contact rows */}
+              <table cellPadding="0" cellSpacing="0">
+                <tbody>
+                  {[
+                    {
+                      icon: <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e8192c" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 12.07a19.79 19.79 0 01-3.07-8.64A2 2 0 011.9 1.11h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>,
+                      text: "+00 000 00 000",
+                    },
+                    {
+                      icon: <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e8192c" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>,
+                      text: "yourmail@example.com",
+                    },
+                    {
+                      icon: <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e8192c" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>,
+                      text: "www.yourwebsite.com",
+                    },
+                    {
+                      icon: <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e8192c" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>,
+                      text: "123 Your Street, City, Country",
+                    },
+                  ].map((item, i) => (
+                    <tr key={i}>
+                      <td style={{ paddingBottom: "7px", verticalAlign: "middle" }}>
+                        <table cellPadding="0" cellSpacing="0">
+                          <tbody>
+                            <tr>
+                              <td style={{ paddingRight: "8px", verticalAlign: "middle" }}>{item.icon}</td>
+                              <td style={{ fontSize: "11px", color: "#444444", verticalAlign: "middle", whiteSpace: "nowrap" }}>
+                                {item.text}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </td>
+
+            {/* RED VERTICAL DIVIDER */}
+            <td style={{ width: "2px", backgroundColor: "#e8192c", padding: "0" }} />
+
+            {/* RIGHT SECTION — Company */}
+            <td
+              style={{
+                width: "110px",
+                backgroundColor: "#ffffff",
+                padding: "18px 16px",
+                verticalAlign: "middle",
+                textAlign: "center",
+              }}
+            >
+              {/* Company logo icon */}
+              <div style={{
+                width: "44px", height: "44px", borderRadius: "10px",
+                backgroundColor: "#e8192c",
+                display: "inline-flex", alignItems: "center", justifyContent: "center",
+                marginBottom: "8px",
+              }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="3" width="8" height="8" rx="1.5" fill="white" opacity="0.9"/>
+                  <rect x="13" y="3" width="8" height="8" rx="1.5" fill="white" opacity="0.6"/>
+                  <rect x="3" y="13" width="8" height="8" rx="1.5" fill="white" opacity="0.6"/>
+                  <rect x="13" y="13" width="8" height="8" rx="1.5" fill="white" opacity="0.3"/>
+                </svg>
+              </div>
+
+              {/* Company name */}
+              <div style={{
+                fontSize: "12px", fontWeight: "800", color: "#1a1a1a",
+                letterSpacing: "1.5px", textTransform: "uppercase", lineHeight: "1.3",
+              }}>
+                COMPANY
+              </div>
+
+              {/* Tagline */}
+              <div style={{
+                fontSize: "8px", color: "#aaaaaa", letterSpacing: "1px",
+                textTransform: "uppercase", marginTop: "3px",
+              }}>
+                Your Tagline
+              </div>
+
+              {/* Red accent line */}
+              <div style={{
+                height: "2px", width: "28px", backgroundColor: "#e8192c",
+                borderRadius: "2px", margin: "8px auto 0 auto",
+              }} />
+            </td>
+
+            {/* FAR RIGHT red bar */}
+            <td style={{ width: "10px", backgroundColor: "#e8192c", padding: "0" }} />
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default SignatureTemlateR
