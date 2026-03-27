@@ -29,6 +29,7 @@ import SignatureTemlateP from "@/components/email-signature/SignatureTemlateP";
 import SignatureTemlateQ from "@/components/email-signature/SignatureTemlateQ";
 import SignatureTemlateR from "@/components/email-signature/SignatureTemlateR";
 import SignatureTemlateS from "@/components/email-signature/SignatureTemlateS";
+import SignatureTemlateT from "@/components/email-signature/SignatureTemlateT";
 
 const schema = z.object({
     full_name: z
@@ -223,7 +224,7 @@ export default function EmailSignature() {
                     <div className="">
                         <div className="flex flex-wrap gap-2">
 
-                            {[SignatureTemlateA,SignatureTemlateB, SignatureTemlateC, SignatureTemlateD, SignatureTemlateE, SignatureTemlateF, SignatureTemlateG, Secound, SignatureTemlateI,SignatureTemlateJ,SignatureTemlateK,SignatureTemlateL,SignatureTemlateM,SignatureTemlateN,SignatureTemlateO,SignatureTemlateP,SignatureTemlateQ,SignatureTemlateR,SignatureTemlateS].map(
+                            {[SignatureTemlateA,SignatureTemlateB, SignatureTemlateC, SignatureTemlateD, SignatureTemlateE, SignatureTemlateF, SignatureTemlateG, Secound, SignatureTemlateI,SignatureTemlateJ,SignatureTemlateK,SignatureTemlateL,SignatureTemlateM,SignatureTemlateN,SignatureTemlateO,SignatureTemlateP,SignatureTemlateQ,SignatureTemlateR,SignatureTemlateS,SignatureTemlateT].map(
                                 (CardComponent, index) => (
                                     <div className="min-w-full" key={index}>
                                         <CardComponent

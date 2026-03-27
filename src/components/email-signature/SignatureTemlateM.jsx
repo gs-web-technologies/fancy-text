@@ -121,7 +121,7 @@ function SignatureTemlateM({ name, email, job_title, phone_no, organization, log
               <div style={{
                 fontSize: "28px",
                 fontWeight: "700",
-                color: "#1a1a1a",
+                color: "#1b3a2f",
                 lineHeight: "1.1",
                 letterSpacing: "-0.5px",
               }}>
