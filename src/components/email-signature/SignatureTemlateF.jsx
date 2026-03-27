@@ -1,7 +1,7 @@
 import React from 'react'
 
 function SignatureTemlateF({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
-   const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";   
+   const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar5.png";   
   const contacts = [
     {
       bg: "#1a1a2e",

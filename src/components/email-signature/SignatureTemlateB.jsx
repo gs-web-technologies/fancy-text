@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 
 function SignatureTemlateB({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
-  const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
+  const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar4.png";
   const contacts = [
     {
       rows: [phone_no || "000 0000 00000", phone_no || "000 0000 00000"],

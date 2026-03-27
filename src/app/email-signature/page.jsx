@@ -20,6 +20,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import SignatureTemlateI from "@/components/email-signature/SignatureTemlateI";
 import SignatureTemlateJ from "@/components/email-signature/SignatureTemlateJ";
+import SignatureTemlateK from "@/components/email-signature/SignatureTemlateK";
+import SignatureTemlateL from "@/components/email-signature/SignatureTemlateL";
 
 const schema = z.object({
     full_name: z
@@ -214,7 +216,7 @@ export default function EmailSignature() {
                     <div className="">
                         <div className="flex flex-wrap gap-2">
 
-                            {[SignatureTemlateA,SignatureTemlateB, SignatureTemlateC, SignatureTemlateD, SignatureTemlateE, SignatureTemlateF, SignatureTemlateG, Secound, SignatureTemlateI,SignatureTemlateJ].map(
+                            {[SignatureTemlateA,SignatureTemlateB, SignatureTemlateC, SignatureTemlateD, SignatureTemlateE, SignatureTemlateF, SignatureTemlateG, Secound, SignatureTemlateI,SignatureTemlateJ,SignatureTemlateK,SignatureTemlateL].map(
                                 (CardComponent, index) => (
                                     <div className="min-w-full" key={index}>
                                         <CardComponent
