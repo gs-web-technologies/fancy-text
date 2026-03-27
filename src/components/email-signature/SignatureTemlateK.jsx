@@ -1,15 +1,16 @@
 import React from 'react'
 
-function SignatureTemlateK() {
-   return (
-    <div style={{ backgroundColor: "#f5f5f5", padding: "40px", display: "flex", justifyContent: "center" }}>
+function SignatureTemlateK({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+  const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
+  return (
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <table
         cellPadding="0"
         cellSpacing="0"
         style={{
           width: "580px",
           minWidth: "580px",
-          backgroundColor: "#ffffff",
+          background: "linear-gradient(135deg, #000000 20%, #ffffff 0%, #ffffff 80%, #000000 20%)",
           fontFamily: "'Georgia', 'Times New Roman', serif",
           boxShadow: "0 1px 8px rgba(0,0,0,0.07)",
         }}
@@ -35,7 +36,7 @@ function SignatureTemlateK() {
                   top: "0",
                   right: "0",
                   width: "1px",
-                  height: "38%",
+                  height: "80%",
                   backgroundColor: "#cccccc",
                 }}
               />
@@ -55,7 +56,7 @@ function SignatureTemlateK() {
                 >
                   {/* Replace src with your photo */}
                   <img
-                    src="/profile.jpg"
+                    src={imageSrc}
                     alt="Mariana Napolitani"
                     width="110"
                     height="110"
@@ -83,7 +84,9 @@ function SignatureTemlateK() {
                   fontFamily: "'Georgia', serif",
                 }}
               >
-                Mariana Napolitani
+                <b>
+                  {name ? name : 'Your Name'}
+                </b>
               </div>
 
               {/* Title */}
@@ -97,35 +100,10 @@ function SignatureTemlateK() {
                   marginBottom: "14px",
                 }}
               >
-                PROJECT MANAGER
+                {job_title ? job_title : 'Job Title'}
               </div>
 
-              {/* Camera / edit icon circle */}
-              <div
-                style={{
-                  width: "28px",
-                  height: "28px",
-                  borderRadius: "50%",
-                  backgroundColor: "#e8e8e8",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <svg
-                  width="13"
-                  height="13"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#888"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" />
-                  <circle cx="12" cy="13" r="4" />
-                </svg>
-              </div>
+
             </td>
 
             {/* ══════════════════════════════
@@ -134,7 +112,7 @@ function SignatureTemlateK() {
             ══════════════════════════════ */}
             <td
               style={{
-                padding: "30px 28px 30px 36px",
+                padding: "30px 0px 30px 36px",
                 verticalAlign: "top",
               }}
             >
@@ -150,7 +128,7 @@ function SignatureTemlateK() {
                   marginBottom: "4px",
                 }}
               >
-                WARNER &amp; SPENCER
+                {organization ? organization : 'Organization'}
               </div>
 
               {/* Company subtitle */}
@@ -164,7 +142,7 @@ function SignatureTemlateK() {
                   marginBottom: "32px",
                 }}
               >
-                INTERIOR DESIGN
+
               </div>
 
               {/* Contact rows */}
@@ -178,7 +156,7 @@ function SignatureTemlateK() {
                           <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 12.07a19.79 19.79 0 01-3.07-8.64A2 2 0 011.9 1.11h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z" />
                         </svg>
                       ),
-                      text: "+123-456-7890",
+                      text: phone_no || "+123-456-7890",
                     },
                     {
                       icon: (
@@ -187,7 +165,7 @@ function SignatureTemlateK() {
                           <path d="M4 4l6.5 17 2.5-7 7-2.5L4 4z" />
                         </svg>
                       ),
-                      text: "www.reallygreatsite.com",
+                      text: linkedin || "www.reallygreatsite.com",
                     },
                     {
                       icon: (
@@ -197,17 +175,7 @@ function SignatureTemlateK() {
                           <polyline points="22,6 12,13 2,6" />
                         </svg>
                       ),
-                      text: "hello@reallygreatsite.com",
-                    },
-                    {
-                      icon: (
-                        /* Pin */
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                          <circle cx="12" cy="10" r="3" />
-                        </svg>
-                      ),
-                      text: "123 Anywhere St., Any City, ST 12345",
+                      text: email || "youremail@gmail.com",
                     },
                   ].map((item, i) => (
                     <tr key={i}>

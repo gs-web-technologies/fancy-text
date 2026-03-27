@@ -1,6 +1,24 @@
+import Link from 'next/link';
 import React from 'react'
 
-function SignatureTemlateJ() {
+function SignatureTemlateJ({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+    const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";
+    const SocialLinks = [{
+        icon: "f",
+        href: facebook || "https://facebook.com"
+    },
+    {
+        icon: "i",
+        href: instagram || "https://instagram.com"
+    },
+    {
+        icon: "X",
+        href: twitter || "https://twitter.com"
+    },
+    {
+        icon: "ln",
+        href: linkedin || "https://linkedin.com"
+    }];
     return (
         <table
             cellPadding="0"
@@ -27,8 +45,8 @@ function SignatureTemlateJ() {
                                     <td style={{ paddingRight: "14px", verticalAlign: "middle" }}>
                                         <div
                                             style={{
-                                                width: "80px",
-                                                height: "80px",
+                                                width: "150px",
+                                                height: "150px",
                                                 borderRadius: "50%",
                                                 backgroundColor: "#555",
                                                 border: "3px solid #f5a623",
@@ -40,9 +58,9 @@ function SignatureTemlateJ() {
                                         >
                                             {/* Replace src with actual photo */}
                                             <img
-                                                src="https://via.placeholder.com/80"
+                                                src={imageSrc}
                                                 alt="Profile"
-                                                style={{ width: "80px", height: "80px", borderRadius: "50%" }}
+                                                style={{ width: "150px", height: "150px", borderRadius: "50%", objectFit: "cover" }}
                                             />
                                         </div>
                                     </td>
@@ -59,7 +77,7 @@ function SignatureTemlateJ() {
                                                 textTransform: "uppercase",
                                             }}
                                         >
-                                            YOUR NAME
+                                            {name ? name : 'Your Name'}
                                         </p>
                                         <p
                                             style={{
@@ -69,33 +87,35 @@ function SignatureTemlateJ() {
                                                 letterSpacing: "0.5px",
                                             }}
                                         >
-                                            Your Position
+                                            {job_title ? job_title : 'Job Title'}
                                         </p>
 
                                         {/* Social icons row */}
                                         <table cellPadding="0" cellSpacing="0">
                                             <tbody>
                                                 <tr>
-                                                    {["f", "in", "t", "be"].map((icon, i) => (
+                                                    {SocialLinks.map((s, i) => (
                                                         <td key={i} style={{ paddingRight: "6px" }}>
-                                                            <div
-                                                                style={{
-                                                                    width: "22px",
-                                                                    height: "22px",
-                                                                    backgroundColor: "#f5a623",
-                                                                    borderRadius: "50%",
-                                                                    display: "flex",
-                                                                    alignItems: "center",
-                                                                    justifyContent: "center",
-                                                                    fontSize: "10px",
-                                                                    color: "#2b2b2b",
-                                                                    fontWeight: "bold",
-                                                                    textAlign: "center",
-                                                                    lineHeight: "22px",
-                                                                }}
-                                                            >
-                                                                {icon}
-                                                            </div>
+                                                            <Link href={s.href}>
+                                                                <div
+                                                                    style={{
+                                                                        width: "22px",
+                                                                        height: "22px",
+                                                                        backgroundColor: "#f5a623",
+                                                                        borderRadius: "50%",
+                                                                        display: "flex",
+                                                                        alignItems: "center",
+                                                                        justifyContent: "center",
+                                                                        fontSize: "10px",
+                                                                        color: "#2b2b2b",
+                                                                        fontWeight: "bold",
+                                                                        textAlign: "center",
+                                                                        lineHeight: "22px",
+                                                                    }}
+                                                                >
+                                                                    {s.icon}
+                                                                </div>
+                                                            </Link>
                                                         </td>
                                                     ))}
                                                 </tr>
@@ -131,7 +151,7 @@ function SignatureTemlateJ() {
                                                         Phone:
                                                     </td>
                                                     <td style={{ fontSize: "11px", color: "#cccccc" }}>
-                                                        123-456-7890
+                                                        {phone_no ? phone_no : "123-456-7890"}
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -155,7 +175,7 @@ function SignatureTemlateJ() {
                                                         Email:
                                                     </td>
                                                     <td style={{ fontSize: "11px", color: "#cccccc" }}>
-                                                        your mail Here
+                                                        {email ? email : "your mail Here"}
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -176,31 +196,10 @@ function SignatureTemlateJ() {
                                                             whiteSpace: "nowrap",
                                                         }}
                                                     >
-                                                        Address:
+                                                        Organization:
                                                     </td>
                                                     <td style={{ fontSize: "11px", color: "#cccccc" }}>
-                                                        123 your address
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <table cellPadding="0" cellSpacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td
-                                                        style={{
-                                                            fontSize: "11px",
-                                                            color: "#f5a623",
-                                                            fontWeight: "bold",
-                                                            paddingRight: "8px",
-                                                        }}
-                                                    />
-                                                    <td style={{ fontSize: "11px", color: "#cccccc" }}>
-                                                        State, City, 1234
+                                                        { organization ? organization : "Organization" }
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -211,39 +210,6 @@ function SignatureTemlateJ() {
                         </table>
                     </td>
 
-                    {/* LOGO area */}
-                    <td
-                        style={{
-                            padding: "18px 20px",
-                            verticalAlign: "top",
-                            textAlign: "right",
-                            whiteSpace: "nowrap",
-                        }}
-                    >
-                        <p
-                            style={{
-                                margin: "0",
-                                fontSize: "16px",
-                                fontWeight: "bold",
-                                color: "#ffffff",
-                                letterSpacing: "2px",
-                                textTransform: "uppercase",
-                            }}
-                        >
-                            LOGO HERE
-                        </p>
-                        <p
-                            style={{
-                                margin: "2px 0 0 0",
-                                fontSize: "9px",
-                                color: "#888888",
-                                letterSpacing: "1px",
-                                textTransform: "uppercase",
-                            }}
-                        >
-                            TAGLINE HERE
-                        </p>
-                    </td>
                 </tr>
 
                 {/* BOTTOM SECTION: disclaimer + social icons */}
@@ -265,8 +231,7 @@ function SignatureTemlateJ() {
                                 lineHeight: "1.5",
                             }}
                         >
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                            euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                           Powered by thynktales
                         </p>
                     </td>
                     <td
@@ -280,7 +245,7 @@ function SignatureTemlateJ() {
                         <table cellPadding="0" cellSpacing="0" style={{ marginLeft: "auto" }}>
                             <tbody>
                                 <tr>
-                                    {["f", "in", "t", "be"].map((icon, i) => (
+                                    {SocialLinks.map((s, i) => (
                                         <td key={i} style={{ paddingLeft: "5px" }}>
                                             <div
                                                 style={{
@@ -295,7 +260,7 @@ function SignatureTemlateJ() {
                                                     lineHeight: "24px",
                                                 }}
                                             >
-                                                {icon}
+                                                {s.icon}
                                             </div>
                                         </td>
                                     ))}
