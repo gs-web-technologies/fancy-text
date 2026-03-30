@@ -1,7 +1,8 @@
 "use client";
 import React, { useRef, useState } from 'react'
 
-function SingleSignatureCard({ CardComponent, formValues, selectedFile }) {
+function SingleSignatureCard({ CardComponent, formValues, selectedFile, issubmitted }) {
+    
     const [status, setStatus] = useState('idle');
     const signatureRef = useRef(null);
     const handleCopy = async () => {
@@ -33,7 +34,7 @@ function SingleSignatureCard({ CardComponent, formValues, selectedFile }) {
     return (
         <div className="min-w-full group relative">
 
-            <div className="mb-2 flex items-center gap-3">
+           {issubmitted && <div className="mb-2 flex items-center gap-3">
                 <button
                     onClick={handleCopy}
                     style={{
@@ -73,7 +74,7 @@ function SingleSignatureCard({ CardComponent, formValues, selectedFile }) {
                         Go to email settings → Signature → Paste (Ctrl+V)
                     </p>
                 )}
-            </div>
+            </div>}
 
             {/* The rendered signature — ref captures its HTML */}
             <div ref={signatureRef} style={{ display: 'inline-block' }}>

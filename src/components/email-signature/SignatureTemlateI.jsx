@@ -142,7 +142,7 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                         }}
                                     >
                                         {/* Outer teal ring */}
-                                        <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "140px", height: "140px", borderRadius: "50%", backgroundColor: "#00bcd4", margin: "0 auto", position: "relative" }}>
+                                        <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "128px", height: "128px", borderRadius: "50%", backgroundColor: "#00bcd4", margin: "0 auto", position: "relative" }}>
                                             <tbody>
                                                 <tr>
                                                     <td style={{ textAlign: "center", verticalAlign: "middle", position: "relative" }}>

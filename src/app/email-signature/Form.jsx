@@ -68,27 +68,7 @@ const schema = z.object({
 
 
 });
-const onSubmit = async (formdata) => {
-    setLoading(true);
-    try {
-        const res = await fetch('/api/submit', {
-            method: "POST",
-            header: { "Content/type": "application/json" },
-            body: JSON.stringify(formdata)
-        });
 
-        const result = await res.json();
-        if (res.success) {
-            setSubmitted(true);
-
-        }
-        // reset();
-    } catch (err) {
-        console.log(err);
-    } finally {
-        setLoading(false);
-    }
-}
 
 function Form() {
     const { register, setValue, handleSubmit, reset, watch, formState: { errors } } = useForm({ resolver: zodResolver(schema) });
@@ -98,6 +78,28 @@ function Form() {
     const formValues = watch();
     const [selectedFile, SetSelectedFile] = useState();
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 2500 })]);
+    const onSubmit = async (formdata) => {
+        setLoading(true);
+        try {
+            const res = await fetch('/api/submit', {
+                method: "POST",
+                header: { "Content/type": "application/json" },
+                body: JSON.stringify(formdata)
+            });
+
+            const result = await res.json();
+            if (res.success) {
+                setSubmitted(true);
+                console.log(issubmitted);
+
+            }
+            // reset();
+        } catch (err) {
+            console.log(err);
+        } finally {
+            setLoading(false);
+        }
+    }
 
     return (
         <div className="grid grid-cols-3 gap-1">
@@ -204,7 +206,7 @@ function Form() {
                 </form>
             </div>
 
-            <Signatures formValues={formValues} selectedFile={selectedFile} />
+            <Signatures formValues={formValues} selectedFile={selectedFile} issubmitted={issubmitted} />
 
         </div>
     )
