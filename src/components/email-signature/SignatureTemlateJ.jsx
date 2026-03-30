@@ -16,7 +16,7 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
         href: twitter || "https://twitter.com"
     },
     {
-        icon: "ln",
+        icon: "in",
         href: linkedin || "https://linkedin.com"
     }];
     return (
@@ -199,7 +199,7 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                                                         Organization:
                                                     </td>
                                                     <td style={{ fontSize: "11px", color: "#cccccc" }}>
-                                                        { organization ? organization : "Organization" }
+                                                        {organization ? organization : "Organization"}
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -231,7 +231,7 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                                 lineHeight: "1.5",
                             }}
                         >
-                           Powered by thynktales
+                            Powered by thynktales
                         </p>
                     </td>
                     <td
@@ -247,21 +247,23 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                                 <tr>
                                     {SocialLinks.map((s, i) => (
                                         <td key={i} style={{ paddingLeft: "5px" }}>
-                                            <div
-                                                style={{
-                                                    width: "24px",
-                                                    height: "24px",
-                                                    backgroundColor: "#f5a623",
-                                                    borderRadius: "50%",
-                                                    fontSize: "10px",
-                                                    color: "#2b2b2b",
-                                                    fontWeight: "bold",
-                                                    textAlign: "center",
-                                                    lineHeight: "24px",
-                                                }}
-                                            >
-                                                {s.icon}
-                                            </div>
+                                            <Link href={s.href}>
+                                                <div
+                                                    style={{
+                                                        width: "24px",
+                                                        height: "24px",
+                                                        backgroundColor: "#f5a623",
+                                                        borderRadius: "50%",
+                                                        fontSize: "10px",
+                                                        color: "#2b2b2b",
+                                                        fontWeight: "bold",
+                                                        textAlign: "center",
+                                                        lineHeight: "24px",
+                                                    }}
+                                                >
+                                                    {s.icon}
+                                                </div>
+                                            </Link>
                                         </td>
                                     ))}
                                 </tr>

@@ -213,6 +213,11 @@ function SignatureTemlateT({ name, email, job_title, phone_no, organization, log
                     </table>
                   </td>
                 </tr>
+                <tr>
+                     <td style={{ textAlign: "right", fontSize: "10px", color: "#1abc9c" }}>
+                  <i>Powered by <strong>thynktales</strong></i>
+                </td>
+                  </tr>
 
               </tbody>
             </table>
@@ -243,6 +248,7 @@ function SignatureTemlateT({ name, email, job_title, phone_no, organization, log
             </table>
           </td>
         </tr>
+        
       </tbody>
     </table>
   );

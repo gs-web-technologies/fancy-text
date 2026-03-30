@@ -28,10 +28,10 @@ function SignatureTemlateM({ name, email, job_title, phone_no, organization, log
     },
     {
       label: 'linkedIn',
-      icon: (  <svg width="13" height="13" viewBox="0 0 24 24" fill="white">
-                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-                        <circle cx="4" cy="4" r="2" fill="white" />
-                      </svg>),
+      icon: (<svg width="13" height="13" viewBox="0 0 24 24" fill="white">
+        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+        <circle cx="4" cy="4" r="2" fill="white" />
+      </svg>),
       href: linkedin || 'https://linkedin.com',
     }
   ]
@@ -200,6 +200,8 @@ function SignatureTemlateM({ name, email, job_title, phone_no, organization, log
                 backgroundColor: "#ffffff",
                 padding: "10px 22px 10px 24px",
                 borderTop: "1px solid #eeeeee",
+                verticalAlign: "middle",
+                width: "70%"
               }}
             >
               <table cellPadding="0" cellSpacing="0">
@@ -218,10 +220,18 @@ function SignatureTemlateM({ name, email, job_title, phone_no, organization, log
                         </svg>
                       </div>
                     </td>
-                    <td style={{ verticalAlign: "middle" }}>
+                    <td style={{ verticalAlign: "middle", display: "flex" }}>
                       <span style={{ fontSize: "11.5px", color: "#555555" }}>
                         {organization ? organization : 'Organization'}
                       </span>
+
+                     </td>
+                     <td style={{ textAlign: "right"  }}>
+                      <div style={{ verticalAlign: "middle", display: "flex", textAlign: "right", marginLeft: "142px" }}>
+                        <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>thynktales</strong></i></span>
+                      </div>
+
+
                     </td>
                   </tr>
                 </tbody>

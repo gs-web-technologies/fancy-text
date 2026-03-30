@@ -209,17 +209,27 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                     <tr>
                       {SocialLinks.map((s, i) => (
                         <td key={i} style={{ paddingRight: i < 2 ? "10px" : "0" }}>
-                          <Link href={s.href} style={{
+                          <div style={{
                             display: "inline-flex", alignItems: "center", justifyContent: "center",
                             width: "26px", height: "26px", borderRadius: "50%",
                             backgroundColor: "rgba(255,255,255,0.4)",
                             textDecoration: "none",
                           }}>
-                            {s.icon}
-                          </Link>
+
+                            <Link href={s.href}>
+                              {s.icon}
+                            </Link>
+                          </div>
                         </td>
                       ))}
+                      <td style={{ textAlign: "right", paddingLeft:"70px"}}>
+                        <div style={{ textAlign: "right", fontSize: "10px", color: "white" }}>
+                          <i>Powered by <strong>thynktales</strong></i>
+                        </div>
+                      </td>
+
                     </tr>
+
                   </tbody>
                 </table>
               </div>

@@ -107,6 +107,10 @@ function SignatureTemlateS({ name, email, job_title, phone_no, organization, log
                 }}
               />
             </div>
+    
+                               <div style={{ textAlign: "right", fontSize: "10px", color: "#1a2a4a"}}>
+                  <i>Powered by <strong>thynktales</strong></i>
+                </div>
           </td>
 
           {/* CENTER: Name + contact info */}

@@ -82,6 +82,7 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                         }}
                       />
                     </div>
+
                   </td>
                 </tr>
                 {/* Filler to push photo to bottom */}
@@ -90,6 +91,9 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                 </tr>
               </tbody>
             </table>
+            <td style={{  fontSize: "10px", color: "white", padding:"4px 12px" }}>
+              <i>Powered by <strong>thynktales</strong></i>
+            </td>
           </td>
 
           {/* CENTER: Main info */}
@@ -117,12 +121,12 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                           <td
                             style={{
                               fontSize: "12px",
-                               color: "#38c9c0",
+                              color: "#38c9c0",
                               fontStyle: "italic",
                               fontFamily: "Georgia, serif",
                             }}
                           >
-                           { job_title ? job_title : 'Job Title' }
+                            {job_title ? job_title : 'Job Title'}
                           </td>
                         </tr>
                       </tbody>
@@ -149,7 +153,7 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                   </td>
                 </tr>
 
-             
+
 
                 {/* Email */}
                 <tr>
@@ -345,7 +349,7 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                       }}
                     >
                       <Link href={item.href}>
-                      {item.svg}
+                        {item.svg}
                       </Link>
                     </td>
                   </tr>

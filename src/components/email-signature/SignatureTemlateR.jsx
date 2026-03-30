@@ -224,7 +224,8 @@ function SignatureTemlateR({ name, email, job_title, phone_no, organization, log
                 letterSpacing: "1.5px", textTransform: "uppercase", lineHeight: "1.3",
               }}>
                {organization ? organization : 'Organization'}
-              </div>
+
+              
 
               {/* Tagline */}
               
@@ -234,6 +235,10 @@ function SignatureTemlateR({ name, email, job_title, phone_no, organization, log
                 height: "2px", width: "28px", backgroundColor: "#e8192c",
                 borderRadius: "2px", margin: "8px auto 0 auto",
               }} />
+                </div>
+                               <div style={{ textAlign: "right", fontSize: "10px", color: "#e8192c", margin:"3px 2px" }}>
+                  <i>Powered by <strong>thynktales</strong></i>
+                </div>
             </td>
 
             {/* FAR RIGHT red bar */}

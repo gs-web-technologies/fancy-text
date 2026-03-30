@@ -234,6 +234,12 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                       </tbody>
                     </table>
                   </td>
+                  <td>
+              <div>
+                <span style={{ color: "white", fontSize: "10px" }}><i>Powered by <strong>thynktales</strong></i></span>
+              </div>
+            </td>
+
                 </tr>
               </tbody>
             </table>

@@ -4,7 +4,7 @@ import React from 'react'
 function SignatureTemlateO({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
   const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
   return (
-    <div style={{ backgroundColor: "#ffffff",width: "480px", padding: "30px", display: "flex", justifyContent: "center" }}>
+    <div style={{ backgroundColor: "#ffffff", width: "480px", padding: "30px", display: "flex", justifyContent: "center" }}>
       <table
         cellPadding="0"
         cellSpacing="0"
@@ -71,6 +71,14 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                   }}
                 />
               </div>
+              <table style={{ margin:"5px" }}>
+                <tr>
+
+                  <td style={{ textAlign: "right", fontSize: "10px", color: "black" }}>
+                    <i>Powered by <strong>thynktales</strong></i>
+                  </td>
+                </tr>
+              </table>
             </td>
 
             {/* Info column */}

@@ -103,6 +103,11 @@ function SignatureTemlateK({ name, email, job_title, phone_no, organization, log
                 {job_title ? job_title : 'Job Title'}
               </div>
 
+              <div>
+                <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>thynktales</strong></i></span>
+              </div>
+
+
 
             </td>
 

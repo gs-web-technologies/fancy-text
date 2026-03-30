@@ -7,12 +7,12 @@ function SignatureTemlateP({ name, email, job_title, phone_no, organization, log
       label: "Facebook",
       href: facebook || "https://facebook.com",
       icon: (<svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>),
-    }, 
+    },
     {
       label: "Instagram",
       href: instagram || "https://instagram.com",
       icon: (<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>),
-    }, 
+    },
     {
       label: "X",
       href: twitter || "https://x.com",
@@ -236,7 +236,7 @@ function SignatureTemlateP({ name, email, job_title, phone_no, organization, log
                 marginBottom: "18px",
                 fontWeight: "500",
               }}>
-                { job_title ? job_title : 'Job Title' }
+                {job_title ? job_title : 'Job Title'}
               </div>
 
               {/* Thin red divider */}
@@ -311,11 +311,17 @@ function SignatureTemlateP({ name, email, job_title, phone_no, organization, log
                       </td>
                     </tr>
                   ))}
+                  <tr>
+                    <td style={{ textAlign: "right", fontSize: "10px", color: "white" }}>
+                      <i>Powered by <strong>thynktales</strong></i>
+                    </td>
+                  </tr>
+
                 </tbody>
               </table>
 
               {/* Dot pattern decoration — bottom right */}
-              <div style={{ textAlign: "right", marginTop: "4px" }}>
+              {/* <div style={{ textAlign: "right", marginTop: "4px" }}>
                 {[0].map(row => (
                   <div key={row} style={{ marginBottom: "4px" }}>
                     {[0, 1, 2, 3].map(col => (
@@ -329,7 +335,7 @@ function SignatureTemlateP({ name, email, job_title, phone_no, organization, log
                     ))}
                   </div>
                 ))}
-              </div>
+              </div> */}
             </td>
 
           </tr>
