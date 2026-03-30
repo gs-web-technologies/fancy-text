@@ -1,3 +1,4 @@
+import { POWERED_BY } from '@/utils/const';
 import React from 'react'
 
 function SignatureTemlateE({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
@@ -280,7 +281,7 @@ function SignatureTemlateE({ name, email, job_title, phone_no, organization, log
                                         </span>
 
                                         <div>
-                                            <span style={{ color: "white", fontSize: "10px", marginRight:"5rem" }}><i>Powered by <strong>thynktales</strong></i></span>
+                                            <span style={{ color: "white", fontSize: "10px", marginRight:"5rem" }}><i>Powered by <strong>{ POWERED_BY }</strong></i></span>
                                         </div>
                                     </div>
                                 </a>

@@ -1,3 +1,4 @@
+import { POWERED_BY } from '@/utils/const';
 import Link from 'next/link';
 import React from 'react'
 
@@ -224,7 +225,7 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                       ))}
                       <td style={{ textAlign: "right", paddingLeft:"70px"}}>
                         <div style={{ textAlign: "right", fontSize: "10px", color: "white" }}>
-                          <i>Powered by <strong>thynktales</strong></i>
+                          <i>Powered by <strong>{POWERED_BY}</strong></i>
                         </div>
                       </td>
 

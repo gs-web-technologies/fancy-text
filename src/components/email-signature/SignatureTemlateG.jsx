@@ -1,3 +1,4 @@
+import { POWERED_BY } from '@/utils/const';
 import React from 'react'
 
 function SignatureTemlateG({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
@@ -118,7 +119,7 @@ function SignatureTemlateG({ name, email, job_title, phone_no, organization, log
                                 <span style={{ color: "#64748b" }}>{job_title ? job_title : 'CA'}</span>
                             </div>
                             <div>
-                                <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>thynktales</strong></i></span>
+                                <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>{ POWERED_BY }</strong></i></span>
                             </div>
                         </td>
                     </tr>

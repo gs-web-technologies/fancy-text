@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { POWERED_BY } from '@/utils/const';
 
 function SignatureTemlateA({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
     const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";
@@ -391,7 +392,7 @@ function SignatureTemlateA({ name, email, job_title, phone_no, organization, log
                 }}
             >
                 <div>
-                    <span style={{ color:"white", fontSize:"10px" }}><i>Powered by <strong>thynktales</strong></i></span>
+                    <span style={{ color:"white", fontSize:"10px" }}><i>Powered by <strong>{ POWERED_BY }</strong></i></span>
                 </div>
                 <div style={{
                     padding: "8px 18px",

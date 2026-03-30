@@ -1,3 +1,4 @@
+import { POWERED_BY } from '@/utils/const';
 import React from 'react'
 
 function Secound({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
@@ -84,7 +85,7 @@ function Secound({ name, email, job_title, phone_no, organization, logo, linkedi
                 />
               </div>
               <div style={{ display:"flex" , marginTop:"5px" , justifyContent: "center" }}>
-                <span style={{ color: "white", fontSize: "10px" }}><i>Powered by <strong>thynktales</strong></i></span>
+                <span style={{ color: "white", fontSize: "10px" }}><i>Powered by <strong>{ POWERED_BY }</strong></i></span>
               </div>
             </td>
 

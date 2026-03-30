@@ -1,3 +1,4 @@
+import { POWERED_BY } from '@/utils/const';
 import Link from 'next/link';
 import React from 'react'
 
@@ -236,7 +237,7 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                   </td>
                   <td>
               <div>
-                <span style={{ color: "white", fontSize: "10px" }}><i>Powered by <strong>thynktales</strong></i></span>
+                <span style={{ color: "white", fontSize: "10px" }}><i>Powered by <strong>{POWERED_BY}</strong></i></span>
               </div>
             </td>
 

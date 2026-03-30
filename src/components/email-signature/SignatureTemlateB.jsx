@@ -1,3 +1,4 @@
+import { POWERED_BY } from '@/utils/const';
 import React, { Fragment } from 'react'
 
 function SignatureTemlateB({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
@@ -131,7 +132,7 @@ function SignatureTemlateB({ name, email, job_title, phone_no, organization, log
                 </div>
               </div>
               <div>
-                <span style={{ color: "white", fontSize: "10px", padding: "0px 12px", }}><i>Powered by <strong>thynktales</strong></i></span>
+                <span style={{ color: "white", fontSize: "10px", padding: "0px 12px", }}><i>Powered by <strong>{ POWERED_BY }</strong></i></span>
               </div>
             </td>
 

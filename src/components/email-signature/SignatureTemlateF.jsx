@@ -1,3 +1,4 @@
+import { POWERED_BY } from '@/utils/const';
 import React from 'react'
 
 function SignatureTemlateF({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
@@ -182,7 +183,7 @@ function SignatureTemlateF({ name, email, job_title, phone_no, organization, log
                         </tbody>
                       </table>
                        <div>
-                                    <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>thynktales</strong></i></span>
+                                    <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>{ POWERED_BY }</strong></i></span>
                                 </div>
                     </td>
                   </tr>

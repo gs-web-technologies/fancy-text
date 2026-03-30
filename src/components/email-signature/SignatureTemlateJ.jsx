@@ -1,3 +1,4 @@
+import { POWERED_BY } from '@/utils/const';
 import Link from 'next/link';
 import React from 'react'
 
@@ -231,7 +232,7 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                                 lineHeight: "1.5",
                             }}
                         >
-                            Powered by thynktales
+                            Powered by {POWERED_BY}
                         </p>
                     </td>
                     <td

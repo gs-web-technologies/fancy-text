@@ -1,3 +1,4 @@
+import { POWERED_BY } from '@/utils/const';
 import React from 'react'
 
 function SignatureTemlateP({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
@@ -313,7 +314,7 @@ function SignatureTemlateP({ name, email, job_title, phone_no, organization, log
                   ))}
                   <tr>
                     <td style={{ textAlign: "right", fontSize: "10px", color: "white" }}>
-                      <i>Powered by <strong>thynktales</strong></i>
+                      <i>Powered by <strong>{POWERED_BY}</strong></i>
                     </td>
                   </tr>
 
