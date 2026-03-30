@@ -19,39 +19,35 @@ import SignatureTemlateQ from "@/components/email-signature/SignatureTemlateQ";
 import SignatureTemlateR from "@/components/email-signature/SignatureTemlateR";
 import SignatureTemlateS from "@/components/email-signature/SignatureTemlateS";
 import SignatureTemlateT from "@/components/email-signature/SignatureTemlateT";
+import SingleSignatureCard from './SingleSignatureCard';
 
 function Signatures({ formValues, selectedFile }) {
+    const templates = [
+        SignatureTemlateA, SignatureTemlateB, SignatureTemlateC, SignatureTemlateD,
+        SignatureTemlateE, SignatureTemlateF, SignatureTemlateG, Secound,
+        SignatureTemlateI, SignatureTemlateJ, SignatureTemlateK, SignatureTemlateL,
+        SignatureTemlateM, SignatureTemlateN, SignatureTemlateO, SignatureTemlateP,
+        SignatureTemlateQ, SignatureTemlateR, SignatureTemlateS, SignatureTemlateT,
+    ];
     return (
         <div>
             {formValues && (
-                <div className=" justify-center items-center">
-                    <div className="">
-                        <div className="flex flex-wrap gap-2">
-
-                            {[SignatureTemlateA, SignatureTemlateB, SignatureTemlateC, SignatureTemlateD, SignatureTemlateE, SignatureTemlateF, SignatureTemlateG, Secound, SignatureTemlateI, SignatureTemlateJ, SignatureTemlateK, SignatureTemlateL, SignatureTemlateM, SignatureTemlateN, SignatureTemlateO, SignatureTemlateP, SignatureTemlateQ, SignatureTemlateR, SignatureTemlateS, SignatureTemlateT].map(
-                                (CardComponent, index) => (
-                                    <div className="min-w-full" key={index}>
-                                        <CardComponent
-                                            name={formValues.full_name}
-                                            email={formValues.email}
-                                            job_title={formValues.job_title}
-                                            phone_no={formValues.phone_no}
-                                            organization={formValues.organization_name}
-                                            logo={selectedFile}
-                                            linkedin={formValues.linkedin}
-                                            instagram={formValues.instagram}
-                                            twitter={formValues.twitter}
-                                            facebook={formValues.facebook}
-                                        />
-                                    </div>
-                                )
-                            )}
-
-                        </div>
-
+                <div className="justify-center items-center">
+                    <div className="flex flex-wrap gap-4">
+                        {
+                            templates.map((CardComponet, index) => {
+                                return (
+                                    <SingleSignatureCard
+                                        key={index}
+                                        CardComponent={CardComponet}
+                                        formValues={formValues}
+                                        selectedFile={selectedFile}
+                                    />
+                                );
+                            })
+                        }
                     </div>
                 </div>
-
             )}
         </div>
     );
