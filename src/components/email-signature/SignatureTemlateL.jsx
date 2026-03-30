@@ -184,21 +184,9 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                                 justifyContent: "center",
                               }}
                             >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="#333333"
-                                strokeWidth="1.8"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              >
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                                <circle cx="12" cy="12" r="4" />
-                                <circle cx="17.5" cy="6.5" r="0.8" fill="#333333" stroke="none" />
-                              </svg>
+                              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="100%" height="100%" style={{
+                                display: "block"
+                              }} />
                             </div>
                           </td>
 
@@ -214,19 +202,9 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                                   justifyContent: "center",
                                 }}
                               >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="20"
-                                  height="20"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="#333333"
-                                  strokeWidth="1.8"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                >
-                                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                                </svg>
+                                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="100%" height="100%" style={{
+                                  display: "block"
+                                }} />
                               </div>
                             </Link>
                           </td>
@@ -236,10 +214,10 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                     </table>
                   </td>
                   <td>
-              <div>
-                <span style={{ color: "white", fontSize: "10px" }}><i>Powered by <strong>{POWERED_BY}</strong></i></span>
-              </div>
-            </td>
+                    <div>
+                      <span style={{ color: "white", fontSize: "10px" }}><i>Powered by <strong>{POWERED_BY}</strong></i></span>
+                    </div>
+                  </td>
 
                 </tr>
               </tbody>

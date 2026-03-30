@@ -184,9 +184,8 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                           textDecoration: "none",
                         }}
                       >
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="white">
-                          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-                        </svg>
+                       <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="13" height="13" style={{
+  display: "block" }} />
                       </Link>
                     </td>
                     {/* Twitter / X */}
@@ -200,13 +199,12 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                           width: "28px",
                           height: "28px",
                           borderRadius: "50%",
-                          backgroundColor: "#1da1f2",
+                          border: "2px solid #1da1f2",
+                          backgroundColor: "white",
                           textDecoration: "none",
                         }}
                       >
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="white">
-                          <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-                        </svg>
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="13" height="13" style={{ display: "block" }} />
                       </Link>
                     </td>
                     <td style={{ paddingRight: "8px" }}>
@@ -224,9 +222,8 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                           textDecoration: "none",
                         }}
                       >
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="white">
-                          <path d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5C19.43 22 22 19.43 22 16.25v-8.5C22 4.57 19.43 2 16.25 2h-8.5zm0 2h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5A3.75 3.75 0 0 1 7.75 4zm8.75 1.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" />
-                        </svg>
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="13" height="13" style={{ display: "block"
+  }} />
                       </Link>
                     </td>
                     <td style={{ paddingRight: "8px" }}>
@@ -240,13 +237,12 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                           width: "28px",
                           height: "28px",
                           borderRadius: "50%",
-                          backgroundColor: "#0A66C2",
+                          backgroundColor: "white",
+                          border: "2px solid #0A66C2",
                           textDecoration: "none",
                         }}
                       >
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="white">
-                          <path d="M19 0h-14C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.56a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM20.45 20.45h-3.56v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96v5.7H9.3V9h3.41v1.56h.05c.48-.9 1.66-1.85 3.42-1.85 3.66 0 4.34 2.41 4.34 5.54v6.2z" />
-                        </svg>
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="13" height="13" style={{ display: "block" }} />
                       </Link>
                     </td>
 

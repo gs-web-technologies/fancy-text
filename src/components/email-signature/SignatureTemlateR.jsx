@@ -6,38 +6,29 @@ function SignatureTemlateR({ name, email, job_title, phone_no, organization, log
   const SocialLinks = [
     {
       label: "facebook",
-      icon: (<svg width="10" height="10" viewBox="0 0 24 24" fill="white">
-        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-      </svg>
-),
+      icon: (<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="13" height="13" style={{
+        display: "block"
+      }} />
+      ),
       href: facebook || "https://facebook.com",
     },
     {
       label: "instagram",
-      icon: (<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round"
-        strokeLinejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" />
-        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-      </svg>
+      icon: (<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="13" height="13" style={{
+        display: "block"
+      }} />
       ),
       href: instagram || "https://instagram.com"
     },
     {
       label: "twitter",
-      icon: (<svg width="10" height="10" viewBox="0 0 24 24" fill="white">
-        <path
-          d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-      </svg>
+      icon: (<img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="13" height="13" style={{ display: "block" }} />
       ),
       href: twitter || "https://x.com",
     },
     {
       label: "linkedIn",
-      icon: (<svg width="10" height="10" viewBox="0 0 24 24" fill="white">
-        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-        <circle cx="4" cy="4" r="2" fill="white" />
-      </svg>
+      icon: (<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="13" height="13" style={{ display: "block" }} />
       ),
       href: linkedin || "https://linkedin.com"
     }
@@ -205,41 +196,48 @@ function SignatureTemlateR({ name, email, job_title, phone_no, organization, log
               }}
             >
               {/* Company logo icon */}
-              <div style={{
-                width: "44px", height: "44px", borderRadius: "10px",
-                backgroundColor: "#e8192c",
-                display: "inline-flex", alignItems: "center", justifyContent: "center",
-                marginBottom: "8px",
-              }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="3" width="8" height="8" rx="1.5" fill="white" opacity="0.9" />
-                  <rect x="13" y="3" width="8" height="8" rx="1.5" fill="white" opacity="0.6" />
-                  <rect x="3" y="13" width="8" height="8" rx="1.5" fill="white" opacity="0.6" />
-                  <rect x="13" y="13" width="8" height="8" rx="1.5" fill="white" opacity="0.3" />
-                </svg>
-              </div>
+              <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", margin: "0 auto 8px auto" }}>
+                <tbody>
+                  <tr>
+                    <td style={{ width: "44px", height: "44px", borderRadius: "10px", backgroundColor: "#e8192c", textAlign: "center", verticalAlign: "middle" }}>
+                      <img
+                        src="https://img.icons8.com/ios-filled/50/ffffff/windows-10.png"
+                        width="22"
+                        height="22"
+                        alt="logo"
+                        style={{ display: "block", margin: "0 auto" }}
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
 
               {/* Company name */}
-              <div style={{
-                fontSize: "12px", fontWeight: "800", color: "#1a1a1a",
-                letterSpacing: "1.5px", textTransform: "uppercase", lineHeight: "1.3",
-              }}>
-               {organization ? organization : 'Organization'}
+              <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", margin: "0 auto" }}>
+                <tbody>
+                  <tr>
+                    <td style={{ fontSize: "12px", fontWeight: "800", color: "#1a1a1a", letterSpacing: "1.5px", textTransform: "uppercase", lineHeight: "1.3", textAlign: "center" }}>
+                      {organization ? organization : 'Organization'}
+                    </td>
+                  </tr>
 
-              
+                  {/* Red accent line */}
+                  <tr>
+                    <td style={{ textAlign: "center", paddingTop: "8px" }}>
+                      <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", height: "2px", width: "28px", backgroundColor: "#e8192c", borderRadius: "2px", margin: "0 auto" }}>
+                        <tbody><tr><td></td></tr></tbody>
+                      </table>
+                    </td>
+                  </tr>
 
-              {/* Tagline */}
-              
-
-              {/* Red accent line */}
-              <div style={{
-                height: "2px", width: "28px", backgroundColor: "#e8192c",
-                borderRadius: "2px", margin: "8px auto 0 auto",
-              }} />
-                </div>
-                               <div style={{ textAlign: "right", fontSize: "10px", color: "#e8192c", margin:"3px 2px" }}>
-                  <i>Powered by <strong>{POWERED_BY}</strong></i>
-                </div>
+                  {/* Powered by */}
+                  <tr>
+                    <td style={{ textAlign: "right", fontSize: "10px", color: "#e8192c", paddingTop: "3px" }}>
+                      <i>Powered by <strong>{POWERED_BY}</strong></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </td>
 
             {/* FAR RIGHT red bar */}

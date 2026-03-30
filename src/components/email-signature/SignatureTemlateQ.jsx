@@ -7,28 +7,25 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
   const SocialLinks = [
     {
       label: "facebook",
-      icon: (<svg width="11" height="11" viewBox="0 0 24 24" fill="#1a1a1a">
-        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-      </svg>),
+      icon: (
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="13" height="13" style={{
+          display: "block"
+        }} />
+      ),
       href: facebook || "https://facebook.com",
     },
     {
       label: "Instagram",
-      icon: (<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="2"
-        strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" />
-        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-      </svg>),
+      icon: (
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="13" height="13" style={{
+          display: "block"
+        }} />),
       href: instagram || "https://Instagram.com",
     },
     {
       label: "Twitter",
       icon: (
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="#1a1a1a">
-          <path
-            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-        </svg>
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="13" height="13" style={{ display: "block" }} />
       ),
       href: twitter || "https://twitter.com",
     }
@@ -145,28 +142,22 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                     {[
                       {
                         icon: (
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f5c518" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 12.07a19.79 19.79 0 01-3.07-8.64A2 2 0 011.9 1.11h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z" />
-                          </svg>
+                          <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="13" height="13" style={{ display: "block" }} />
+
                         ),
                         text: phone_no || "+0 1234 567890",
                       },
                       {
                         icon: (
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f5c518" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                            <circle cx="12" cy="12" r="10" />
-                            <line x1="2" y1="12" x2="22" y2="12" />
-                            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
-                          </svg>
+                          <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" width="13" height="13" style={{
+                            display: "block"
+                          }} />
                         ),
                         text: linkedin || "your linkedin",
                       },
                       {
                         icon: (
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f5c518" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                            <circle cx="12" cy="10" r="3" />
-                          </svg>
+                          <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="13" height="13" style={{ display: "block" }} />
                         ),
                         text: organization || "organization",
                       },
@@ -223,7 +214,7 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                           </div>
                         </td>
                       ))}
-                      <td style={{ textAlign: "right", paddingLeft:"70px"}}>
+                      <td style={{ textAlign: "right", paddingLeft: "70px" }}>
                         <div style={{ textAlign: "right", fontSize: "10px", color: "white" }}>
                           <i>Powered by <strong>{POWERED_BY}</strong></i>
                         </div>

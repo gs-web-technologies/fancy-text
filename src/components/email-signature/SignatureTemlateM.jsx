@@ -6,33 +6,24 @@ function SignatureTemlateM({ name, email, job_title, phone_no, organization, log
   const SocialLinks = [
     {
       label: 'X',
-      icon: (<svg width="13" height="13" viewBox="0 0 24 24" fill="white">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>),
+      icon: (<img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="13" height="13" style={{ display: "block" }} />),
       href: twitter || 'https://x.com',
     },
     {
       label: 'instagram',
-      icon: (<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-      </svg>),
+      icon: (<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="13" height="13" style={{ display: "block"
+  }} />),
       href: instagram || 'https://instagram.com',
     },
     {
       label: 'facebook',
-      icon: (<svg width="13" height="13" viewBox="0 0 24 24" fill="white">
-        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-      </svg>),
+      icon: (<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="13" height="13" style={{
+  display: "block" }} />),
       href: facebook || 'https://facebook.com',
     },
     {
       label: 'linkedIn',
-      icon: (<svg width="13" height="13" viewBox="0 0 24 24" fill="white">
-        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-        <circle cx="4" cy="4" r="2" fill="white" />
-      </svg>),
+      icon: (<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="13" height="13" style={{ display: "block" }} />),
       href: linkedin || 'https://linkedin.com',
     }
   ]
@@ -215,10 +206,7 @@ function SignatureTemlateM({ name, email, job_title, phone_no, organization, log
                         backgroundColor: "#4caf87",
                         display: "inline-flex", alignItems: "center", justifyContent: "center",
                       }}>
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                          <circle cx="12" cy="10" r="3" />
-                        </svg>
+                       <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="13" height="13" style={{ display: "block" }} />
                       </div>
                        <span style={{ fontSize: "11.5px", color: "#555555", margin:"10px" }}>
                         {organization ? organization : 'Organization'}
@@ -252,16 +240,7 @@ function SignatureTemlateM({ name, email, job_title, phone_no, organization, log
                   <tr>
                     <td style={{ paddingRight: "8px", verticalAlign: "middle" }}>
                       {/* Logo icon — green rounded square */}
-                      <div style={{
-                        width: "22px", height: "22px", borderRadius: "5px",
-                        backgroundColor: "#4caf87",
-                        display: "inline-flex", alignItems: "center", justifyContent: "center",
-                      }}>
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="16 18 22 12 16 6" />
-                          <polyline points="8 6 2 12 8 18" />
-                        </svg>
-                      </div>
+                    
                     </td>
                     <td style={{ verticalAlign: "middle" }}>
                       <span style={{ fontSize: "13px", fontWeight: "600", color: "#ffffff", letterSpacing: "0.2px" }}>

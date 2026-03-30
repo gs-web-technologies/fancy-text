@@ -7,342 +7,291 @@ function SignatureTemlateP({ name, email, job_title, phone_no, organization, log
     {
       label: "Facebook",
       href: facebook || "https://facebook.com",
-      icon: (<svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>),
+      icon: (<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="13" height="13" style={{
+  display: "block" }} />),
     },
     {
       label: "Instagram",
       href: instagram || "https://instagram.com",
-      icon: (<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>),
+      icon: (<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="13" height="13" style={{ display: "block"
+  }} />),
     },
     {
       label: "X",
       href: twitter || "https://x.com",
-      icon: (<svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" /></svg>),
+      icon: (<img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="13" height="13" style={{ display: "block" }} />),
     }
   ];
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <table
-        cellPadding="0"
-        cellSpacing="0"
-        style={{
-          width: "620px",
-          minWidth: "620px",
-          backgroundColor: "#1e1e1e",
-          borderRadius: "10px",
-          overflow: "hidden",
-          fontFamily: "'Segoe UI', Arial, sans-serif",
-          boxShadow: "0 4px 24px rgba(0,0,0,0.4)",
-        }}
-      >
-        <tbody>
-          <tr>
-
-            {/* ═══════════════════════════════════════
-                LEFT PANEL — Red + dark, Logo + Photo + Follow
-            ════════════════════════════════════════ */}
-            <td
+    <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "100%" }}>
+      <tbody>
+        <tr>
+          <td style={{ textAlign: "center" }}>
+            <table
+              cellPadding="0"
+              cellSpacing="0"
               style={{
-                width: "175px",
-                verticalAlign: "top",
-                padding: "0",
-                position: "relative",
-              }}
-            >
-              {/* TOP RED SECTION — Logo area */}
-              <div
-                style={{
-                  backgroundColor: "#e8192c",
-                  padding: "18px 16px 14px 16px",
-                  position: "relative",
-                  overflow: "hidden",
-                }}
-              >
-                {/* Diagonal dark slash shape (decorative) */}
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: "-18px",
-                    right: "-10px",
-                    width: "60px",
-                    height: "60px",
-                    backgroundColor: "#1e1e1e",
-                    transform: "rotate(30deg)",
-                    zIndex: 0,
-                  }}
-                />
-                {/* Logo */}
-                <table cellPadding="0" cellSpacing="0" style={{ position: "relative", zIndex: 1 }}>
-                  <tbody>
-                    <tr>
-                      <td style={{ paddingRight: "8px", verticalAlign: "middle" }}>
-                        <div
-                          style={{
-                            width: "32px",
-                            height: "32px",
-                            borderRadius: "6px",
-                            backgroundColor: "rgba(255,255,255,0.15)",
-                            display: "inline-flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            border: "1.5px solid rgba(255,255,255,0.3)",
-                          }}
-                        >
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                            <polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5" fill="white" opacity="0.9" />
-                          </svg>
-                        </div>
-                      </td>
-                      <td style={{ verticalAlign: "middle" }}>
-                        <div style={{ fontSize: "14px", fontWeight: "800", color: "#ffffff", letterSpacing: "1px", textTransform: "uppercase" }}>
-                          LOGO
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              {/* MIDDLE DARK SECTION — Photo */}
-              <div
-                style={{
-                  backgroundColor: "#272727",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  padding: "18px 0 14px 0",
-                  position: "relative",
-                }}
-              >
-                {/* Red corner accent top-left */}
-                <div style={{
-                  position: "absolute", top: 0, left: 0,
-                  width: "22px", height: "22px",
-                  borderTop: "4px solid #e8192c",
-                  borderLeft: "4px solid #e8192c",
-                  borderRadius: "2px 0 0 0",
-                }} />
-                {/* Red corner accent bottom-right */}
-                <div style={{
-                  position: "absolute", bottom: 0, right: 0,
-                  width: "22px", height: "22px",
-                  borderBottom: "4px solid #e8192c",
-                  borderRight: "4px solid #e8192c",
-                  borderRadius: "0 0 2px 0",
-                }} />
-
-                {/* Hexagonal-ish circular photo with red ring */}
-                <div
-                  style={{
-                    width: "90px",
-                    height: "90px",
-                    borderRadius: "50%",
-                    border: "3px solid #e8192c",
-                    overflow: "hidden",
-                    backgroundColor: "#444",
-                    display: "inline-block",
-                  }}
-                >
-                  <img
-                    src={imageSrc}
-                    alt="Michael Jonshon"
-                    width="90"
-                    height="90"
-                    style={{ objectFit: "cover", display: "block" }}
-                    onError={(e) => {
-                      e.target.style.display = "none";
-                      e.target.parentNode.style.backgroundColor = "#555";
-                    }}
-                  />
-                </div>
-              </div>
-
-              {/* BOTTOM RED SECTION — Follow us */}
-              <div
-                style={{
-                  backgroundColor: "#e8192c",
-                  padding: "12px 16px",
-                  position: "relative",
-                  overflow: "hidden",
-                }}
-              >
-                {/* Diagonal dark slash top */}
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "-18px",
-                    left: "-10px",
-                    width: "60px",
-                    height: "60px",
-                    backgroundColor: "#1e1e1e",
-                    transform: "rotate(30deg)",
-                    zIndex: 0,
-                  }}
-                />
-                <div style={{ position: "relative", zIndex: 1 }}>
-                  <div style={{ fontSize: "9px", color: "rgba(255,255,255,0.75)", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "8px" }}>
-                    FOLLOW US
-                  </div>
-                  <table cellPadding="0" cellSpacing="0">
-                    <tbody>
-                      <tr>
-                        {SocialLinks.map((s, i) => (
-                          <td key={i} style={{ paddingRight: i < 2 ? "7px" : "0" }}>
-                            <a href={s.href} style={{
-                              display: "inline-flex", alignItems: "center", justifyContent: "center",
-                              width: "24px", height: "24px", borderRadius: "50%",
-                              backgroundColor: "rgba(255,255,255,0.2)",
-                              textDecoration: "none",
-                            }}>
-                              {s.icon}
-                            </a>
-                          </td>
-                        ))}
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </td>
-
-            {/* ═══════════════════════════════════════
-                RIGHT PANEL — Dark, Name + contacts
-            ════════════════════════════════════════ */}
-            <td
-              style={{
+                width: "620px",
+                minWidth: "620px",
                 backgroundColor: "#1e1e1e",
-                padding: "24px 26px 24px 28px",
-                verticalAlign: "top",
+                borderRadius: "10px",
+                overflow: "hidden",
+                fontFamily: "'Segoe UI', Arial, sans-serif",
+                boxShadow: "0 4px 24px rgba(0,0,0,0.4)",
               }}
             >
-              {/* Name */}
-              <div style={{
-                fontSize: "22px",
-                fontWeight: "800",
-                color: "#ffffff",
-                letterSpacing: "0.5px",
-                lineHeight: "1.1",
-                marginBottom: "2px",
-                textTransform: "uppercase",
-              }}>
-                <span style={{ color: "#e8192c" }}>{name ? name : "Your Name"}</span>
-              </div>
+              <tbody>
+                <tr>
 
-              {/* Title */}
-              <div style={{
-                fontSize: "10.5px",
-                color: "#aaaaaa",
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                marginBottom: "18px",
-                fontWeight: "500",
-              }}>
-                {job_title ? job_title : 'Job Title'}
-              </div>
+                  {/* LEFT PANEL */}
+                  <td style={{ width: "175px", verticalAlign: "top", padding: "0", position: "relative" }}>
 
-              {/* Thin red divider */}
-              <div style={{
-                height: "1.5px",
-                backgroundColor: "#e8192c",
-                width: "100%",
-                marginBottom: "18px",
-                borderRadius: "2px",
-              }} />
+                    {/* TOP RED SECTION — Logo area */}
+                    <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "100%", backgroundColor: "#e8192c", position: "relative", overflow: "hidden" }}>
+                      <tbody>
+                        <tr>
+                          <td style={{ padding: "18px 16px 14px 16px", position: "relative" }}>
 
-              {/* Contact rows */}
-              <table cellPadding="0" cellSpacing="0" style={{ width: "100%" }}>
-                <tbody>
-                  {[
-                    {
-                      icon: (
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#e8192c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                          <circle cx="12" cy="10" r="3" />
-                        </svg>
-                      ),
-                      text: organization || "Organization",
-                    },
-                    {
-                      icon: (
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#e8192c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 12.07a19.79 19.79 0 01-3.07-8.64A2 2 0 011.9 1.11h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z" />
-                        </svg>
-                      ),
-                      text: phone_no || "+00 123 456 7890",
-                    },
-                    {
-                      icon: (
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#e8192c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                          <polyline points="22,6 12,13 2,6" />
-                        </svg>
-                      ),
-                      text: email || "hello@example.com",
-                    },
-                  ].map((item, i) => (
-                    <tr key={i}>
-                      <td style={{ paddingBottom: "12px", verticalAlign: "top" }}>
-                        <table cellPadding="0" cellSpacing="0">
-                          <tbody>
-                            <tr>
-                              {/* Red icon circle */}
-                              <td style={{ verticalAlign: "top", paddingRight: "10px", paddingTop: "2px" }}>
-                                <div style={{
-                                  width: "26px", height: "26px", borderRadius: "50%",
-                                  backgroundColor: "#2a2a2a",
-                                  border: "1.5px solid #e8192c",
-                                  display: "inline-flex", alignItems: "center", justifyContent: "center",
-                                }}>
-                                  {item.icon}
-                                </div>
-                              </td>
-                              <td style={{ verticalAlign: "top" }}>
-                                <div style={{ fontSize: "12px", color: "#dddddd", fontWeight: "500", lineHeight: "1.5" }}>
-                                  {item.text}
-                                </div>
-                                {item.sub && (
-                                  <div style={{ fontSize: "11px", color: "#888888", lineHeight: "1.4" }}>
-                                    {item.sub}
-                                  </div>
-                                )}
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                  ))}
-                  <tr>
-                    <td style={{ textAlign: "right", fontSize: "10px", color: "white" }}>
-                      <i>Powered by <strong>{POWERED_BY}</strong></i>
-                    </td>
-                  </tr>
+                           
 
-                </tbody>
-              </table>
+                            {/* Logo row */}
+                            <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", position: "relative", zIndex: 1 }}>
+                              <tbody>
+                                <tr>
+                                  <td style={{ paddingRight: "8px", verticalAlign: "middle" }}>
+                                    <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "32px", height: "32px", borderRadius: "6px", backgroundColor: "rgba(255,255,255,0.15)", border: "1.5px solid rgba(255,255,255,0.3)" }}>
+                                      <tbody>
+                                        <tr>
+                                          <td style={{ textAlign: "center", verticalAlign: "middle" }}>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                              <polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5" fill="white" opacity="0.9" />
+                                            </svg>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                  <td style={{ verticalAlign: "middle", fontSize: "14px", fontWeight: "800", color: "#ffffff", letterSpacing: "1px", textTransform: "uppercase" }}>
+                                    LOGO
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
 
-              {/* Dot pattern decoration — bottom right */}
-              {/* <div style={{ textAlign: "right", marginTop: "4px" }}>
-                {[0].map(row => (
-                  <div key={row} style={{ marginBottom: "4px" }}>
-                    {[0, 1, 2, 3].map(col => (
-                      <span key={col} style={{
-                        display: "inline-block",
-                        width: "4px", height: "4px",
-                        borderRadius: "50%",
-                        backgroundColor: col === 3 && row === 2 ? "#e8192c" : "#3a3a3a",
-                        marginLeft: "4px",
-                      }} />
-                    ))}
-                  </div>
-                ))}
-              </div> */}
-            </td>
+                    {/* MIDDLE DARK SECTION — Photo */}
+                    <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "100%", backgroundColor: "#272727", position: "relative" }}>
+                      <tbody>
+                        <tr>
+                          <td style={{ padding: "18px 0 14px 0", textAlign: "center", position: "relative" }}>
 
-          </tr>
-        </tbody>
-      </table>
-    </div>
+                            {/* Red corner accent top-left */}
+                            <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", position: "absolute", top: 0, left: 0, width: "22px", height: "22px", borderTop: "4px solid #e8192c", borderLeft: "4px solid #e8192c", borderRadius: "2px 0 0 0" }}>
+                              <tbody><tr><td></td></tr></tbody>
+                            </table>
+
+                            {/* Red corner accent bottom-right */}
+                            <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", position: "absolute", bottom: 0, right: 0, width: "22px", height: "22px", borderBottom: "4px solid #e8192c", borderRight: "4px solid #e8192c", borderRadius: "0 0 2px 0" }}>
+                              <tbody><tr><td></td></tr></tbody>
+                            </table>
+
+                            {/* Circular photo with red ring */}
+                            <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "90px", height: "90px", borderRadius: "50%", border: "3px solid #e8192c", overflow: "hidden", backgroundColor: "#444", margin: "0 auto" }}>
+                              <tbody>
+                                <tr>
+                                  <td style={{ padding: "0", textAlign: "center", verticalAlign: "middle" }}>
+                                    <img
+                                      src={imageSrc}
+                                      alt="Michael Jonshon"
+                                      width="90"
+                                      height="90"
+                                      style={{ objectFit: "cover", display: "block" }}
+                                      onError={(e) => {
+                                        e.target.style.display = "none";
+                                        e.target.parentNode.style.backgroundColor = "#555";
+                                      }}
+                                    />
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    {/* BOTTOM RED SECTION — Follow us */}
+                    <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "100%", backgroundColor: "#e8192c", position: "relative", overflow: "hidden" }}>
+                      <tbody>
+                        <tr>
+                          <td style={{ padding: "12px 16px", position: "relative" }}>
+
+                           
+
+                            {/* Follow us content */}
+                            <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", position: "relative", zIndex: 1, width: "100%" }}>
+                              <tbody>
+                                <tr>
+                                  <td style={{ fontSize: "9px", color: "rgba(255,255,255,0.75)", letterSpacing: "2px", textTransform: "uppercase", paddingBottom: "8px" }}>
+                                    FOLLOW US
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse" }}>
+                                      <tbody>
+                                        <tr>
+                                          {SocialLinks.map((s, i) => (
+                                            <td key={i} style={{ paddingRight: i < 2 ? "7px" : "0" }}>
+                                              <a href={s.href} style={{ display: "inline-block", textDecoration: "none" }}>
+                                                <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "24px", height: "24px", borderRadius: "50%" }}>
+                                                  <tbody>
+                                                    <tr>
+                                                      <td style={{ textAlign: "center", verticalAlign: "middle" }}>
+                                                        {s.icon}
+                                                      </td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                              </a>
+                                            </td>
+                                          ))}
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </td>
+
+                  {/* RIGHT PANEL */}
+                  <td style={{ backgroundColor: "#1e1e1e", padding: "24px 26px 24px 28px", verticalAlign: "top" }}>
+
+                    {/* Name */}
+                    <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", marginBottom: "2px" }}>
+                      <tbody>
+                        <tr>
+                          <td style={{ fontSize: "22px", fontWeight: "800", color: "#ffffff", letterSpacing: "0.5px", lineHeight: "1.1", textTransform: "uppercase" }}>
+                            <span style={{ color: "#e8192c" }}>{name ? name : "Your Name"}</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    {/* Title */}
+                    <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", marginBottom: "18px" }}>
+                      <tbody>
+                        <tr>
+                          <td style={{ fontSize: "10.5px", color: "#aaaaaa", letterSpacing: "2px", textTransform: "uppercase", fontWeight: "500" }}>
+                            {job_title ? job_title : 'Job Title'}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    {/* Thin red divider */}
+                    <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "100%", marginBottom: "18px" }}>
+                      <tbody>
+                        <tr>
+                          <td style={{ height: "1.5px", backgroundColor: "#e8192c", borderRadius: "2px", fontSize: "0", lineHeight: "0" }}>&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    {/* Contact rows */}
+                    <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "100%" }}>
+                      <tbody>
+                        {[
+                          {
+                            icon: (
+                            <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="100%" height="100%" style={{ display: "block" }} />
+                            ),
+                            text: organization || "Organization",
+                          },
+                          {
+                            icon: (
+                              <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="100%" height="100%" style={{ display: "block" }} />
+                            ),
+                            text: phone_no || "+00 123 456 7890",
+                          },
+                          {
+                            icon: (
+                            <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="100%" height="100%" style={{ display: "block" }} />
+                            ),
+                            text: email || "hello@example.com",
+                          },
+                        ].map((item, i) => (
+                          <tr key={i}>
+                            <td style={{ paddingBottom: "12px", verticalAlign: "top" }}>
+                              <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse" }}>
+                                <tbody>
+                                  <tr>
+                                    {/* Red icon circle */}
+                                    <td style={{ verticalAlign: "top", paddingRight: "10px", paddingTop: "2px" }}>
+                                      <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "26px", height: "26px", borderRadius: "50%", backgroundColor: "#f8f6f6",  }}>
+                                        <tbody>
+                                          <tr>
+                                            <td style={{ textAlign: "center", padding:"8px" }}>
+                                              {item.icon}
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                    <td style={{ verticalAlign: "top" }}>
+                                      <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse" }}>
+                                        <tbody>
+                                          <tr>
+                                            <td style={{ fontSize: "12px", color: "#dddddd", fontWeight: "500", lineHeight: "1.5" }}>
+                                              {item.text}
+                                            </td>
+                                          </tr>
+                                          {item.sub && (
+                                            <tr>
+                                              <td style={{ fontSize: "11px", color: "#888888", lineHeight: "1.4" }}>
+                                                {item.sub}
+                                              </td>
+                                            </tr>
+                                          )}
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        ))}
+
+                        {/* Powered by */}
+                        <tr>
+                          <td style={{ textAlign: "right", fontSize: "10px", color: "white" }}>
+                            <i>Powered by <strong>{POWERED_BY}</strong></i>
+                          </td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   );
 }
 
