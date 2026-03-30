@@ -71,13 +71,16 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                   }}
                 />
               </div>
-              <table style={{ margin:"5px" }}>
-                <tr>
+              <table style={{ margin: "5px" }}>
+                <tbody>
 
-                  <td style={{ textAlign: "right", fontSize: "10px", color: "black" }}>
-                    <i>Powered by <strong>thynktales</strong></i>
-                  </td>
-                </tr>
+                  <tr>
+
+                    <td style={{ textAlign: "right", fontSize: "10px", color: "black" }}>
+                      <i>Powered by <strong>thynktales</strong></i>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </td>
 

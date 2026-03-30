@@ -204,7 +204,7 @@ function SignatureTemlateM({ name, email, job_title, phone_no, organization, log
                 width: "70%"
               }}
             >
-              <table cellPadding="0" cellSpacing="0">
+              <table cellPadding="0" cellSpacing="0" width="100%">
                 <tbody>
                   <tr>
                     <td style={{ paddingRight: "10px", verticalAlign: "middle" }}>
@@ -219,19 +219,14 @@ function SignatureTemlateM({ name, email, job_title, phone_no, organization, log
                           <circle cx="12" cy="10" r="3" />
                         </svg>
                       </div>
-                    </td>
-                    <td style={{ verticalAlign: "middle", display: "flex" }}>
-                      <span style={{ fontSize: "11.5px", color: "#555555" }}>
+                       <span style={{ fontSize: "11.5px", color: "#555555", margin:"10px" }}>
                         {organization ? organization : 'Organization'}
                       </span>
-
-                     </td>
-                     <td style={{ textAlign: "right"  }}>
-                      <div style={{ verticalAlign: "middle", display: "flex", textAlign: "right", marginLeft: "142px" }}>
+                    </td>
+                    <td style={{ textAlign: "right" }}>
+                      <div>
                         <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>thynktales</strong></i></span>
                       </div>
-
-
                     </td>
                   </tr>
                 </tbody>

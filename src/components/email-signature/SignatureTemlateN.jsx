@@ -91,9 +91,9 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                 </tr>
               </tbody>
             </table>
-            <td style={{  fontSize: "10px", color: "white", padding:"4px 12px" }}>
-              <i>Powered by <strong>thynktales</strong></i>
-            </td>
+            <div style={{ fontSize: "10px", color: "white", padding: "4px 12px" }}>
+               <i>Powered by <strong>thynktales</strong></i>
+            </div>
           </td>
 
           {/* CENTER: Main info */}
