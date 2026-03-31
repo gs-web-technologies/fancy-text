@@ -32,7 +32,6 @@ function FileInput({ name, type, placeholder, accept, description, register, set
                             }
                         );
                         const result = await res.json();
-                        console.log(result);
                         const previewURL = result.secure_url;
                         setValue("logo", previewURL);
                         SetSelectedFile(previewURL);
