@@ -69,7 +69,6 @@ function SignatureTemlateA({ name, email, job_title, phone_no, organization, log
                                                                                 width: "96px",
                                                                                 height: "96px",
                                                                                 borderRadius: "50%",
-                                                                                border: "3px solid #ffffff",
                                                                                 overflow: "hidden",
                                                                             }}
                                                                         >
@@ -298,34 +297,7 @@ function SignatureTemlateA({ name, email, job_title, phone_no, organization, log
                                                                     >
                                                                         {email ? email : 'youremail@gmail.com'}
                                                                     </td>
-                                                                    {/* Globe icon */}
-                                                                    <td
-                                                                        align="center"
-                                                                        valign="middle"
-                                                                        style={{
-                                                                            width: "18px",
-                                                                            height: "18px",
-                                                                            backgroundColor: "#0ea5e9",
-                                                                            borderRadius: "50%",
-                                                                            textAlign: "center",
-                                                                            lineHeight: "18px",
-                                                                            fontFamily: "Arial, sans-serif",
-                                                                        }}
-                                                                    >
-                                                                        <span style={{ fontSize: "9px", color: "#ffffff" }}>
-                                                                            &#127760;
-                                                                        </span>
-                                                                    </td>
-                                                                    <td
-                                                                        style={{
-                                                                            fontSize: "12px",
-                                                                            color: "#374151",
-                                                                            fontFamily: "Arial, sans-serif",
-                                                                            paddingLeft: "4px",
-                                                                        }}
-                                                                    >
-                                                                        {linkedin ? linkedin : 'www.yourlinkedIn.com'}
-                                                                    </td>
+                                                                   
                                                                 </tr>
                                                             </tbody>
                                                         </table>

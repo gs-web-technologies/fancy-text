@@ -92,7 +92,7 @@ function SignatureTemlateG({ name, email, job_title, phone_no, organization, log
                                                         <span style={{ color: "#2563eb" }}>✆</span>&nbsp; {phone_no ? phone_no : '+91 98765 43210'}
                                                     </td>
 
-                                                    <td style={{ fontSize: "12px", color: "#475569" }}>
+                                                    <td style={{ fontSize: "12px", color: "#475569", textAlign: "end" }}>
                                                         <span style={{ color: "#2563eb" }}>✉</span>&nbsp; {email ? email : 'youremail@gmail.com'}
                                                     </td>
 
@@ -110,20 +110,46 @@ function SignatureTemlateG({ name, email, job_title, phone_no, organization, log
                                             background: "#eff6ff",
                                             padding: "8px 18px",
                                             fontSize: "11px",
-                                            color: "#2563eb",
-                                            display: "flex",
-                                            justifyContent: "space-between"
+                                            color: "#2563eb"
                                         }}
                                     >
-                                        <div>
+                                        <table
+                                            width="100%"
+                                            cellPadding="0"
+                                            cellSpacing="0"
+                                            style={{ borderCollapse: "collapse" }}
+                                        >
+                                            <tbody>
+                                                <tr>
 
-                                            {linkedin ? linkedin : 'www.techflow.com'} 
-                                            <span>|</span>
-                                            <span style={{ color: "#64748b" }}>{job_title ? job_title : 'CA'}</span>
-                                        </div>
-                                        <div>
-                                            <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>{POWERED_BY}</strong></i></span>
-                                        </div>
+                                                    {/* LEFT SIDE */}
+                                                    <td style={{ verticalAlign: "middle" }}>
+                                                        <span>
+                                                            {linkedin || "www.techflow.com"}
+                                                            {(linkedin || job_title) && " | "}
+                                                            <small style={{ color: "#64748b" }}>
+                                                                {job_title || "CA"}
+                                                            </small>
+                                                        </span>
+                                                    </td>
+
+                                                    {/* RIGHT SIDE */}
+                                                    <td
+                                                        style={{
+                                                            textAlign: "right",
+                                                            verticalAlign: "middle"
+                                                        }}
+                                                    >
+                                                        <span style={{ color: "#000", fontSize: "10px" }}>
+                                                            <i>
+                                                                Powered by <strong>{POWERED_BY}</strong>
+                                                            </i>
+                                                        </span>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </td>
                                 </tr>
                             </tbody>

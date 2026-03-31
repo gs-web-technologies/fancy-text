@@ -23,19 +23,30 @@ function FileInput({ name, type, placeholder, accept, description, register, set
                         const cloud_name = CLOUD_NAME;
                         data.append("file", file);
                         data.append("upload_preset", "signature_upload");
-                        console.log(data);
-                        const res = await fetch(
-                            `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,
-                            {
-                                method: "POST",
-                                body: data,
-                            }
-                        );
-                        const result = await res.json();
-                        const previewURL = result.secure_url;
-                        setValue("logo", previewURL);
-                        SetSelectedFile(previewURL);
-                        SetUploading(false);
+
+                        // for cloudinary
+                        // const res = await fetch(
+                        //     `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,
+                        //     {
+                        //         method: "POST",
+                        //         body: data,
+                        //     }
+                        // );
+
+                        // for local 
+                        const res = await fetch('api/upload', {
+                            method: "POST",
+                            body: data,
+                        })
+            const result = await res.json();
+            // for cloudinary
+            // const previewURL = result.secure_url;
+
+            // for local
+             const previewURL = result.url;
+            setValue("logo", previewURL);
+            SetSelectedFile(previewURL);
+            SetUploading(false);
                     }
                 }}
             />

@@ -68,7 +68,7 @@ function SignatureTemlateC({ name, email, job_title, phone_no, organization, log
     ];
 
     return (
-        <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "400px" }}>
+        <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "300px" }}>
             <tbody>
                 <tr>
                     <td style={{ padding: "", width: "600px", backgroundColor: "" }}>
@@ -90,24 +90,24 @@ function SignatureTemlateC({ name, email, job_title, phone_no, organization, log
                                     <td style={{ width: "6px", backgroundColor: "#1b3a5c", borderRadius: "12px 0 0 12px" }} />
 
                                     {/* Photo */}
-                                    <td style={{ padding: "20px 0 20px 20px", verticalAlign: "middle", width: "90px" }}>
+                                    <td style={{ padding: "20px 0 20px 20px", verticalAlign: "middle", width: "200px" }}>
                                         <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse" }}>
                                             <tbody>
                                                 <tr>
                                                     <td
                                                         style={{
-                                                            width: "80px",
-                                                            height: "80px",
+                                                            width: "150px",
+                                                            height: "150px",
 
                                                             overflow: "hidden",
-                                                            border: "3px solid #1b3a5c",
+                                                            borderRadius: "5%",
                                                             padding: "0",
                                                         }}
                                                     >
                                                         <img
                                                             src={imageSrc}
                                                             alt="Jonathan Hansen"
-                                                            style={{ width: "80px", height: "80px", objectFit: "cover", display: "block" }}
+                                                            style={{ width: "145px", height: "145px", objectFit: "cover", display: "block", borderRadius: "20% 20% 20% 20%" }}
                                                         />
                                                     </td>
                                                 </tr>
@@ -216,41 +216,7 @@ function SignatureTemlateC({ name, email, job_title, phone_no, organization, log
                                                     </td>
                                                 </tr>
 
-                                                {/* Website row */}
-                                                <tr>
-                                                    <td
-                                                        align="center"
-                                                        valign="middle"
-                                                        style={{
-                                                            paddingRight: "10px",
-                                                            paddingBottom: "3px",
-                                                            width: "20px",
-                                                            height: "20px",
-                                                        }}
-                                                    >
-                                                        <img
-                                                            src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png"
-                                                            width="13"
-                                                            height="13"
-                                                            style={{ display: "block" }}
-                                                        />
-                                                    </td>
-                                                    <td
-                                                        style={{
-                                                            fontSize: "12px",
-                                                            color: "#374151",
-                                                            fontFamily: "Arial, sans-serif",
-                                                            paddingBottom: "3px",
-                                                        }}
-                                                    >
-                                                        <a
-                                                            href={linkedin || "https://www.google.com"}
-                                                            style={{ color: "#374151", textDecoration: "none" }}
-                                                        >
-                                                            {linkedin ? linkedin : "www.google.com"}
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                               
 
                                                 {/* Address row */}
                                                 <tr>
@@ -321,7 +287,7 @@ function SignatureTemlateC({ name, email, job_title, phone_no, organization, log
                                                 <tr>
                                                     <td style={{ textAlign: "center" }}>
                                                         <span style={{ color: "black", fontSize: "10px" }}>
-                                                            <i>Powered by <strong>{POWERED_BY}</strong></i>
+                                                            <i>Powered by <br/><strong>{POWERED_BY}</strong></i>
                                                         </span>
                                                     </td>
                                                 </tr>

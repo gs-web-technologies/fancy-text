@@ -74,7 +74,7 @@ function SignatureTemlateF({ name, email, job_title, phone_no, organization, log
               cellSpacing="0"
               style={{
                 borderCollapse: "collapse",
-                width: "660px",
+                width: "600px",
                 borderRadius: "6px",
                 overflow: "hidden",
                 boxShadow: "0 2px 12px rgba(0,0,0,0.18)",
@@ -93,35 +93,33 @@ function SignatureTemlateF({ name, email, job_title, phone_no, organization, log
 
                   {/* Dark left panel */}
                   <td style={{ backgroundColor: "#1a1a2e", padding: "18px 20px", verticalAlign: "middle", width: "190px" }}>
-                    {/* Logo */}
-                    <div style={{ display: "flex", alignItems: "center", gap: "7px", marginBottom: "18px" }}>
-                      <div
-                        style={{
-                          width: "28px", height: "28px", borderRadius: "50%",
-                          background: "linear-gradient(135deg,#f97316,#facc15,#22d3ee)",
-                          display: "flex", alignItems: "center", justifyContent: "center",
-                        }}
-                      >
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
-                          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>
-                      </div>
-                      <p style={{ margin: "0", fontSize: "11px", fontWeight: "700", color: "#ffffff", fontFamily: "Arial, sans-serif", letterSpacing: "0.5px" }}>
-                        {organization ? organization : 'GRAPHICS FAMILY'}
-                      </p>
-                    </div>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <p style={{ margin: "6px 0 4px", fontSize: "22px", fontWeight: "800", color: "#ffffff", fontFamily: "Georgia, serif", lineHeight: "1.1" }}>
+                              {name ? name : 'Rose Angels'}
+                            </p>
 
-                    {/* Name */}
-                    <p style={{ margin: "0 0 4px", fontSize: "22px", fontWeight: "800", color: "#ffffff", fontFamily: "Georgia, serif", lineHeight: "1.1" }}>
-                      {name ? name : 'Rose Angels'}
-                    </p>
+                          </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <span style={{ padding: "3px", margin: "0", fontSize: "11px", fontWeight: "700", color: "#ffffff", fontFamily: "Arial, sans-serif", letterSpacing: "0.5px" }}>
+                              {organization ? organization : 'GRAPHICS FAMILY'}
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style={{ backgroundColor: "#f97316", borderRadius: "3px", padding: "4px 10px", display: "inline-block", marginTop: "10px" }}>
+                            <p style={{ margin: "0", fontSize: "10px", fontWeight: "700", color: "#ffffff", fontFamily: "Arial, sans-serif", letterSpacing: "1px" }}>
+                              {job_title ? job_title : 'GRAPHIC DESIGNER'}
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
 
-                    {/* Title badge */}
-                    <div style={{ backgroundColor: "#f97316", borderRadius: "3px", padding: "4px 10px", display: "inline-block", marginTop: "10px" }}>
-                      <p style={{ margin: "0", fontSize: "10px", fontWeight: "700", color: "#ffffff", fontFamily: "Arial, sans-serif", letterSpacing: "1px" }}>
-                        {job_title ? job_title : 'GRAPHIC DESIGNER'}
-                      </p>
-                    </div>
                   </td>
 
                   {/* Right white panel */}
@@ -134,20 +132,27 @@ function SignatureTemlateF({ name, email, job_title, phone_no, organization, log
                           </td>
                           {/* Social icons */}
                           <td style={{ backgroundColor: "#1a1a2e", padding: "10px 14px", verticalAlign: "middle", width: "34px" }}>
-                            <div style={{ display: "flex", flexDirection: "column", gap: "6px", alignItems: "center" }}>
-                              {socialLinks.map((s, i) => (
-                                <a key={`${s.href}-${i}`} href={s.href} style={{ textDecoration: "none" }}>
-                                  <div
-                                    style={{
-                                      width: "22px", height: "22px", backgroundColor: s.bg,
-                                      borderRadius: "3px", display: "flex", alignItems: "center", justifyContent: "center",
-                                    }}
-                                  >
-                                    {s.icon}
-                                  </div>
-                                </a>
-                              ))}
-                            </div>
+                            <table>
+                              <tbody>
+                                <tr>
+                                  <td>
+
+                                    {socialLinks.map((s, i) => (
+                                      <a key={`${s.href}-${i}`} href={s.href} style={{ textDecoration: "none" }}>
+                                        <div
+                                          style={{
+                                            width: "22px", height: "22px", backgroundColor: s.bg,
+                                            borderRadius: "3px", padding: "1px"
+                                          }}
+                                        >
+                                          {s.icon}
+                                        </div>
+                                      </a>
+                                    ))}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
                           </td>
                         </tr>
 

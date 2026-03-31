@@ -68,7 +68,7 @@ function SignatureTemlateD({ name, email, job_title, phone_no, organization, log
     ];
 
     return (
-        <table cellPadding="0" cellSpacing="0" style={{ width: "600px", backgroundColor: "#f3f4f6", borderCollapse: "collapse" }}>
+        <table cellPadding="0" cellSpacing="0" style={{ width: "300px", backgroundColor: "#f3f4f6", borderCollapse: "collapse" }}>
             <tbody>
                 <tr>
                     <td style={{ textAlign: "center" }}>
@@ -77,7 +77,8 @@ function SignatureTemlateD({ name, email, job_title, phone_no, organization, log
                             cellSpacing="0"
                             style={{
                                 borderCollapse: "collapse",
-                                width: "640px",
+                                width: "500px",
+                                height: "150px",
                                 borderRadius: "8px",
                                 overflow: "hidden",
                                 boxShadow: "0 2px 16px rgba(0,0,0,0.13)",
@@ -93,36 +94,33 @@ function SignatureTemlateD({ name, email, job_title, phone_no, organization, log
                                                 <tr>
                                                     <td style={{ padding: "28px 24px 24px 24px", verticalAlign: "top", position: "relative" }}>
 
-                                                        
-                                                        {/* Name */}
-                                                        <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", position: "relative", zIndex: 1, marginBottom: "2px" }}>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>
-                                                                        <span style={{ fontSize: "18px", fontWeight: "700", color: "#e91e8c", fontFamily: "Arial, sans-serif" }}>
-                                                                            {name ? name : 'Your Name'}
-                                                                        </span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        {/* Title */}
-                                                                        <span style={{ zIndex: 1, margin: "0 0 0px", fontSize: "11px", color: "#888", fontFamily: "Arial, sans-serif", fontStyle: "italic", alignItems: "start" }}>
-                                                                            {job_title ? job_title : 'JOB TITLE'}
-                                                                        </span>
 
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
+        {/* Name */}
+        <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", zIndex: 1, marginBottom: "2px" }}>
+            <tbody>
+                <tr>
+                    <td>
+                        <span style={{ fontSize: "18px", fontWeight: "700", color: "#e91e8c", fontFamily: "Arial, sans-serif" }}>
+                            {name ? name : 'Your Name'}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style={{ zIndex: 1, margin: "0 0 0px", fontSize: "11px", color: "#888", fontFamily: "Arial, sans-serif", fontStyle: "italic", alignItems: "start" }}>
+                        {/* Title */}
+                        {job_title ? job_title : 'job title'}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
                                                         {/* Contacts */}
                                                         <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", position: "relative", zIndex: 1 }}>
                                                             <tbody>
                                                                 {contacts.map((c, i) => (
                                                                     <tr key={i}>
-                                                                        <td style={{ padding: "3px 4px 3px 0", verticalAlign: "middle" }}>{c.icon}</td>
-                                                                        <td style={{ fontSize: "11.5px", color: "#444", fontFamily: "Arial, sans-serif", padding: "3px 0" }}>
+                                                                        <td style={{ padding: "3px 7px 3px 0", verticalAlign: "middle" }}>{c.icon}</td>
+                                                                        <td style={{ fontSize: "11.5px", color: "#444", fontFamily: "Arial, sans-serif", padding: "3px 0", textAlign: "start" }}>
                                                                             {c.href ? (
                                                                                 <a href={c.href} style={{ color: "#444", textDecoration: "none", alignItems: "start" }}>{c.label}</a>
                                                                             ) : c.label}
@@ -152,7 +150,7 @@ function SignatureTemlateD({ name, email, job_title, phone_no, organization, log
                                                             style={{ width: "160px", height: "170px", objectFit: "cover", display: "block" }}
                                                         />
                                                         {/* Pink diagonal overlays */}
-                                                       
+
                                                     </td>
                                                 </tr>
 
