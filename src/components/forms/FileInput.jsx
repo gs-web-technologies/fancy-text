@@ -34,7 +34,6 @@ function FileInput({ name, type, placeholder, accept, description, register, set
                         const result = await res.json();
                         console.log(result);
                         const previewURL = result.secure_url;
-                        // const previewURL = URL.createObjectURL(file);
                         setValue("logo", previewURL);
                         SetSelectedFile(previewURL);
                         SetUploading(false);
