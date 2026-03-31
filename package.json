@@ -9,22 +9,30 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
     "fancy-text-generator": "^1.2.0",
     "flip-text": "^1.2.0",
+    "formidable": "^3.5.4",
+    "googleapis": "^171.4.0",
     "jquery": "^4.0.0",
     "morse": "^0.1.0",
     "next": "16.2.1",
     "number-to-words": "^1.2.4",
+    "postcss": "^8.5.8",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "react-hook-form": "^7.72.0",
     "string-to-binary": "^0.1.2",
-    "zalgo-generator": "^1.5.1"
+    "zalgo-generator": "^1.5.1",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.2.2",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.1",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4.2.2"
   }
 }
