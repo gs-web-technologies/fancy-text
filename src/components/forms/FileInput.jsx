@@ -1,47 +1,9 @@
 "use client";
 import React, { useState } from 'react';
-import { MAX_SIZE, ALLOWED_TYPES } from "@/utils/const";
+import { MAX_SIZE, ALLOWED_TYPES, CLOUD_NAME } from "@/utils/const";
 
 function FileInput({ name, type, placeholder, accept, description, register, setValue, SetSelectedFile, error }) {
     const [uploading, SetUploading] = useState(false);
-    const handelChange = async (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-        SetUploading(true);
-        if (!ALLOWED_TYPES.includes(file.type)) {
-            alert("Invalid file type.");
-            return;
-        }else if (file.size > MAX_SIZE) {
-            alert(`File exceeds ${MAX_SIZE} limit.`);
-            return;
-        }else {
-            const formData = new FormData();
-            formData.append("file", file);
-
-            try {
-                const res = await fetch("/api/upload", {
-                    method: "POST",
-                    body: formData,
-                });
-
-                if (!res.ok) {
-                    const err = await res.json();
-                    console.error("Upload failed:", err.error);
-                    return;
-                }
-
-                const data = await res.json();
-                setValue("logo", data.url);
-                SetSelectedFile(data.url);
-
-            } catch (err) {
-                console.error("Network error:", err);
-            } finally {
-                SetUploading(false);
-            }
-        }
-    };
-
     return (
         <div className="relative z-0 w-full mb-3 group">
 
@@ -52,8 +14,29 @@ function FileInput({ name, type, placeholder, accept, description, register, set
                 className="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
                 placeholder=" "
                 accept={accept}
-                onChange={(e) => {
-                    handelChange(e);
+                onChange={async (e) => {
+                    const file = e.target.files[0];
+
+                    if (file && ALLOWED_TYPES.includes(file.type) && file.size <= MAX_SIZE) {
+                        SetUploading(true);
+                        const data = new FormData();
+                        const cloud_name = CLOUD_NAME;
+                        data.append("file", file);
+                        data.append("upload_preset", "signature_upload");
+                        console.log(data);
+                        const res = await fetch(
+                            `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,
+                            {
+                                method: "POST",
+                                body: data,
+                            }
+                        );
+                        const result = await res.json();
+                        const previewURL = result.secure_url;
+                        setValue("logo", previewURL);
+                        SetSelectedFile(previewURL);
+                        SetUploading(false);
+                    }
                 }}
             />
             {uploading && (
