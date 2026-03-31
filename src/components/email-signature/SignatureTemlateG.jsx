@@ -117,7 +117,8 @@ function SignatureTemlateG({ name, email, job_title, phone_no, organization, log
                                     >
                                         <div>
 
-                                            {linkedin ? linkedin : 'www.techflow.com'} &nbsp;|&nbsp;
+                                            {linkedin ? linkedin : 'www.techflow.com'} 
+                                            <span>|</span>
                                             <span style={{ color: "#64748b" }}>{job_title ? job_title : 'CA'}</span>
                                         </div>
                                         <div>
