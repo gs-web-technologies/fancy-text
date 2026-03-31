@@ -88,10 +88,10 @@ function Form() {
             });
 
             const result = await res.json();
-            if (res.success) {
+            console.log(result);
+            if (result.success) {
+                console.log("success");
                 setSubmitted(true);
-                console.log(issubmitted);
-
             }
             // reset();
         } catch (err) {

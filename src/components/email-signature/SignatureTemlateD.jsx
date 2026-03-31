@@ -93,14 +93,7 @@ function SignatureTemlateD({ name, email, job_title, phone_no, organization, log
                                                 <tr>
                                                     <td style={{ padding: "28px 24px 24px 24px", verticalAlign: "top", position: "relative" }}>
 
-                                                        {/* SVG decorative corner triangles */}
-                                                        <svg style={{ position: "absolute", top: 0, left: 0, zIndex: 0 }} width="120" height="110" viewBox="0 0 120 110">
-                                                            <polygon points="0,0 120,0 0,110" fill="#e91e8c" opacity="0.12" />
-                                                        </svg>
-                                                        <svg style={{ position: "absolute", top: 0, left: 0, zIndex: 0 }} width="80" height="75" viewBox="0 0 80 75">
-                                                            <polygon points="0,0 80,0 0,75" fill="#e91e8c" opacity="0.22" />
-                                                        </svg>
-
+                                                        
                                                         {/* Name */}
                                                         <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", position: "relative", zIndex: 1, marginBottom: "2px" }}>
                                                             <tbody>
@@ -159,12 +152,7 @@ function SignatureTemlateD({ name, email, job_title, phone_no, organization, log
                                                             style={{ width: "160px", height: "170px", objectFit: "cover", display: "block" }}
                                                         />
                                                         {/* Pink diagonal overlays */}
-                                                        <svg style={{ position: "absolute", top: 0, right: 0, zIndex: 1 }} width="160" height="170" viewBox="0 0 160 170">
-                                                            <polygon points="80,0 160,0 160,170" fill="#e91e8c" opacity="0.55" />
-                                                        </svg>
-                                                        <svg style={{ position: "absolute", top: 0, right: 0, zIndex: 1 }} width="160" height="170" viewBox="0 0 160 170">
-                                                            <polygon points="110,0 160,0 160,80" fill="#e91e8c" opacity="0.35" />
-                                                        </svg>
+                                                       
                                                     </td>
                                                 </tr>
 
