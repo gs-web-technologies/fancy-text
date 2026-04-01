@@ -50,7 +50,7 @@ function SignatureTemlateS({ name, email, job_title, phone_no, organization, log
         borderCollapse: "collapse",
         borderRadius: "8px",
         overflow: "hidden",
-        boxShadow: "0 2px 10px rgba(0,0,0,0.08)",
+        boxShadow: "0 2px 10px #00000014",
       }}
     >
       <tbody>
@@ -65,18 +65,7 @@ function SignatureTemlateS({ name, email, job_title, phone_no, organization, log
               backgroundColor: "#ffffff",
             }}
           >
-            {/* Top-left dark triangle decoration */}
-            <div
-              style={{
-                position: "absolute",
-                top: "0",
-                left: "0",
-                width: "0",
-                height: "0",
-                borderTop: "60px solid #1a2a4a",
-                borderRight: "60px solid transparent",
-              }}
-            />
+
             {/* Circular photo */}
             <div
               style={{
@@ -102,7 +91,7 @@ function SignatureTemlateS({ name, email, job_title, phone_no, organization, log
               />
             </div>
 
-            <div style={{ textAlign: "right", fontSize: "10px", color: "#1a2a4a" }}>
+            <div style={{ textAlign: "right", fontSize: "10px", color: "#1a2a4a", marginTop:"2px"}}>
               <i>Powered by <strong>{POWERED_BY}</strong></i>
             </div>
           </td>
@@ -132,17 +121,19 @@ function SignatureTemlateS({ name, email, job_title, phone_no, organization, log
                 {/* Title */}
                 <tr>
                   <td style={{ paddingBottom: "10px" }}>
-                    <p
-                      style={{
-                        margin: "0",
-                        fontSize: "10px",
-                        color: "#4a90c4",
-                        fontFamily: "Arial, sans-serif",
-                        letterSpacing: "0.3px",
-                      }}
-                    >
-                      {job_title ? job_title : 'Job Title'}
-                    </p>
+                    <b>
+                      <p
+                        style={{
+                          margin: "0",
+                          fontSize: "10px",
+                          color: "#2e3235",
+                          fontFamily: "Arial, sans-serif",
+                          letterSpacing: "0.3px",
+                        }}
+                      >
+                        {job_title ? job_title : 'Job Title'}
+                      </p>
+                    </b>
                   </td>
                 </tr>
 
@@ -175,7 +166,11 @@ function SignatureTemlateS({ name, email, job_title, phone_no, organization, log
                               <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="13" height="13" style={{ display: "block" }} />
                             </div>
                           </td>
-                          <td style={{ fontSize: "10px", color: "#555555", fontFamily: "Arial, sans-serif" }}>{email ? email : "your_email.com"}</td>
+                          <td>
+                            <a style={{ textDecoration: "none", fontSize: "10px", color: "#555555", fontFamily: "Arial, sans-serif" }}>
+                              {email ? email : "your_email.com"}
+                            </a>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -202,61 +197,35 @@ function SignatureTemlateS({ name, email, job_title, phone_no, organization, log
                     </table>
                   </td>
                 </tr>
+                <tr>
+                  <td>
+                    <table cellPadding="0" cellSpacing="0" style={{ marginTop: "10px" }}>
+                      <tbody>
+                        <tr>
+                          {SocialLinks.map((item, i) => (
+                            <td key={i} style={{ textAlign: "end" }}>
+                              <div style={{ paddingLeft: i === 0 ? "0" : "5px" }}>
+                                <div style={{ width: "22px", height: "22px", borderRadius: "4px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                  <Link href={item.href}>
+                                    {item.icon}
+                                  </Link>
+                                </div>
+                              </div>
+                            </td>
+                          ))}
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </td>
 
           {/* VERTICAL DIVIDER */}
-          <td style={{ width: "2px", backgroundColor: "#1a2a4a", padding: "0" }} />
-
-          {/* RIGHT: Logo + social icons */}
-          <td
-            style={{
-              verticalAlign: "middle",
-              paddingRight: "32px",
-              textAlign: "center",
-              position: "relative",
-            }}
-          >
-            <table>
-              <tbody>
-                <tr>
-                  <td
-                     style={{
-                position: "absolute",
-                bottom: "0",
-                right: "0",
-                width: "0",
-                height: "0",
-                borderBottom: "55px solid transparent",
-                borderLeft: "55px solid transparent",
-              }}>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          
+          <td style={{ width: "5px", backgroundColor: "#1a2a4a", padding: "0" }} />
 
 
-            {/* Social icons row */}
-            <table cellPadding="0" cellSpacing="0" style={{ margin: "0 auto" }}>
-              <tbody>
-                <tr>
-                  <td style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                    {SocialLinks.map((item, i) => (
-                      <div key={i} style={{ paddingLeft: i === 0 ? "0" : "5px" }}>
-                        <div style={{ width: "22px", height: "22px", borderRadius: "4px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                          <Link href={item.href}>
-                            {item.icon}
-                          </Link>
-                        </div>
-                      </div>
-                    ))}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
         </tr>
       </tbody>
     </table>

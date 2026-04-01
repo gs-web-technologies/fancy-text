@@ -96,7 +96,7 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                                             <tbody>
                                                 <tr>
                                                     {SocialLinks.map((s, i) => (
-                                                        <td key={i} style={{ paddingRight: "6px" }}>
+                                                        <td key={i} style={{ paddingRight: "5px" }}>
                                                             <Link href={s.href}>
                                                                 <div
                                                                     style={{
@@ -104,9 +104,6 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                                                                         height: "22px",
                                                                         backgroundColor: "#f5a623",
                                                                         borderRadius: "50%",
-                                                                        display: "flex",
-                                                                        alignItems: "center",
-                                                                        justifyContent: "center",
                                                                         fontSize: "10px",
                                                                         color: "#2b2b2b",
                                                                         fontWeight: "bold",
@@ -129,11 +126,11 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                     </td>
 
                     {/* DIVIDER */}
-                    <td style={{ width: "1px", backgroundColor: "#444" }} />
+                    {/* <td style={{ width: "1px", backgroundColor: "#444" }} /> */}
 
                     {/* RIGHT: Contact info */}
-                    <td style={{ padding: "18px 20px", verticalAlign: "middle" }}>
-                        <table cellPadding="0" cellSpacing="0">
+                    <td style={{ padding: "18px 0px 18px 14px", verticalAlign: "middle", width: "200px" }}>
+                        <table cellPadding="0" cellSpacing="0" width="200px">
                             <tbody>
                                 <tr>
                                     <td style={{ paddingBottom: "6px" }}>
@@ -175,8 +172,10 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                                                     >
                                                         Email:
                                                     </td>
-                                                    <td style={{ fontSize: "11px", color: "#cccccc" }}>
-                                                        {email ? email : "your mail Here"}
+                                                    <td>
+                                                        <a style={{ fontSize: "11px", color: "#cccccc", textDecoration: "none" }}>
+                                                            {email ? email : "your mail Here"}
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             </tbody>

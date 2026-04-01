@@ -22,98 +22,92 @@ function SignatureTemlateK({ name, email, job_title, phone_no, organization, log
             >
               <tbody>
                 <tr>
-                  {/* ══════════════════════════════
-                LEFT COLUMN
-                Photo + Name + Title + Icon
-            ══════════════════════════════ */}
                   <td
                     style={{
                       width: "220px",
                       padding: "30px 0px 30px 28px",
                       verticalAlign: "bottom",
-                      position: "relative",
+                     
                     }}
                   >
-                    {/* Thin vertical divider line — top portion */}
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "0",
-                        right: "0",
-                        width: "1px",
-                        height: "80%",
-                        backgroundColor: "#cccccc",
-                      }}
-                    />
+                    <table>
+                      <tbody style={{ marginBottom: "14px" }}>
+                        <tr>
+                          <td style={{
+                            width: "110px",
+                            height: "110px",
+                            borderRadius: "50%",
+                            overflow: "hidden",
+                            border: "2px solid #e8e8e8",
+                            backgroundColor: "#f0ede8",
+                            display: "inline-block",
+                            verticalAlign: "middle",
+                            textAlign: "center"
+                          }}>
+                            <img
+                              src={imageSrc}
+                              alt="Mariana Napolitani"
+                              width="110"
+                              height="110"
+                              style={{
+                                objectFit: "cover",
+                                display: "block",
+                                filter: "grayscale(15%)",
+                              }}
+                              onError={(e) => {
+                                e.target.style.display = "none";
+                                e.target.parentNode.style.backgroundColor = "#ddd8d0";
+                              }}
+                            />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style={{
+                            fontSize: "15px",
+                            fontWeight: "400",
+                            color: "#1a1a1a",
+                            letterSpacing: "0.2px",
+                            marginBottom: "4px",
+                            fontFamily: "'Georgia', serif",
+                          }}>
 
-                    {/* Profile photo — circle, slightly overlapping top */}
-                    <div style={{ marginBottom: "14px" }}>
-                      <div
-                        style={{
-                          width: "110px",
-                          height: "110px",
-                          borderRadius: "50%",
-                          overflow: "hidden",
-                          border: "2px solid #e8e8e8",
-                          backgroundColor: "#f0ede8",
-                          display: "inline-block",
-                        }}
-                      >
-                        {/* Replace src with your photo */}
-                        <img
-                          src={imageSrc}
-                          alt="Mariana Napolitani"
-                          width="110"
-                          height="110"
-                          style={{
-                            objectFit: "cover",
-                            display: "block",
-                            filter: "grayscale(15%)",
-                          }}
-                          onError={(e) => {
-                            e.target.style.display = "none";
-                            e.target.parentNode.style.backgroundColor = "#ddd8d0";
-                          }}
-                        />
-                      </div>
-                    </div>
+                            <b>
+                              {name ? name : 'Your Name'}
+                            </b>
 
-                    {/* Name */}
-                    <div
-                      style={{
-                        fontSize: "15px",
-                        fontWeight: "400",
-                        color: "#1a1a1a",
-                        letterSpacing: "0.2px",
-                        marginBottom: "4px",
-                        fontFamily: "'Georgia', serif",
-                      }}
-                    >
-                      <b>
-                        {name ? name : 'Your Name'}
-                      </b>
-                    </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style={{
+                            fontSize: "10px",
+                            color: "#888888",
+                            letterSpacing: "2.5px",
+                            textTransform: "uppercase",
+                            fontFamily: "'Segoe UI', Arial, sans-serif",
+                            marginBottom: "14px",
+                          }}>
 
-                    {/* Title */}
-                    <div
-                      style={{
-                        fontSize: "10px",
-                        color: "#888888",
-                        letterSpacing: "2.5px",
-                        textTransform: "uppercase",
-                        fontFamily: "'Segoe UI', Arial, sans-serif",
-                        marginBottom: "14px",
-                      }}
-                    >
-                      {job_title ? job_title : 'Job Title'}
-                    </div>
+                            {job_title ? job_title : 'Job Title'}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table style={{ marginTop: "6px" }}>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>{POWERED_BY}</strong></i></span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
 
-                    <div>
-                      <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>{POWERED_BY}</strong></i></span>
-                    </div>
-
-
-
+                  <td style={{
+                            width: "1px",
+                            height: "50%",
+                            backgroundColor: "#cccccc",
+                          }}>
                   </td>
 
                   {/* ══════════════════════════════
@@ -171,14 +165,14 @@ function SignatureTemlateK({ name, email, job_title, phone_no, organization, log
                               /* Cursor / pointer */
                               <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="13" height="13" style={{ display: "block" }} />
                             ),
-                            text: linkedin || "www.reallygreatsite.com",
+                            text: linkedin ? (<a style={{ textDecoration:"none", paddingBottom: "9px",fontSize: "11.5px",color: "#444444", fontFamily: "'Segoe UI', Arial, sans-serif", letterSpacing: "0.2px", verticalAlign: "middle", }}>{ linkedin }</a>) : "www.reallygreatsite.com",
                           },
                           {
                             icon: (
                               /* Envelope */
                               <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="13" height="13" style={{ display: "block" }} />
                             ),
-                            text: email || "youremail@gmail.com",
+                            text: email ? (<a style={{ textDecoration:"none", paddingBottom: "9px",fontSize: "11.5px",color: "#444444", fontFamily: "'Segoe UI', Arial, sans-serif", letterSpacing: "0.2px", verticalAlign: "middle", }}>{ linkedin }</a>) : "youremail@gmail.com",
                           },
                         ].map((item, i) => (
                           <tr key={i}>

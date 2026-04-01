@@ -6,10 +6,11 @@ function Button({ type, label, pending }) {
             {pending ? (
                 <div className="flex items-center gap-2">
                     <div className="w-4 h-4 border-2 border-gray-300 border-t-white rounded-full animate-spin"></div>
-                    <span className="text-sm">Submitting...</span>
+                    <span className="text-black">Submitting...</span>
                 </div>
             ) : (
-                label
+             
+                 <span className="text-black">{label}</span>
             )}
         </button>
     );

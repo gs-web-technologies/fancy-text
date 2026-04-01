@@ -26,7 +26,7 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
     ];
 
     return (
-        <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "100%", height: "50%", backgroundColor: "#f0f4f8" }}>
+        <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "500px", height: "50%", backgroundColor: "#f0f4f8" }}>
             <tbody>
                 <tr>
                     <td style={{ textAlign: "center" }}>
@@ -34,8 +34,7 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                             cellPadding="0"
                             cellSpacing="0"
                             style={{
-                                width: "620px",
-                                minWidth: "620px",
+                                width: "500px",
                                 backgroundColor: "#ffffff",
                                 borderRadius: "14px",
                                 overflow: "hidden",
@@ -50,8 +49,8 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                     {/* LEFT COLUMN */}
                                     <td
                                         style={{
-                                            width: "240px",
-                                            padding: "24px",
+                                            width: "169px",
+                                            padding: "20px",
                                             verticalAlign: "top",
                                             backgroundColor: "#ffffff",
                                         }}
@@ -108,7 +107,7 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                             <tbody>
                                                 <tr>
                                                     {socialLinks.map((s, i) => (
-                                                        <td key={i} style={{ paddingRight: "1px" }}>
+                                                        <td key={i}>
                                                             <a href={s.href}>
                                                                 {s.icon}
                                                             </a>
@@ -123,48 +122,27 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                     <td
                                         style={{
                                             width: "160px",
-                                            textAlign: "center",
-                                            verticalAlign: "middle",
-                                            padding: "10px",
+                                            height: "160px",
+                                            border: "2px solid #00bcd4",
+                                            backgroundColor: "#00bcd4",
+                                            alignItems: "center"
                                         }}
                                     >
-                                        <table
-                                            width="120"
-                                            height="120"
-                                            style={{
-                                                borderRadius: "50%",
-                                                backgroundColor: "#00bcd4",
-                                            }}
-                                        >
+                                        <table>
                                             <tbody>
                                                 <tr>
-                                                    <td align="center" valign="middle">
-
-                                                        <table
-                                                            width="110"
-                                                            height="110"
+                                                    <td>
+                                                        <img
+                                                            src={imageSrc}
                                                             style={{
-                                                                borderRadius: "50%",
-                                                                backgroundColor: "#fff",
+                                                                padding: "4px",
+                                                                display: "block",
+                                                                objectFit: "cover",
+                                                                // borderRadius: "50px",
+                                                                width: "160px",
+                                                                height:"160px"
                                                             }}
-                                                        >
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td align="center" valign="middle">
-                                                                        <img
-                                                                            src={imageSrc}
-                                                                            width="100"
-                                                                            height="100"
-                                                                            style={{
-                                                                                borderRadius: "50%",
-                                                                                display: "block",
-                                                                            }}
-                                                                        />
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-
+                                                        />
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -185,15 +163,36 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                             <tbody>
                                                 {[
                                                     {
-                                                        icon: "https://cdn-icons-png.flaticon.com/512/724/724664.png",
+                                                        icon: (
+                                                            <img
+                                                                src="https://cdn-icons-png.flaticon.com/512/724/724664.png"
+                                                                width="13"
+                                                                height="13"
+                                                                style={{ display: "block",  margin:"4px" }}
+                                                            />
+                                                        ),
                                                         label: phone_no || "+000 00 0000",
                                                     },
                                                     {
-                                                        icon: "https://cdn-icons-png.flaticon.com/512/561/561127.png",
+                                                        icon: (
+                                                            <img
+                                                                src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
+                                                                width="13"
+                                                                height="13"
+                                                                style={{ display: "block",  margin:"4px" }}
+                                                            />
+                                                        ),
                                                         label: email || "email here",
                                                     },
                                                     {
-                                                        icon: "https://cdn-icons-png.flaticon.com/512/2111/2111463.png",
+                                                        icon: (
+                                                            <img
+                                                                src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                                                                width="13"
+                                                                height="13"
+                                                                style={{ display: "block", margin:"4px" }}
+                                                            />
+                                                        ),
                                                         label: instagram || "instagram",
                                                     },
                                                 ].map((item, i) => (
@@ -207,16 +206,20 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                                                             height: "22px",
                                                                             borderRadius: "50%",
                                                                             backgroundColor: "#e0f7fa",
-                                                                            textAlign: "center"
+                                                                            verticalAlign:"center",
+                                                                            textAlign: "center",
                                                                         }}>
-                                                                            <img src={item.icon} width="12" />
+                                                                           {item.icon}
                                                                         </td>
-                                                                        <td style={{
-                                                                            fontSize: "12px",
-                                                                            paddingLeft: "8px",
-                                                                            color: "#444"
-                                                                        }}>
-                                                                            {item.label}
+                                                                        <td>
+                                                                            <a style={{
+                                                                                textDecoration: "none",
+                                                                                fontSize: "12px",
+                                                                                paddingLeft: "8px",
+                                                                                color: "#444"
+                                                                            }}>
+                                                                                {item.label}
+                                                                            </a>
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -227,7 +230,7 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
 
                                                 {/* POWERED */}
                                                 <tr>
-                                                    <td style={{ fontSize: "10px" }}>
+                                                    <td style={{ fontSize: "10px", marginTop:"10px" }}>
                                                         <i>Powered by <strong>{POWERED_BY}</strong></i>
                                                     </td>
                                                 </tr>

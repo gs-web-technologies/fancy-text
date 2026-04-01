@@ -79,9 +79,6 @@ function SignatureTemlateR({ name, email, job_title, phone_no, organization, log
                         border: "2.5px solid #e8192c",
                         backgroundColor: "#fce8ea",
                         marginBottom: "12px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
                       }}
                     >
                       <img
@@ -100,19 +97,23 @@ function SignatureTemlateR({ name, email, job_title, phone_no, organization, log
                     {/* Social icons — vertical stack */}
                     <table cellPadding="0" cellSpacing="0">
                       <tbody>
-                        {SocialLinks.map((item, i) => (
-                          <tr key={i}>
-                            <td style={{ paddingBottom: i < 3 ? "7px" : "0" }}>
-                              <a href={item.href} style={{
-                                display: "inline-flex", alignItems: "center", justifyContent: "center",
-                                width: "22px", height: "22px", borderRadius: "5px",
-                                backgroundColor: "#e8192c", textDecoration: "none",
-                              }}>
-                                {item.icon}
+                        <tr>
+                          {SocialLinks.map((s, i) => (
+                            <td key={i} style={{ paddingRight: i < 2 ? "2px" : "0" }}>
+                              <a href={s.href} style={{ display: "inline-block", textDecoration: "none" }}>
+                                <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "24px", height: "24px", borderRadius: "50%" }}>
+                                  <tbody>
+                                    <tr>
+                                      <td style={{ textAlign: "center", verticalAlign: "middle" }}>
+                                        {s.icon}
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
                               </a>
                             </td>
-                          </tr>
-                        ))}
+                          ))}
+                        </tr>
                       </tbody>
                     </table>
                   </td>
@@ -152,19 +153,15 @@ function SignatureTemlateR({ name, email, job_title, phone_no, organization, log
                       <tbody>
                         {[
                           {
-                            icon: <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e8192c" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 12.07a19.79 19.79 0 01-3.07-8.64A2 2 0 011.9 1.11h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z" /></svg>,
+                            icon: <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="13" height="13" style={{ display: "block" }} />,
                             text: phone_no || "+00 000 00 000",
                           },
                           {
-                            icon: <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e8192c" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>,
-                            text: email || "yourmail@example.com",
+                            icon: <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="13" height="13" style={{ display: "block" }} />,
+                            text: email ? <a style={{ textDecoration: "none", fontSize: "11px", color: "#444444", verticalAlign: "middle", whiteSpace: "nowrap" }}>{email}</a> : "yourmail@example.com",
                           },
                           {
-                            icon: <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e8192c" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" /></svg>,
-                            text: linkedin || "www.yourwebsite.com",
-                          },
-                          {
-                            icon: <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e8192c" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></svg>,
+                            icon: <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="13" height="13" style={{ display: "block" }} />,
                             text: organization || "Organization",
                           },
                         ].map((item, i) => (

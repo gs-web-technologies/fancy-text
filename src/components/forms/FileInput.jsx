@@ -1,9 +1,18 @@
 "use client";
 import React, { useState } from 'react';
 import { MAX_SIZE, ALLOWED_TYPES, CLOUD_NAME } from "@/utils/const";
+import imageCompression from 'browser-image-compression';
 
 function FileInput({ name, type, placeholder, accept, description, register, setValue, SetSelectedFile, error }) {
     const [uploading, SetUploading] = useState(false);
+    const convertToBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = (error) => reject(error);
+        });
+    };
     return (
         <div className="relative z-0 w-full mb-3 group">
 
@@ -19,22 +28,46 @@ function FileInput({ name, type, placeholder, accept, description, register, set
 
                     if (file && ALLOWED_TYPES.includes(file.type) && file.size <= MAX_SIZE) {
                         SetUploading(true);
-                        const data = new FormData();
-                        const cloud_name = CLOUD_NAME;
-                        data.append("file", file);
-                        data.append("upload_preset", "signature_upload");
-                        console.log(data);
-                        const res = await fetch(
-                            `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,
-                            {
-                                method: "POST",
-                                body: data,
-                            }
-                        );
-                        const result = await res.json();
-                        const previewURL = result.secure_url;
-                        setValue("logo", previewURL);
-                        SetSelectedFile(previewURL);
+                        // const data = new FormData();
+                        // const cloud_name = CLOUD_NAME;
+                        // data.append("file", file);
+                        // data.append("upload_preset", "signature_upload");
+
+                        // for cloudinary
+                        // const res = await fetch(
+                        //     `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,
+                        //     {
+                        //         method: "POST",
+                        //         body: data,
+                        //     }
+                        // );
+
+                        // for local 
+                        //             const res = await fetch('api/upload', {
+                        //                 method: "POST",
+                        //                 body: data,
+                        //             })
+                        // const result = await res.json();
+                        // for cloudinary
+                        // const previewURL = result.secure_url;
+
+                        // for local
+                        //  const previewURL = result.url;
+                        //  const previewURL = "https://imgmsgen.com/img/easter-greetings/banner.png";
+                        // setValue("logo", previewURL);
+                        // SetSelectedFile(previewURL);
+                        // SetUploading(false);
+
+                        const options = {
+                            maxSizeMB: 0.3,
+                            maxWidthOrHeight: 800,
+                            useWebWorker: true,
+                        };
+                        const compressedFile = await imageCompression(file, options);
+                        const base64 = await convertToBase64(compressedFile);
+
+                        setValue("logo", base64);
+                        SetSelectedFile(base64);
                         SetUploading(false);
                     }
                 }}

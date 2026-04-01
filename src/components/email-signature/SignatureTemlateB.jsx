@@ -54,18 +54,6 @@ function SignatureTemlateB({ name, email, job_title, phone_no, organization, log
       ),
     },
     {
-      rows: ["LinkedIn"],
-      href: linkedin || "",
-      icon: (
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png"
-          width="13"
-          height="13"
-          style={{ display: "block" }}
-        />
-      ),
-    },
-    {
       rows: [email || "your email name here"],
       href: `mailto:${email}`,
       icon: (
@@ -101,7 +89,7 @@ function SignatureTemlateB({ name, email, job_title, phone_no, organization, log
               cellSpacing="0"
               style={{
                 borderCollapse: "collapse",
-                width: "680px",
+                width: "600px",
                 borderRadius: "10px",
                 overflow: "hidden",
                 boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
@@ -112,19 +100,13 @@ function SignatureTemlateB({ name, email, job_title, phone_no, organization, log
                 <tr>
 
                   {/* LEFT: Name + social */}
-                  <td style={{ width: "260px", padding: "0", verticalAlign: "top", position: "relative", background: "#1a2356", overflow: "hidden" }}>
+                  <td style={{ width: "255px", padding: "0", verticalAlign: "top", background: "#1a2356", borderLeft: "5px solid #f5a623" }}>
                     {/* Yellow left border */}
-                    <table cellPadding="0" cellSpacing="0" style={{ position: "absolute", left: 0, top: 0, width: "5px", height: "100%", background: "#f5a623", zIndex: 1, borderCollapse: "collapse" }}>
-                      <tbody><tr><td></td></tr></tbody>
-                    </table>
+                    {/* <table cellPadding="0" cellSpacing="0">
+                      <tbody><tr><td style={{ width: "255px", padding: "0", verticalAlign: "top", background: "#1a2356", borderLeft: "5px solid #f5a623" }}></td></tr></tbody>
+                    </table> */}
 
-                    {/* Decorative SVG arcs */}
-                    <svg style={{ position: "absolute", top: 0, left: 0, zIndex: 0 }} width="260" height="160" viewBox="0 0 260 160">
-                      <path d="M0,0 L90,0 Q130,0 130,40 L130,100 Q130,140 90,140 L0,140 Z" fill="#f5a623" opacity="0.15" />
-                      <path d="M0,0 L60,0 Q95,0 95,35 L95,85 Q95,120 60,120 L0,120 Z" fill="#f5a623" opacity="0.18" />
-                    </svg>
-
-                    <table cellPadding="0" cellSpacing="0" style={{ position: "relative", zIndex: 2, width: "100%", borderCollapse: "collapse" }}>
+                    <table cellPadding="0" cellSpacing="0" style={{ zIndex: 2, width: "100%", borderCollapse: "collapse" }}>
                       <tbody>
                         <tr>
                           <td style={{ padding: "28px 20px 0px 24px" }}>
@@ -175,7 +157,7 @@ function SignatureTemlateB({ name, email, job_title, phone_no, organization, log
                               <tbody>
                                 <tr>
                                   {socialLinks.map((s, i) => (
-                                    <td key={`${s.href}-${i}`} style={{ paddingRight: "10px", verticalAlign: "middle" }}>
+                                    <td key={`${s.href}-${i}`} style={{ verticalAlign: "middle" }}>
                                       <a href={s.href} style={{ textDecoration: "none" }}>
                                         <table cellPadding="0" cellSpacing="0" style={{ width: "30px", height: "30px", border: "none" }}>
                                           <tbody>
@@ -210,25 +192,22 @@ function SignatureTemlateB({ name, email, job_title, phone_no, organization, log
                     <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", margin: "0 auto" }}>
                       <tbody>
                         <tr>
-                          <td style={{ padding: "0", position: "relative", width: "110px", height: "120px" }}>
-                            {/* Yellow blob border */}
-                            <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", position: "absolute", top: "-4px", left: "-4px", width: "118px", height: "128px", background: "#f5a623", borderRadius: "60% 40% 55% 45% / 50% 45% 55% 50%" }}>
-                              <tbody><tr><td></td></tr></tbody>
-                            </table>
-                            {/* Photo blob */}
-                            <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", position: "absolute", top: "0", left: "0", width: "110px", height: "120px", borderRadius: "60% 40% 55% 45% / 50% 45% 55% 50%", overflow: "hidden" }}>
-                              <tbody>
-                                <tr>
-                                  <td style={{ padding: "0" }}>
-                                    <img
-                                      src={imageSrc}
-                                      alt="Profile"
-                                      style={{ width: "110px", height: "120px", objectFit: "cover", display: "block" }}
-                                    />
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
+                          <td>
+                            <div style={{ width:"120px", height:"130px" ,padding: "4px", background: "#f5a623"}}>
+                              <img
+                                src={imageSrc}
+                                alt="Profile"
+                                width="110"
+                                height="120"
+                                style={{
+                                  width: "110px",
+                                   height: "120px",
+                                  display: "block",
+                                  backgroundColor: "#f5a623",
+                                  objectFit:"cover",
+                                }}
+                              />
+                            </div>
                           </td>
                         </tr>
                       </tbody>
@@ -250,8 +229,8 @@ function SignatureTemlateB({ name, email, job_title, phone_no, organization, log
                                         <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "28px", height: "28px", borderRadius: "50%", background: "#f5a623" }}>
                                           <tbody>
                                             <tr>
-                                              <td style={{ textAlign: "center", padding:"8px" }}>
-                                                {c.icon} 
+                                              <td style={{ textAlign: "center", padding: "8px" }}>
+                                                {c.icon}
                                               </td>
                                             </tr>
                                           </tbody>

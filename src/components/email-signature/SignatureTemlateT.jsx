@@ -7,21 +7,23 @@ function SignatureTemlateT({ name, email, job_title, phone_no, organization, log
   const SocialLinks = [
     {
       label: "facebook",
-      icon: ( <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="13" height="13" style={{
-  display: "block" }} />
+      icon: (<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="13" height="13" style={{
+        display: "block"
+      }} />
       ),
       href: facebook || "https://facebook.com",
     },
     {
-      label: "linkedIn",
-      icon: (<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="13" height="13" style={{ display: "block" }} />
+      label: "twitter",
+      icon: (<img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="13" height="13" style={{ display: "block", backgroundColor:"black" }} />
       ),
       href: linkedin || "https://linkedin.com",
     },
     {
       label: "Instagram",
-      icon: (<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="13" height="13" style={{ display: "block"
-  }} />
+      icon: (<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="13" height="13" style={{
+        display: "block"
+      }} />
       ),
       href: instagram || "https://instagram.com",
     }
@@ -132,9 +134,9 @@ function SignatureTemlateT({ name, email, job_title, phone_no, organization, log
                               <tbody>
                                 <tr>
                                   <td style={{ paddingRight: "8px", verticalAlign: "middle" }}>
-                                    <div style={{ width: "18px", height: "18px", backgroundColor: "#1abc9c", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                    <div style={{ width: "18px", height: "18px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
                                       <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="13" height="13" style={{ display: "block" }} />
-                                      
+
                                     </div>
                                   </td>
                                   <td style={{ fontSize: "11px", color: "#2c3e50", fontFamily: "Arial, sans-serif" }}>{phone_no ? phone_no : "000 1234 56789"}</td>
@@ -149,11 +151,15 @@ function SignatureTemlateT({ name, email, job_title, phone_no, organization, log
                               <tbody>
                                 <tr>
                                   <td style={{ paddingRight: "8px", verticalAlign: "middle" }}>
-                                    <div style={{ width: "18px", height: "18px", backgroundColor: "#1abc9c", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                     <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="13" height="13" style={{ display: "block" }} />
+                                    <div style={{ width: "18px", height: "18px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                      <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="13" height="13" style={{ display: "block" }} />
                                     </div>
                                   </td>
-                                  <td style={{ fontSize: "11px", color: "#2c3e50", fontFamily: "Arial, sans-serif" }}>{email ? email : "your_email@gmail.com"}</td>
+                                  <td>
+                                    <a style={{ textDecoration: "none", fontSize: "11px", color: "#2c3e50", fontFamily: "Arial, sans-serif" }}>
+                                      {email ? email : "your_email@gmail.com"}
+                                    </a>
+                                  </td>
                                 </tr>
                               </tbody>
                             </table>
@@ -167,12 +173,17 @@ function SignatureTemlateT({ name, email, job_title, phone_no, organization, log
                               <tbody>
                                 <tr>
                                   <td style={{ paddingRight: "8px", verticalAlign: "middle" }}>
-                                    <div style={{ width: "18px", height: "18px", backgroundColor: "#1abc9c", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                      <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" width="13" height="13" style={{ display: "block"
-    }} />
+                                    <div style={{ width: "18px", height: "18px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                      <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" width="13" height="13" style={{
+                                        display: "block"
+                                      }} />
                                     </div>
                                   </td>
-                                  <td style={{ fontSize: "11px", color: "#2c3e50", fontFamily: "Arial, sans-serif" }}>{linkedin ? linkedin : "Your linkedIn"}</td>
+                                  <td>
+                                    <a style={{ textDecoration: "none", fontSize: "11px", color: "#2c3e50", fontFamily: "Arial, sans-serif" }}>
+                                      {linkedin ? linkedin : "Your linkedIn"}
+                                    </a>
+                                  </td>
                                 </tr>
                               </tbody>
                             </table>
@@ -184,7 +195,7 @@ function SignatureTemlateT({ name, email, job_title, phone_no, organization, log
                               <tbody>
                                 <tr>
                                   <td style={{ paddingRight: "8px", verticalAlign: "middle" }}>
-                                    <div style={{ width: "18px", height: "18px", backgroundColor: "#1abc9c", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                    <div style={{ width: "18px", height: "18px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
                                       <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="13" height="13" style={{ display: "block" }} />
                                     </div>
                                   </td>
@@ -199,10 +210,10 @@ function SignatureTemlateT({ name, email, job_title, phone_no, organization, log
                   </td>
                 </tr>
                 <tr>
-                     <td style={{ textAlign: "right", fontSize: "10px", color: "#1abc9c" }}>
-                  <i>Powered by <strong>{POWERED_BY}</strong></i>
-                </td>
-                  </tr>
+                  <td style={{ textAlign: "right", fontSize: "10px", color: "#1abc9c" }}>
+                    <i>Powered by <strong>{POWERED_BY}</strong></i>
+                  </td>
+                </tr>
 
               </tbody>
             </table>
@@ -211,7 +222,7 @@ function SignatureTemlateT({ name, email, job_title, phone_no, organization, log
           {/* RIGHT: Vertical teal social icons bar */}
           <td
             style={{
-              width: "32px",
+              width: "30px",
               background: "linear-gradient(180deg, #1abc9c 0%, #16a085 100%)",
               verticalAlign: "middle",
               padding: "14px 10px",
@@ -233,9 +244,9 @@ function SignatureTemlateT({ name, email, job_title, phone_no, organization, log
             </table>
           </td>
         </tr>
-        
+
       </tbody>
-    </table>
+    </table >
   );
 }
 
