@@ -61,10 +61,10 @@ const schema = z.object({
         }),
 
 
-    linkedin: z.url('LinkedIn must be a valid URL'),
-    instagram: z.url('Instagram must be a valid URL'),
-    facebook: z.url('Facebook must be a valid URL'),
-    twitter: z.url('X must be a valid URL'),
+    linkedin: z.url('LinkedIn must be a valid URL').optional().or(z.literal('')),
+    instagram: z.url('Instagram must be a valid URL').optional().or(z.literal('')),
+    facebook: z.url('Facebook must be a valid URL').optional().or(z.literal('')),
+    twitter: z.url('X must be a valid URL').optional().or(z.literal('')),
 
 
 });
