@@ -26,36 +26,9 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
               width: "160px",
               background: "linear-gradient(160deg, #a8edea 0%, #38c9c0 40%, #3b9fd4 100%)",
               verticalAlign: "bottom",
-              position: "relative",
               padding: "0",
             }}
           >
-            {/* Decorative flower top-left */}
-            <div style={{ position: "absolute", top: "8px", left: "6px", opacity: 0.5 }}>
-              <svg width="36" height="36" viewBox="0 0 36 36" fill="white">
-                <circle cx="18" cy="9" r="6" />
-                <circle cx="27" cy="14" r="6" />
-                <circle cx="27" cy="25" r="6" />
-                <circle cx="18" cy="30" r="6" />
-                <circle cx="9" cy="25" r="6" />
-                <circle cx="9" cy="14" r="6" />
-                <circle cx="18" cy="18" r="5" />
-              </svg>
-            </div>
-
-            {/* Decorative flower bottom-left */}
-            <div style={{ position: "absolute", bottom: "8px", left: "4px", opacity: 0.35 }}>
-              <svg width="28" height="28" viewBox="0 0 36 36" fill="white">
-                <circle cx="18" cy="9" r="6" />
-                <circle cx="27" cy="14" r="6" />
-                <circle cx="27" cy="25" r="6" />
-                <circle cx="18" cy="30" r="6" />
-                <circle cx="9" cy="25" r="6" />
-                <circle cx="9" cy="14" r="6" />
-                <circle cx="18" cy="18" r="5" />
-              </svg>
-            </div>
-
             {/* Profile photo at bottom of panel */}
             <table cellPadding="0" cellSpacing="0" style={{ width: "100%" }}>
               <tbody>
@@ -107,18 +80,6 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                     <table cellPadding="0" cellSpacing="0">
                       <tbody>
                         <tr>
-                          <td style={{ paddingRight: "6px", verticalAlign: "middle" }}>
-                            {/* Small flower icon */}
-                            <svg width="16" height="16" viewBox="0 0 36 36" fill="#38c9c0">
-                              <circle cx="18" cy="9" r="6" />
-                              <circle cx="27" cy="14" r="6" />
-                              <circle cx="27" cy="25" r="6" />
-                              <circle cx="18" cy="30" r="6" />
-                              <circle cx="9" cy="25" r="6" />
-                              <circle cx="9" cy="14" r="6" />
-                              <circle cx="18" cy="18" r="5" />
-                            </svg>
-                          </td>
                           <td
                             style={{
                               fontSize: "12px",
@@ -178,7 +139,9 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                             </div>
                           </td>
                           <td style={{ fontSize: "12px", color: "#555555", fontFamily: "Arial, sans-serif" }}>
-                            {email ? email : 'youremail@gmail.com'}
+                            <a style={{ textDecoration: "none" }}>
+                              {email ? email : 'youremail@gmail.com'}
+                            </a>
                           </td>
                         </tr>
                       </tbody>
@@ -204,7 +167,7 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                                 justifyContent: "center",
                               }}
                             >
-                             <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="13" height="13" style={{ display: "block" }} />
+                              <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="13" height="13" style={{ display: "block" }} />
 
                             </div>
                           </td>
@@ -217,7 +180,7 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                   </td>
                 </tr>
 
-                {/* Website */}
+                {/* Address */}
                 <tr>
                   <td style={{ padding: "7px 0px 2px 0px" }}>
                     <table cellPadding="0" cellSpacing="0">
@@ -235,42 +198,11 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                                 justifyContent: "center",
                               }}
                             >
-                             <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" width="13" height="13" style={{ display: "block"
-    }} />
+                              <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="13" height="13" style={{ display: "block" }} />
+
                             </div>
                           </td>
                           <td style={{ fontSize: "12px", color: "#555555", fontFamily: "Arial, sans-serif" }}>
-                            {linkedin ? linkedin : 'Your LinkedIn'}
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-
-                {/* Address */}
-                <tr>
-                  <td>
-                    <table cellPadding="0" cellSpacing="0">
-                      <tbody>
-                        <tr>
-                          <td style={{ padding: "7px 0px 2px 0px", verticalAlign: "middle" }}>
-                            <div
-                              style={{
-                                width: "16px",
-                                height: "16px",
-                                backgroundColor: "#e8f8f7",
-                                borderRadius: "3px",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                              }}
-                            >
-                             <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="13" height="13" style={{ display: "block" }} />
-
-                            </div>
-                          </td>
-                          <td style={{ padding: "7px 0px 2px 0px", fontSize: "12px", color: "#555555", fontFamily: "Arial, sans-serif" }}>
                             {organization ? organization : 'Organization'}
                           </td>
                         </tr>

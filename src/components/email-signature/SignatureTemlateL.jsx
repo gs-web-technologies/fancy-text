@@ -174,39 +174,49 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                       <tbody>
                         <tr>
                           {/* Instagram */}
-                          <td style={{ paddingRight: "10px" }}>
-                            <div
-                              style={{
-                                width: "22px",
-                                height: "22px",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                              }}
-                            >
-                              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="100%" height="100%" style={{
-                                display: "block"
-                              }} />
-                            </div>
-                          </td>
-
-                          {/* Facebook */}
-                          <td style={{ padding: "10px 0px 10px 0px" }}>
-                            <Link href={facebook ? facebook : ''}>
+                          <td style={{ padding: "10px 14px 10px 0px" }}>
+                            <a href={facebook ? facebook : ''}>
                               <div
                                 style={{
                                   width: "22px",
                                   height: "22px",
-                                  display: "flex",
-                                  alignItems: "center",
-                                  justifyContent: "center",
+                                }}
+                              >
+                                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="100%" height="100%" style={{
+                                  display: "block"
+                                }} />
+                              </div>
+                            </a>
+                          </td>
+
+                          {/* Facebook */}
+                          <td style={{ padding: "10px 14px 10px 0px" }}>
+                            <a href={facebook ? facebook : ''}>
+                              <div
+                                style={{
+                                  width: "22px",
+                                  height: "22px",
                                 }}
                               >
                                 <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="100%" height="100%" style={{
                                   display: "block"
                                 }} />
                               </div>
-                            </Link>
+                            </a>
+                          </td>
+
+                          {/* Twitter */}
+                          <td style={{ padding: "10px 14px 10px 0px" }}>
+                            <a href={twitter ? twitter : ''}>
+                              <div
+                                style={{
+                                  width: "22px",
+                                  height: "22px",
+                                }}
+                              >
+                                <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="100%" height="100%" style={{ display: "block" }} />
+                              </div>
+                            </a>
                           </td>
 
                         </tr>

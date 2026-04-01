@@ -158,7 +158,7 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                                   display: "block"
                                 }} />
                               ),
-                              text: linkedin || "your linkedin",
+                              text: linkedin ? (<a style={{ textDecoration: "none" }}> {linkedin} </a>) : "your linkedin",
                             },
                             {
                               icon: (
@@ -177,7 +177,7 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                                       </td>
                                       <td style={{
                                         fontSize: "11px",
-                                        color: "#444444",
+                                        color: "#0e0d0d",
                                         verticalAlign: "middle",
                                       }}>
                                         {item.text}

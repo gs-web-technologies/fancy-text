@@ -2,7 +2,7 @@ import { POWERED_BY } from '@/utils/const';
 import React from 'react'
 
 function SignatureTemlateC({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
-    const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
+    const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar5.png";
     const contacts = [
         {
             icon: (
@@ -101,13 +101,15 @@ function SignatureTemlateC({ name, email, job_title, phone_no, organization, log
 
                                                             overflow: "hidden",
                                                             borderRadius: "5%",
-                                                            padding: "0",
+                                                            padding: "4px",
+                                                            verticalAlign: "center",
+                                                            alignItems: "center",
                                                         }}
                                                     >
                                                         <img
                                                             src={imageSrc}
                                                             alt="Jonathan Hansen"
-                                                            style={{ width: "145px", height: "145px", objectFit: "cover", display: "block", borderRadius: "20% 20% 20% 20%" }}
+                                                            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", borderRadius: "20% 20% 20% 20%" }}
                                                         />
                                                     </td>
                                                 </tr>

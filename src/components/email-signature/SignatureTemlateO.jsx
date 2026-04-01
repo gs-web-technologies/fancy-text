@@ -153,17 +153,28 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                             >
                               {row.letter}
                             </td>
-                            <td
-                              style={{
-                                fontSize: "11px",
-                                color: "#444444",
-                                paddingBottom: "5px",
-                                verticalAlign: "top",
-                                lineHeight: "1.5",
-                              }}
-                            >
-                              {row.value}
-                              {row.extra && row.extra}
+                            <td>
+                              {row.letter == "E" ? (
+                                <a style={{
+                                  textDecoration: "none", fontSize: "11px",
+                                  color: "#444444",
+                                  paddingBottom: "5px",
+                                  verticalAlign: "top",
+                                  lineHeight: "1.5",
+                                }}>
+                                  {row.value}
+                                </a>
+                              ) : (
+                                <span style={{
+                                  fontSize: "11px",
+                                  color: "#444444",
+                                  paddingBottom: "5px",
+                                  verticalAlign: "top",
+                                  lineHeight: "1.5",
+                                }}>
+                                  {row.value}
+                                </span>
+                              )}
                             </td>
                           </tr>
                         ))}
@@ -176,51 +187,40 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                         <tr>
                           {/* Facebook */}
                           <td style={{ paddingRight: "8px" }}>
-                            <Link
+                            <a
                               href={facebook || "https://facebook.com"}
                               style={{
-                                display: "inline-flex",
-                                alignItems: "center",
-                                justifyContent: "center",
                                 width: "28px",
                                 height: "28px",
-                                borderRadius: "50%",
                                 backgroundColor: "#1877f2",
                                 textDecoration: "none",
                               }}
                             >
-                              <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="13" height="13" style={{
-                                display: "block"
+                              <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="20" height="20" style={{
+                                display: "block", margin: "4px"
                               }} />
-                            </Link>
+                            </a>
                           </td>
                           {/* Twitter / X */}
                           <td style={{ paddingRight: "8px" }}>
-                            <Link
+                            <a
                               href={twitter || "https://x.com"}
                               style={{
-                                display: "inline-flex",
-                                alignItems: "center",
-                                justifyContent: "center",
                                 width: "28px",
                                 height: "28px",
                                 borderRadius: "50%",
-                                border: "2px solid #1da1f2",
                                 backgroundColor: "white",
                                 textDecoration: "none",
                               }}
                             >
-                              <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="13" height="13" style={{ display: "block" }} />
-                            </Link>
+                              <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="20" height="20" style={{ display: "block" }} />
+                            </a>
                           </td>
                           <td style={{ paddingRight: "8px" }}>
                             {/* instagram */}
-                            <Link
+                            <a
                               href={instagram || "https://instagram.com"}
                               style={{
-                                display: "inline-flex",
-                                alignItems: "center",
-                                justifyContent: "center",
                                 width: "28px",
                                 height: "28px",
                                 borderRadius: "50%",
@@ -228,29 +228,26 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                                 textDecoration: "none",
                               }}
                             >
-                              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="13" height="13" style={{
+                              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="20" height="20" style={{
                                 display: "block"
                               }} />
-                            </Link>
+                            </a>
                           </td>
                           <td style={{ paddingRight: "8px" }}>
                             {/* linkedin */}
-                            <Link
+                            <a
                               href={linkedin || "https://linkedin.com"}
                               style={{
-                                display: "inline-flex",
-                                alignItems: "center",
-                                justifyContent: "center",
                                 width: "28px",
                                 height: "28px",
                                 borderRadius: "50%",
                                 backgroundColor: "white",
-                                border: "2px solid #0A66C2",
+                                // border: "2px solid #0A66C2",
                                 textDecoration: "none",
                               }}
                             >
-                              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="13" height="13" style={{ display: "block" }} />
-                            </Link>
+                              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="20" height="20" style={{ display: "block" }} />
+                            </a>
                           </td>
 
                         </tr>

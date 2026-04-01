@@ -2,7 +2,7 @@ import { POWERED_BY } from '@/utils/const';
 import React from 'react'
 
 function SignatureTemlateG({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
-    const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
+    const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";
     return (
 
         <table id="s1" style={{
