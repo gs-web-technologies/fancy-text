@@ -27,7 +27,7 @@ function SignatureTemlateK({ name, email, job_title, phone_no, organization, log
                       width: "220px",
                       padding: "30px 0px 30px 28px",
                       verticalAlign: "bottom",
-                      position: "relative",
+                     
                     }}
                   >
                     <table>

@@ -8,7 +8,7 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
     {
       label: "facebook",
       icon: (
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="13" height="13" style={{
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="15" height="15" style={{
           display: "block"
         }} />
       ),
@@ -17,7 +17,7 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
     {
       label: "Instagram",
       icon: (
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="13" height="13" style={{
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="15" height="15" style={{
           display: "block"
         }} />),
       href: instagram || "https://Instagram.com",
@@ -25,7 +25,7 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
     {
       label: "Twitter",
       icon: (
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="13" height="13" style={{ display: "block" }} />
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="15" height="15" style={{ display: "block" }} />
       ),
       href: twitter || "https://twitter.com",
     }
@@ -62,19 +62,8 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                       width: "320px",
                       padding: "22px 0 0 0",
                       verticalAlign: "top",
-                      position: "relative",
                     }}
                   >
-                    {/* World map watermark background */}
-                    <div style={{
-                      position: "absolute",
-                      top: 0, left: 0, right: 0, bottom: 0,
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='160' viewBox='0 0 300 160'%3E%3Cellipse cx='150' cy='80' rx='140' ry='70' fill='none' stroke='%23e8e8e8' stroke-width='1'/%3E%3Cellipse cx='150' cy='80' rx='100' ry='70' fill='none' stroke='%23e8e8e8' stroke-width='1'/%3E%3Cellipse cx='150' cy='80' rx='60' ry='70' fill='none' stroke='%23e8e8e8' stroke-width='1'/%3E%3Cline x1='10' y1='80' x2='290' y2='80' stroke='%23e8e8e8' stroke-width='1'/%3E%3Cline x1='150' y1='10' x2='150' y2='150' stroke='%23e8e8e8' stroke-width='1'/%3E%3Cline x1='10' y1='50' x2='290' y2='50' stroke='%23e8e8e8' stroke-width='0.5'/%3E%3Cline x1='10' y1='110' x2='290' y2='110' stroke='%23e8e8e8' stroke-width='0.5'/%3E%3C/svg%3E")`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      opacity: 0.6,
-                      zIndex: 0,
-                    }} />
 
                     <div style={{ position: "relative", zIndex: 1, padding: "0 20px 0 22px" }}>
 
@@ -205,18 +194,18 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                         <tbody>
                           <tr>
                             {SocialLinks.map((s, i) => (
-                              <td key={i} style={{ paddingRight: i < 2 ? "10px" : "0" }}>
-                                <div style={{
-                                  display: "inline-flex", alignItems: "center", justifyContent: "center",
-                                  width: "26px", height: "26px", borderRadius: "50%",
-                                  backgroundColor: "rgba(255,255,255,0.4)",
-                                  textDecoration: "none",
-                                }}>
-
-                                  <Link href={s.href}>
-                                    {s.icon}
-                                  </Link>
-                                </div>
+                              <td key={i} style={{ paddingRight: i < 2 ? "7px" : "0" }}>
+                                <a href={s.href} style={{ display: "inline-block", textDecoration: "none" }}>
+                                  <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "24px", height: "24px", borderRadius: "50%" }}>
+                                    <tbody>
+                                      <tr>
+                                        <td style={{ textAlign: "center", verticalAlign: "middle" }}>
+                                          {s.icon}
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </a>
                               </td>
                             ))}
                             <td style={{ textAlign: "right", paddingLeft: "70px" }}>
@@ -246,15 +235,28 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                     }}
                   >
                     {/* Company logo icon + name */}
-                    <table cellPadding="0" cellSpacing="0" style={{ marginBottom: "12px" }}>
+                    <table cellPadding="0" cellSpacing="0" style={{ marginBottom: "8px" }}>
                       <tbody>
                         <tr>
                           <td style={{ paddingRight: "10px", verticalAlign: "middle" }}>
-                            {/* Rings logo icon */}
-                            <svg width="28" height="18" viewBox="0 0 40 26">
-                              <circle cx="14" cy="13" r="11" fill="none" stroke="#f5c518" strokeWidth="3" />
-                              <circle cx="26" cy="13" r="11" fill="none" stroke="#f5c518" strokeWidth="3" />
-                            </svg>
+                            <table cellPadding="0" cellSpacing="0">
+                              <tbody>
+                                <tr>
+                                  {/* Left circle */}
+                                  <td style={{ paddingRight: "2px" }}>
+                                    <div
+                                      style={{
+                                        width: "14px",
+                                        height: "14px",
+                                        border: "2px solid #f5c518",
+                                        borderRadius: "50%",
+                                        backgroundColor: "#f5c518",
+                                      }}
+                                    />
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
                           </td>
                           <td style={{ verticalAlign: "middle" }}>
                             <div style={{ fontSize: "15px", fontWeight: "800", color: "#1a1a1a", letterSpacing: "0.5px", textTransform: "uppercase" }}>
@@ -275,14 +277,15 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                     }} />
 
                     {/* Company description */}
-                    <div style={{
+                    <a style={{
                       fontSize: "10.5px",
-                      color: "#888888",
+                      color: "#030303",
                       lineHeight: "1.7",
                       maxWidth: "240px",
+                      textDecoration: "none"
                     }}>
                       {email ? email : "your_email.com"}
-                    </div>
+                    </a>
                   </td>
 
                 </tr>
