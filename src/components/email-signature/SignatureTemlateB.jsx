@@ -54,7 +54,7 @@ function SignatureTemlateB({ name, email, job_title, phone_no, organization, log
       ),
     },
     {
-      rows: [email || "your email name here"],
+      rows: [email ? (<a style={{ textDecoration:"none", color:"#ffffff"}}>{email}</a>) : "your email name here"],
       href: `mailto:${email}`,
       icon: (
         <img

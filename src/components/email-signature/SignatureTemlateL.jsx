@@ -143,7 +143,13 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                       }}
                     >
                       <b>
-                        {email ? email : "your_email@gmail.com"}
+                        {email ? (<a style={{
+                          textDecoration: "none",
+                          margin: "0 0 2px 0",
+                          fontSize: "14px",
+                          color: "#0a0a0a",
+                          fontFamily: "Arial, sans-serif",
+                        }}>{email}</a>) : "your_email@gmail.com"}
                       </b>
                     </p>
                   </td>
@@ -161,7 +167,13 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                       }}
                     >
                       <b>
-                        {linkedin ? linkedin : "Your linkedIn"}
+                        {linkedin ? (<a style={{
+                          textDecoration: "none",
+                          margin: "0 0 2px 0",
+                          fontSize: "14px",
+                          color: "#0a0a0a",
+                          fontFamily: "Arial, sans-serif",
+                        }}>{linkedin}</a>)  : "Your linkedIn"}
                       </b>
                     </p>
                   </td>

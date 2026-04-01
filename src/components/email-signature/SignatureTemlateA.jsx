@@ -286,18 +286,19 @@ function SignatureTemlateA({ name, email, job_title, phone_no, organization, log
                                                                             &#9993;
                                                                         </span>
                                                                     </td>
-                                                                    <td
-                                                                        style={{
+                                                                    <td>
+                                                                        <a style={{
+                                                                            textDecoration: "none",
                                                                             fontSize: "12px",
                                                                             color: "#374151",
                                                                             paddingRight: "14px",
                                                                             paddingLeft: "4px",
                                                                             fontFamily: "Arial, sans-serif",
-                                                                        }}
-                                                                    >
-                                                                        {email ? email : 'youremail@gmail.com'}
+                                                                        }}>
+                                                                            {email ? email : 'youremail@gmail.com'}
+                                                                        </a>
                                                                     </td>
-                                                                   
+
                                                                 </tr>
                                                             </tbody>
                                                         </table>

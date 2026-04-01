@@ -129,7 +129,7 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                     {/* <td style={{ width: "1px", backgroundColor: "#444" }} /> */}
 
                     {/* RIGHT: Contact info */}
-                    <td style={{ padding: "18px 0px 18px 14px", verticalAlign: "middle", width:"200px" }}>
+                    <td style={{ padding: "18px 0px 18px 14px", verticalAlign: "middle", width: "200px" }}>
                         <table cellPadding="0" cellSpacing="0" width="200px">
                             <tbody>
                                 <tr>
@@ -172,8 +172,10 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                                                     >
                                                         Email:
                                                     </td>
-                                                    <td style={{ fontSize: "11px", color: "#cccccc", textDecoration: "none" }}>
-                                                        {email ? email : "your mail Here"}
+                                                    <td>
+                                                        <a style={{ fontSize: "11px", color: "#cccccc", textDecoration: "none" }}>
+                                                            {email ? email : "your mail Here"}
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             </tbody>

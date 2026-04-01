@@ -93,7 +93,9 @@ function SignatureTemlateG({ name, email, job_title, phone_no, organization, log
                                                     </td>
 
                                                     <td style={{ fontSize: "12px", color: "#475569", textAlign: "end" }}>
-                                                        <span style={{ color: "#2563eb" }}>✉</span>&nbsp; {email ? email : 'youremail@gmail.com'}
+                                                        <span style={{ color: "#2563eb" }}>✉</span>&nbsp; 
+                                                        <a style={{textDecoration:"none", color: "#2563eb"}}>{email ? email : 'youremail@gmail.com'}
+                                                            </a>
                                                     </td>
 
 
