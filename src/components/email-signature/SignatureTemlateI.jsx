@@ -138,7 +138,9 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                                                 padding: "4px",
                                                                 display: "block",
                                                                 objectFit: "cover",
-                                                                borderRadius: "50px"
+                                                                // borderRadius: "50px",
+                                                                width: "160px",
+                                                                height:"160px"
                                                             }}
                                                         />
                                                     </td>
@@ -161,15 +163,36 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                             <tbody>
                                                 {[
                                                     {
-                                                        icon: "https://cdn-icons-png.flaticon.com/512/724/724664.png",
+                                                        icon: (
+                                                            <img
+                                                                src="https://cdn-icons-png.flaticon.com/512/724/724664.png"
+                                                                width="13"
+                                                                height="13"
+                                                                style={{ display: "block",  margin:"4px" }}
+                                                            />
+                                                        ),
                                                         label: phone_no || "+000 00 0000",
                                                     },
                                                     {
-                                                        icon: "https://cdn-icons-png.flaticon.com/512/561/561127.png",
+                                                        icon: (
+                                                            <img
+                                                                src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
+                                                                width="13"
+                                                                height="13"
+                                                                style={{ display: "block",  margin:"4px" }}
+                                                            />
+                                                        ),
                                                         label: email || "email here",
                                                     },
                                                     {
-                                                        icon: "https://cdn-icons-png.flaticon.com/512/2111/2111463.png",
+                                                        icon: (
+                                                            <img
+                                                                src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                                                                width="13"
+                                                                height="13"
+                                                                style={{ display: "block", margin:"4px" }}
+                                                            />
+                                                        ),
                                                         label: instagram || "instagram",
                                                     },
                                                 ].map((item, i) => (
@@ -183,14 +206,14 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                                                             height: "22px",
                                                                             borderRadius: "50%",
                                                                             backgroundColor: "#e0f7fa",
+                                                                            verticalAlign:"center",
                                                                             textAlign: "center",
-                                                                            padding: "5px",
                                                                         }}>
-                                                                            <img src={item.icon} width="13" height="13" />
+                                                                           {item.icon}
                                                                         </td>
                                                                         <td>
                                                                             <a style={{
-                                                                                textDecoration:"none",
+                                                                                textDecoration: "none",
                                                                                 fontSize: "12px",
                                                                                 paddingLeft: "8px",
                                                                                 color: "#444"
@@ -207,7 +230,7 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
 
                                                 {/* POWERED */}
                                                 <tr>
-                                                    <td style={{ fontSize: "10px" }}>
+                                                    <td style={{ fontSize: "10px", marginTop:"10px" }}>
                                                         <i>Powered by <strong>{POWERED_BY}</strong></i>
                                                     </td>
                                                 </tr>

@@ -14,8 +14,8 @@ function SignatureTemlateT({ name, email, job_title, phone_no, organization, log
       href: facebook || "https://facebook.com",
     },
     {
-      label: "linkedIn",
-      icon: (<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="13" height="13" style={{ display: "block" }} />
+      label: "twitter",
+      icon: (<img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="13" height="13" style={{ display: "block", backgroundColor:"black" }} />
       ),
       href: linkedin || "https://linkedin.com",
     },
@@ -180,7 +180,7 @@ function SignatureTemlateT({ name, email, job_title, phone_no, organization, log
                                     </div>
                                   </td>
                                   <td>
-                                    <a style={{ textDecoration:"none" ,fontSize: "11px", color: "#2c3e50", fontFamily: "Arial, sans-serif" }}>
+                                    <a style={{ textDecoration: "none", fontSize: "11px", color: "#2c3e50", fontFamily: "Arial, sans-serif" }}>
                                       {linkedin ? linkedin : "Your linkedIn"}
                                     </a>
                                   </td>

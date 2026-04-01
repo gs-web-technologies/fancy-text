@@ -54,7 +54,7 @@ function SignatureTemlateB({ name, email, job_title, phone_no, organization, log
       ),
     },
     {
-      rows: [email ? (<a style={{ textDecoration:"none", color:"#ffffff"}}>{email}</a>) : "your email name here"],
+      rows: [email || "your email name here"],
       href: `mailto:${email}`,
       icon: (
         <img
@@ -192,18 +192,22 @@ function SignatureTemlateB({ name, email, job_title, phone_no, organization, log
                     <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", margin: "0 auto" }}>
                       <tbody>
                         <tr>
-                          <td style={{ padding: "4px", background: "#f5a623", borderRadius: "60% 40% 55% 45% / 50% 45% 55% 50%" }}>
-                            <img
-                              src={imageSrc}
-                              alt="Profile"
-                              style={{
-                                width: "110px",
-                                height: "120px",
-                                objectFit: "cover",
-                                display: "block",
-                                borderRadius: "60% 40% 55% 45% / 50% 45% 55% 50%",
-                              }}
-                            />
+                          <td>
+                            <div style={{ width:"120px", height:"130px" ,padding: "4px", background: "#f5a623"}}>
+                              <img
+                                src={imageSrc}
+                                alt="Profile"
+                                width="110"
+                                height="120"
+                                style={{
+                                  width: "110px",
+                                   height: "120px",
+                                  display: "block",
+                                  backgroundColor: "#f5a623",
+                                  objectFit:"cover",
+                                }}
+                              />
+                            </div>
                           </td>
                         </tr>
                       </tbody>

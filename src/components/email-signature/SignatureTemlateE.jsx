@@ -37,7 +37,6 @@ function SignatureTemlateE({ name, email, job_title, phone_no, organization, log
                                                             style={{
                                                                 width: "90px",
                                                                 height: "90px",
-                                                                borderRadius: "8px",
                                                                 objectFit: "cover",
                                                                 display: "block",
                                                                 border: "2px solid #e8eaf0",
