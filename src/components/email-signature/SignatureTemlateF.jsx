@@ -1,62 +1,115 @@
 import { POWERED_BY } from '@/utils/const';
 import React from 'react'
 
-function SignatureTemlateF({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateF({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook, hasStarted }) {
   const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar5.png";
-  const contacts = [
-    {
-      bg: "",
-      href: `tel:${phone_no}`,
-      label: phone_no || "+880 1831 034992",
-      icon: (
-        <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="13" height="13" style={{ display: "block" }} />
-      ),
-    },
-    {
-      bg: "",
-      href: `mailto:${email}`,
-      label: email || "example@gmail.com",
-      icon: (
-        <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="13" height="13" style={{ display: "block" }} />
-      ),
-    },
-    {
-      bg: "",
-      href: null,
-      label: organization || "510 Road, Noapara, Jessore",
-      icon: (
+  if (!hasStarted) {
+    name = "Your name";
+    email = "youremail@example.com";
+    job_title = "Job Title";
+    phone_no = "+91-229229929";
+    organization = "Organization";
+    linkedin = "https://linkedin.com";
+    instagram = "https://instagram.com";
+    twitter = "https://twitter.com";
+    facebook = "https://facebook.com"
+  }
 
-        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="13" height="13" style={{ display: "block" }} />
-      ),
-    },
-  ];
+  const contacts = [];
 
-  const socialLinks = [
-    {
-      href: facebook,
-      bg: "",
-      icon: (
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"   width="80%"
-          height="80%"
-          style={{ display: "block" }}
-          alt="Facebook" />
-      ),
-    },
-    {
-      href: twitter,
-      bg: "",
-      icon: (
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="80%" height="80%" style={{ display: "block" }} />
-      ),
-    },
-    {
-      href: linkedin,
-      bg: "",
-      icon: (
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="80%" height="80%" style={{ display: "block" }} />
-      ),
-    },
-  ];
+  if (phone_no) {
+    contacts.push(
+      {
+        bg: "",
+        href: `tel:${phone_no}`,
+        label: phone_no,
+        icon: (
+          <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="13" height="13" style={{ display: "block" }} />
+        ),
+      }
+    );
+  }
+
+  if (email) {
+    contacts.push(
+      {
+        bg: "",
+        href: `mailto:${email}`,
+        label: email,
+        icon: (
+          <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="13" height="13" style={{ display: "block" }} />
+        ),
+      }
+    );
+  }
+
+  if (organization) {
+    contacts.push(
+      {
+        bg: "",
+        href: null,
+        label: organization,
+        icon: (
+
+          <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="13" height="13" style={{ display: "block" }} />
+        ),
+      }
+    );
+  }
+
+  const socialLinks = [];
+
+  if (facebook) {
+    socialLinks.push(
+      {
+        href: facebook,
+        bg: "",
+        icon: (
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="80%"
+            height="80%"
+            style={{ display: "block" }}
+            alt="Facebook" />
+        ),
+      }
+    );
+  }
+
+  if (twitter) {
+    socialLinks.push(
+      {
+        href: twitter,
+        bg: "",
+        icon: (
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="80%" height="80%" style={{ display: "block" }} />
+        ),
+      }
+    )
+  }
+
+  if (linkedin) {
+    socialLinks.push(
+      {
+        href: linkedin,
+        bg: "",
+        icon: (
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="80%" height="80%" style={{ display: "block" }} />
+        ),
+      }
+    )
+  }
+
+  if (instagram) {
+    socialLinks.push(
+      {
+        href: instagram,
+        bg: "",
+        icon: (
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="80%" height="80%" style={{ display: "block" }} />
+        ),
+      }
+    )
+  }
+
 
   return (
 
@@ -92,35 +145,37 @@ function SignatureTemlateF({ name, email, job_title, phone_no, organization, log
                   <td style={{ backgroundColor: "#1a1a2e", padding: "18px 20px", verticalAlign: "middle", width: "190px" }}>
                     <table>
                       <tbody>
-                        <tr>
+                        {name && (<tr>
                           <td>
                             <p style={{ margin: "6px 0 4px", fontSize: "22px", fontWeight: "800", color: "#ffffff", fontFamily: "Georgia, serif", lineHeight: "1.1" }}>
-                              {name ? name : 'Rose Angels'}
+                              {name}
                             </p>
-
                           </td>
-                        </tr>
-                        <tr>
+                        </tr>)}
+                        {organization && (
+                          <tr>
                             <td>
-                            <span style={{ padding: "3px", margin: "0", fontSize: "11px", fontWeight: "700", color: "#ffffff", fontFamily: "Arial, sans-serif", letterSpacing: "0.5px" }}>
-                              {organization ? organization : 'GRAPHICS FAMILY'}
-                            </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td style={{ backgroundColor: "#f97316", borderRadius: "3px", padding: "4px 10px", display: "inline-block", marginTop: "10px" }}>
-                            <p style={{ margin: "0", fontSize: "10px", fontWeight: "700", color: "#ffffff", fontFamily: "Arial, sans-serif", letterSpacing: "1px" }}>
-                              {job_title ? job_title : 'GRAPHIC DESIGNER'}
-                            </p>
-                          </td>
-                        </tr>
+                              <span style={{ padding: "3px", margin: "0", fontSize: "11px", fontWeight: "700", color: "#ffffff", fontFamily: "Arial, sans-serif", letterSpacing: "0.5px" }}>
+                                {organization}
+                              </span>
+                            </td>
+                          </tr>
+                        )}
+                        {job_title && (
+                          <tr>
+                            <td style={{ backgroundColor: "#f97316", borderRadius: "3px", padding: "4px 10px", display: "inline-block", marginTop: "10px" }}>
+                              <p style={{ margin: "0", fontSize: "10px", fontWeight: "700", color: "#ffffff", fontFamily: "Arial, sans-serif", letterSpacing: "1px" }}>
+                                {job_title ? job_title : 'GRAPHIC DESIGNER'}
+                              </p>
+                            </td>
+                          </tr>)}
                       </tbody>
                     </table>
 
                   </td>
 
                   {/* Right white panel */}
-                  <td style={{ backgroundColor: "#ffffff", padding: "0", verticalAlign: "top", width:"250px" }}>
+                  <td style={{ backgroundColor: "#ffffff", padding: "0", verticalAlign: "top", width: "250px" }}>
                     <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "100%" }}>
                       <tbody>
                         {/* Header banner */}

@@ -1,8 +1,21 @@
 import { POWERED_BY } from '@/utils/const';
 import React from 'react'
 
-function SignatureTemlateG({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateG({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook, hasStarted }) {
     const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";
+    if (!hasStarted) {
+        name = "Your name";
+        email = "youremail@example.com";
+        job_title = "Job Title";
+        phone_no = "+91-229229929";
+        organization = "Organization";
+        linkedin = "https://linkedin.com";
+        instagram = "https://instagram.com";
+        twitter = "https://twitter.com";
+        facebook = "https://facebook.com"
+    }
+
+
     return (
 
         <table id="s1" style={{
@@ -49,28 +62,31 @@ function SignatureTemlateG({ name, email, job_title, phone_no, organization, log
 
                                                     {/* Name + Role */}
                                                     <td>
-                                                        <div style={{ fontSize: "17px", fontWeight: "700", color: "#1e293b" }}>
-                                                            {name ? name : 'YourName'}
-                                                        </div>
-                                                        <div
-                                                            style={{
-                                                                fontSize: "11px",
-                                                                color: "#2563eb",
-                                                                letterSpacing: "0.08em",
-                                                                textTransform: "uppercase",
-                                                                marginTop: "2px",
-                                                            }}
-                                                        >
-                                                            {job_title ? job_title : 'Job Title'}
-                                                        </div>
+                                                        {name && (
+                                                            <div style={{ fontSize: "17px", fontWeight: "700", color: "#1e293b" }}>
+                                                                {name}
+                                                            </div>)}
+                                                        {job_title && (
+                                                            <div
+                                                                style={{
+                                                                    fontSize: "11px",
+                                                                    color: "#2563eb",
+                                                                    letterSpacing: "0.08em",
+                                                                    textTransform: "uppercase",
+                                                                    marginTop: "2px",
+                                                                }}
+                                                            >
+                                                                {job_title}
+                                                            </div>)}
                                                     </td>
 
                                                     {/* Company */}
-                                                    <td style={{ textAlign: "right" }}>
-                                                        <div style={{ fontSize: "15px", fontWeight: "700", color: "#2563eb" }}>
-                                                            {organization ? organization : 'Ogranization'}
-                                                        </div>
-                                                    </td>
+                                                    {organization && (
+                                                        <td style={{ textAlign: "right" }}>
+                                                            <div style={{ fontSize: "15px", fontWeight: "700", color: "#2563eb" }}>
+                                                                {organization ? organization : 'Ogranization'}
+                                                            </div>
+                                                        </td>)}
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -88,15 +104,17 @@ function SignatureTemlateG({ name, email, job_title, phone_no, organization, log
                                         <table style={{ width: "100%", borderCollapse: "collapse" }}>
                                             <tbody>
                                                 <tr>
-                                                    <td style={{ fontSize: "12px", color: "#475569", paddingRight: "16px" }}>
-                                                        <span style={{ color: "#2563eb" }}>✆</span>&nbsp; {phone_no ? phone_no : '+91 98765 43210'}
-                                                    </td>
+                                                    {phone_no && (
+                                                        <td style={{ fontSize: "12px", color: "#475569", paddingRight: "16px" }}>
+                                                            <span style={{ color: "#2563eb" }}>✆</span>&nbsp; {phone_no}
+                                                        </td>)}
 
-                                                    <td style={{ fontSize: "12px", color: "#475569", textAlign: "end" }}>
-                                                        <span style={{ color: "#2563eb" }}>✉</span>&nbsp; 
-                                                        <a style={{textDecoration:"none", color: "#2563eb"}}>{email ? email : 'youremail@gmail.com'}
+                                                    {email && (
+                                                        <td style={{ fontSize: "12px", color: "#475569", textAlign: "end" }}>
+                                                            <span style={{ color: "#2563eb" }}>✉</span>&nbsp;
+                                                            <a style={{ textDecoration: "none", color: "#2563eb" }}>{email}
                                                             </a>
-                                                    </td>
+                                                        </td>)}
 
 
                                                 </tr>
@@ -127,11 +145,13 @@ function SignatureTemlateG({ name, email, job_title, phone_no, organization, log
                                                     {/* LEFT SIDE */}
                                                     <td style={{ verticalAlign: "middle" }}>
                                                         <span>
-                                                            {linkedin || "www.techflow.com"}
+                                                            {linkedin}
                                                             {(linkedin || job_title) && " | "}
-                                                            <small style={{ color: "#64748b" }}>
-                                                                {job_title || "CA"}
-                                                            </small>
+                                                            {job_title && (
+                                                                <small style={{ color: "#64748b" }}>
+                                                                    {job_title}
+                                                                </small>
+                                                            )}
                                                         </span>
                                                     </td>
 

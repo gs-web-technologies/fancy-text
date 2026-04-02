@@ -44,7 +44,7 @@ function SignatureTemlateD({ name, email, job_title, phone_no, organization, log
     if (linkedin) {
         contacts.push(
             {
-                label: linkedin,
+                label: "LinkedIn",
                 href: linkedin,
                 icon: (
                     <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" width="13" height="13" style={{
