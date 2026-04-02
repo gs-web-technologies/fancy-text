@@ -155,30 +155,6 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                   </td>
                 </tr>
 
-                {/* Website */}
-                <tr>
-                  <td style={{ paddingBottom: "12px" }}>
-                    <p
-                      style={{
-                        margin: "0",
-                        fontSize: "14px",
-                        color: "#f7f4f4",
-                        fontFamily: "Arial, sans-serif",
-                      }}
-                    >
-                      <b>
-                        {linkedin ? (<a style={{
-                          textDecoration: "none",
-                          margin: "0 0 2px 0",
-                          fontSize: "14px",
-                          color: "#f0ecec",
-                          fontFamily: "Arial, sans-serif",
-                        }}>{linkedin}</a>) : "Your linkedIn"}
-                      </b>
-                    </p>
-                  </td>
-                </tr>
-
                 {/* Social Icons */}
                 <tr style={{ width: "100%" }}>
                   <td style={{ width: "50%" }}>
@@ -227,6 +203,20 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                                 }}
                               >
                                 <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="100%" height="100%" style={{ display: "block" }} />
+                              </div>
+                            </a>
+                          </td>
+
+                          {/* linkedin */}
+                          <td style={{ padding: "10px 14px 10px 0px" }}>
+                            <a href={linkedin ? linkedin : ''}>
+                              <div
+                                style={{
+                                  width: "22px",
+                                  height: "22px",
+                                }}
+                              >
+                                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="100%" height="100%" style={{ display: "block" }} />
                               </div>
                             </a>
                           </td>
