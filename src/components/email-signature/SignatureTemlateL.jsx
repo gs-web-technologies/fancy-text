@@ -2,8 +2,19 @@ import { POWERED_BY } from '@/utils/const';
 import Link from 'next/link';
 import React from 'react'
 
-function SignatureTemlateL({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateL({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook, hasStarted }) {
   const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";
+  if (!hasStarted) {
+    name = "Your name";
+    email = "youremail@example.com";
+    job_title = "Job Title";
+    phone_no = "+91-229229929";
+    organization = "Organization";
+    linkedin = "https://linkedin.com";
+    instagram = "https://instagram.com";
+    twitter = "https://twitter.com";
+    facebook = "https://facebook.com"
+  }
   return (
     <table
       cellPadding="0"
@@ -56,7 +67,7 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
             <table cellPadding="0" cellSpacing="0" style={{ width: "100%" }}>
               <tbody>
                 {/* Name */}
-                <tr>
+                {name && (<tr>
                   <td>
                     <p
                       style={{
@@ -73,10 +84,10 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                       {name ? name : 'Your Name'}
                     </p>
                   </td>
-                </tr>
+                </tr>)}
 
                 {/* Title */}
-                <tr>
+                {job_title && (<tr>
                   <td style={{ paddingBottom: "2px" }}>
                     <p
                       style={{
@@ -92,10 +103,10 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                       {job_title ? job_title : 'Job Title'}
                     </p>
                   </td>
-                </tr>
+                </tr>)}
 
                 {/* Company */}
-                <tr>
+                {organization && (<tr>
                   <td style={{ paddingBottom: "12px" }}>
                     <p
                       style={{
@@ -111,10 +122,10 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                       {organization ? organization : 'Organiztion'}
                     </p>
                   </td>
-                </tr>
+                </tr>)}
 
                 {/* Phone */}
-                <tr>
+                {phone_no && (<tr>
                   <td>
                     <p
                       style={{
@@ -129,10 +140,10 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                       </b>
                     </p>
                   </td>
-                </tr>
+                </tr>)}
 
                 {/* Email */}
-                <tr>
+                {email && (<tr>
                   <td>
                     <p
                       style={{
@@ -153,7 +164,7 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                       </b>
                     </p>
                   </td>
-                </tr>
+                </tr>)}
 
                 {/* Social Icons */}
                 <tr style={{ width: "100%" }}>
@@ -162,7 +173,7 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                       <tbody>
                         <tr>
                           {/* Instagram */}
-                          <td style={{ padding: "10px 14px 10px 0px" }}>
+                          {instagram && (<td style={{ padding: "10px 14px 10px 0px" }}>
                             <a href={instagram ? instagram : ''}>
                               <div
                                 style={{
@@ -176,9 +187,9 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                               </div>
                             </a>
                           </td>
-
+                          )}
                           {/* Facebook */}
-                          <td style={{ padding: "10px 14px 10px 0px" }}>
+                          {facebook && (<td style={{ padding: "10px 14px 10px 0px" }}>
                             <a href={facebook ? facebook : ''}>
                               <div
                                 style={{
@@ -191,10 +202,10 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                                 }} />
                               </div>
                             </a>
-                          </td>
+                          </td>)}
 
                           {/* Twitter */}
-                          <td style={{ padding: "10px 14px 10px 0px" }}>
+                          {twitter && (<td style={{ padding: "10px 14px 10px 0px" }}>
                             <a href={twitter ? twitter : ''}>
                               <div
                                 style={{
@@ -205,10 +216,10 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                                 <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="100%" height="100%" style={{ display: "block" }} />
                               </div>
                             </a>
-                          </td>
+                          </td>)}
 
                           {/* linkedin */}
-                          <td style={{ padding: "10px 14px 10px 0px" }}>
+                         {linkedin && ( <td style={{ padding: "10px 14px 10px 0px" }}>
                             <a href={linkedin ? linkedin : ''}>
                               <div
                                 style={{
@@ -219,7 +230,7 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                                 <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="100%" height="100%" style={{ display: "block" }} />
                               </div>
                             </a>
-                          </td>
+                          </td>)}
                         </tr>
                       </tbody>
                     </table>

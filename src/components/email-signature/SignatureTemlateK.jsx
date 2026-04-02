@@ -1,8 +1,62 @@
 import { POWERED_BY } from '@/utils/const';
 import React from 'react'
 
-function SignatureTemlateK({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateK({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook, hasStarted }) {
   const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
+  if (!hasStarted) {
+    name = "Your name";
+    email = "youremail@example.com";
+    job_title = "Job Title";
+    phone_no = "+91-229229929";
+    organization = "Organization";
+    linkedin = "https://linkedin.com";
+    instagram = "https://instagram.com";
+    twitter = "https://twitter.com";
+    facebook = "https://facebook.com"
+  }
+
+  const contacts = [];
+
+  if (phone_no) {
+    contacts.push(
+      {
+        icon: (
+          <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="13" height="13" style={{ display: "block" }} />
+        ),
+        text: phone_no || "+123-456-7890",
+      }
+    );
+  }
+
+  if (linkedin) {
+    contacts.push(
+      {
+        icon: (
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="13" height="13" style={{ display: "block" }} />
+        ),
+        text: linkedin ? (<a style={{
+          textDecoration: "none", paddingBottom: "9px", fontSize: "11.5px", color: "#444444",
+          fontFamily: "'Segoe UI', Arial, sans-serif", letterSpacing: "0.2px", verticalAlign: "middle",
+        }}>{linkedin}</a>)
+          : "www.reallygreatsite.com",
+      }
+    );
+  }
+
+  if (email) {
+    contacts.push(
+      {
+        icon: (
+          <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="13" height="13" style={{ display: "block" }} />
+        ),
+        text: email ? (<a style={{
+          textDecoration: "none", paddingBottom: "9px", fontSize: "11.5px", color: "#444444",
+          fontFamily: "'Segoe UI', Arial, sans-serif", letterSpacing: "0.2px", verticalAlign: "middle", wordBreak: "break-all"
+        }}>{email}</a>) : "youremail@gmail.com",
+      }
+    );
+  }
+
   return (
     <table style={{ display: "flex", justifyContent: "center" }}>
       <tbody>
@@ -27,7 +81,7 @@ function SignatureTemlateK({ name, email, job_title, phone_no, organization, log
                       width: "220px",
                       padding: "30px 0px 30px 28px",
                       verticalAlign: "bottom",
-                     
+
                     }}
                   >
                     <table>
@@ -61,7 +115,7 @@ function SignatureTemlateK({ name, email, job_title, phone_no, organization, log
                             />
                           </td>
                         </tr>
-                        <tr>
+                        {name && (<tr>
                           <td style={{
                             fontSize: "15px",
                             fontWeight: "400",
@@ -72,12 +126,12 @@ function SignatureTemlateK({ name, email, job_title, phone_no, organization, log
                           }}>
 
                             <b>
-                              {name ? name : 'Your Name'}
+                              {name}
                             </b>
 
                           </td>
-                        </tr>
-                        <tr>
+                        </tr>)}
+                        {job_title && (<tr>
                           <td style={{
                             fontSize: "10px",
                             color: "#888888",
@@ -87,9 +141,9 @@ function SignatureTemlateK({ name, email, job_title, phone_no, organization, log
                             marginBottom: "14px",
                           }}>
 
-                            {job_title ? job_title : 'Job Title'}
+                            {job_title}
                           </td>
-                        </tr>
+                        </tr>)}
                       </tbody>
                     </table>
                     <table style={{ marginTop: "6px" }}>
@@ -104,10 +158,10 @@ function SignatureTemlateK({ name, email, job_title, phone_no, organization, log
                   </td>
 
                   <td style={{
-                            width: "1px",
-                            height: "50%",
-                            backgroundColor: "#cccccc",
-                          }}>
+                    width: "1px",
+                    height: "50%",
+                    backgroundColor: "#cccccc",
+                  }}>
                   </td>
 
                   {/* ══════════════════════════════
@@ -121,7 +175,7 @@ function SignatureTemlateK({ name, email, job_title, phone_no, organization, log
                     }}
                   >
                     {/* Company name */}
-                    <div
+                    {organization && (<div
                       style={{
                         fontSize: "16px",
                         fontWeight: "400",
@@ -132,8 +186,8 @@ function SignatureTemlateK({ name, email, job_title, phone_no, organization, log
                         marginBottom: "4px",
                       }}
                     >
-                      {organization ? organization : 'Organization'}
-                    </div>
+                      {organization}
+                    </div>)}
 
                     {/* Company subtitle */}
                     <div
@@ -152,29 +206,7 @@ function SignatureTemlateK({ name, email, job_title, phone_no, organization, log
                     {/* Contact rows */}
                     <table cellPadding="0" cellSpacing="0" style={{ width: "240px" }}>
                       <tbody>
-                        {[
-                          {
-                            icon: (
-                              /* Phone */
-                              <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="13" height="13" style={{ display: "block" }} />
-                            ),
-                            text: phone_no || "+123-456-7890",
-                          },
-                          {
-                            icon: (
-                              /* Cursor / pointer */
-                              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="13" height="13" style={{ display: "block" }} />
-                            ),
-                            text: linkedin ? (<a style={{ textDecoration:"none", paddingBottom: "9px",fontSize: "11.5px",color: "#444444", fontFamily: "'Segoe UI', Arial, sans-serif", letterSpacing: "0.2px", verticalAlign: "middle", }}>{ linkedin }</a>) : "www.reallygreatsite.com",
-                          },
-                          {
-                            icon: (
-                              /* Envelope */
-                              <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="13" height="13" style={{ display: "block" }} />
-                            ),
-                            text: email ? (<a style={{ textDecoration:"none", paddingBottom: "9px",fontSize: "11.5px",color: "#444444", fontFamily: "'Segoe UI', Arial, sans-serif", letterSpacing: "0.2px", verticalAlign: "middle", wordBreak:"break-all" }}>{ email }</a>) : "youremail@gmail.com",
-                          },
-                        ].map((item, i) => (
+                        {contacts.map((item, i) => (
                           <tr key={i}>
                             <td
                               style={{

@@ -1,34 +1,67 @@
 import { POWERED_BY } from '@/utils/const';
 import React from 'react'
 
-function SignatureTemlateM({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateM({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook, hasStarted }) {
   const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";
-  const SocialLinks = [
-    {
-      label: 'X',
-      icon: (<img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="13" height="13" style={{ display: "block" }} />),
-      href: twitter || 'https://x.com',
-    },
-    {
-      label: 'instagram',
-      icon: (<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="13" height="13" style={{
-        display: "block"
-      }} />),
-      href: instagram || 'https://instagram.com',
-    },
-    {
-      label: 'facebook',
-      icon: (<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="13" height="13" style={{
-        display: "block"
-      }} />),
-      href: facebook || 'https://facebook.com',
-    },
-    {
-      label: 'linkedIn',
-      icon: (<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="13" height="13" style={{ display: "block" }} />),
-      href: linkedin || 'https://linkedin.com',
-    }
-  ]
+
+  if (!hasStarted) {
+    name = "Your name";
+    email = "youremail@example.com";
+    job_title = "Job Title";
+    phone_no = "+91-229229929";
+    organization = "Organization";
+    linkedin = "https://linkedin.com";
+    instagram = "https://instagram.com";
+    twitter = "https://twitter.com";
+    facebook = "https://facebook.com"
+  }
+
+  const SocialLinks = [];
+
+  if (twitter) {
+    SocialLinks.push(
+      {
+        label: 'X',
+        icon: (<img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="13" height="13" style={{ display: "block" }} />),
+        href: twitter,
+      }
+    );
+  }
+
+  if (instagram) {
+    SocialLinks.push(
+      {
+        label: 'instagram',
+        icon: (<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="13" height="13" style={{
+          display: "block"
+        }} />),
+        href: instagram,
+      }
+    );
+  }
+
+  if (facebook) {
+    SocialLinks.push(
+      {
+        label: 'facebook',
+        icon: (<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="13" height="13" style={{
+          display: "block"
+        }} />),
+        href: facebook,
+      }
+    );
+  }
+
+  if (linkedin) {
+    SocialLinks.push(
+      {
+        label: 'linkedIn',
+        icon: (<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="13" height="13" style={{ display: "block" }} />),
+        href: linkedin,
+      }
+    );
+  }
+
   return (
     <table style={{ display: "flex", justifyContent: "center" }}>
       <tbody>
@@ -99,18 +132,18 @@ function SignatureTemlateM({ name, email, job_title, phone_no, organization, log
                     }}
                   >
                     {/* First name */}
-                    <div style={{
+                    {name && (<div style={{
                       fontSize: "28px",
                       fontWeight: "700",
                       color: "#1b3a2f",
                       lineHeight: "1.1",
                       letterSpacing: "-0.5px",
                     }}>
-                      {name ? name : 'Your Name'}
-                    </div>
+                      {name}
+                    </div>)}
 
                     {/* Job title */}
-                    <div style={{
+                    {job_title && (<div style={{
                       fontSize: "10.5px",
                       color: "#4caf87",
                       fontWeight: "600",
@@ -118,8 +151,8 @@ function SignatureTemlateM({ name, email, job_title, phone_no, organization, log
                       textTransform: "uppercase",
                       marginBottom: "0",
                     }}>
-                      {job_title ? job_title : 'Job Title'}
-                    </div>
+                      {job_title}
+                    </div>)}
                   </td>
 
                   {/* COL 3 — Contact details */}
@@ -133,42 +166,44 @@ function SignatureTemlateM({ name, email, job_title, phone_no, organization, log
                     <table cellPadding="0" cellSpacing="0">
                       <tbody>
                         {/* PHONE */}
-                        <tr>
+
+                        {phone_no && (<tr>
                           <td style={{ paddingBottom: "12px" }}>
                             <div style={{ fontSize: "8.5px", color: "#aaaaaa", letterSpacing: "1.5px", textTransform: "uppercase", marginBottom: "2px" }}>
                               PHONE
                             </div>
                             <div style={{ fontSize: "12.5px", color: "#1a1a1a", fontWeight: "500" }}>
-                              {phone_no ? phone_no : '(406) 555-0120'}
+                              {phone_no}
                             </div>
                           </td>
-                        </tr>
+                        </tr>)}
                         {/* WEBSITE */}
-                        <tr>
+
+                       {linkedin && ( <tr>
                           <td style={{ paddingBottom: "12px" }}>
                             <div style={{ fontSize: "8.5px", color: "#aaaaaa", letterSpacing: "1.5px", textTransform: "uppercase", marginBottom: "2px" }}>
                               LinkedIn
                             </div>
                             <div style={{ fontSize: "12.5px", color: "#1a1a1a", fontWeight: "500" }}>
                               <a style={{ textDecoration: "none" }}>
-                                {linkedin ? linkedin : 'Your linkedIn'}
+                                {linkedin}
                               </a>
                             </div>
                           </td>
-                        </tr>
+                        </tr>)}
                         {/* EMAIL */}
-                        <tr>
+                       {email && ( <tr>
                           <td>
                             <div style={{ fontSize: "8.5px", color: "#aaaaaa", letterSpacing: "1.5px", textTransform: "uppercase", marginBottom: "2px" }}>
                               EMAIL
                             </div>
                             <div style={{ fontSize: "12.5px", color: "#1a1a1a", fontWeight: "500" }}>
                               <a style={{ textDecoration: "none" }}>
-                                {email ? email : 'Your email'}
+                                {email}
                               </a>
                             </div>
                           </td>
-                        </tr>
+                        </tr>)}
                       </tbody>
                     </table>
                   </td>
@@ -192,26 +227,26 @@ function SignatureTemlateM({ name, email, job_title, phone_no, organization, log
                     <table cellPadding="0" cellSpacing="0" width="100%">
                       <tbody>
                         <tr>
-                          <td style={{ paddingRight: "10px", verticalAlign: "middle" }}>
+                         {organization && ( <td style={{ paddingRight: "10px", verticalAlign: "middle" }}>
                             <table>
                               <tbody>
-                                <tr style={{ verticalAlign:"middle" }}>
+                                <tr style={{ verticalAlign: "middle" }}>
                                   <td style={{
                                     width: "22px", height: "22px", borderRadius: "5px",
                                     backgroundColor: "#4caf87",
                                   }}>
-                                    <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="13" height="13" style={{ display: "block",  margin: "5px" }} />
+                                    <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="13" height="13" style={{ display: "block", margin: "5px" }} />
 
                                   </td>
                                   <td>
                                     <span style={{ fontSize: "11.5px", color: "#555555", margin: "10px" }}>
-                                      {organization ? organization : 'Organization'}
+                                      {organization}
                                     </span>
                                   </td>
                                 </tr>
                               </tbody>
                             </table>
-                          </td>
+                          </td>)}
                           <td style={{ textAlign: "right" }}>
                             <div>
                               <span style={{ color: "black", fontSize: "10px" }}><i>Powered by <strong>{POWERED_BY}</strong></i></span>
