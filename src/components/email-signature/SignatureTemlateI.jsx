@@ -219,7 +219,7 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                                                                     fontSize: "12px",
                                                                                     paddingLeft: "8px",
                                                                                     color: "#444",
-                                                                                   whiteSpace:"nowrap",
+                                                                                   wordBreak:"break-all",
                                                                                     display: "inline-block",
                                                                                 }}
                                                                             >
