@@ -172,7 +172,7 @@ function SignatureTemlateK({ name, email, job_title, phone_no, organization, log
                               /* Envelope */
                               <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="13" height="13" style={{ display: "block" }} />
                             ),
-                            text: email ? (<a style={{ textDecoration:"none", paddingBottom: "9px",fontSize: "11.5px",color: "#444444", fontFamily: "'Segoe UI', Arial, sans-serif", letterSpacing: "0.2px", verticalAlign: "middle", }}>{ linkedin }</a>) : "youremail@gmail.com",
+                            text: email ? (<a style={{ textDecoration:"none", paddingBottom: "9px",fontSize: "11.5px",color: "#444444", fontFamily: "'Segoe UI', Arial, sans-serif", letterSpacing: "0.2px", verticalAlign: "middle", }}>{ email }</a>) : "youremail@gmail.com",
                           },
                         ].map((item, i) => (
                           <tr key={i}>
@@ -194,6 +194,7 @@ function SignatureTemlateK({ name, email, job_title, phone_no, organization, log
                                 fontFamily: "'Segoe UI', Arial, sans-serif",
                                 letterSpacing: "0.2px",
                                 verticalAlign: "middle",
+                                wordBreak: "break-all",
                               }}
                             >
                               {item.text}

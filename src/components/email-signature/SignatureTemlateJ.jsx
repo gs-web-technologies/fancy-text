@@ -25,7 +25,7 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
             cellPadding="0"
             cellSpacing="0"
             style={{
-                width: "620px",
+                width: "600px",
                 backgroundColor: "#2b2b2b",
                 fontFamily: "Arial, sans-serif",
                 borderCollapse: "collapse",
@@ -247,7 +247,7 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                                 <tr>
                                     {SocialLinks.map((s, i) => (
                                         <td key={i} style={{ paddingLeft: "5px" }}>
-                                            <Link href={s.href}>
+                                            <a href={s.href} style={{ textDecoration: "none" }}>
                                                 <div
                                                     style={{
                                                         width: "24px",
@@ -263,7 +263,7 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                                                 >
                                                     {s.icon}
                                                 </div>
-                                            </Link>
+                                            </a>
                                         </td>
                                     ))}
                                 </tr>

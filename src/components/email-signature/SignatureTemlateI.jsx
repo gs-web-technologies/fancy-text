@@ -26,7 +26,7 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
     ];
 
     return (
-        <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "500px", height: "50%", backgroundColor: "#f0f4f8" }}>
+        <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "600px", maxWidth: "600px", height: "50%", backgroundColor: "#f0f4f8" }}>
             <tbody>
                 <tr>
                     <td style={{ textAlign: "center" }}>
@@ -34,7 +34,8 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                             cellPadding="0"
                             cellSpacing="0"
                             style={{
-                                width: "500px",
+                                width: "600px",
+                                maxWidth: "600px",
                                 backgroundColor: "#ffffff",
                                 borderRadius: "14px",
                                 overflow: "hidden",
@@ -140,7 +141,7 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                                                 objectFit: "cover",
                                                                 // borderRadius: "50px",
                                                                 width: "160px",
-                                                                height:"160px"
+                                                                height: "160px"
                                                             }}
                                                         />
                                                     </td>
@@ -155,6 +156,7 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                             padding: "24px",
                                             verticalAlign: "top",
                                             backgroundColor: "#ffffff",
+                                            width: "260",
                                         }}
                                     >
 
@@ -168,7 +170,7 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                                                 src="https://cdn-icons-png.flaticon.com/512/724/724664.png"
                                                                 width="13"
                                                                 height="13"
-                                                                style={{ display: "block",  margin:"4px" }}
+                                                                style={{ display: "block", margin: "4px" }}
                                                             />
                                                         ),
                                                         label: phone_no || "+000 00 0000",
@@ -179,7 +181,7 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                                                 src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
                                                                 width="13"
                                                                 height="13"
-                                                                style={{ display: "block",  margin:"4px" }}
+                                                                style={{ display: "block", margin: "4px" }}
                                                             />
                                                         ),
                                                         label: email || "email here",
@@ -190,7 +192,7 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                                                 src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
                                                                 width="13"
                                                                 height="13"
-                                                                style={{ display: "block", margin:"4px" }}
+                                                                style={{ display: "block", margin: "4px" }}
                                                             />
                                                         ),
                                                         label: instagram || "instagram",
@@ -205,19 +207,22 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                                                             width: "22px",
                                                                             height: "22px",
                                                                             borderRadius: "50%",
-                                                                            backgroundColor: "#e0f7fa",
-                                                                            verticalAlign:"center",
+                                                                            verticalAlign: "top",
                                                                             textAlign: "center",
                                                                         }}>
-                                                                           {item.icon}
+                                                                            {item.icon}
                                                                         </td>
                                                                         <td>
-                                                                            <a style={{
-                                                                                textDecoration: "none",
-                                                                                fontSize: "12px",
-                                                                                paddingLeft: "8px",
-                                                                                color: "#444"
-                                                                            }}>
+                                                                            <a
+                                                                                style={{
+                                                                                    textDecoration: "none",
+                                                                                    fontSize: "12px",
+                                                                                    paddingLeft: "8px",
+                                                                                    color: "#444",
+                                                                                   whiteSpace:"nowrap",
+                                                                                    display: "inline-block",
+                                                                                }}
+                                                                            >
                                                                                 {item.label}
                                                                             </a>
                                                                         </td>
@@ -230,7 +235,7 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
 
                                                 {/* POWERED */}
                                                 <tr>
-                                                    <td style={{ fontSize: "10px", marginTop:"10px" }}>
+                                                    <td style={{ fontSize: "10px", marginTop: "10px" }}>
                                                         <i>Powered by <strong>{POWERED_BY}</strong></i>
                                                     </td>
                                                 </tr>

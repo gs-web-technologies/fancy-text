@@ -51,11 +51,11 @@ function Secound({ name, email, job_title, phone_no, organization, logo, linkedi
   ];
 
   return (
-    <table style={{ width: "600px", backgroundColor: "#e5e7eb" }}>
+    <table style={{ width: "650px", backgroundColor: "#e5e7eb" }}>
       <tbody>
         <tr>
           <td>
-            <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "600px",height: "199px", borderRadius: "6px", overflow: "hidden", boxShadow: "0 3px 18px rgba(0,0,0,0.18)" }}>
+            <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "650px",height: "199px", borderRadius: "6px", overflow: "hidden", boxShadow: "0 3px 18px rgba(0,0,0,0.18)" }}>
               <tbody>
                 <tr>
 
