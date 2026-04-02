@@ -33,16 +33,13 @@ function SignatureTemlateF({ name, email, job_title, phone_no, organization, log
 
   const socialLinks = [
     {
-      href: "https://youtube.com",
+      href: facebook,
       bg: "",
       icon: (
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
-          width="80%"
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"   width="80%"
           height="80%"
           style={{ display: "block" }}
-          alt="YouTube"
-        />
+          alt="Facebook" />
       ),
     },
     {
@@ -123,7 +120,7 @@ function SignatureTemlateF({ name, email, job_title, phone_no, organization, log
                   </td>
 
                   {/* Right white panel */}
-                  <td style={{ backgroundColor: "#ffffff", padding: "0", verticalAlign: "top" }}>
+                  <td style={{ backgroundColor: "#ffffff", padding: "0", verticalAlign: "top", width:"250px" }}>
                     <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "100%" }}>
                       <tbody>
                         {/* Header banner */}

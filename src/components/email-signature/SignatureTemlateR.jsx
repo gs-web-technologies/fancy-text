@@ -234,7 +234,7 @@ function SignatureTemlateR({ name, email, job_title, phone_no, organization, log
 
                         {/* Powered by */}
                         <tr>
-                          <td style={{ textAlign: "right", fontSize: "10px", color: "#e8192c", paddingTop: "3px" }}>
+                          <td style={{ textAlign: "center", fontSize: "10px", color: "#e8192c", paddingTop: "3px" }}>
                             <i>Powered by <strong>{POWERED_BY}</strong></i>
                           </td>
                         </tr>

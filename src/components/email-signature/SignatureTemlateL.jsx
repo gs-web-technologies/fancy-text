@@ -18,7 +18,7 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
       <tbody>
         <tr>
           {/* LEFT: Circular Profile Photo */}
-          <td style={{ background: "linear-gradient(135deg, #f06e6e 20%, #f06e6e 0%, #e99595 80%, #e9dede 20%)", verticalAlign: "middle", padding: "0px 10px 0px 10px", width: "120px" }}>
+          <td style={{ background: "linear-gradient(-135deg, #f06e6e 20%, #f06e6e 0%, #e99595 80%, #e9dede 20%)", verticalAlign: "middle", padding: "0px 10px 0px 10px", width: "120px" }}>
             <div
               style={{
                 width: "110px",
@@ -52,8 +52,8 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
           />
 
           {/* RIGHT: Info */}
-          <td style={{ background: "linear-gradient(-135deg, #f06e6e 20%, #f06e6e 0%, #e99595 80%, #e9dede 20%)", verticalAlign: "middle", paddingLeft: "24px" }}>
-            <table cellPadding="0" cellSpacing="0">
+          <td style={{ backgroundColor: "#f06e6e", verticalAlign: "middle", paddingLeft: "24px" }}>
+            <table cellPadding="0" cellSpacing="0" style={{ width: "100%" }}>
               <tbody>
                 {/* Name */}
                 <tr>
@@ -83,7 +83,7 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                         margin: "0",
                         fontSize: "14px",
                         fontWeight: "bold",
-                        color: "#0f0e0e",
+                        color: "#f7f3f3",
                         letterSpacing: "1.5px",
                         textTransform: "uppercase",
                         fontFamily: "Arial, sans-serif",
@@ -102,7 +102,7 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                         margin: "0",
                         fontSize: "11px",
                         fontWeight: "bold",
-                        color: "#0c0a0a",
+                        color: "#f8f2f2",
                         letterSpacing: "1.5px",
                         textTransform: "uppercase",
                         fontFamily: "Arial, sans-serif",
@@ -120,7 +120,7 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                       style={{
                         margin: "0 0 2px 0",
                         fontSize: "14px",
-                        color: "#0f0f0f",
+                        color: "#f3f2f2",
                         fontFamily: "Arial, sans-serif",
                       }}
                     >
@@ -138,7 +138,7 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                       style={{
                         margin: "0 0 2px 0",
                         fontSize: "14px",
-                        color: "#0a0a0a",
+                        color: "#fcfcfc",
                         fontFamily: "Arial, sans-serif",
                       }}
                     >
@@ -147,7 +147,7 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                           textDecoration: "none",
                           margin: "0 0 2px 0",
                           fontSize: "14px",
-                          color: "#0a0a0a",
+                          color: "#f7f4f4",
                           fontFamily: "Arial, sans-serif",
                         }}>{email}</a>) : "your_email@gmail.com"}
                       </b>
@@ -162,7 +162,7 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                       style={{
                         margin: "0",
                         fontSize: "14px",
-                        color: "#0f0909",
+                        color: "#f7f4f4",
                         fontFamily: "Arial, sans-serif",
                       }}
                     >
@@ -171,23 +171,23 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                           textDecoration: "none",
                           margin: "0 0 2px 0",
                           fontSize: "14px",
-                          color: "#0a0a0a",
+                          color: "#f0ecec",
                           fontFamily: "Arial, sans-serif",
-                        }}>{linkedin}</a>)  : "Your linkedIn"}
+                        }}>{linkedin}</a>) : "Your linkedIn"}
                       </b>
                     </p>
                   </td>
                 </tr>
 
                 {/* Social Icons */}
-                <tr>
-                  <td>
+                <tr style={{ width: "100%" }}>
+                  <td style={{ width: "50%" }}>
                     <table cellPadding="0" cellSpacing="0">
                       <tbody>
                         <tr>
                           {/* Instagram */}
                           <td style={{ padding: "10px 14px 10px 0px" }}>
-                            <a href={facebook ? facebook : ''}>
+                            <a href={instagram ? instagram : ''}>
                               <div
                                 style={{
                                   width: "22px",
@@ -230,17 +230,22 @@ function SignatureTemlateL({ name, email, job_title, phone_no, organization, log
                               </div>
                             </a>
                           </td>
-
                         </tr>
                       </tbody>
                     </table>
                   </td>
                   <td>
-                    <div>
-                      <span style={{ color: "white", fontSize: "10px" }}><i>Powered by <strong>{POWERED_BY}</strong></i></span>
-                    </div>
-                  </td>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td style={{ wordSpacing: "nowrap", width: "auto", padding: "6px", textAlign: "center" }}>
+                            <span style={{ color: "white", fontSize: "10px" }}><i>Powered by <strong>{POWERED_BY}</strong></i></span>
+                          </td>
 
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
                 </tr>
               </tbody>
             </table>

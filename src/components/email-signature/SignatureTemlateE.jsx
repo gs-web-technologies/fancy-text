@@ -160,12 +160,12 @@ function SignatureTemlateE({ name, email, job_title, phone_no, organization, log
                                                                 <tbody>
                                                                     <tr>
                                                                         <td style={{ padding: "11px 24px", verticalAlign: "middle" }}>
-                                                                            <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse" }}>
+                                                                            <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width:"100%" }}>
                                                                                 <tbody>
                                                                                     <tr>
 
                                                                                         {/* Facebook icon circle (overlapping) */}
-                                                                                        <td style={{ paddingRight: "12px", verticalAlign: "middle" }}>
+                                                                                        <td style={{ paddingRight: "4px", verticalAlign: "middle" }}>
                                                                                             <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", width: "32px", height: "32px", backgroundColor: "#1877f2", border: "2px solid transparent", borderRadius: "50%", marginLeft: "-10px" }}>
                                                                                                 <tbody>
                                                                                                     <tr>
@@ -178,15 +178,15 @@ function SignatureTemlateE({ name, email, job_title, phone_no, organization, log
                                                                                         </td>
 
                                                                                         {/* CTA Text */}
-                                                                                        <td style={{ verticalAlign: "middle", paddingRight: "12px" }}>
+                                                                                        <td style={{ verticalAlign: "middle", paddingRight: "4px" }}>
                                                                                             <span style={{ color: "#ffffff", fontWeight: "700", fontSize: "13.5px", fontFamily: "'Arial', sans-serif", letterSpacing: "0.3px" }}>
                                                                                                 Join our Facebook group
                                                                                             </span>
                                                                                         </td>
 
                                                                                         {/* Powered by */}
-                                                                                        <td style={{ verticalAlign: "middle" }}>
-                                                                                            <span style={{ color: "white", fontSize: "10px", marginRight: "5rem" }}>
+                                                                                        <td style={{ verticalAlign: "middle", textAlign:"end"}}>
+                                                                                            <span style={{ color: "white", fontSize: "10px" }}>
                                                                                                 <i>Powered by <strong>{POWERED_BY}</strong></i>
                                                                                             </span>
                                                                                         </td>

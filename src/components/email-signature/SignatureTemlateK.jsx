@@ -194,6 +194,7 @@ function SignatureTemlateK({ name, email, job_title, phone_no, organization, log
                                 fontFamily: "'Segoe UI', Arial, sans-serif",
                                 letterSpacing: "0.2px",
                                 verticalAlign: "middle",
+                                wordBreak: "break-all",
                               }}
                             >
                               {item.text}
