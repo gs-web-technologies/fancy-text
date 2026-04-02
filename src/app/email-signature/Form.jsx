@@ -102,7 +102,7 @@ function Form() {
     }
 
     return (
-        <div className="grid grid-cols-3 gap-1">
+        <div className="grid grid-cols-3">
             <div className="p-4 ml-4 max-w-sm bg-white p-6 rounded rounded-base shadow-lg self-start">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
@@ -205,8 +205,9 @@ function Form() {
 
                 </form>
             </div>
-
-            <Signatures formValues={formValues} selectedFile={selectedFile} issubmitted={issubmitted} />
+            <div className="w-full mx-4 p-6 self-start col-span-2">
+                <Signatures formValues={formValues} selectedFile={selectedFile} issubmitted={issubmitted} />
+            </div>
 
         </div>
     )

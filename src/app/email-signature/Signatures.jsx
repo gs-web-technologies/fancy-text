@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import Secound from "@/components/email-signature/Secound";
 import SignatureTemlateB from "@/components/email-signature/SignatureTemlateB";
