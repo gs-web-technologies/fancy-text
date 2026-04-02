@@ -22,7 +22,7 @@ import SignatureTemlateS from "@/components/email-signature/SignatureTemlateS";
 import SignatureTemlateT from "@/components/email-signature/SignatureTemlateT";
 import SingleSignatureCard from './SingleSignatureCard';
 
-function Signatures({ formValues, selectedFile, issubmitted }) {
+function Signatures({ formValues, selectedFile, issubmitted, hasStarted }) {
     const templates = [
         SignatureTemlateA, SignatureTemlateB, SignatureTemlateC, SignatureTemlateD,
         SignatureTemlateE, SignatureTemlateF, SignatureTemlateG, Secound,
@@ -44,6 +44,7 @@ function Signatures({ formValues, selectedFile, issubmitted }) {
                                         formValues={formValues}
                                         selectedFile={selectedFile}
                                         issubmitted={issubmitted}
+                                        hasStarted = {hasStarted}
                                     />
                                 );
                             })

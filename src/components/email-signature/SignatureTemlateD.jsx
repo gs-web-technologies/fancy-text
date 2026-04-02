@@ -1,71 +1,117 @@
 import { POWERED_BY } from '@/utils/const';
 import React from 'react';
 
-function SignatureTemlateD({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
-    const mail = email || 'email@domain.com';
-    const tel = phone_no || '00000000000';
-    const linkedIn = linkedin || "https://yourwebsite.com";
+function SignatureTemlateD({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook, hasStarted }) {
     const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
-    const contacts = [
-        {
-            label: tel,
-            href: `tel:${tel}`,
-            icon: (
-                <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="13" height="13" />
-            ),
-        },
-        {
-            label: mail,
-            href: `mailto:${mail}`,
-            icon: (
-                <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="13" height="13" style={{ display: "block" }} />
-            ),
-        },
-        {
-            label: "LinkedIn",
-            href: linkedIn,
-            icon: (
-                <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" width="13" height="13" style={{
-                    display: "block"
-                }} />
-            ),
-        },
-        {
-            label: organization || "Organization name",
-            href: null,
-            icon: (
-                <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="13" height="13" style={{ display: "block" }} />
-            ),
-        },
-    ];
 
-    const socialLinks = [
-        {
-            href: instagram ? instagram : "https://instagram.com",
-            bg: "#f1ecef",
-            icon: (
-                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="13" height="13" style={{
-                    display: "block"
-                }} />
-            ),
-        },
-        {
-            href: twitter ? twitter : "https://x.com",
-            bg: "#edf2f5",
-            icon: (
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="13" height="13" style={{ display: "block" }} />
-            ),
-        },
-        {
-            href: facebook ? facebook : "https://facebook.com",
-            bg: "#edf2f5",
-            icon: (
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="13" height="13" style={{
-                    display: "block"
-                }} />
-            ),
-        },
-    ];
+    if (!hasStarted) {
+        name = "Your name";
+        email = "youremail@example.com";
+        job_title = "Job Title";
+        phone_no = "+91-229229929";
+        organization = "Organization";
+        linkedin = "https://linkedin.com";
+        instagram = "https://instagram.com";
+        twitter = "https://twitter.com";
+        facebook = "https://facebook.com"
+    }
+
+    const contacts = [];
+
+    if (phone_no) {
+        contacts.push(
+            {
+                label: phone_no,
+                href: '',
+                icon: (
+                    <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="13" height="13" />
+                ),
+            }
+        );
+    }
+    if (email) {
+        contacts.push(
+            {
+                label: email,
+                href: '',
+                icon: (
+                    <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="13" height="13" style={{ display: "block" }} />
+                ),
+            }
+        )
+    }
+
+    if (linkedin) {
+        contacts.push(
+            {
+                label: linkedin,
+                href: linkedin,
+                icon: (
+                    <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" width="13" height="13" style={{
+                        display: "block"
+                    }} />
+                ),
+            }
+        )
+    }
+
+    if (organization) {
+        contacts.push(
+            {
+                label: organization,
+                href: null,
+                icon: (
+                    <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="13" height="13" style={{ display: "block" }} />
+                ),
+            }
+        )
+    }
+
+
+    const socialLinks = [];
+
+    if (instagram) {
+        socialLinks.push(
+            {
+                href: instagram,
+                bg: "#f1ecef",
+                icon: (
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="13" height="13" style={{
+                        display: "block"
+                    }} />
+                ),
+            }
+        )
+    }
+
+    if (twitter) {
+        socialLinks.push(
+            {
+                href: twitter ,
+                bg: "#edf2f5",
+                icon: (
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="13" height="13" style={{ display: "block" }} />
+                ),
+            }
+        )
+    }
+
+    if (facebook) {
+        socialLinks.push(
+            {
+                href: facebook ,
+                bg: "#edf2f5",
+                icon: (
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="13" height="13" style={{
+                        display: "block"
+                    }} />
+                ),
+            }
+        )
+    }
+
+
+
 
     return (
         <table cellPadding="0" cellSpacing="0" style={{ width: "300px", backgroundColor: "#f3f4f6", borderCollapse: "collapse" }}>
@@ -95,24 +141,24 @@ function SignatureTemlateD({ name, email, job_title, phone_no, organization, log
                                                     <td style={{ padding: "28px 24px 24px 24px", verticalAlign: "top", position: "relative" }}>
 
 
-        {/* Name */}
-        <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", zIndex: 1, marginBottom: "2px" }}>
-            <tbody>
-                <tr>
-                    <td>
-                        <span style={{ fontSize: "18px", fontWeight: "700", color: "#e91e8c", fontFamily: "Arial, sans-serif" }}>
-                            {name ? name : 'Your Name'}
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td style={{ zIndex: 1, margin: "0 0 0px", fontSize: "11px", color: "#888", fontFamily: "Arial, sans-serif", fontStyle: "italic", alignItems: "start" }}>
-                        {/* Title */}
-                        {job_title ? job_title : 'job title'}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                                                        {/* Name */}
+                                                        <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", zIndex: 1, marginBottom: "2px" }}>
+                                                            <tbody>
+                                                               {name && ( <tr>
+                                                                    <td>
+                                                                        <span style={{ fontSize: "18px", fontWeight: "700", color: "#e91e8c", fontFamily: "Arial, sans-serif" }}>
+                                                                            {name }
+                                                                        </span>
+                                                                    </td>
+                                                                </tr>)}
+                                                                {job_title && (<tr>
+                                                                    <td style={{ zIndex: 1, margin: "0 0 0px", fontSize: "11px", color: "#888", fontFamily: "Arial, sans-serif", fontStyle: "italic", alignItems: "start" }}>
+                                                                        {/* Title */}
+                                                                        {job_title }
+                                                                    </td>
+                                                                </tr>)}
+                                                            </tbody>
+                                                        </table>
 
                                                         {/* Contacts */}
                                                         <table cellPadding="0" cellSpacing="0" style={{ borderCollapse: "collapse", position: "relative", zIndex: 1 }}>

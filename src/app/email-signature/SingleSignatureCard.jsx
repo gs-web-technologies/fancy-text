@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState } from 'react'
 
-function SingleSignatureCard({ CardComponent, formValues, selectedFile, issubmitted }) {
+function SingleSignatureCard({ CardComponent, formValues, selectedFile, issubmitted, hasStarted }) {
 
     const [status, setStatus] = useState('idle');
     const signatureRef = useRef(null);
@@ -112,7 +112,12 @@ function SingleSignatureCard({ CardComponent, formValues, selectedFile, issubmit
 
                 {/* Body */}
                 <div className="px-4 py-4 min-h-[200px] text-sm text-gray-700 space-y-3">
-                  <p>Your message ...</p>
+                    <input
+                        type="text"
+                        placeholder="Your message here"
+                        className="w-full text-sm outline-none py-1"
+                        readOnly
+                    />
                     {/* ✨ SIGNATURE SLOT */}
                     <div className="pt-4 ">
                         <div>
@@ -128,6 +133,7 @@ function SingleSignatureCard({ CardComponent, formValues, selectedFile, issubmit
                                     instagram={formValues.instagram}
                                     twitter={formValues.twitter}
                                     facebook={formValues.facebook}
+                                    hasStarted = {hasStarted}
                                 />
                             </div>
                         </div>
