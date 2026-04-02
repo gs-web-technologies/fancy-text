@@ -221,6 +221,7 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                                                                     color: "#444",
                                                                                    wordBreak:"break-all",
                                                                                     display: "inline-block",
+                                                                                    textAlign:"start",
                                                                                 }}
                                                                             >
                                                                                 {item.label}
