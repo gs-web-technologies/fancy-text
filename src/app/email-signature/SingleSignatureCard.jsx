@@ -118,7 +118,7 @@ function SingleSignatureCard({ CardComponent, formValues, selectedFile, issubmit
                         className="w-full text-sm outline-none py-1"
                         readOnly
                     />
-                    {/* ✨ SIGNATURE SLOT */}
+                  
                     <div className="pt-4 ">
                         <div>
                             <div ref={signatureRef} style={{ display: 'inline-block' }}>
