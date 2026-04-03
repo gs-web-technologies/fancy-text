@@ -15,8 +15,8 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
     return (
         <table
             style={{
-                width: "640px",
-                height: "360px",
+                width: "585px",
+                height: "265px",
                 borderCollapse: "collapse",
                 borderRadius: "18px",
                 overflow: "hidden",
@@ -25,6 +25,7 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
                 margin: "40px auto",
                 display: "block",
                 backgroundColor: "#5b1f6e",
+                wordBreak: "break-all"
             }}
         >
             <tbody>
@@ -44,7 +45,7 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
                             <tbody>
                                 {/* Logo circle with emoji */}
                                 <tr>
-                                    <td style={{ textAlign: "center", paddingBottom: "6px" }}>
+                                    <td style={{ textAlign: "center", verticalAlign:"middle", paddingBottom: "3px" }}>
                                         <table
                                             style={{
                                                 borderCollapse: "collapse",
@@ -82,13 +83,13 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
 
                                 {/* Brand Name */}
                                 {organization && (<tr>
-                                    <td style={{ textAlign: "center", paddingTop: "10px" }}>
+                                    <td style={{ textAlign: "center", paddingTop: "5px" }}>
                                         <span
                                             style={{
-                                                fontSize: "20px",
+                                                fontSize: "15px",
                                                 fontWeight: "900",
                                                 color: "#5b1f6e",
-                                                letterSpacing: "4px",
+                                                letterSpacing: "2px",
                                                 textTransform: "uppercase",
                                                 display: "block",
                                             }}
@@ -100,7 +101,7 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
 
                                 {/* Slogan */}
                                 {slogan && (<tr>
-                                    <td style={{ textAlign: "center", paddingTop: "4px" }}>
+                                    <td style={{ textAlign: "center", paddingTop: "2px" }}>
                                         <span
                                             style={{
                                                 fontSize: "9px",
@@ -118,7 +119,7 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
 
                                 {/* Decorative dots */}
                                 <tr>
-                                    <td style={{ textAlign: "center", paddingTop: "14px" }}>
+                                    <td style={{ textAlign: "center", paddingTop: "5px" }}>
                                         <table style={{ borderCollapse: "collapse", margin: "0 auto" }}>
                                             <tbody>
                                                 <tr>
@@ -168,7 +169,7 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
                         <table
                             style={{
                                 width: "100%",
-                                height: "360px",
+                                height: "265px",
                                 borderCollapse: "collapse",
                             }}
                         >
@@ -178,13 +179,13 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
                                     <td
                                         colSpan="2"
                                         style={{
-                                            padding: "32px 30px 14px 30px",
+                                            padding: "20px 30px 9px 3px",
                                             verticalAlign: "top",
                                         }}
                                     >
                                         {name && (<span
                                             style={{
-                                                fontSize: "32px",
+                                                fontSize: "22px",
                                                 fontWeight: "900",
                                                 color: "#ffffff",
                                                 letterSpacing: "2px",
@@ -203,7 +204,7 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
                                                     fontWeight: "400",
                                                     letterSpacing: "1px",
                                                     display: "block",
-                                                    marginTop: "7px",
+                                                    marginTop: "4px",
                                                 }}
                                             >
                                                 {job_title}

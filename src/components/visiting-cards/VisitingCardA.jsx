@@ -16,14 +16,15 @@ function VisitingCardA({ name, email, job_title, phone_no, organization, logo, w
     <table
       className="visiting-card"
       style={{
-        width: "700px",
-        height: "370px",
+        width: "585px",
+        height: "265px",
         borderRadius: "18px",
         overflow: "hidden",
         boxShadow: "0 8px 40px rgba(0,0,0,0.18)",
         background: "#ffffff",
         borderCollapse: "collapse",
         tableLayout: "fixed",
+        wordBreak:"break-all"
       }}
     >
       <tbody>
@@ -33,8 +34,8 @@ function VisitingCardA({ name, email, job_title, phone_no, organization, logo, w
             style={{
               width: "55%",
               background: "#ffffff",
-              padding: "40px 36px",
-              verticalAlign: "middle",
+              padding: "10px 10px",
+              verticalAlign: "top",
               borderRight: "1px solid #f0f0f0",
             }}
           >
@@ -42,11 +43,11 @@ function VisitingCardA({ name, email, job_title, phone_no, organization, logo, w
               <tbody>
                 {/* Logo */}
                 <tr>
-                  <td style={{ textAlign: "end", paddingBottom: "10px" }}>
+                  <td style={{ textAlign: "center", paddingBottom: "10px" }}>
                      <img
                        src={imageSrc}
                        width="100"
-                       height="1000"
+                       height="100"
                       style={{ objectFit: "cover", display: "block" }}
                      />
                   </td>
@@ -96,24 +97,15 @@ function VisitingCardA({ name, email, job_title, phone_no, organization, logo, w
             style={{
               width: "45%",
               background: "#2b2b2b",
-              verticalAlign: "middle",
+              verticalAlign: "top",
               padding: "0",
             }}
           >
             <table style={{ width: "100%", height: "100%", borderCollapse: "collapse" }}>
               <tbody>
-                {/* Decorative Arc Top */}
-                <tr>
-                  <td style={{ height: "30px", verticalAlign: "top", padding: "0" }}>
-                    <svg width="100%" height="80" viewBox="0 0 320 80" preserveAspectRatio="none">
-                      <path d="M320,0 Q200,80 320,160" fill="none" stroke="#444" strokeWidth="38" />
-                    </svg>
-                  </td>
-                </tr>
-
                 {/* Name & Details */}
                 <tr>
-                  <td style={{ textAlign: "left", padding: "10px 36px", verticalAlign: "middle" }}>
+                  <td style={{ textAlign: "left", padding: "10px 36px", verticalAlign: "middle", padding:"25px 25px" }}>
                     <table style={{ borderCollapse: "collapse" }}>
                       <tbody>
                        {name && (<tr>
@@ -190,13 +182,7 @@ function VisitingCardA({ name, email, job_title, phone_no, organization, logo, w
                 </tr>
 
                 {/* Decorative Arc Bottom */}
-                <tr>
-                  <td style={{ height: "30px", verticalAlign: "bottom", padding: "0" }}>
-                    <svg width="100%" height="80" viewBox="0 0 320 80" preserveAspectRatio="none">
-                      <path d="M320,80 Q200,0 320,-80" fill="none" stroke="#444" strokeWidth="38" />
-                    </svg>
-                  </td>
-                </tr>
+                
               </tbody>
             </table>
           </td>

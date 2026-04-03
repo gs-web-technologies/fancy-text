@@ -5,10 +5,13 @@ import VisitingCardB from '@/components/visiting-cards/VisitingCardB';
 import VisitingCardC from '@/components/visiting-cards/VisitingCardC';
 import VisitingCardD from '@/components/visiting-cards/VisitingCardD';
 import VisitingCardE from '@/components/visiting-cards/VisitingCardE';
+import VisitingCardF from '@/components/visiting-cards/VisitingCardF';
+import VisitingCardG from '@/components/visiting-cards/VisitingCardG';
 
 function VisitingCards({ formValues, selectedFile, issubmitted, hasStarted }) {
     const templates = [
-        VisitingCardA,VisitingCardB,VisitingCardC,VisitingCardD,VisitingCardE
+        VisitingCardA,VisitingCardB,VisitingCardC,VisitingCardD,
+        VisitingCardE,VisitingCardF,VisitingCardG
     ];
     return (
         <div>

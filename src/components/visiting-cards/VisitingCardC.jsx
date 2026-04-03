@@ -24,6 +24,7 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
                 fontFamily: "'Segoe UI', sans-serif",
                 margin: "40px auto",
                 display: "block",
+                wordBreak: "break-all",
             }}
         >
             <tbody>
@@ -81,9 +82,9 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
                                     <td>
                                         <span
                                             style={{
-                                                fontSize: "26px",
+                                                fontSize: "20px",
                                                 fontWeight: "800",
-                                                letterSpacing: "4px",
+                                                letterSpacing: "1px",
                                                 background:
                                                     "linear-gradient(90deg, #ff6b6b, #f7971e, #ffd200)",
                                                 WebkitBackgroundClip: "text",

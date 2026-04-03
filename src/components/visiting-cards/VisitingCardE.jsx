@@ -1,11 +1,54 @@
 import React from 'react'
 
-function VisitingCardE() {
+function VisitingCardE({ name, email, job_title, phone_no, organization, logo, website, slogan, hasStarted }) {
+    const imageSrc = logo && logo.length != 0 ? logo : '';
+    if (!hasStarted) {
+        name = "Your name";
+        email = "youremail@example.com";
+        job_title = "Job Title";
+        phone_no = "+91-229229929";
+        organization = "Organization";
+        website = "https://your_website.com";
+        slogan = "Your slogan goes here";
+    }
+
+    const contacts = [];
+    [
+        { icon: "📞", text: "+00 123 456 789" },
+        { icon: "✉️", text: "email address goes here" },
+        { icon: "🌐", text: "website goes here" },
+        { icon: "📍", text: "address goes here, your city" },
+    ]
+
+    if (phone_no) {
+        contacts.push(
+            { icon: "📞", text: phone_no }
+        );
+    }
+
+    if (email) {
+        contacts.push(
+            { icon: "✉️", text: email }
+        );
+    }
+
+    if (website) {
+        contacts.push(
+            { icon: "🌐", text: website }
+        );
+    }
+
+    if (organization) {
+        contacts.push(
+            { icon: "📍", text: organization }
+        );
+    }
+
     return (
         <table
             style={{
-                width: "620px",
-                height: "340px",
+                width: "520px",
+                height: "240px",
                 borderCollapse: "collapse",
                 borderRadius: "14px",
                 overflow: "hidden",
@@ -14,6 +57,7 @@ function VisitingCardE() {
                 margin: "40px auto",
                 display: "block",
                 backgroundColor: "#ffffff",
+                wordBreak: "break-all"
             }}
         >
             <tbody>
@@ -22,13 +66,13 @@ function VisitingCardE() {
                     {/* ── LEFT PANEL: white with green blobs top-left & bottom-left ── */}
                     <td
                         style={{
-                            width: "55%",
+                            width: "250px",
                             backgroundColor: "#ffffff",
                             verticalAlign: "top",
                             padding: "0",
                         }}
                     >
-                        <table style={{ width: "100%", height: "340px", borderCollapse: "collapse" }}>
+                        <table style={{ width: "100%", height: "140px", borderCollapse: "collapse" }}>
                             <tbody>
 
                                 {/* ROW 1: top-left green blob + name area */}
@@ -40,8 +84,8 @@ function VisitingCardE() {
                                                     {/* Green blob top-left — large rounded cell */}
                                                     <td
                                                         style={{
-                                                            width: "110px",
-                                                            height: "110px",
+                                                            width: "50px",
+                                                            height: "50px",
                                                             backgroundColor: "#388e3c",
                                                             borderRadius: "0 0 90px 0",
                                                             verticalAlign: "top",
@@ -49,8 +93,8 @@ function VisitingCardE() {
                                                         }}
                                                     />
                                                     {/* Name block sits to the right of the blob */}
-                                                    <td style={{ verticalAlign: "middle", padding: "24px 16px 0 20px" }}>
-                                                        <span
+                                                    <td style={{ verticalAlign: "middle", padding: "19px 16px 0 20px" }}>
+                                                        {name && (<span
                                                             style={{
                                                                 fontSize: "20px",
                                                                 fontWeight: "900",
@@ -60,9 +104,9 @@ function VisitingCardE() {
                                                                 textTransform: "uppercase",
                                                             }}
                                                         >
-                                                            YOUR NAME
-                                                        </span>
-                                                        <span
+                                                            {name}
+                                                        </span>)}
+                                                        {job_title && (<span
                                                             style={{
                                                                 fontSize: "11px",
                                                                 color: "#558b2f",
@@ -72,8 +116,8 @@ function VisitingCardE() {
                                                                 marginTop: "4px",
                                                             }}
                                                         >
-                                                            Job Position
-                                                        </span>
+                                                            {job_title}
+                                                        </span>)}
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -83,18 +127,13 @@ function VisitingCardE() {
 
                                 {/* ROW 2: contact info */}
                                 <tr>
-                                    <td style={{ padding: "18px 20px 0 20px", verticalAlign: "top" }}>
+                                    <td style={{ padding: "11px 20px 0 20px", verticalAlign: "top" }}>
                                         <table style={{ borderCollapse: "collapse" }}>
                                             <tbody>
 
-                                                {[
-                                                    { icon: "📞", text: "+00 123 456 789" },
-                                                    { icon: "✉️", text: "email address goes here" },
-                                                    { icon: "🌐", text: "website goes here" },
-                                                    { icon: "📍", text: "address goes here, your city" },
-                                                ].map((item, i) => (
+                                                {contacts.map((item, i) => (
                                                     <tr key={i}>
-                                                        <td style={{ paddingBottom: i < 3 ? "12px" : "0" }}>
+                                                        <td style={{ paddingBottom: i < 3 ? "10px" : "0" }}>
                                                             <table style={{ borderCollapse: "collapse" }}>
                                                                 <tbody>
                                                                     <tr>
@@ -102,7 +141,7 @@ function VisitingCardE() {
                                                                             <table
                                                                                 style={{
                                                                                     width: "28px",
-                                                                                    height: "28px",
+                                                                                    height: "20px",
                                                                                     borderCollapse: "collapse",
                                                                                     borderRadius: "50%",
                                                                                     border: "1.5px solid #66bb6a",
@@ -149,30 +188,6 @@ function VisitingCardE() {
                                     </td>
                                 </tr>
 
-                                {/* ROW 3: bottom-left green blob */}
-                                <tr>
-                                    <td style={{ padding: "0", verticalAlign: "bottom", height: "80px" }}>
-                                        <table style={{ width: "100%", height: "80px", borderCollapse: "collapse" }}>
-                                            <tbody>
-                                                <tr>
-                                                    {/* green blob bottom-left */}
-                                                    <td
-                                                        style={{
-                                                            width: "110px",
-                                                            height: "80px",
-                                                            backgroundColor: "#388e3c",
-                                                            borderRadius: "0 60px 0 0",
-                                                            verticalAlign: "bottom",
-                                                            padding: "0",
-                                                        }}
-                                                    />
-                                                    <td style={{ backgroundColor: "#ffffff" }} />
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-
                             </tbody>
                         </table>
                     </td>
@@ -180,7 +195,7 @@ function VisitingCardE() {
                     {/* ── RIGHT PANEL: dark green with logo + company + QR ── */}
                     <td
                         style={{
-                            width: "45%",
+                            width: "260px",
                             background: "linear-gradient(160deg, #2e7d32 0%, #1b5e20 100%)",
                             verticalAlign: "top",
                             padding: "0",
@@ -218,7 +233,10 @@ function VisitingCardE() {
                                                                             lineHeight: "1",
                                                                         }}
                                                                     >
-                                                                        🌿
+                                                                        {imageSrc ? <img
+                                                                            src={imageSrc}
+                                                                            style={{ objectFit: "cover", display: "block" }}
+                                                                        /> : "🌿"}
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -228,7 +246,7 @@ function VisitingCardE() {
                                             </tbody>
                                         </table>
 
-                                        <span
+                                        {slogan && (<span
                                             style={{
                                                 fontSize: "12px",
                                                 fontWeight: "600",
@@ -238,9 +256,9 @@ function VisitingCardE() {
                                                 textTransform: "uppercase",
                                             }}
                                         >
-                                            YOUR LOGO
-                                        </span>
-                                        <span
+                                            {slogan}
+                                        </span>)}
+                                        {organization && (<span
                                             style={{
                                                 fontSize: "16px",
                                                 fontWeight: "900",
@@ -251,62 +269,17 @@ function VisitingCardE() {
                                                 marginTop: "5px",
                                             }}
                                         >
-                                            COMPANY NAME
-                                        </span>
+                                            {organization}
+                                        </span>)}
 
                                         {/* Divider */}
-                                        <table style={{ borderCollapse: "collapse", margin: "14px auto 0 auto", width: "70%" }}>
+                                        {(slogan || organization) && (<table style={{ borderCollapse: "collapse", margin: "14px auto 0 auto", width: "70%" }}>
                                             <tbody>
                                                 <tr>
                                                     <td style={{ height: "1px", backgroundColor: "rgba(255,255,255,0.25)" }} />
                                                 </tr>
                                             </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-
-                                {/* QR Code */}
-                                <tr>
-                                    <td style={{ padding: "18px 28px 0 28px", verticalAlign: "top", textAlign: "center" }}>
-                                        <table
-                                            style={{
-                                                borderCollapse: "collapse",
-                                                border: "3px solid rgba(255,255,255,0.8)",
-                                                borderRadius: "8px",
-                                                overflow: "hidden",
-                                                backgroundColor: "#ffffff",
-                                                padding: "5px",
-                                                margin: "0 auto",
-                                            }}
-                                        >
-                                            <tbody>
-                                                {[
-                                                    [1, 1, 1, 0, 1, 0, 1, 1, 1],
-                                                    [1, 0, 1, 0, 0, 0, 1, 0, 1],
-                                                    [1, 0, 1, 0, 1, 0, 1, 0, 1],
-                                                    [1, 1, 1, 1, 0, 1, 1, 1, 1],
-                                                    [0, 1, 0, 1, 1, 1, 0, 0, 0],
-                                                    [1, 1, 1, 1, 0, 1, 1, 1, 1],
-                                                    [1, 0, 1, 0, 1, 0, 1, 0, 1],
-                                                    [1, 0, 1, 0, 0, 0, 1, 0, 1],
-                                                    [1, 1, 1, 0, 1, 0, 1, 1, 1],
-                                                ].map((row, ri) => (
-                                                    <tr key={ri}>
-                                                        {row.map((cell, ci) => (
-                                                            <td
-                                                                key={ci}
-                                                                style={{
-                                                                    width: "9px",
-                                                                    height: "9px",
-                                                                    backgroundColor: cell ? "#1b5e20" : "#ffffff",
-                                                                    padding: "0",
-                                                                }}
-                                                            />
-                                                        ))}
-                                                    </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
+                                        </table>)}
                                     </td>
                                 </tr>
 
