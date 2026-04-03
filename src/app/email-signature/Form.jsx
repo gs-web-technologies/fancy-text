@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod";
@@ -71,11 +71,16 @@ const schema = z.object({
 
 
 function Form() {
-    const { register, setValue, handleSubmit, reset, watch, formState: { errors } } = useForm({ resolver: zodResolver(schema) });
-    const [data, SetData] = useState("");
+    const { register, setValue, handleSubmit, reset, watch, formState: { errors, isDirty } } = useForm({ resolver: zodResolver(schema) });
+    const [hasStarted, sethasStarted] = useState(false);
     const [isloding, setLoading] = useState(false);
     const [issubmitted, setSubmitted] = useState(false);
     const formValues = watch();
+
+    useEffect(() => {
+        sethasStarted(isDirty);
+    }, [isDirty]);
+
     const [selectedFile, SetSelectedFile] = useState();
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 2500 })]);
     const onSubmit = async (formdata) => {
@@ -102,11 +107,11 @@ function Form() {
     }
 
     return (
-        <div className="grid grid-cols-3 gap-1">
-            <div className="p-4 ml-4 max-w-sm bg-white p-6 rounded rounded-base shadow-lg self-start">
+        <div className="grid grid-cols-3">
+            <div className=" ">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="max-w-md mx-auto"
+                    className="max-w-md mx-auto fixed bg-white p-6 rounded rounded-base shadow-lg self-start"
                 >
                     <h2 className="text-2xl font-semibold text-gray-800 text-start">
                         Email Signature Form
@@ -205,8 +210,9 @@ function Form() {
 
                 </form>
             </div>
-
-            <Signatures formValues={formValues} selectedFile={selectedFile} issubmitted={issubmitted} />
+            <div className="w-full mx-4 p-6 self-start col-span-2">
+                <Signatures formValues={formValues} selectedFile={selectedFile} issubmitted={issubmitted} hasStarted={hasStarted} />
+            </div>
 
         </div>
     )

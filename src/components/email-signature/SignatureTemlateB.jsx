@@ -1,83 +1,139 @@
 import { POWERED_BY } from '@/utils/const';
 import React, { Fragment } from 'react'
 
-function SignatureTemlateB({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateB({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook, hasStarted }) {
   const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar4.png";
-  const socialLinks = [
-    {
-      href: instagram || "https://instagram.com",
-      icon: (
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
-          width="13"
-          height="13"
-          style={{ display: "block" }}
-        />
-      ),
-    },
-    {
-      href: twitter || "https://twitter.com",
-      icon: (
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
-          width="13"
-          height="13"
-          style={{ display: "block" }}
-        />
-      ),
-    },
-    {
-      href: linkedin || "https://linkedin.com",
-      icon: (
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-          width="13"
-          height="13"
-          style={{ display: "block" }}
-        />
-      ),
-    },
-  ];
+  if (!hasStarted) {
+    name = "Your name";
+    email = "youremail@example.com";
+    job_title = "Job Title";
+    phone_no = "+91-229229929";
+    organization = "Organization";
+    linkedin = "https://linkedin.com";
+    instagram = "https://instagram.com";
+    twitter = "https://twitter.com";
+    facebook = "https://facebook.com"
+  }
+
+  const socialLinks = [];
+  if (instagram) {
+    socialLinks.push(
+      {
+        href: instagram,
+        icon: (
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+            width="13"
+            height="13"
+            style={{ display: "block" }}
+          />
+        ),
+      }
+    )
+  }
+
+  if (twitter) {
+    socialLinks.push(
+      {
+        href: twitter,
+        icon: (
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+            width="13"
+            height="13"
+            style={{ display: "block" }}
+          />
+        ),
+      }
+    )
+  }
 
 
-  const contacts = [
-    {
-      rows: [phone_no || "000 0000 00000"],
-      href: `tel:${phone_no}`,
-      icon: (
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/724/724664.png"
-          width="13"
-          height="13"
-          style={{ display: "block" }}
-        />
-      ),
-    },
-    {
-      rows: [email || "your email name here"],
-      href: `mailto:${email}`,
-      icon: (
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
-          width="13"
-          height="13"
-          style={{ display: "block" }}
-        />
-      ),
-    },
-    {
-      rows: [organization || "organization"],
-      href: null,
-      icon: (
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/684/684908.png"
-          width="13"
-          height="13"
-          style={{ display: "block" }}
-        />
-      ),
-    },
-  ];
+  if (linkedin) {
+    socialLinks.push(
+      {
+        href: linkedin,
+        icon: (
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+            width="13"
+            height="13"
+            style={{ display: "block" }}
+          />
+        ),
+      }
+    )
+  }
+
+  if (facebook) {
+    socialLinks.push(
+      {
+        href: facebook,
+        icon: (
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+            width="13"
+            height="13"
+            style={{ display: "block" }}
+          />
+        ),
+      }
+    )
+  }
+
+
+  const contacts = [];
+
+  if (phone_no) {
+    contacts.push(
+      {
+        rows: [phone_no],
+        href: `tel:${phone_no}`,
+        icon: (
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/724/724664.png"
+            width="13"
+            height="13"
+            style={{ display: "block" }}
+          />
+        ),
+      }
+    )
+  }
+
+  if (email) {
+    contacts.push(
+      {
+        rows: [email],
+        href: `mailto:${email}`,
+        icon: (
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
+            width="13"
+            height="13"
+            style={{ display: "block" }}
+          />
+        ),
+      }
+    )
+  }
+
+  if (organization) {
+    contacts.push(
+      {
+        rows: [organization],
+        href: null,
+        icon: (
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/684/684908.png"
+            width="13"
+            height="13"
+            style={{ display: "block" }}
+          />
+        ),
+      }
+    )
+  }
 
   return (
     <table cellPadding="0" cellSpacing="0" style={{ width: "600px", backgroundColor: "#e5e7eb" }}>
@@ -101,11 +157,6 @@ function SignatureTemlateB({ name, email, job_title, phone_no, organization, log
 
                   {/* LEFT: Name + social */}
                   <td style={{ width: "255px", padding: "0", verticalAlign: "top", background: "#1a2356", borderLeft: "5px solid #f5a623" }}>
-                    {/* Yellow left border */}
-                    {/* <table cellPadding="0" cellSpacing="0">
-                      <tbody><tr><td style={{ width: "255px", padding: "0", verticalAlign: "top", background: "#1a2356", borderLeft: "5px solid #f5a623" }}></td></tr></tbody>
-                    </table> */}
-
                     <table cellPadding="0" cellSpacing="0" style={{ zIndex: 2, width: "100%", borderCollapse: "collapse" }}>
                       <tbody>
                         <tr>
@@ -124,12 +175,13 @@ function SignatureTemlateB({ name, email, job_title, phone_no, organization, log
                                     </table>
                                   </td>
                                   <td style={{ verticalAlign: "middle" }}>
-                                    <p style={{ margin: "0", fontSize: "20px", fontWeight: "800", color: "#ffffff", fontFamily: "Arial, sans-serif", letterSpacing: "0.3px", lineHeight: "1" }}>
-                                      {name ? name : 'your name'}
-                                    </p>
-                                    <p style={{ margin: "4px 0 0", fontSize: "11px", color: "#f5a623", fontFamily: "Arial, sans-serif", letterSpacing: "1px" }}>
-                                      {job_title ? job_title : 'your job'}
-                                    </p>
+
+                                    {name && (<p style={{ margin: "0", fontSize: "20px", fontWeight: "800", color: "#ffffff", fontFamily: "Arial, sans-serif", letterSpacing: "0.3px", lineHeight: "1" }}>
+                                      {name }
+                                    </p>)}
+                                    {job_title && (<p style={{ margin: "4px 0 0", fontSize: "11px", color: "#f5a623", fontFamily: "Arial, sans-serif", letterSpacing: "1px" }}>
+                                      {job_title}
+                                    </p>)}
                                   </td>
                                 </tr>
                               </tbody>
@@ -193,7 +245,7 @@ function SignatureTemlateB({ name, email, job_title, phone_no, organization, log
                       <tbody>
                         <tr>
                           <td>
-                            <div style={{ width:"120px", height:"130px" ,padding: "4px", background: "#f5a623"}}>
+                            <div style={{ width: "120px", height: "130px", padding: "4px", background: "#f5a623" }}>
                               <img
                                 src={imageSrc}
                                 alt="Profile"
@@ -201,10 +253,10 @@ function SignatureTemlateB({ name, email, job_title, phone_no, organization, log
                                 height="120"
                                 style={{
                                   width: "110px",
-                                   height: "120px",
+                                  height: "120px",
                                   display: "block",
                                   backgroundColor: "#f5a623",
-                                  objectFit:"cover",
+                                  objectFit: "cover",
                                 }}
                               />
                             </div>

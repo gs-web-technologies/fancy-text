@@ -13,7 +13,7 @@ export default function Home() {
     return (
         <>
             <div className="main-title">
-                <h1>Text Generator</h1>
+                <h1 className="text-red-500">Text Generator</h1>
 
                 <h2 className="subtitle"></h2>
             </div>

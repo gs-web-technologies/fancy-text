@@ -2,8 +2,72 @@ import { POWERED_BY } from '@/utils/const';
 import Link from 'next/link';
 import React from 'react'
 
-function SignatureTemlateN({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateN({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook, hasStarted }) {
   const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
+  if (!hasStarted) {
+    name = "Your name";
+    email = "youremail@example.com";
+    job_title = "Job Title";
+    phone_no = "+91-229229929";
+    organization = "Organization";
+    linkedin = "https://linkedin.com";
+    instagram = "https://instagram.com";
+    twitter = "https://twitter.com";
+    facebook = "https://facebook.com"
+  }
+
+  const SocialLinks = [];
+
+  if (twitter) {
+    SocialLinks.push(
+      {
+        label: "Twitter",
+        href: twitter,
+        svg: (
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="13" height="13" style={{ display: "block" }} />
+        ),
+      }
+    );
+  }
+
+  if (facebook) {
+    SocialLinks.push(
+      {
+        label: "Facebook",
+        href: facebook,
+        svg: (
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="13" height="13" style={{ display: "block" }} />
+        ),
+      }
+    );
+  }
+
+  if (instagram) {
+    SocialLinks.push(
+      {
+        label: "Instagram",
+        href: instagram,
+        svg: (
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="13" height="13" style={{
+            display: "block"
+          }} />
+        ),
+      }
+    );
+  }
+
+  if (linkedin) {
+    SocialLinks.push(
+      {
+        label: "LinkedIn",
+        href: linkedin,
+        svg: (
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="13" height="13" style={{ display: "block" }} />
+        ),
+      }
+    );
+  }
+
   return (
     <table
       cellPadding="0"
@@ -75,7 +139,7 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
             <table cellPadding="0" cellSpacing="0" style={{ width: "100%" }}>
               <tbody>
                 {/* Brand logo row */}
-                <tr>
+                {job_title && (<tr>
                   <td style={{ paddingBottom: "4px" }}>
                     <table cellPadding="0" cellSpacing="0">
                       <tbody>
@@ -88,16 +152,16 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                               fontFamily: "Georgia, serif",
                             }}
                           >
-                            {job_title ? job_title : 'Job Title'}
+                            {job_title}
                           </td>
                         </tr>
                       </tbody>
                     </table>
                   </td>
-                </tr>
+                </tr>)}
 
                 {/* Name */}
-                <tr>
+                {name && (<tr>
                   <td style={{ paddingBottom: "2px" }}>
                     <p
                       style={{
@@ -110,15 +174,15 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                         lineHeight: "1.1",
                       }}
                     >
-                      {name ? name : 'Your Name'}
+                      {name}
                     </p>
                   </td>
-                </tr>
+                </tr>)}
 
 
 
                 {/* Email */}
-                <tr>
+                {email && (<tr>
                   <td style={{ padding: "7px 0px 2px 0px" }}>
                     <table cellPadding="0" cellSpacing="0">
                       <tbody>
@@ -140,17 +204,17 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                           </td>
                           <td style={{ fontSize: "12px", color: "#555555", fontFamily: "Arial, sans-serif" }}>
                             <a style={{ textDecoration: "none" }}>
-                              {email ? email : 'youremail@gmail.com'}
+                              {email}
                             </a>
                           </td>
                         </tr>
                       </tbody>
                     </table>
                   </td>
-                </tr>
+                </tr>)}
 
                 {/* Phone */}
-                <tr>
+                {phone_no && (<tr>
                   <td style={{ padding: "7px 0px 2px 0px" }}>
                     <table cellPadding="0" cellSpacing="0">
                       <tbody>
@@ -178,10 +242,10 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                       </tbody>
                     </table>
                   </td>
-                </tr>
+                </tr>)}
 
                 {/* Address */}
-                <tr>
+                {organization && (<tr>
                   <td style={{ padding: "7px 0px 2px 0px" }}>
                     <table cellPadding="0" cellSpacing="0">
                       <tbody>
@@ -209,7 +273,7 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
                       </tbody>
                     </table>
                   </td>
-                </tr>
+                </tr>)}
               </tbody>
             </table>
           </td>
@@ -225,40 +289,7 @@ function SignatureTemlateN({ name, email, job_title, phone_no, organization, log
           >
             <table cellPadding="" cellSpacing="0" style={{ width: "100%" }}>
               <tbody>
-                {[
-                  {
-                    label: "Twitter",
-                    href: twitter || 'https://x.com',
-                    svg: (
-                      <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="13" height="13" style={{ display: "block" }} />
-                    ),
-                  },
-                  {
-                    label: "Facebook",
-                    href: facebook || 'https://facebook.com',
-                    svg: (
-                      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="13" height="13" style={{
-                        display: "block"
-                      }} />
-                    ),
-                  },
-                  {
-                    label: "Instagram",
-                    href: instagram || 'https://instagram.com',
-                    svg: (
-                      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="13" height="13" style={{
-                        display: "block"
-                      }} />
-                    ),
-                  },
-                  {
-                    label: "LinkedIn",
-                    href: linkedin || 'https://linkedin.com',
-                    svg: (
-                      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="13" height="13" style={{ display: "block" }} />
-                    ),
-                  },
-                ].map((item, i) => (
+                {SocialLinks.map((item, i) => (
                   <tr key={i}>
                     <td
                       style={{

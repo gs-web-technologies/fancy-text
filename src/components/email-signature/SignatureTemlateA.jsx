@@ -2,8 +2,20 @@ import React from 'react';
 import Link from 'next/link';
 import { POWERED_BY } from '@/utils/const';
 
-function SignatureTemlateA({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
-    const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";
+function SignatureTemlateA({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook, hasStarted }) {
+    let imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";
+    if (!hasStarted) {
+        name = "Your name";
+        email = "youremail@example.com";
+        job_title = "Job Title";
+        phone_no = "+91-229229929";
+        organization = "Organization";
+        linkedin = "https://linkedin.com";
+        instagram = "https://instagram.com";
+        twitter = "https://twitter.com";
+        facebook = "https://facebook.com"
+    }
+
     return (
         <table
             width="600"
@@ -30,77 +42,79 @@ function SignatureTemlateA({ name, email, job_title, phone_no, organization, log
                             <tbody>
                                 <tr>
                                     {/* LEFT: Blue block + circular photo */}
-                                    <td
-                                        width="170"
-                                        align="center"
-                                        valign="middle"
-                                        style={{
-                                            backgroundColor: "#1e3a8a",
-                                            padding: "20px 10px",
-                                        }}
-                                    >
-                                        <table cellPadding="0" cellSpacing="0" border="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td align="center" valign="middle">
+                                    {imageSrc && (
+                                        <td
+                                            width="170"
+                                            align="center"
+                                            valign="middle"
+                                            style={{
+                                                backgroundColor: "#1e3a8a",
+                                                padding: "20px 10px",
+                                            }}
+                                        >
+                                            <table cellPadding="0" cellSpacing="0" border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="center" valign="middle">
 
-                                                        {/* Outer circle */}
-                                                        <table
-                                                            cellPadding="0"
-                                                            cellSpacing="0"
-                                                            border="0"
-                                                            style={{
-                                                                width: "110px",
-                                                                height: "110px",
-                                                                backgroundColor: "#bfdbfe",
-                                                                borderRadius: "50%",
-                                                            }}
-                                                        >
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td align="center" valign="middle">
+                                                            {/* Outer circle */}
+                                                            <table
+                                                                cellPadding="0"
+                                                                cellSpacing="0"
+                                                                border="0"
+                                                                style={{
+                                                                    width: "110px",
+                                                                    height: "110px",
+                                                                    backgroundColor: "#bfdbfe",
+                                                                    borderRadius: "50%",
+                                                                }}
+                                                            >
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td align="center" valign="middle">
 
-                                                                        {/* Inner circle */}
-                                                                        <table
-                                                                            cellPadding="0"
-                                                                            cellSpacing="0"
-                                                                            border="0"
-                                                                            style={{
-                                                                                width: "96px",
-                                                                                height: "96px",
-                                                                                borderRadius: "50%",
-                                                                                overflow: "hidden",
-                                                                            }}
-                                                                        >
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td align="center" valign="middle">
-                                                                                        <img
-                                                                                            src={imageSrc}
-                                                                                            width="96"
-                                                                                            height="96"
-                                                                                            style={{
-                                                                                                display: "block",
-                                                                                                width: "96px",
-                                                                                                height: "96px",
-                                                                                            }}
-                                                                                            alt="profile"
-                                                                                        />
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
+                                                                            {/* Inner circle */}
+                                                                            <table
+                                                                                cellPadding="0"
+                                                                                cellSpacing="0"
+                                                                                border="0"
+                                                                                style={{
+                                                                                    width: "96px",
+                                                                                    height: "96px",
+                                                                                    borderRadius: "50%",
+                                                                                    overflow: "hidden",
+                                                                                }}
+                                                                            >
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td align="center" valign="middle">
+                                                                                            <img
+                                                                                                src={imageSrc}
+                                                                                                width="96"
+                                                                                                height="96"
+                                                                                                style={{
+                                                                                                    display: "block",
+                                                                                                    width: "96px",
+                                                                                                    height: "96px",
+                                                                                                }}
+                                                                                                alt="profile"
+                                                                                            />
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
 
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
 
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    )}
 
                                     {/* RIGHT: Info block */}
                                     <td
@@ -122,19 +136,24 @@ function SignatureTemlateA({ name, email, job_title, phone_no, organization, log
                                                     <td valign="middle" style={{ fontFamily: "Arial, sans-serif" }}>
                                                         <table cellPadding="0" cellSpacing="0" border="0">
                                                             <tbody>
-                                                                <tr>
-                                                                    <td
-                                                                        style={{
-                                                                            fontSize: "22px",
-                                                                            fontWeight: "700",
-                                                                            color: "#1e3a8a",
-                                                                            lineHeight: "1.2",
-                                                                        }}
-                                                                    >
-                                                                        {name ? name : "Your Name"}
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
+
+                                                                {name &&
+                                                                    <tr>
+                                                                        <td
+                                                                            style={{
+                                                                                fontSize: "22px",
+                                                                                fontWeight: "700",
+                                                                                color: "#1e3a8a",
+                                                                                lineHeight: "1.2",
+                                                                            }}
+                                                                        >
+                                                                            {name}
+
+                                                                        </td>
+                                                                    </tr>
+                                                                }
+
+                                                                {job_title && <tr>
                                                                     <td
                                                                         style={{
                                                                             fontSize: "13px",
@@ -142,13 +161,14 @@ function SignatureTemlateA({ name, email, job_title, phone_no, organization, log
                                                                             paddingTop: "2px", // instead of marginTop
                                                                         }}
                                                                     >
-                                                                        {job_title ? job_title : "JOB TITLE"}
+                                                                        {job_title}
                                                                     </td>
-                                                                </tr>
+                                                                </tr>}
                                                             </tbody>
                                                         </table>
                                                     </td>
-                                                    <td style={{ verticalAlign: "middle", textAlign: "right", paddingLeft: "12px" }}>
+
+                                                    {organization && (<td style={{ verticalAlign: "middle", textAlign: "right", paddingLeft: "12px" }}>
                                                         {/* Logo */}
                                                         <table
                                                             cellPadding="0"
@@ -183,12 +203,12 @@ function SignatureTemlateA({ name, email, job_title, phone_no, organization, log
                                                                             fontFamily: "Arial, sans-serif",
                                                                         }}
                                                                     >
-                                                                        {organization ? organization : 'Organization'}
+                                                                        {organization}
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
-                                                    </td>
+                                                    </td>)}
                                                 </tr>
 
                                                 {/* Divider */}
@@ -208,55 +228,56 @@ function SignatureTemlateA({ name, email, job_title, phone_no, organization, log
                                                 </tr>
 
                                                 {/* Phone row */}
-                                                <tr>
-                                                    <td colSpan="2" style={{ paddingBottom: "5px" }}>
-                                                        <table
-                                                            cellPadding="0"
-                                                            cellSpacing="0"
-                                                            border="0"
-                                                            style={{ borderCollapse: "collapse" }}
-                                                        >
-                                                            <tbody>
-                                                                <tr>
-                                                                    {/* Phone icon */}
-                                                                    <td
-                                                                        align="center"
-                                                                        valign="middle"
-                                                                        style={{
-                                                                            width: "18px",
-                                                                            height: "18px",
-                                                                            backgroundColor: "#1e3a8a",
-                                                                            borderRadius: "50%",
-                                                                            fontSize: "9px",
-                                                                            color: "#ffffff",
-                                                                            textAlign: "center",
-                                                                            lineHeight: "18px",
-                                                                            fontFamily: "Arial, sans-serif",
-                                                                        }}
-                                                                    >
-                                                                        &#9990;
-                                                                    </td>
-                                                                    <td
-                                                                        style={{
-                                                                            fontSize: "12px",
-                                                                            color: "#374151",
-                                                                            paddingRight: "10px",
-                                                                            fontFamily: "Arial, sans-serif",
-                                                                            paddingLeft: "4px",
-                                                                        }}
-                                                                    >
-                                                                        {phone_no ? phone_no : '+000 1234 56789'}
-                                                                    </td>
+                                                {phone_no && (
+                                                    <tr>
+                                                        <td colSpan="2" style={{ paddingBottom: "5px" }}>
+                                                            <table
+                                                                cellPadding="0"
+                                                                cellSpacing="0"
+                                                                border="0"
+                                                                style={{ borderCollapse: "collapse" }}
+                                                            >
+                                                                <tbody>
+                                                                    <tr>
+                                                                        {/* Phone icon */}
+                                                                        <td
+                                                                            align="center"
+                                                                            valign="middle"
+                                                                            style={{
+                                                                                width: "18px",
+                                                                                height: "18px",
+                                                                                backgroundColor: "#1e3a8a",
+                                                                                borderRadius: "50%",
+                                                                                fontSize: "9px",
+                                                                                color: "#ffffff",
+                                                                                textAlign: "center",
+                                                                                lineHeight: "18px",
+                                                                                fontFamily: "Arial, sans-serif",
+                                                                            }}
+                                                                        >
+                                                                            &#9990;
+                                                                        </td>
+                                                                        <td
+                                                                            style={{
+                                                                                fontSize: "12px",
+                                                                                color: "#374151",
+                                                                                paddingRight: "10px",
+                                                                                fontFamily: "Arial, sans-serif",
+                                                                                paddingLeft: "4px",
+                                                                            }}
+                                                                        >
+                                                                            {phone_no}
+                                                                        </td>
 
 
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>)}
 
                                                 {/* Email + Website row */}
-                                                <tr>
+                                                {email && (<tr>
                                                     <td colSpan="2" style={{ paddingBottom: "5px" }}>
                                                         <table
                                                             cellPadding="0"
@@ -295,7 +316,7 @@ function SignatureTemlateA({ name, email, job_title, phone_no, organization, log
                                                                             paddingLeft: "4px",
                                                                             fontFamily: "Arial, sans-serif",
                                                                         }}>
-                                                                            {email ? email : 'youremail@gmail.com'}
+                                                                            {email}
                                                                         </a>
                                                                     </td>
 
@@ -303,52 +324,55 @@ function SignatureTemlateA({ name, email, job_title, phone_no, organization, log
                                                             </tbody>
                                                         </table>
                                                     </td>
-                                                </tr>
+                                                </tr>)}
 
                                                 {/* Address row */}
-                                                <tr>
-                                                    <td colSpan="2" style={{ paddingBottom: "14px" }}>
-                                                        <table
-                                                            cellPadding="0"
-                                                            cellSpacing="0"
-                                                            border="0"
-                                                            style={{ borderCollapse: "collapse" }}
-                                                        >
-                                                            <tbody>
-                                                                <tr>
-                                                                    {/* Pin icon */}
-                                                                    <td
-                                                                        align="center"
-                                                                        valign="middle"
-                                                                        style={{
-                                                                            width: "18px",
-                                                                            height: "18px",
-                                                                            backgroundColor: "#1e3a8a",
-                                                                            borderRadius: "50%",
-                                                                            textAlign: "center",
-                                                                            lineHeight: "18px",
-                                                                            fontFamily: "Arial, sans-serif",
-                                                                        }}
-                                                                    >
-                                                                        <span style={{ fontSize: "9px", color: "#ffffff" }}>
-                                                                            &#9679;
-                                                                        </span>
-                                                                    </td>
-                                                                    <td
-                                                                        style={{
-                                                                            fontSize: "12px",
-                                                                            color: "#374151",
-                                                                            fontFamily: "Arial, sans-serif",
-                                                                            paddingLeft: "4px",
-                                                                        }}
-                                                                    >
-                                                                        {organization ? organization : 'Organization'}
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
+                                                {organization && (
+                                                    < tr >
+                                                        <td colSpan="2" style={{ paddingBottom: "14px" }}>
+                                                            <table
+                                                                cellPadding="0"
+                                                                cellSpacing="0"
+                                                                border="0"
+                                                                style={{ borderCollapse: "collapse" }}
+                                                            >
+                                                                <tbody>
+                                                                    <tr>
+                                                                        {/* Pin icon */}
+                                                                        <td
+                                                                            align="center"
+                                                                            valign="middle"
+                                                                            style={{
+                                                                                width: "18px",
+                                                                                height: "18px",
+                                                                                backgroundColor: "#1e3a8a",
+                                                                                borderRadius: "50%",
+                                                                                textAlign: "center",
+                                                                                lineHeight: "18px",
+                                                                                fontFamily: "Arial, sans-serif",
+                                                                            }}
+                                                                        >
+                                                                            <span style={{ fontSize: "9px", color: "#ffffff" }}>
+                                                                                &#9679;
+                                                                            </span>
+                                                                        </td>
+                                                                        <td
+                                                                            style={{
+                                                                                fontSize: "12px",
+                                                                                color: "#374151",
+                                                                                fontFamily: "Arial, sans-serif",
+                                                                                paddingLeft: "4px",
+                                                                            }}
+                                                                        >
+                                                                            {organization}
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                )
+                                                }
                                             </tbody>
                                         </table>
                                     </td>
@@ -395,70 +419,108 @@ function SignatureTemlateA({ name, email, job_title, phone_no, organization, log
                                             <tbody>
                                                 <tr>
                                                     {/* Facebook */}
-                                                    <td style={{ paddingLeft: "6px" }}>
-                                                        <a href={facebook || "https://facebook.com"}>
-                                                            <span
-                                                                style={{
-                                                                    display: "inline-block",
-                                                                    width: "26px",
-                                                                    height: "26px",
-                                                                    backgroundColor: "#ffffff",
-                                                                    borderRadius: "50%",
-                                                                    textAlign: "center",
-                                                                    lineHeight: "26px",
-                                                                    fontSize: "11px",
-                                                                    fontWeight: "700",
-                                                                    color: "#1e3a8a",
-                                                                }}
-                                                            >
-                                                                f
-                                                            </span>
-                                                        </a>
-                                                    </td>
+                                                    {facebook && (
+                                                        < td style={{ paddingLeft: "6px" }}>
+                                                            <a href={facebook || "https://facebook.com"}>
+                                                                <span
+                                                                    style={{
+                                                                        display: "inline-block",
+                                                                        width: "26px",
+                                                                        height: "26px",
+                                                                        backgroundColor: "#ffffff",
+                                                                        borderRadius: "50%",
+                                                                        textAlign: "center",
+                                                                        lineHeight: "26px",
+                                                                        fontSize: "11px",
+                                                                        fontWeight: "700",
+                                                                        color: "#1e3a8a",
+                                                                    }}
+                                                                >
+                                                                    f
+                                                                </span>
+                                                            </a>
+                                                        </td>
+                                                    )}
+
 
                                                     {/* Twitter */}
-                                                    <td style={{ paddingLeft: "6px" }}>
-                                                        <a href={twitter || "https://x.com"}>
-                                                            <span
-                                                                style={{
-                                                                    display: "inline-block",
-                                                                    width: "26px",
-                                                                    height: "26px",
-                                                                    backgroundColor: "#ffffff",
-                                                                    borderRadius: "50%",
-                                                                    textAlign: "center",
-                                                                    lineHeight: "26px",
-                                                                    fontSize: "11px",
-                                                                    fontWeight: "700",
-                                                                    color: "#1e3a8a",
-                                                                }}
-                                                            >
-                                                                t
-                                                            </span>
-                                                        </a>
-                                                    </td>
+
+                                                    {twitter && (
+
+                                                        <td style={{ paddingLeft: "6px" }}>
+                                                            <a href={twitter || "https://x.com"}>
+                                                                <span
+                                                                    style={{
+                                                                        display: "inline-block",
+                                                                        width: "26px",
+                                                                        height: "26px",
+                                                                        backgroundColor: "#ffffff",
+                                                                        borderRadius: "50%",
+                                                                        textAlign: "center",
+                                                                        lineHeight: "26px",
+                                                                        fontSize: "11px",
+                                                                        fontWeight: "700",
+                                                                        color: "#1e3a8a",
+                                                                    }}
+                                                                >
+                                                                    t
+                                                                </span>
+                                                            </a>
+                                                        </td>
+                                                    )}
+
 
                                                     {/* LinkedIn */}
-                                                    <td style={{ paddingLeft: "6px" }}>
-                                                        <a href={linkedin || "https://linkedin.com"}>
-                                                            <span
-                                                                style={{
-                                                                    display: "inline-block",
-                                                                    width: "26px",
-                                                                    height: "26px",
-                                                                    backgroundColor: "#ffffff",
-                                                                    borderRadius: "50%",
-                                                                    textAlign: "center",
-                                                                    lineHeight: "26px",
-                                                                    fontSize: "11px",
-                                                                    fontWeight: "700",
-                                                                    color: "#1e3a8a",
-                                                                }}
-                                                            >
-                                                                in
-                                                            </span>
-                                                        </a>
-                                                    </td>
+
+                                                    {linkedin && (
+                                                        <td style={{ paddingLeft: "6px" }}>
+                                                            <a href={linkedin || "https://linkedin.com"}>
+                                                                <span
+                                                                    style={{
+                                                                        display: "inline-block",
+                                                                        width: "26px",
+                                                                        height: "26px",
+                                                                        backgroundColor: "#ffffff",
+                                                                        borderRadius: "50%",
+                                                                        textAlign: "center",
+                                                                        lineHeight: "26px",
+                                                                        fontSize: "11px",
+                                                                        fontWeight: "700",
+                                                                        color: "#1e3a8a",
+                                                                    }}
+                                                                >
+                                                                    in
+                                                                </span>
+                                                            </a>
+                                                        </td>
+                                                    )}
+
+
+                                                    {/* instagram */}
+                                                    {
+                                                        instagram && (
+                                                            < td style={{ paddingLeft: "6px" }}>
+                                                                <a href={instagram || "https://instagram.com"}>
+                                                                    <span
+                                                                        style={{
+                                                                            display: "inline-block",
+                                                                            width: "26px",
+                                                                            height: "26px",
+                                                                            backgroundColor: "#ffffff",
+                                                                            borderRadius: "50%",
+                                                                            textAlign: "center",
+                                                                            lineHeight: "26px",
+                                                                            fontSize: "11px",
+                                                                            fontWeight: "700",
+                                                                            color: "#1e3a8a",
+                                                                        }}
+                                                                    >
+                                                                        i
+                                                                    </span>
+                                                                </a>
+                                                            </td>
+                                                        )
+                                                    }
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -476,7 +538,7 @@ function SignatureTemlateA({ name, email, job_title, phone_no, organization, log
             </tbody>
 
 
-        </table>
+        </table >
 
 
 

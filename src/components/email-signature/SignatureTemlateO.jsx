@@ -2,8 +2,48 @@ import { POWERED_BY } from '@/utils/const';
 import Link from 'next/link';
 import React from 'react'
 
-function SignatureTemlateO({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateO({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook, hasStarted }) {
   const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar3.png";
+  if (!hasStarted) {
+    name = "Your name";
+    email = "youremail@example.com";
+    job_title = "Job Title";
+    phone_no = "+91-229229929";
+    organization = "Organization";
+    linkedin = "https://linkedin.com";
+    instagram = "https://instagram.com";
+    twitter = "https://twitter.com";
+    facebook = "https://facebook.com"
+  }
+
+  const contacts = [];
+
+
+  if (organization) {
+    contacts.push(
+      {
+        letter: "A",
+        value: organization,
+      }
+    );
+  }
+  if (phone_no) {
+    contacts.push(
+      {
+        letter: "P",
+        value: phone_no,
+      }
+    );
+  }
+  if (email) {
+    contacts.push(
+      {
+        letter: "E",
+        value: email,
+      }
+    );
+  }
+
   return (
     <table style={{ backgroundColor: "#ffffff", width: "480px", padding: "30px", display: "flex", justifyContent: "center" }}>
       <tbody>
@@ -24,7 +64,7 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
               <tbody>
 
                 {/* ── "Kind regards," handwriting text ── */}
-                <tr>
+                {name && (<tr>
                   <td colSpan={2} style={{ paddingBottom: "18px" }}>
                     <div
                       style={{
@@ -35,10 +75,10 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                         lineHeight: "1",
                       }}
                     >
-                      {name ? name : 'Your Name'}
+                      {name}
                     </div>
                   </td>
-                </tr>
+                </tr>)}
 
                 {/* ── Main row: photo | info ── */}
                 <tr>
@@ -94,7 +134,7 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                   <td style={{ verticalAlign: "top" }}>
 
                     {/* Name */}
-                    <div
+                    {name && (<div
                       style={{
                         fontSize: "16px",
                         fontWeight: "700",
@@ -103,13 +143,13 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                         letterSpacing: "0.1px",
                       }}
                     >
-                      {name ? name : 'Your Name'}
-                    </div>
+                      {name}
+                    </div>)}
 
                     {/* Title line — "CFO at Finance Mile" with colored company */}
-                    <div style={{ fontSize: "12px", color: "#555555", marginBottom: "10px" }}>
+                    {job_title && (<div style={{ fontSize: "12px", color: "#555555", marginBottom: "10px" }}>
                       <span style={{ color: "#29b6f6", fontWeight: "600" }}> {job_title ? job_title : 'Job Title'} </span>
-                    </div>
+                    </div>)}
 
                     {/* Thin blue divider */}
                     <div
@@ -125,20 +165,7 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                     {/* Contact rows */}
                     <table cellPadding="0" cellSpacing="0">
                       <tbody>
-                        {[
-                          {
-                            letter: "A",
-                            value: organization || "Organization",
-                          },
-                          {
-                            letter: "P",
-                            value: phone_no || "1559-741-7878",
-                          },
-                          {
-                            letter: "E",
-                            value: email || "youremail.com",
-                          },
-                        ].map((row, i) => (
+                        {contacts.map((row, i) => (
                           <tr key={i}>
                             <td
                               style={{
@@ -186,7 +213,8 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                       <tbody>
                         <tr>
                           {/* Facebook */}
-                          <td style={{ paddingRight: "8px" }}>
+
+                          {facebook && (<td style={{ paddingRight: "8px" }}>
                             <a
                               href={facebook || "https://facebook.com"}
                               style={{
@@ -200,9 +228,11 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                                 display: "block", margin: "4px"
                               }} />
                             </a>
-                          </td>
+                          </td>)}
+
                           {/* Twitter / X */}
-                          <td style={{ paddingRight: "8px" }}>
+
+                          {twitter && (<td style={{ paddingRight: "8px" }}>
                             <a
                               href={twitter || "https://x.com"}
                               style={{
@@ -215,9 +245,10 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                             >
                               <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="20" height="20" style={{ display: "block" }} />
                             </a>
-                          </td>
-                          <td style={{ paddingRight: "8px" }}>
-                            {/* instagram */}
+                          </td>)}
+                          {/* instagram */}
+
+                          {instagram && (<td style={{ paddingRight: "8px" }}>
                             <a
                               href={instagram || "https://instagram.com"}
                               style={{
@@ -232,8 +263,8 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                                 display: "block"
                               }} />
                             </a>
-                          </td>
-                          <td style={{ paddingRight: "8px" }}>
+                          </td>)}
+                         {linkedin && ( <td style={{ paddingRight: "8px" }}>
                             {/* linkedin */}
                             <a
                               href={linkedin || "https://linkedin.com"}
@@ -248,7 +279,7 @@ function SignatureTemlateO({ name, email, job_title, phone_no, organization, log
                             >
                               <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="20" height="20" style={{ display: "block" }} />
                             </a>
-                          </td>
+                          </td>)}
 
                         </tr>
                       </tbody>

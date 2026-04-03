@@ -2,24 +2,58 @@ import { POWERED_BY } from '@/utils/const';
 import Link from 'next/link';
 import React from 'react'
 
-function SignatureTemlateJ({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateJ({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook, hasStarted }) {
     const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar.png";
-    const SocialLinks = [{
-        icon: "f",
-        href: facebook || "https://facebook.com"
-    },
-    {
-        icon: "i",
-        href: instagram || "https://instagram.com"
-    },
-    {
-        icon: "X",
-        href: twitter || "https://twitter.com"
-    },
-    {
-        icon: "in",
-        href: linkedin || "https://linkedin.com"
-    }];
+    if (!hasStarted) {
+        name = "Your name";
+        email = "youremail@example.com";
+        job_title = "Job Title";
+        phone_no = "+91-229229929";
+        organization = "Organization";
+        linkedin = "https://linkedin.com";
+        instagram = "https://instagram.com";
+        twitter = "https://twitter.com";
+        facebook = "https://facebook.com"
+    }
+
+    const SocialLinks = [];
+
+    if (facebook) {
+        SocialLinks.push(
+            {
+                icon: "f",
+                href: facebook
+            }
+        );
+    }
+
+    if (instagram) {
+        SocialLinks.push(
+            {
+                icon: "i",
+                href: instagram
+            }
+        );
+    }
+
+    if (twitter) {
+        SocialLinks.push(
+            {
+                icon: "X",
+                href: twitter
+            }
+        );
+    }
+
+    if (linkedin) {
+        SocialLinks.push(
+            {
+                icon: "in",
+                href: linkedin
+            }
+        );
+    }
+
     return (
         <table
             cellPadding="0"
@@ -68,7 +102,7 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
 
                                     {/* Name + Position */}
                                     <td style={{ verticalAlign: "middle" }}>
-                                        <p
+                                        {name && (<p
                                             style={{
                                                 margin: "0 0 4px 0",
                                                 fontSize: "20px",
@@ -78,9 +112,9 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                                                 textTransform: "uppercase",
                                             }}
                                         >
-                                            {name ? name : 'Your Name'}
-                                        </p>
-                                        <p
+                                            {name}
+                                        </p>)}
+                                        {job_title && (<p
                                             style={{
                                                 margin: "0 0 10px 0",
                                                 fontSize: "12px",
@@ -88,8 +122,8 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                                                 letterSpacing: "0.5px",
                                             }}
                                         >
-                                            {job_title ? job_title : 'Job Title'}
-                                        </p>
+                                            {job_title}
+                                        </p>)}
 
                                         {/* Social icons row */}
                                         <table cellPadding="0" cellSpacing="0">
@@ -132,7 +166,7 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                     <td style={{ padding: "18px 0px 18px 14px", verticalAlign: "middle", width: "200px" }}>
                         <table cellPadding="0" cellSpacing="0" width="200px">
                             <tbody>
-                                <tr>
+                                {phone_no && (<tr>
                                     <td style={{ paddingBottom: "6px" }}>
                                         <table cellPadding="0" cellSpacing="0">
                                             <tbody>
@@ -149,63 +183,65 @@ function SignatureTemlateJ({ name, email, job_title, phone_no, organization, log
                                                         Phone:
                                                     </td>
                                                     <td style={{ fontSize: "11px", color: "#cccccc" }}>
-                                                        {phone_no ? phone_no : "123-456-7890"}
+                                                        {phone_no}
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td style={{ paddingBottom: "6px" }}>
-                                        <table cellPadding="0" cellSpacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td
-                                                        style={{
-                                                            fontSize: "11px",
-                                                            color: "#f5a623",
-                                                            fontWeight: "bold",
-                                                            paddingRight: "8px",
-                                                            whiteSpace: "nowrap",
-                                                        }}
-                                                    >
-                                                        Email:
-                                                    </td>
-                                                    <td>
-                                                        <a style={{ fontSize: "11px", color: "#cccccc", textDecoration: "none" }}>
-                                                            {email ? email : "your mail Here"}
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style={{ paddingBottom: "6px" }}>
-                                        <table cellPadding="0" cellSpacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td
-                                                        style={{
-                                                            fontSize: "11px",
-                                                            color: "#f5a623",
-                                                            fontWeight: "bold",
-                                                            paddingRight: "8px",
-                                                            whiteSpace: "nowrap",
-                                                        }}
-                                                    >
-                                                        Organization:
-                                                    </td>
-                                                    <td style={{ fontSize: "11px", color: "#cccccc" }}>
-                                                        {organization ? organization : "Organization"}
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
+                                </tr>)}
+                                {email && (
+                                    <tr>
+                                        <td style={{ paddingBottom: "6px" }}>
+                                            <table cellPadding="0" cellSpacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td
+                                                            style={{
+                                                                fontSize: "11px",
+                                                                color: "#f5a623",
+                                                                fontWeight: "bold",
+                                                                paddingRight: "8px",
+                                                                whiteSpace: "nowrap",
+                                                            }}
+                                                        >
+                                                            Email:
+                                                        </td>
+                                                        <td>
+                                                            <a style={{ fontSize: "11px", color: "#cccccc", textDecoration: "none" }}>
+                                                                {email}
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>)}
+                                {organization && (
+                                    <tr>
+                                        <td style={{ paddingBottom: "6px" }}>
+                                            <table cellPadding="0" cellSpacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td
+                                                            style={{
+                                                                fontSize: "11px",
+                                                                color: "#f5a623",
+                                                                fontWeight: "bold",
+                                                                paddingRight: "8px",
+                                                                whiteSpace: "nowrap",
+                                                            }}
+                                                        >
+                                                            Organization:
+                                                        </td>
+                                                        <td style={{ fontSize: "11px", color: "#cccccc" }}>
+                                                            {organization}
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>)}
                             </tbody>
                         </table>
                     </td>

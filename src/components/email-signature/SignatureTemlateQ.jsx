@@ -2,34 +2,99 @@ import { POWERED_BY } from '@/utils/const';
 import Link from 'next/link';
 import React from 'react'
 
-function SignatureTemlateQ({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook }) {
+function SignatureTemlateQ({ name, email, job_title, phone_no, organization, logo, linkedin, instagram, twitter, facebook, hasStarted }) {
   const imageSrc = logo && logo.length != 0 ? logo : "/assets/images/avatar5.png";
-  const SocialLinks = [
-    {
-      label: "facebook",
-      icon: (
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="15" height="15" style={{
-          display: "block"
-        }} />
-      ),
-      href: facebook || "https://facebook.com",
-    },
-    {
-      label: "Instagram",
-      icon: (
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="15" height="15" style={{
-          display: "block"
-        }} />),
-      href: instagram || "https://Instagram.com",
-    },
-    {
-      label: "Twitter",
-      icon: (
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="15" height="15" style={{ display: "block" }} />
-      ),
-      href: twitter || "https://twitter.com",
-    }
-  ];
+  if (!hasStarted) {
+    name = "Your name";
+    email = "youremail@example.com";
+    job_title = "Job Title";
+    phone_no = "+91-229229929";
+    organization = "Organization";
+    linkedin = "https://linkedin.com";
+    instagram = "https://instagram.com";
+    twitter = "https://twitter.com";
+    facebook = "https://facebook.com"
+  }
+
+
+  const SocialLinks = [];
+
+  if (facebook) {
+    SocialLinks.push(
+      {
+        label: "facebook",
+        icon: (
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="15" height="15" style={{
+            display: "block"
+          }} />
+        ),
+        href: facebook,
+      }
+    );
+  }
+
+  if (instagram) {
+    SocialLinks.push(
+      {
+        label: "Instagram",
+        icon: (
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="15" height="15" style={{
+            display: "block"
+          }} />),
+        href: instagram,
+      }
+    );
+  }
+
+  if (twitter) {
+    SocialLinks.push(
+      {
+        label: "Twitter",
+        icon: (
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="15" height="15" style={{ display: "block" }} />
+        ),
+        href: twitter,
+      }
+    );
+  }
+
+
+  const contacts = [];
+  if (phone_no) {
+    contacts.push(
+      {
+        icon: (
+          <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="13" height="13" style={{ display: "block" }} />
+
+        ),
+        text: phone_no,
+      }
+    );
+  }
+
+  if (linkedin) {
+    contacts.push(
+      {
+        icon: (
+          <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" width="13" height="13" style={{
+            display: "block"
+          }} />
+        ),
+        text: <a style={{ textDecoration: "none" }}> {linkedin} </a>,
+      }
+    );
+  }
+  if (organization) {
+    contacts.push(
+      {
+        icon: (
+          <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="13" height="13" style={{ display: "block" }} />
+        ),
+        text: organization,
+      }
+    );
+  }
+
   return (
 
     <table style={{ display: "flex", justifyContent: "center" }}>
@@ -73,7 +138,7 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                           <tr>
                             {/* Name & title */}
                             <td style={{ verticalAlign: "top" }}>
-                              <div style={{
+                              {name && (<div style={{
                                 fontSize: "16px",
                                 fontWeight: "800",
                                 color: "#1a1a1a",
@@ -81,16 +146,17 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                                 lineHeight: "1.2",
                                 marginBottom: "3px",
                               }}>
-                                {name ? name : 'Your Name'}
-                              </div>
-                              <div style={{
+                                {name}
+                              </div>)}
+
+                              {job_title && (<div style={{
                                 fontSize: "9.5px",
                                 color: "#888888",
                                 letterSpacing: "0.3px",
                                 marginBottom: "0",
                               }}>
-                                {job_title ? job_title : 'Job Title'}
-                              </div>
+                                {job_title}
+                              </div>)}
 
                               {/* Yellow underline accent */}
                               <div style={{
@@ -133,29 +199,7 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                       {/* Contact rows */}
                       <table cellPadding="0" cellSpacing="0" style={{ marginBottom: "0" }}>
                         <tbody>
-                          {[
-                            {
-                              icon: (
-                                <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="13" height="13" style={{ display: "block" }} />
-
-                              ),
-                              text: phone_no || "+0 1234 567890",
-                            },
-                            {
-                              icon: (
-                                <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" width="13" height="13" style={{
-                                  display: "block"
-                                }} />
-                              ),
-                              text: linkedin ? (<a style={{ textDecoration: "none" }}> {linkedin} </a>) : "your linkedin",
-                            },
-                            {
-                              icon: (
-                                <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="13" height="13" style={{ display: "block" }} />
-                              ),
-                              text: organization || "organization",
-                            },
-                          ].map((item, i) => (
+                          {contacts.map((item, i) => (
                             <tr key={i}>
                               <td style={{ paddingBottom: "7px", verticalAlign: "middle" }}>
                                 <table cellPadding="0" cellSpacing="0">
@@ -235,7 +279,7 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                     }}
                   >
                     {/* Company logo icon + name */}
-                    <table cellPadding="0" cellSpacing="0" style={{ marginBottom: "8px" }}>
+                   {organization && ( <table cellPadding="0" cellSpacing="0" style={{ marginBottom: "8px" }}>
                       <tbody>
                         <tr>
                           <td style={{ paddingRight: "10px", verticalAlign: "middle" }}>
@@ -265,7 +309,7 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                           </td>
                         </tr>
                       </tbody>
-                    </table>
+                    </table>)}
 
                     {/* Yellow divider */}
                     <div style={{
@@ -277,7 +321,7 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                     }} />
 
                     {/* Company description */}
-                    <a style={{
+                    {email && (<a style={{
                       fontSize: "10.5px",
                       color: "#030303",
                       lineHeight: "1.7",
@@ -285,7 +329,7 @@ function SignatureTemlateQ({ name, email, job_title, phone_no, organization, log
                       textDecoration: "none"
                     }}>
                       {email ? email : "your_email.com"}
-                    </a>
+                    </a>)}
                   </td>
 
                 </tr>
