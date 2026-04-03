@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Input({ name, type, placeholder, register, error }) {
-    const url_input = ['facebook', 'linkedin', 'twitter', 'instagram'];
+    const url_input = ['facebook', 'linkedin', 'twitter', 'instagram', 'website'];
     if (url_input.includes(name)) {
         return (
             <div className="relative z-0 w-full mb-3 group">

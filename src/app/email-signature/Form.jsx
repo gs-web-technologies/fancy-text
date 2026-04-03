@@ -64,8 +64,8 @@ const schema = z.object({
     instagram: z.url('Instagram must be a valid URL').optional().or(z.literal('')),
     facebook: z.url('Facebook must be a valid URL').optional().or(z.literal('')),
     twitter: z.url('X must be a valid URL').optional().or(z.literal('')),
-    website : z.url('Website must be a URL').optional().or(z.literal('')),
-    slogan : z.string().optional(),
+    website: z.url('Website must be a URL').optional().or(z.literal('')),
+    slogan: z.string().optional(),
 
 
 });
@@ -101,7 +101,6 @@ function Form() {
         const isSameAsDefault = Object.keys(defaultValues).every((key) => {
             return formValues[key] === defaultValues[key];
         });
-
         sethasStarted(!isSameAsDefault);
     }, [formValues]);
 
@@ -133,7 +132,7 @@ function Form() {
             <div className=" ">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="max-w-md mx-auto fixed bg-white p-6 rounded rounded-base shadow-lg self-start"
+                    className="max-w-md mx-auto fixed bg-white p-4 rounded rounded-base shadow-lg self-start"
                 >
 
                     <div className="text-start">
@@ -193,54 +192,62 @@ function Form() {
                             error={errors.organization_name} />
 
 
-                        <div className="grid grid-cols-2 gap-2">
-                            <Input
-                                name="linkedin"
-                                type="text"
-                                placeholder="LinkedIn"
-                                register={register}
-                                error={errors.linkedin} />
+                        {/* {templatetype == "1" && ( */}
+                            <div>
+                                <div className="grid grid-cols-2 gap-2">
+                                    <Input
+                                        name="linkedin"
+                                        type="text"
+                                        placeholder="LinkedIn"
+                                        register={register}
+                                        error={errors.linkedin} />
 
-                            <Input
-                                name="instagram"
-                                type="text"
-                                placeholder="Instagram"
-                                register={register}
-                                error={errors.instagram} />
-                        </div>
+                                    <Input
+                                        name="instagram"
+                                        type="text"
+                                        placeholder="Instagram"
+                                        register={register}
+                                        error={errors.instagram} />
+                                </div>
 
-                        <div className="grid grid-cols-2 gap-2">
+                                <div className="grid grid-cols-2 gap-2">
 
-                            <Input
-                                name="facebook"
-                                type="text"
-                                placeholder="FaceBook"
-                                register={register}
-                                error={errors.facebook} />
+                                    <Input
+                                        name="facebook"
+                                        type="text"
+                                        placeholder="FaceBook"
+                                        register={register}
+                                        error={errors.facebook} />
 
-                            <Input
-                                name="twitter"
-                                type="text"
-                                placeholder="x"
-                                register={register}
-                                error={errors.twitter} />
-                        </div>
+                                    <Input
+                                        name="twitter"
+                                        type="text"
+                                        placeholder="x"
+                                        register={register}
+                                        error={errors.twitter} />
+                                </div>
+                            </div>
+                         {/* )} */}
 
-                        <Input
-                            name="website"
-                            type="text"
-                            placeholder="Your Website"
-                            register={register}
-                            error={errors.website}
-                        />
+                        {/* {templatetype == "2" && ( */}
+                            <div>
+                                <Input
+                                    name="website"
+                                    type="text"
+                                    placeholder="Your Website"
+                                    register={register}
+                                    error={errors.website}
+                                />
 
-                        <Input
-                            name="slogan"
-                            type="text"
-                            placeholder="Slogan / tagLine"
-                            register={register}
-                            error={errors.website}
-                        />
+                                <Input
+                                    name="slogan"
+                                    type="text"
+                                    placeholder="Slogan / tagLine"
+                                    register={register}
+                                    error={errors.website}
+                                />
+                            </div>
+                        {/* )} */}
 
                         <FileInput
                             name="logo"
