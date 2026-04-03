@@ -32,7 +32,7 @@ function Secound({ name, email, job_title, phone_no, organization, logo, linkedi
   if (email) {
     contacts.push(
       {
-        href: null,
+        href: `mailto:${email}`,
         label: email,
         icon: (
           <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="100%" height="100%" style={{ display: "block" }} />

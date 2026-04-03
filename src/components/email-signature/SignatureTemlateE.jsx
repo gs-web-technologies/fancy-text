@@ -21,7 +21,7 @@ function SignatureTemlateE({ name, email, job_title, phone_no, organization, log
         contacts.push({ label: "mobile:", value: phone_no, href: "" });
     }
     if (email) {
-        contacts.push({ label: "email:", value: email, href: "" });
+        contacts.push({ label: "email:", value: email, href: `mailto:${email}` });
     }
     if (linkedin) {
         contacts.push({ label: "LinkedIn:", value: linkedin, href: linkedin });

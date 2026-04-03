@@ -33,7 +33,7 @@ function SignatureTemlateD({ name, email, job_title, phone_no, organization, log
         contacts.push(
             {
                 label: email,
-                href: '',
+                href: `mailto:${email}`,
                 icon: (
                     <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="13" height="13" style={{ display: "block" }} />
                 ),
