@@ -71,15 +71,33 @@ const schema = z.object({
 
 
 function Form() {
-    const { register, setValue, handleSubmit, reset, watch, formState: { errors, isDirty } } = useForm({ resolver: zodResolver(schema) });
+    const { register, setValue, handleSubmit, reset, watch, formState: { errors, isDirty } } = useForm({
+        resolver: zodResolver(schema)
+    });
+
     const [hasStarted, sethasStarted] = useState(false);
     const [isloding, setLoading] = useState(false);
     const [issubmitted, setSubmitted] = useState(false);
     const formValues = watch();
+    const defaultValues = {
+        full_name: '',
+        email: '',
+        job_title: '',
+        phone_no: '',
+        organization_name: '',
+        linkedin: '',
+        instagram: '',
+        facebook: '',
+        twitter: '',
+    };
 
     useEffect(() => {
-        sethasStarted(isDirty);
-    }, [isDirty]);
+        const isSameAsDefault = Object.keys(defaultValues).every((key) => {
+            return formValues[key] === defaultValues[key];
+        });
+
+        sethasStarted(!isSameAsDefault);
+    }, [formValues]);
 
     const [selectedFile, SetSelectedFile] = useState();
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 2500 })]);
