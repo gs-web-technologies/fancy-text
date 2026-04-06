@@ -13,12 +13,6 @@ function VisitingCardE({ name, email, job_title, phone_no, organization, logo, w
     }
 
     const contacts = [];
-    [
-        { icon: "📞", text: "+00 123 456 789" },
-        { icon: "✉️", text: "email address goes here" },
-        { icon: "🌐", text: "website goes here" },
-        { icon: "📍", text: "address goes here, your city" },
-    ]
 
     if (phone_no) {
         contacts.push(
