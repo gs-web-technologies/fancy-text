@@ -55,10 +55,10 @@ function VisitingCardA({ name, email, job_title, phone_no, organization, logo, w
 
                 {/* Company Name */}
                {organization && ( <tr>
-                  <td style={{ textAlign: "center", paddingBottom: "4px" }}>
+                  <td style={{ textAlign: "start" }}>
                     <span
                       style={{
-                        fontSize: "28px",
+                        fontSize: "19px",
                         fontWeight: "800",
                         color: "#222222",
                         letterSpacing: "3px",
@@ -73,7 +73,7 @@ function VisitingCardA({ name, email, job_title, phone_no, organization, logo, w
 
                 {/* Slogan */}
                 {slogan && (<tr>
-                  <td style={{ textAlign: "center" }}>
+                  <td style={{ textAlign: "start" }}>
                     <span
                       style={{
                         fontSize: "13px",
