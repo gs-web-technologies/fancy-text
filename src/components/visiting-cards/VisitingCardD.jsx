@@ -12,7 +12,7 @@ function VisitingCardD({ name, email, job_title, phone_no, organization, logo, w
     slogan = "Your slogan goes here";
   }
   return (
-    <table style={{ width: "520px", height: "240px", background: "#ffffff", borderCollapse: "collapse", tableLayout: "fixed", borderRadius: "6px", overflow: "hidden", boxShadow: "0 6px 30px rgba(0,0,0,0.2)", wordBreak:"break-all" }}>
+    <table style={{ width: "520px", height: "240px", background: "#ffffff", borderCollapse: "collapse", tableLayout: "fixed", borderRadius: "6px", overflow: "hidden", boxShadow: "0 6px 30px rgba(0,0,0,0.2)", wordBreak: "normal",overflowWrap:"break-word" }}>
       <tbody>
         <tr>
 

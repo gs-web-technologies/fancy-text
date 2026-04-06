@@ -24,7 +24,8 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
                 fontFamily: "'Segoe UI', sans-serif",
                 margin: "40px auto",
                 display: "block",
-                wordBreak: "break-all",
+               wordBreak: "normal",
+               overflowWrap:"break-word"
             }}
         >
             <tbody>

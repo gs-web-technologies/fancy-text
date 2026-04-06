@@ -24,7 +24,8 @@ function VisitingCardA({ name, email, job_title, phone_no, organization, logo, w
         background: "#ffffff",
         borderCollapse: "collapse",
         tableLayout: "fixed",
-        wordBreak:"break-all"
+       wordBreak: "normal",
+       overflowWrap:"break-word"
       }}
     >
       <tbody>

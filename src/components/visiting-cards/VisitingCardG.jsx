@@ -360,6 +360,8 @@ function VisitingCardG({ name, email, job_title, phone_no, organization, logo, w
                                                 textTransform: "uppercase",
                                                 display: "block",
                                                 marginTop: "5px",
+                                                wordBreak: "normal",
+                                                overflowWrap:"break-word"
                                             }}
                                         >
                                             {organization}

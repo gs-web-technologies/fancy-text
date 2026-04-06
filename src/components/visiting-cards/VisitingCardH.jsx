@@ -119,7 +119,7 @@ function VisitingCardH({ name, email, job_title, phone_no, organization, logo, w
                         {organization && (
                           <tr>
                             <td style={{ textAlign: "center", paddingBottom: "2px" }}>
-                              <span style={{ fontSize: "17px", fontWeight: "800", color: "#1a1a2e", fontFamily: "Georgia,serif", letterSpacing: "4px", textTransform: "uppercase" }}>
+                              <span style={{ fontSize: "17px", fontWeight: "800", color: "#1a1a2e", fontFamily: "Georgia,serif", letterSpacing: "4px", textTransform: "uppercase", wordBreak: "normal",overflowWrap:"break-word" }}>
                                 {organization}
                               </span>
                             </td>

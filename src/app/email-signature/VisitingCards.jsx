@@ -7,11 +7,20 @@ import VisitingCardD from '@/components/visiting-cards/VisitingCardD';
 import VisitingCardE from '@/components/visiting-cards/VisitingCardE';
 import VisitingCardF from '@/components/visiting-cards/VisitingCardF';
 import VisitingCardG from '@/components/visiting-cards/VisitingCardG';
+import VisitingCardH from '@/components/visiting-cards/VisitingCardH';
+import VisitingCardI from '@/components/visiting-cards/VisitingCardI';
+import VisitingCardJ from '@/components/visiting-cards/VisitingCardJ';
+import VisitingCardK from '@/components/visiting-cards/VisitingCardK';
+import VisitingCardL from '@/components/visiting-cards/VisitingCardL';
+import VisitingCardM from '@/components/visiting-cards/VisitingCardM';
+import VisitingCardN from '@/components/visiting-cards/VisitingCardN';
+import VisitingCardO from '@/components/visiting-cards/VisitingCardO';
 
 function VisitingCards({ formValues, selectedFile, issubmitted, hasStarted }) {
     const templates = [
         VisitingCardA,VisitingCardB,VisitingCardC,VisitingCardD,
-        VisitingCardE,VisitingCardF,VisitingCardG
+        VisitingCardE,VisitingCardF,VisitingCardG,VisitingCardH,VisitingCardI,VisitingCardJ,
+        VisitingCardK,VisitingCardL,VisitingCardM,VisitingCardN,VisitingCardO
     ];
     return (
         <div>

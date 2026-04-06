@@ -51,7 +51,8 @@ function VisitingCardE({ name, email, job_title, phone_no, organization, logo, w
                 margin: "40px auto",
                 display: "block",
                 backgroundColor: "#ffffff",
-                wordBreak: "break-all"
+                wordBreak: "normal",
+                overflowWrap:"break-word"
             }}
         >
             <tbody>

@@ -106,7 +106,7 @@ function VisitingCardI({ name, email, job_title, phone_no, organization, logo, w
                       </tr>
                       {organization && (<tr>
                         <td style={{ paddingBottom: "3px" }}>
-                          <span style={{ fontSize: "14px", fontWeight: "800", color: "#ffffff", fontFamily: "Georgia,serif", letterSpacing: "1px", textTransform: "uppercase" }}>{organization}</span>
+                          <span style={{ fontSize: "14px", fontWeight: "800", color: "#ffffff", fontFamily: "Georgia,serif", letterSpacing: "1px", textTransform: "uppercase", wordBreak: "normal",overflowWrap:"break-word" }}>{organization}</span>
                         </td>
                       </tr>)}
                       {slogan && (<tr>
