@@ -5,13 +5,12 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod";
 import Input from "@/components/forms/Input";
 import Button from "@/components/forms/Button";
-import { useFormStatus } from "react-dom";
 import FileInput from "@/components/forms/FileInput";
 import { ALLOWED_TYPES, MAX_SIZE } from "@/utils/const";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
 import React from 'react';
 import Signatures from "./Signatures";
+import VisitingCards from "./VisitingCards";
+import RadioButton from "@/components/forms/RadioButton";
 
 
 const schema = z.object({
@@ -65,6 +64,8 @@ const schema = z.object({
     instagram: z.url('Instagram must be a valid URL').optional().or(z.literal('')),
     facebook: z.url('Facebook must be a valid URL').optional().or(z.literal('')),
     twitter: z.url('X must be a valid URL').optional().or(z.literal('')),
+    website: z.url('Website must be a URL').optional().or(z.literal('')),
+    slogan: z.string().optional(),
 
 
 });
@@ -75,10 +76,6 @@ function Form() {
         resolver: zodResolver(schema)
     });
 
-    const [hasStarted, sethasStarted] = useState(false);
-    const [isloding, setLoading] = useState(false);
-    const [issubmitted, setSubmitted] = useState(false);
-    const formValues = watch();
     const defaultValues = {
         full_name: '',
         email: '',
@@ -89,18 +86,24 @@ function Form() {
         instagram: '',
         facebook: '',
         twitter: '',
+        website: '',
+        slogan: '',
     };
+    const [hasStarted, sethasStarted] = useState(false);
+    const [isloding, setLoading] = useState(false);
+    const [issubmitted, setSubmitted] = useState(false);
+    const formValues = watch();
+    const [selectedFile, SetSelectedFile] = useState();
+    const [templatetype, SetTemplatetype] = useState("1");
+
 
     useEffect(() => {
         const isSameAsDefault = Object.keys(defaultValues).every((key) => {
             return formValues[key] === defaultValues[key];
         });
-
         sethasStarted(!isSameAsDefault);
     }, [formValues]);
 
-    const [selectedFile, SetSelectedFile] = useState();
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 2500 })]);
     const onSubmit = async (formdata) => {
         setLoading(true);
         try {
@@ -129,13 +132,28 @@ function Form() {
             <div className=" ">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="max-w-md mx-auto fixed bg-white p-6 rounded rounded-base shadow-lg self-start"
+                    className="max-w-md mx-auto fixed bg-white p-4 rounded rounded-base shadow-lg self-start"
                 >
-                    <h2 className="text-2xl font-semibold text-gray-800 text-start">
-                        Email Signature Form
-                    </h2>
 
                     <div className="text-start">
+
+                        <div className="grid grid-cols-2 gap-4 mb-5">
+                            <RadioButton
+                                type="radio"
+                                value="1"
+                                name="template_type"
+                                id="email_signature"
+                                SetTemplatetype={SetTemplatetype}
+                                label="Email Signatures" />
+
+                            <RadioButton
+                                type="radio"
+                                value="2"
+                                name="template_type"
+                                id="visiting_card"
+                                SetTemplatetype={SetTemplatetype}
+                                label="Visiting Cards" />
+                        </div>
 
                         <Input
                             name="full_name"
@@ -174,38 +192,62 @@ function Form() {
                             error={errors.organization_name} />
 
 
-                        <div className="grid grid-cols-2 gap-2">
-                            <Input
-                                name="linkedin"
-                                type="text"
-                                placeholder="LinkedIn"
-                                register={register}
-                                error={errors.linkedin} />
+                        {/* {templatetype == "1" && ( */}
+                            <div>
+                                <div className="grid grid-cols-2 gap-2">
+                                    <Input
+                                        name="linkedin"
+                                        type="text"
+                                        placeholder="LinkedIn"
+                                        register={register}
+                                        error={errors.linkedin} />
 
-                            <Input
-                                name="instagram"
-                                type="text"
-                                placeholder="Instagram"
-                                register={register}
-                                error={errors.instagram} />
-                        </div>
+                                    <Input
+                                        name="instagram"
+                                        type="text"
+                                        placeholder="Instagram"
+                                        register={register}
+                                        error={errors.instagram} />
+                                </div>
 
-                        <div className="grid grid-cols-2 gap-2">
+                                <div className="grid grid-cols-2 gap-2">
 
-                            <Input
-                                name="facebook"
-                                type="text"
-                                placeholder="FaceBook"
-                                register={register}
-                                error={errors.facebook} />
+                                    <Input
+                                        name="facebook"
+                                        type="text"
+                                        placeholder="FaceBook"
+                                        register={register}
+                                        error={errors.facebook} />
 
-                            <Input
-                                name="twitter"
-                                type="text"
-                                placeholder="x"
-                                register={register}
-                                error={errors.twitter} />
-                        </div>
+                                    <Input
+                                        name="twitter"
+                                        type="text"
+                                        placeholder="x"
+                                        register={register}
+                                        error={errors.twitter} />
+                                </div>
+                            </div>
+                         {/* )} */}
+
+                        {/* {templatetype == "2" && ( */}
+                            <div>
+                                <Input
+                                    name="website"
+                                    type="text"
+                                    placeholder="Your Website"
+                                    register={register}
+                                    error={errors.website}
+                                />
+
+                                <Input
+                                    name="slogan"
+                                    type="text"
+                                    placeholder="Slogan / tagLine"
+                                    register={register}
+                                    error={errors.website}
+                                />
+                            </div>
+                        {/* )} */}
 
                         <FileInput
                             name="logo"
@@ -228,9 +270,14 @@ function Form() {
 
                 </form>
             </div>
-            <div className="w-full mx-4 p-6 self-start col-span-2">
+            {templatetype == "1" && (<div className="w-full mx-4 p-6 self-start col-span-2">
                 <Signatures formValues={formValues} selectedFile={selectedFile} issubmitted={issubmitted} hasStarted={hasStarted} />
-            </div>
+            </div>)}
+
+            {templatetype == "2" && (<div className="w-full mx-4 p-6 self-start col-span-2">
+                <VisitingCards formValues={formValues} selectedFile={selectedFile} issubmitted={issubmitted} hasStarted={hasStarted} />
+            </div>)}
+
 
         </div>
     )

@@ -199,7 +199,8 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                             height: "160px",
                                             border: "2px solid #00bcd4",
                                             backgroundColor: "#00bcd4",
-                                            alignItems: "center"
+                                            alignItems: "center",
+                                            padding:"4px"
                                         }}
                                     >
                                         <table>
@@ -209,12 +210,10 @@ function SignatureTemlateI({ name, email, job_title, phone_no, organization, log
                                                         <img
                                                             src={imageSrc}
                                                             style={{
-                                                                padding: "4px",
                                                                 display: "block",
                                                                 objectFit: "cover",
-                                                                // borderRadius: "50px",
-                                                                width: "160px",
-                                                                height: "160px"
+                                                                width: "159px",
+                                                                height: "158px"
                                                             }}
                                                         />
                                                     </td>

@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
    try {
       const body = await req.json();
-      const { full_name, email, job_title, phone_no, organization_name, linkedin, instagram, facebook, twitter } = body;
+      const { full_name, email, job_title, phone_no, organization_name, linkedin, instagram, facebook, twitter,website,slogan } = body;
 
       const auth = new google.auth.GoogleAuth({
          credentials: {
@@ -31,6 +31,8 @@ export async function POST(req) {
                instagram,
                facebook,
                twitter,
+               website,
+               slogan,
             ]],
          },
       });

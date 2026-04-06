@@ -23,7 +23,7 @@ function Secound({ name, email, job_title, phone_no, organization, logo, linkedi
         href: null,
         label: phone_no,
         icon: (
-          <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="100%" height="100%" style={{ display: "block" }} />
+          <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" width="24" height="24" style={{ display: "block" }} />
         ),
       }
     );
@@ -35,7 +35,7 @@ function Secound({ name, email, job_title, phone_no, organization, logo, linkedi
         href: `mailto:${email}`,
         label: email,
         icon: (
-          <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="100%" height="100%" style={{ display: "block" }} />
+          <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="24" height="24" style={{ display: "block" }} />
         ),
       }
     )
@@ -47,7 +47,7 @@ function Secound({ name, email, job_title, phone_no, organization, logo, linkedi
         href: null,
         label: organization,
         icon: (
-          <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="100%" height="100%" style={{ display: "block" }} />
+          <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="24" height="24" style={{ display: "block" }} />
         ),
       }
     )
@@ -147,7 +147,7 @@ function Secound({ name, email, job_title, phone_no, organization, logo, linkedi
                                 {contacts.map((c, i) => (
                                   <tr key={i}>
                                     <td style={{ padding: "5px 10px 5px 0", verticalAlign: "middle", width: "28px", textAlign: "center" }}>
-                                      <div style={{ width: "26px", height: "26px", padding: "5px", borderRadius: "50%", border: "2px solid #3a9e3f" }}>
+                                      <div style={{ width: "26px", height: "26px", padding:"6px",verticalAlign: "middle", textAlign: "center", borderRadius: "50%", border: "2px solid #3a9e3f" }}>
                                         {c.icon}
                                       </div>
                                     </td>
@@ -185,15 +185,21 @@ function Secound({ name, email, job_title, phone_no, organization, logo, linkedi
                         {/* Social icons */}
                         <tr>
                           <td style={{ padding: "14px 22px 18px 22px", verticalAlign: "bottom" }}>
-                            <div style={{ display: "flex", gap: "7px", alignItems: "center" }}>
-                              {socialLinks.map((s, i) => (
-                                <a key={`${s.href}-${i}`} href={s.href} style={{ textDecoration: "none" }}>
-                                  <div style={{ width: "26px", height: "26px", backgroundColor: s.bg, borderRadius: "4px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                    {s.icon}
-                                  </div>
-                                </a>
-                              ))}
-                            </div>
+                            <table>
+                              <tbody>
+                                <tr>
+                                  {socialLinks.map((s, i) => (
+                                    <td key={`${s.href}-${i}`}>
+                                      <a href={s.href} style={{ textDecoration: "none" }}>
+                                        <div style={{ width: "26px", height: "26px"}}>
+                                          {s.icon}
+                                        </div>
+                                      </a>
+                                    </td>
+                                  ))}
+                                </tr>
+                              </tbody>
+                            </table>
                           </td>
                         </tr>
                       </tbody>
@@ -211,7 +217,7 @@ function Secound({ name, email, job_title, phone_no, organization, logo, linkedi
           </td>
         </tr>
       </tbody>
-    </table>
+    </table >
   );
 }
 

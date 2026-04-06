@@ -59,7 +59,7 @@ function FileInput({ name, type, placeholder, accept, description, register, set
                         // SetUploading(false);
 
                         const options = {
-                            maxSizeMB: 0.3,
+                            maxSizeMB: 0.01,
                             maxWidthOrHeight: 800,
                             useWebWorker: true,
                         };

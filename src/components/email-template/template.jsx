@@ -1,36 +1,6 @@
-"use client";
-import React, { useRef, useState } from 'react'
+import React from 'react'
 
-function SingleSignatureCard({ CardComponent, formValues, selectedFile, issubmitted, hasStarted }) {
-
-    const [status, setStatus] = useState('idle');
-    const signatureRef = useRef(null);
-    const handleCopy = async () => {
-        const node = signatureRef.current;
-        if (!node) return;
-        try {
-            const html = node.outerHTML;
-            const wrappedHtml = `<!DOCTYPE html><html><head><meta charset="utf-8"></head><body style="margin:0;padding:0;">${html}</body></html>`;
-            const plainText = node.innerText || node.textContent || '';
-
-            if (typeof ClipboardItem !== 'undefined') {
-                await navigator.clipboard.write([
-                    new ClipboardItem({
-                        'text/html': new Blob([wrappedHtml], { type: 'text/html' }),
-                        'text/plain': new Blob([plainText], { type: 'text/plain' }),
-                    }),
-                ]);
-            }
-            setStatus('copied');
-            setTimeout(() => setStatus('idle'), 2500);
-        } catch (err) {
-            console.log(err);
-            setStatus('error');
-            setTimeout(() => {
-                setStatus('idle');
-            }, 2500);
-        }
-    };
+function template({ children }) {
     return (
         <div className="min-w-full group relative">
 
@@ -118,35 +88,15 @@ function SingleSignatureCard({ CardComponent, formValues, selectedFile, issubmit
                         className="w-full text-sm outline-none py-1"
                         readOnly
                     />
-                  
+
                     <div className="pt-4 ">
-                        <div>
-                            <div ref={signatureRef} style={{ display: 'inline-block' }}>
-                                <CardComponent
-                                    name={formValues.full_name}
-                                    email={formValues.email}
-                                    job_title={formValues.job_title}
-                                    phone_no={formValues.phone_no}
-                                    organization={formValues.organization_name}
-                                    logo={selectedFile}
-                                    linkedin={formValues.linkedin}
-                                    instagram={formValues.instagram}
-                                    twitter={formValues.twitter}
-                                    facebook={formValues.facebook}
-                                    hasStarted = {hasStarted}
-                                />
-                            </div>
-                        </div>
+                        {children}
                     </div>
                 </div>
 
             </div>
-
-            {/* The rendered signature — ref captures its HTML */}
-
-
         </div>
-    );
+    )
 }
 
-export default SingleSignatureCard
+export default template

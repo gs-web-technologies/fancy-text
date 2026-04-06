@@ -218,8 +218,8 @@ function SignatureTemlateF({ name, email, job_title, phone_no, organization, log
                                     <td style={{ padding: "4px 0", verticalAlign: "middle", width: "26px" }}>
                                       <div
                                         style={{
-                                          width: "22px", height: "22px", backgroundColor: c.bg,
-                                          borderRadius: "3px", display: "flex", alignItems: "center", justifyContent: "center",
+                                          backgroundColor: c.bg,
+                                          borderRadius: "3px"
                                         }}
                                       >
                                         {c.icon}
