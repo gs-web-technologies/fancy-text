@@ -55,7 +55,7 @@ function SignatureTemlateG({ name, email, job_title, phone_no, organization, log
                                                                 alt="Micheal Smith"
                                                                 width="96"
                                                                 height="96"
-                                                                style={{ display: "block", objectFit: "cover", objectPosition: "center", width: "100%", height: "100%" }}
+                                                                style={{ display: "block", objectFit: "cover", objectPosition: "center" }}
                                                             />
                                                         </div>
                                                     </td>

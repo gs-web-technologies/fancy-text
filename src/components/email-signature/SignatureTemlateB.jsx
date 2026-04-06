@@ -245,15 +245,15 @@ function SignatureTemlateB({ name, email, job_title, phone_no, organization, log
                       <tbody>
                         <tr>
                           <td>
-                            <div style={{ width: "120px", height: "130px", padding: "4px", background: "#f5a623" }}>
+                            <div style={{ width: "120px", height: "130px", textAlign:"center",verticalAlign:"middle", padding:"2px", background: "#f5a623" }}>
                               <img
                                 src={imageSrc}
                                 alt="Profile"
                                 width="110"
                                 height="120"
                                 style={{
-                                  width: "110px",
-                                  height: "120px",
+                                  width: "119px",
+                                  height: "125px",
                                   display: "block",
                                   backgroundColor: "#f5a623",
                                   objectFit: "cover",
