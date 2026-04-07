@@ -7,32 +7,32 @@ function VisitingCardTemplate({ children, issubmitted }) {
   const cardRef = useRef(null);
   const [downloading, setDownloading] = useState(false);
   const [printing, setPrinting] = useState(false);
-  const handelDownload = async () => {
-    setDownloading(true);
-    const node = cardRef.current;
-    if (!node) {
-      setDownloading(false);
-      return;
-    }
+  // const handelDownload = async () => {
+  //   setDownloading(true);
+  //   const node = cardRef.current;
+  //   if (!node) {
+  //     setDownloading(false);
+  //     return;
+  //   }
 
-    try {
-      const canvas = await html2canvas(node, {
-        scale: 3,
-        useCORS: true,
-        backgroundColor: null,
-      });
+  //   try {
+  //     const canvas = await html2canvas(node, {
+  //       scale: 3,
+  //       useCORS: true,
+  //       backgroundColor: null,
+  //     });
 
-      const link = document.createElement('a');
-      link.download = 'visiting-card.png';
-      link.href = canvas.toDataURL('image/png');
-      link.click();
+  //     const link = document.createElement('a');
+  //     link.download = 'visiting-card.png';
+  //     link.href = canvas.toDataURL('image/png');
+  //     link.click();
 
-    } catch (err) {
-      console.log("Download Failed:", err);
-    } finally {
-      setDownloading(false);
-    }
-  }
+  //   } catch (err) {
+  //     console.log("Download Failed:", err);
+  //   } finally {
+  //     setDownloading(false);
+  //   }
+  // }
 
   const handelPrint = async () => {
     setPrinting(true);
@@ -87,7 +87,7 @@ function VisitingCardTemplate({ children, issubmitted }) {
         <span className="text-sm font-medium text-gray-500"></span>
 
         <div className="flex items-center gap-2 m-3">
-          {downloading ? (
+          {/* {downloading ? (
             <div className="flex items-center gap-2 mt-2">
               <div className="w-4 h-4 border-2 border-gray-300 border-t-black rounded-full animate-spin"></div>
               <span className="text-sm text-gray-600">Downloading...</span>
@@ -100,7 +100,7 @@ function VisitingCardTemplate({ children, issubmitted }) {
             >
               Download
             </button>
-          )}
+          )} */}
 
           {printing ? (
             <div className="flex items-center gap-2 mt-2">
