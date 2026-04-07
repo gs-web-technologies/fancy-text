@@ -1,6 +1,6 @@
 import React from 'react'
 
-function RadioButton({type, value, name, id, SetTemplatetype, label}) {
+function RadioButton({ type, value, name, id, SetTemplatetype, label, template }) {
     return (
         <div>
             <input
@@ -8,13 +8,14 @@ function RadioButton({type, value, name, id, SetTemplatetype, label}) {
                 value={value}
                 name={name}
                 id={id}
+                defaultChecked={template === value}
                 onChange={() => {
                     SetTemplatetype(value);
                 }}
             />
-            <label 
-            htmlFor={id} 
-            className="p-2 text-[17px] text-bold">{label}</label>
+            <label
+                htmlFor={id}
+                className="p-2 text-[17px] text-bold">{label}</label>
 
         </div>
     )

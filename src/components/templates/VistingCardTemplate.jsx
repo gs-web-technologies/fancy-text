@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import html2canvas from 'html2canvas';
 
+
 function VisitingCardTemplate({ children, issubmitted }) {
 
   const cardRef = useRef(null);
@@ -16,9 +17,9 @@ function VisitingCardTemplate({ children, issubmitted }) {
 
     try {
       const canvas = await html2canvas(node, {
-        scale: 3,           // higher = sharper image (3x resolution)
-        useCORS: true,      // needed if card has external images/logos
-        backgroundColor: null, // transparent bg, preserves card's own bg
+        scale: 3,
+        useCORS: true,
+        backgroundColor: null,
       });
 
       const link = document.createElement('a');
@@ -33,7 +34,7 @@ function VisitingCardTemplate({ children, issubmitted }) {
     }
   }
 
-  const handelPrint = () => {
+  const handelPrint = async () => {
     setPrinting(true);
     const node = cardRef.current;
     if (!node) {
@@ -41,37 +42,43 @@ function VisitingCardTemplate({ children, issubmitted }) {
       return;
     }
 
-    const printWindow = window.open('', '_blank', 'width=0,height=0,top=-1000,left=-1000');
-    printWindow.document.write(`
-          <!DOCTYPE html>
-            <html>
-            <head>
-                <title>Visiting Card</title>
-                <style>
-                    body {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        min-height: 100vh;
-                    }
-                    @media print {
-                        body { margin: 0; }
-                        @page { margin: 0; }
-                    }
-                </style>
-            </head>
-              <body>
-                ${node.outerHTML}
-            </body>
-            </html>
-          `);
+    try {
+      const canvas = await html2canvas(node, {
+        scale: 3,
+        useCORS: true,
+        backgroundColor: null,
+      });
+      const dataUrl = canvas.toDataURL('image/png');
 
-    printWindow.document.close();
-    setPrinting(false);
-    printWindow.print();
+      const win = window.open('', '_blank', 'width=800,height=600');
 
-  }
+      win.document.write(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <style>
+          * { margin: 0; padding: 0; box-sizing: border-box; }
+          body { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+          img { max-width: 100%; display: block; }
+          @media print {
+            body { margin: 0; }
+            @page { margin: 0; size: 3.5in 2in landscape; }
+          }
+        </style>
+      </head>
+      <body>
+        <img src="${dataUrl}" onload="window.print(); win.close()" />
+      </body>
+      </html>
+    `);
 
+      win.document.close();
+    } catch (err) {
+      console.error('Print failed:', err);
+    } finally {
+      setPrinting(false);
+    }
+  };
   return (
     <div className="text-start w-[700px] mt-2 mb-4 border-none rounded-xl shadow-sm  overflow-hidden">
 
@@ -96,11 +103,11 @@ function VisitingCardTemplate({ children, issubmitted }) {
           )}
 
           {printing ? (
-              <div className="flex items-center gap-2 mt-2">
+            <div className="flex items-center gap-2 mt-2">
               <div className="w-4 h-4 border-2 border-gray-300 border-t-black rounded-full animate-spin"></div>
               <span className="text-sm text-gray-600">Printing...</span>
             </div>
-          ) :(<button
+          ) : (<button
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-sm font-medium text-gray-700 bg-white border-none rounded-lg hover:bg-gray-50 active:scale-95 transition-all duration-150 p-2 underline"
             onClick={handelPrint}
           >

@@ -71,7 +71,7 @@ const schema = z.object({
 });
 
 
-function Form() {
+function Form({template = '1'}) {
     const { register, setValue, handleSubmit, reset, watch, formState: { errors, isDirty } } = useForm({
         resolver: zodResolver(schema)
     });
@@ -81,7 +81,7 @@ function Form() {
     const [issubmitted, setSubmitted] = useState(false);
     const formValues = watch();
     const [selectedFile, SetSelectedFile] = useState();
-    const [templatetype, SetTemplatetype] = useState("1");
+    const [templatetype, SetTemplatetype] = useState(template);
 
 
     let defaultValues = {
@@ -160,7 +160,9 @@ function Form() {
                                 name="template_type"
                                 id="email_signature"
                                 SetTemplatetype={SetTemplatetype}
-                                label="Email Signatures" />
+                                label="Email Signatures"
+                                template = {template} 
+                                />
 
                             <RadioButton
                                 type="radio"
@@ -168,7 +170,9 @@ function Form() {
                                 name="template_type"
                                 id="visiting_card"
                                 SetTemplatetype={SetTemplatetype}
-                                label="Visiting Cards" />
+                                label="Visiting Cards"
+                                template = {template}
+                                />
                         </div>
 
                         <Input
