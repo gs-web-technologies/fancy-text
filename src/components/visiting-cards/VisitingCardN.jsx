@@ -63,7 +63,7 @@ function VisitingCardN({ name, email, job_title, phone_no, organization, website
       borderRadius: "12px",
       overflow: "hidden",
       boxShadow: "0 8px 40px rgba(0,0,0,0.3)",
-      wordBreak: "break-all",
+      wordBreak: "normal",
       overflowWrap: "break-word"
     }}>
       <tbody><tr>

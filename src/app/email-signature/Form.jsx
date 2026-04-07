@@ -71,7 +71,7 @@ const schema = z.object({
 });
 
 
-function Form({template = '1'}) {
+function Form({template = "1"}) {
     const { register, setValue, handleSubmit, reset, watch, formState: { errors, isDirty } } = useForm({
         resolver: zodResolver(schema)
     });
@@ -149,7 +149,7 @@ function Form({template = '1'}) {
             <div>
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="max-w-md mx-auto my-auto fixed bg-white p-4 rounded rounded-base shadow-lg self-start overflow-y-auto max-h-[90vh]"
+                    className="max-w-md mx-auto my-auto fixed bg-white p-4 rounded rounded-base shadow-lg self-start overflow-y-auto max-h-[50vh]"
                 >
                     <div className="text-start">
 

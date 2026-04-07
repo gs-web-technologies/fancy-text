@@ -86,10 +86,7 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
                                                 fontSize: "20px",
                                                 fontWeight: "800",
                                                 letterSpacing: "1px",
-                                                background:
-                                                    "linear-gradient(90deg, #ff6b6b, #f7971e, #ffd200)",
-                                                WebkitBackgroundClip: "text",
-                                                WebkitTextFillColor: "transparent",
+                                                color:"#f7971e",
                                                 display: "block",
                                                 textTransform: "uppercase",
                                             }}
