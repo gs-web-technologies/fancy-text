@@ -12,7 +12,7 @@ function VisitingCardD({ name, email, job_title, phone_no, organization, logo, w
     slogan = "Your slogan goes here";
   }
   return (
-    <table style={{ width: "520px", height: "240px", background: "#ffffff", borderCollapse: "collapse", tableLayout: "fixed", borderRadius: "6px", overflow: "hidden", boxShadow: "0 6px 30px rgba(0,0,0,0.2)", wordBreak: "normal",overflowWrap:"break-word" }}>
+    <table style={{ width: "520px", height: "240px", background: "#ffffff", borderCollapse: "collapse", tableLayout: "fixed", borderRadius: "6px", overflow: "hidden", boxShadow: "0 6px 30px rgba(0,0,0,0.2)", wordBreak: "normal", overflowWrap: "break-word" }}>
       <tbody>
         <tr>
 
@@ -20,7 +20,6 @@ function VisitingCardD({ name, email, job_title, phone_no, organization, logo, w
           <td style={{ width: "195px", height: "240px", background: "#1a1a2e", verticalAlign: "top", padding: "0" }}>
             <table style={{ width: "195px", height: "240px", borderCollapse: "collapse" }}>
               <tbody>
-
                 {name && (<tr>
                   <td style={{ padding: "0 16px 6px 16px" }}><span style={{ fontSize: "16px", fontWeight: "800", color: "#ffffff", fontFamily: "Georgia,serif", letterSpacing: "1px", textTransform: "uppercase" }}>{name}</span>
                     <table>

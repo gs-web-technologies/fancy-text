@@ -38,13 +38,12 @@ function VisitingCards({ formValues, selectedFile, issubmitted, hasStarted }) {
                             templates.map((CardComponet, index) => {
                                 return (
                                     <div key={index}>
-                                    <VistingCardTemplate>
+                                    <VistingCardTemplate issubmitted={issubmitted}>
                                         <SingleVisitingCard
                                             key={index}
                                             CardComponent={CardComponet}
                                             formValues={formValues}
                                             selectedFile={selectedFile}
-                                            issubmitted={issubmitted}
                                             hasStarted={hasStarted}
                                         />
                                     </VistingCardTemplate>

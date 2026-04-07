@@ -15,7 +15,6 @@ function FileInput({ name, type, placeholder, accept, description, register, set
     };
     return (
         <div className="relative z-0 w-full mb-3 group">
-
             <input
                 type={type}
                 {...register(name)}

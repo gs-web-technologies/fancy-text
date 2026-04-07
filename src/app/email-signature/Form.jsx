@@ -149,9 +149,8 @@ function Form() {
             <div>
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="max-w-md mx-auto fixed bg-white p-4 rounded rounded-base shadow-lg self-start"
+                    className="max-w-md mx-auto my-auto fixed bg-white p-4 rounded rounded-base shadow-lg self-start overflow-y-auto max-h-[90vh]"
                 >
-
                     <div className="text-start">
 
                         <div className="grid grid-cols-2 gap-4 mb-5">
