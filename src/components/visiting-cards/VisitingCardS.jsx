@@ -62,7 +62,7 @@ function VisitingCardS({ name, email, job_title, phone_no, organization, website
                                 style={{
                                     objectFit: "cover", objectPosition: "center", display: "inline-block", width: "62px",
                                     height: "62px",
-                                    borderRadius:"20px"
+                                    borderRadius: "20px"
                                 }}
                             />
                         ) : ""}
@@ -127,11 +127,13 @@ function VisitingCardS({ name, email, job_title, phone_no, organization, website
                                         <table style={{ borderCollapse: "collapse", marginLeft: "auto" }}>
                                             <tbody>
                                                 <tr>
-                                                    <span style={{ fontSize: "12px", color: "#cc0000", fontFamily: "Georgia,serif", fontWeight: "700" }}>
-                                                        Website: </span>
-                                                    <span style={{ fontSize: "12px", color: "#555555", fontFamily: "Georgia,serif" }}>
-                                                        {website}
-                                                    </span>
+                                                    <td>
+                                                        <span style={{ fontSize: "12px", color: "#cc0000", fontFamily: "Georgia,serif", fontWeight: "700" }}>
+                                                            Website: </span>
+                                                        <span style={{ fontSize: "12px", color: "#555555", fontFamily: "Georgia,serif" }}>
+                                                            {website}
+                                                        </span>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>

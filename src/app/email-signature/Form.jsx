@@ -8,8 +8,8 @@ import Button from "@/components/forms/Button";
 import FileInput from "@/components/forms/FileInput";
 import { ALLOWED_TYPES, MAX_SIZE } from "@/utils/const";
 import React from 'react';
-import Signatures from "./Signatures";
-import VisitingCards from "./VisitingCards";
+import Signatures from "./Signature/Signatures";
+import VisitingCards from "./VistingCard/VisitingCards";
 import RadioButton from "@/components/forms/RadioButton";
 
 
@@ -129,7 +129,7 @@ function Form() {
 
     return (
         <div className="grid grid-cols-3">
-            <div className=" ">
+            <div>
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                     className="max-w-md mx-auto fixed bg-white p-4 rounded rounded-base shadow-lg self-start"
