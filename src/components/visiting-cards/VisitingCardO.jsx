@@ -53,7 +53,8 @@ function VisitingCardO({ name, email, job_title, phone_no, organization, website
         display: "block",
         backgroundColor: "#c71c1c",
         wordBreak:"normal",
-        overflowWrap: "break-word"
+        overflowWrap: "break-word",
+        tableLayout:"fixed"
       }}
     >
       <tbody>
@@ -68,13 +69,13 @@ function VisitingCardO({ name, email, job_title, phone_no, organization, website
               padding: "0",
             }}
           >
-            <table style={{ width: "100%", height: "370", borderCollapse: "collapse" }}>
+            <table style={{ width: "100%", height: "250px", borderCollapse: "collapse",tableLayout:"fixed" }}>
               <tbody>
 
                 {/* TOP: red triangle top-left + name area */}
-                <tr>
-                  <td style={{ padding: "0", height: "100px", verticalAlign: "top" }}>
-                    <table style={{ width: "100%", height: "100px", borderCollapse: "collapse" }}>
+                <tr style={{ height:"20%" }}>
+                  <td style={{ padding: "0", height: "100%", verticalAlign: "top" }}>
+                    <table style={{ width: "100%", height: "100%", borderCollapse: "collapse" }}>
                       <tbody>
                         <tr>
                           {/* Name area */}
@@ -112,7 +113,7 @@ function VisitingCardO({ name, email, job_title, phone_no, organization, website
                 </tr>
 
                 {/* MIDDLE: contact info */}
-                <tr>
+                <tr style={{ height:"50%" }}>
                   <td style={{ padding: "12px 18px 0 18px", verticalAlign: "top" }}>
                     <table style={{ borderCollapse: "collapse" }}>
                       <tbody>
@@ -172,25 +173,25 @@ function VisitingCardO({ name, email, job_title, phone_no, organization, website
                     </table>
                   </td>
                 </tr>
-
+               <tr style={{ height:"100%" }}><td></td></tr>
                 {/* BOTTOM: dark triangle bottom-left */}
                 <tr>
-                  <td style={{ padding: "0", height: "50px", verticalAlign: "bottom" }}>
-                    <table style={{ width: "100%", height: "50px", borderCollapse: "collapse" }}>
+                  <td style={{ padding: "0", height: "10px", verticalAlign: "bottom" }}>
+                    <table style={{ width: "100%", height: "10px", borderCollapse: "collapse" }}>
                       <tbody>
                         <tr style={{ verticalAlign: "bottom" }}>
                           {/* Dark solid bottom-left */}
                           <td
                             style={{
                               width: "60px",
-                              height: "50px",
+                              height: "10px",
                               backgroundColor: "#1a1a2e",
                               padding: "0",
                               verticalAlign: "bottom",
                             }}
                           />
                           {/* Diagonal stepped dark → white */}
-                          {[50, 43, 36, 29, 22, 15, 8, 3].map((h, i) => (
+                          {[10, 10, 10, 10, 10, 10, 10, ].map((h, i) => (
                             <td
                               key={i}
                               style={{
@@ -211,15 +212,17 @@ function VisitingCardO({ name, email, job_title, phone_no, organization, website
 
               </tbody>
             </table>
+            <div style={{width:"100%"}}></div>
           </td>
-
+          
           {/* ══ RIGHT SECTION ══ */}
           <td
             style={{
-              width: "45%",
+              width: "50%",
               backgroundColor: "#aa3030",
               verticalAlign: "top",
               padding: "0",
+              textAlign:"right"
             }}
           >
             <table style={{ width: "100%", height: "270px", borderCollapse: "collapse" }}>
@@ -289,26 +292,28 @@ function VisitingCardO({ name, email, job_title, phone_no, organization, website
                         </tr>
 
                         {/* Company Logo text */}
-                        {slogan && (<tr>
-                          <td style={{ textAlign: "center" }}>
+                       
+                        {organization && (<tr>
+                          <td style={{ textAlign: "center", paddingTop: "4px" }}>
                             <span
-                              style={{
+                             style={{
                                 fontSize: "16px",
                                 fontWeight: "900",
                                 color: "#ffffff",
                                 letterSpacing: "1px",
                                 textTransform: "uppercase",
                                 display: "block",
-                              }}
+                             }}
                             >
-                              {slogan}
+                              {organization}
                             </span>
                           </td>
                         </tr>)}
-                        {organization && (<tr>
-                          <td style={{ textAlign: "center", paddingTop: "4px" }}>
+
+                         {slogan && (<tr>
+                          <td style={{ textAlign: "center" }}>
                             <span
-                              style={{
+                               style={{
                                 fontSize: "9px",
                                 color: "#ffffff",
                                 letterSpacing: "1.5px",
@@ -316,7 +321,7 @@ function VisitingCardO({ name, email, job_title, phone_no, organization, website
                                 textTransform: "uppercase",
                               }}
                             >
-                              {organization}
+                              {slogan}
                             </span>
                           </td>
                         </tr>)}
