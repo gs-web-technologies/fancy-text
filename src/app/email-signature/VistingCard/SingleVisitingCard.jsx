@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SingleVisitingCard({ CardComponent, formValues, selectedFile, issubmitted, hasStarted }) {
+function SingleVisitingCard({ CardComponent, formValues, selectedFile, hasStarted }) {
     return (
         <div style={{ display: 'inline-block' }}>
             <CardComponent

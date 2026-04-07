@@ -52,7 +52,7 @@ function VisitingCardE({ name, email, job_title, phone_no, organization, logo, w
                 display: "block",
                 backgroundColor: "#ffffff",
                 wordBreak: "normal",
-                overflowWrap:"break-word"
+                overflowWrap: "break-word"
             }}
         >
             <tbody>
@@ -142,6 +142,8 @@ function VisitingCardE({ name, email, job_title, phone_no, organization, logo, w
                                                                                     border: "1.5px solid #66bb6a",
                                                                                     backgroundColor: "#f1f8e9",
                                                                                     overflow: "hidden",
+                                                                                    textAlign: "center",
+                                                                                    verticalAlign: "middle",
                                                                                 }}
                                                                             >
                                                                                 <tbody>
@@ -150,8 +152,6 @@ function VisitingCardE({ name, email, job_title, phone_no, organization, logo, w
                                                                                             style={{
                                                                                                 textAlign: "center",
                                                                                                 verticalAlign: "middle",
-                                                                                                fontSize: "13px",
-                                                                                                lineHeight: "1",
                                                                                             }}
                                                                                         >
                                                                                             {item.icon}

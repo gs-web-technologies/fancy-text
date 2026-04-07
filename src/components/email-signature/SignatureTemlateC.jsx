@@ -37,7 +37,7 @@ function SignatureTemlateC({ name, email, job_title, phone_no, organization, log
     if (facebook) {
         socialLinks.push(
             {
-                href: facebook ,
+                href: facebook,
                 bg: "",
                 icon: (
                     <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
@@ -53,7 +53,7 @@ function SignatureTemlateC({ name, email, job_title, phone_no, organization, log
     if (twitter) {
         socialLinks.push(
             {
-                href: twitter ,
+                href: twitter,
                 bg: "",
                 icon: (
                     <img
@@ -70,7 +70,7 @@ function SignatureTemlateC({ name, email, job_title, phone_no, organization, log
     if (instagram) {
         socialLinks.push(
             {
-                href: instagram ,
+                href: instagram,
                 bg: "",
                 icon: (
                     <img
@@ -116,7 +116,6 @@ function SignatureTemlateC({ name, email, job_title, phone_no, organization, log
                                                         style={{
                                                             width: "150px",
                                                             height: "150px",
-
                                                             overflow: "hidden",
                                                             borderRadius: "5%",
                                                             padding: "4px",
@@ -127,7 +126,7 @@ function SignatureTemlateC({ name, email, job_title, phone_no, organization, log
                                                         <img
                                                             src={imageSrc}
                                                             alt="Jonathan Hansen"
-                                                            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", borderRadius: "20% 20% 20% 20%" }}
+                                                            style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "5px" }}
                                                         />
                                                     </td>
                                                 </tr>
@@ -243,7 +242,7 @@ function SignatureTemlateC({ name, email, job_title, phone_no, organization, log
 
 
                                                 {/* Address row */}
-                                               {organization && (<tr>
+                                                {organization && (<tr>
                                                     <td
                                                         align="center"
                                                         valign="middle"
@@ -267,7 +266,7 @@ function SignatureTemlateC({ name, email, job_title, phone_no, organization, log
                                                             fontFamily: "Arial, sans-serif",
                                                         }}
                                                     >
-                                                        {organization }
+                                                        {organization}
                                                     </td>
                                                 </tr>)}
 

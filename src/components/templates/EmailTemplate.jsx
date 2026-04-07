@@ -1,9 +1,43 @@
-import React from 'react'
 
-function template({ children }) {
+"use client";
+import React from 'react';
+import { useState, useRef } from 'react';
+
+function EmailTemplate({ children, issubmitted }) {
+
+    const [status, setStatus] = useState('idle');
+    const signatureRef = useRef(null);
+
+    const handleCopy = async () => {
+        const node = signatureRef.current;
+        if (!node) return;
+        try {
+            const html = node.outerHTML;
+            const wrappedHtml = `<!DOCTYPE html><html><head><meta charset="utf-8"></head><body style="margin:0;padding:0;">${html}</body></html>`;
+            const plainText = node.innerText || node.textContent || '';
+
+            if (typeof ClipboardItem !== 'undefined') {
+                await navigator.clipboard.write([
+                    new ClipboardItem({
+                        'text/html': new Blob([wrappedHtml], { type: 'text/html' }),
+                        'text/plain': new Blob([plainText], { type: 'text/plain' }),
+                    }),
+                ]);
+            }
+            setStatus('copied');
+            setTimeout(() => setStatus('idle'), 2500);
+        } catch (err) {
+            console.log(err);
+            setStatus('error');
+            setTimeout(() => {
+                setStatus('idle');
+            }, 2500);
+        }
+    };
+
+
     return (
-        <div className="min-w-full group relative">
-
+        <>
             <div className="mb-2 flex items-center gap-3">
                 <button
                     onClick={handleCopy}
@@ -48,8 +82,6 @@ function template({ children }) {
                     </p>
                 )}
             </div>
-
-
             <div className=" text-start w-[700px] mt-2 mb-4 border border-gray-200 rounded-xl shadow-sm bg-white overflow-hidden">
 
                 {/* Header */}
@@ -90,13 +122,15 @@ function template({ children }) {
                     />
 
                     <div className="pt-4 ">
-                        {children}
+                        <div ref={signatureRef} style={{ display: 'inline-block' }}>
+                            {children}
+                        </div>
                     </div>
                 </div>
 
             </div>
-        </div>
+        </>
     )
 }
 
-export default template
+export default EmailTemplate

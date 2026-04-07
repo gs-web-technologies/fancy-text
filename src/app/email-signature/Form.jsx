@@ -8,8 +8,8 @@ import Button from "@/components/forms/Button";
 import FileInput from "@/components/forms/FileInput";
 import { ALLOWED_TYPES, MAX_SIZE } from "@/utils/const";
 import React from 'react';
-import Signatures from "./Signatures";
-import VisitingCards from "./VisitingCards";
+import Signatures from "./Signature/Signatures";
+import VisitingCards from "./VistingCard/VisitingCards";
 import RadioButton from "@/components/forms/RadioButton";
 
 
@@ -71,34 +71,51 @@ const schema = z.object({
 });
 
 
-function Form() {
+function Form({template = "1"}) {
     const { register, setValue, handleSubmit, reset, watch, formState: { errors, isDirty } } = useForm({
         resolver: zodResolver(schema)
     });
 
-    const defaultValues = {
-        full_name: '',
-        email: '',
-        job_title: '',
-        phone_no: '',
-        organization_name: '',
-        linkedin: '',
-        instagram: '',
-        facebook: '',
-        twitter: '',
-        website: '',
-        slogan: '',
-    };
     const [hasStarted, sethasStarted] = useState(false);
     const [isloding, setLoading] = useState(false);
     const [issubmitted, setSubmitted] = useState(false);
     const formValues = watch();
     const [selectedFile, SetSelectedFile] = useState();
-    const [templatetype, SetTemplatetype] = useState("1");
+    const [templatetype, SetTemplatetype] = useState(template);
 
+
+    let defaultValues = {
+        full_name: '',
+        email: '',
+        job_title: '',
+        phone_no: '',
+        organization_name: '',
+    };
+
+    if (templatetype == "1") {
+        defaultValues = {
+            ...defaultValues,
+            linkedin: '',
+            instagram: '',
+            facebook: '',
+            twitter: '',
+        }
+    }
+
+    if (templatetype == "2") {
+        defaultValues.website = '';
+        defaultValues.slogan = '';
+
+        defaultValues = {
+            ...defaultValues,
+            website: '',
+            slogan: '',
+        }
+    }
 
     useEffect(() => {
         const isSameAsDefault = Object.keys(defaultValues).every((key) => {
+            if (!(key) in formValues) return true;
             return formValues[key] === defaultValues[key];
         });
         sethasStarted(!isSameAsDefault);
@@ -129,12 +146,11 @@ function Form() {
 
     return (
         <div className="grid grid-cols-3">
-            <div className=" ">
+            <div>
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="max-w-md mx-auto fixed bg-white p-4 rounded rounded-base shadow-lg self-start"
+                    className="max-w-md mx-auto my-auto fixed bg-white p-4 rounded rounded-base shadow-lg self-start overflow-y-auto max-h-[50vh]"
                 >
-
                     <div className="text-start">
 
                         <div className="grid grid-cols-2 gap-4 mb-5">
@@ -144,7 +160,9 @@ function Form() {
                                 name="template_type"
                                 id="email_signature"
                                 SetTemplatetype={SetTemplatetype}
-                                label="Email Signatures" />
+                                label="Email Signatures"
+                                template = {template} 
+                                />
 
                             <RadioButton
                                 type="radio"
@@ -152,7 +170,9 @@ function Form() {
                                 name="template_type"
                                 id="visiting_card"
                                 SetTemplatetype={SetTemplatetype}
-                                label="Visiting Cards" />
+                                label="Visiting Cards"
+                                template = {template}
+                                />
                         </div>
 
                         <Input
@@ -192,7 +212,7 @@ function Form() {
                             error={errors.organization_name} />
 
 
-                        {/* {templatetype == "1" && ( */}
+                        {templatetype == "1" && (
                             <div>
                                 <div className="grid grid-cols-2 gap-2">
                                     <Input
@@ -227,9 +247,9 @@ function Form() {
                                         error={errors.twitter} />
                                 </div>
                             </div>
-                         {/* )} */}
+                        )}
 
-                        {/* {templatetype == "2" && ( */}
+                        {templatetype == "2" && (
                             <div>
                                 <Input
                                     name="website"
@@ -247,7 +267,7 @@ function Form() {
                                     error={errors.website}
                                 />
                             </div>
-                        {/* )} */}
+                        )}
 
                         <FileInput
                             name="logo"

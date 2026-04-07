@@ -22,11 +22,11 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
                 overflow: "hidden",
                 boxShadow: "0 24px 64px rgba(0,0,0,0.35)",
                 fontFamily: "'Segoe UI', sans-serif",
-                margin: "40px auto",
+                // margin: "40px auto",
                 display: "block",
                 backgroundColor: "#5b1f6e",
                 wordBreak: "normal",
-                overflowWrap:"break-word"
+                overflowWrap: "break-word"
             }}
         >
             <tbody>
@@ -46,7 +46,7 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
                             <tbody>
                                 {/* Logo circle with emoji */}
                                 <tr>
-                                    <td style={{ textAlign: "center", verticalAlign:"middle", paddingBottom: "3px" }}>
+                                    <td style={{ textAlign: "center", verticalAlign: "middle", paddingBottom: "3px" }}>
                                         <table
                                             style={{
                                                 borderCollapse: "collapse",
@@ -246,24 +246,19 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
                                                             <tbody>
                                                                 <tr>
                                                                     <td style={{ verticalAlign: "middle" }}>
-                                                                        <table
-                                                                            style={{
-                                                                                width: "38px",
-                                                                                height: "38px",
-                                                                                borderCollapse: "collapse",
-                                                                                borderRadius: "50%",
-                                                                                backgroundColor: "#ffffff",
-                                                                                overflow: "hidden",
-                                                                            }}
-                                                                        >
+                                                                        <table>
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td
                                                                                         style={{
+                                                                                            width: "38px",
+                                                                                            height: "38px",
+                                                                                            borderCollapse: "collapse",
+                                                                                            borderRadius: "50%",
+                                                                                            backgroundColor: "#ffffff",
+                                                                                            overflow: "hidden",
                                                                                             textAlign: "center",
                                                                                             verticalAlign: "middle",
-                                                                                            fontSize: "18px",
-                                                                                            lineHeight: "1",
                                                                                         }}
                                                                                     >
                                                                                         📞

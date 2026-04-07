@@ -1,67 +1,50 @@
 "use client";
-import Image from "next/image";
-import { useState } from "react";
-import flipText from "flip-text";
-import { zalgoGeneration } from "zalgo-generator";
-import transformText from "fancy-text-generator";
-import morse from "morse";
-import Description from "@/components/Description";
+import Link from "next/link";
 
 export default function Home() {
-    const [text, setText] = useState("");
-    
     return (
-        <>
-            <div className="main-title">
-                <h1 className="text-red-500">Text Generator</h1>
+        <div className="row mb-2 mx-auto">
 
-                <h2 className="subtitle"></h2>
+            {/* Card 1 */}
+            <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200 hover:shadow-lg transition">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Text Generator
+                </h3>
+                <p className="text-gray-600 mb-4">
+                    Generate high-quality fancy text.
+                </p>
+                <Link href="/text-generator" className="btn px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-black-700 transition">
+                   Generate Text
+                </Link>
             </div>
-            <div className="container mx-auto">
-                {/* text translator */}
-                <div className="grid grid-cols-2 gap-4 mx-auto">
-                    <div className="bg-white m-2 h-100vh">
-                        <div className="box-shadow-1 h-[400px] p-4 text-gray-500 text-2xl">
-                            <textarea
-                                id="english-text"
-                                className="w-full outline-none  h-[400px]"
-                                placeholder="English goes here..."
-                                onChange={(e) => setText(e.target.value)}
-                            ></textarea>
-                        </div>
-                    </div>
-                    <div className="bg-white m-2 h-100vh">
-                        <div className=" box-shadow-1 h-[400px] overflow-y-auto" >
-                            <div id="ghetto-text" className="p-4 text-gray-500 text-2xl">
-                                {text.trim() == '' && 'And generated Text will appear here...'}
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "bold")}</div>
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "italic")}</div>
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "boldItalic")}</div>
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "underline")}</div>
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "strikethrough")}</div>
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "monospace")}</div>
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "superscript")}</div>
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "subscript")}</div>
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "fraktur")}</div>
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "boldFraktur")}</div>
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "doubleStruck")}</div>
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "script")}</div>
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "boldScript")}</div>
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "fancy1")}</div>
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "fancy2")}</div>
-                                <div className="pb-8 text-black text-4xl">{transformText(text, "fancy3")}</div>
-                                {/* <div className="pb-8 text-black text-4xl">{transformText(text, "aurebeshMap")}</div> */}
-                                <div className="pb-8 text-black text-4xl">{zalgoGeneration(text, 1, 1, 1)}</div>
-                                <div className="pb-8 text-black text-4xl">{flipText(text)}</div>
-                                <div className="pb-8 text-black text-4xl">{morse.encode(text)}</div>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-
-                <Description />
+            {/* Card 3 */}
+            <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200 hover:shadow-lg transition">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Email Signature
+                </h3>
+                <p className="text-gray-600 mb-4">
+                    Build professional email signatures for Gmail, Outlook, and more.
+                </p>
+                <Link href="/email-signature?type=1" className="btn px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                   Create Email Signature
+                </Link>
             </div>
-        </ >
-    );
+
+            {/* Card 2 */}
+            <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200 hover:shadow-lg transition">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Visiting Card
+                </h3>
+                <p className="text-gray-600 mb-4">
+                    Design beautiful visiting cards and download them in high quality.
+                </p>
+                <Link href="/email-signature?type=2" className="btn px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                    Create Card
+                </Link>
+            </div>
+
+
+        </div>
+    )
 }

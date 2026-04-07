@@ -1,11 +1,10 @@
 "use client";
-import React from 'react';
 import Secound from "@/components/email-signature/Secound";
+import SignatureTemlateA from "@/components/email-signature/SignatureTemlateA";
 import SignatureTemlateB from "@/components/email-signature/SignatureTemlateB";
 import SignatureTemlateC from "@/components/email-signature/SignatureTemlateC";
 import SignatureTemlateD from "@/components/email-signature/SignatureTemlateD";
 import SignatureTemlateG from "@/components/email-signature/SignatureTemlateG";
-import SignatureTemlateA from "@/components/email-signature/SignatureTemlateA";
 import SignatureTemlateF from "@/components/email-signature/SignatureTemlateF";
 import SignatureTemlateE from "@/components/email-signature/SignatureTemlateE";
 import SignatureTemlateI from "@/components/email-signature/SignatureTemlateI";
@@ -21,6 +20,7 @@ import SignatureTemlateR from "@/components/email-signature/SignatureTemlateR";
 import SignatureTemlateS from "@/components/email-signature/SignatureTemlateS";
 import SignatureTemlateT from "@/components/email-signature/SignatureTemlateT";
 import SingleSignatureCard from './SingleSignatureCard';
+import EmailTemplate from '@/components/templates/EmailTemplate';
 
 function Signatures({ formValues, selectedFile, issubmitted, hasStarted }) {
     const templates = [
@@ -30,6 +30,7 @@ function Signatures({ formValues, selectedFile, issubmitted, hasStarted }) {
         SignatureTemlateM, SignatureTemlateN, SignatureTemlateO, SignatureTemlateP,
         SignatureTemlateQ, SignatureTemlateR, SignatureTemlateS, SignatureTemlateT,
     ];
+
     return (
         <div>
             {formValues && (
@@ -38,14 +39,16 @@ function Signatures({ formValues, selectedFile, issubmitted, hasStarted }) {
                         {
                             templates.map((CardComponet, index) => {
                                 return (
-                                    <SingleSignatureCard
-                                        key={index}
-                                        CardComponent={CardComponet}
-                                        formValues={formValues}
-                                        selectedFile={selectedFile}
-                                        issubmitted={issubmitted}
-                                        hasStarted = {hasStarted}
-                                    />
+                                    <div className="min-w-full group relative" key={index}>
+                                        <EmailTemplate issubmitted={issubmitted}>
+                                                <SingleSignatureCard
+                                                    CardComponent={CardComponet}
+                                                    formValues={formValues}
+                                                    selectedFile={selectedFile}
+                                                    hasStarted={hasStarted}
+                                                />
+                                        </EmailTemplate>
+                                    </div>
                                 );
                             })
                         }
