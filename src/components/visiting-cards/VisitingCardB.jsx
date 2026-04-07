@@ -22,7 +22,7 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
                 overflow: "hidden",
                 boxShadow: "0 24px 64px rgba(0,0,0,0.35)",
                 fontFamily: "'Segoe UI', sans-serif",
-                margin: "40px auto",
+                // margin: "40px auto",
                 display: "block",
                 backgroundColor: "#5b1f6e",
                 wordBreak: "normal",

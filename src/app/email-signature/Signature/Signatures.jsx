@@ -20,7 +20,7 @@ import SignatureTemlateR from "@/components/email-signature/SignatureTemlateR";
 import SignatureTemlateS from "@/components/email-signature/SignatureTemlateS";
 import SignatureTemlateT from "@/components/email-signature/SignatureTemlateT";
 import SingleSignatureCard from './SingleSignatureCard';
-import Template from '@/components/templates/Template';
+import EmailTemplate from '@/components/templates/EmailTemplate';
 
 function Signatures({ formValues, selectedFile, issubmitted, hasStarted }) {
     const templates = [
@@ -40,14 +40,14 @@ function Signatures({ formValues, selectedFile, issubmitted, hasStarted }) {
                             templates.map((CardComponet, index) => {
                                 return (
                                     <div className="min-w-full group relative" key={index}>
-                                        <Template key={index} issubmitted={issubmitted}>
+                                        <EmailTemplate issubmitted={issubmitted}>
                                                 <SingleSignatureCard
                                                     CardComponent={CardComponet}
                                                     formValues={formValues}
                                                     selectedFile={selectedFile}
                                                     hasStarted={hasStarted}
                                                 />
-                                        </Template>
+                                        </EmailTemplate>
                                     </div>
                                 );
                             })

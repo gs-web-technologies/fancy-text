@@ -20,13 +20,14 @@ import VisitingCardQ from '@/components/visiting-cards/VisitingCardQ';
 import VisitingCardR from '@/components/visiting-cards/VisitingCardR';
 import VisitingCardS from '@/components/visiting-cards/VisitingCardS';
 import VisitingCardT from '@/components/visiting-cards/VisitingCardT';
+import VistingCardTemplate from '@/components/templates/VistingCardTemplate';
 
 function VisitingCards({ formValues, selectedFile, issubmitted, hasStarted }) {
     const templates = [
-        VisitingCardA,VisitingCardB,VisitingCardC,VisitingCardD,
-        VisitingCardE,VisitingCardF,VisitingCardG,VisitingCardH,VisitingCardI,VisitingCardJ,
-        VisitingCardK,VisitingCardL,VisitingCardM,VisitingCardN,VisitingCardO,VisitingCardP,
-        VisitingCardQ,VisitingCardR,VisitingCardS,VisitingCardT
+        VisitingCardA, VisitingCardB, VisitingCardC, VisitingCardD,
+        VisitingCardE, VisitingCardF, VisitingCardG, VisitingCardH, VisitingCardI, VisitingCardJ,
+        VisitingCardK, VisitingCardL, VisitingCardM, VisitingCardN, VisitingCardO, VisitingCardP,
+        VisitingCardQ, VisitingCardR, VisitingCardS, VisitingCardT
     ];
     return (
         <div>
@@ -36,14 +37,18 @@ function VisitingCards({ formValues, selectedFile, issubmitted, hasStarted }) {
                         {
                             templates.map((CardComponet, index) => {
                                 return (
-                                    <SingleVisitingCard
-                                        key={index}
-                                        CardComponent={CardComponet}
-                                        formValues={formValues}
-                                        selectedFile={selectedFile}
-                                        issubmitted={issubmitted}
-                                        hasStarted={hasStarted}
-                                    />
+                                    <div key={index}>
+                                    <VistingCardTemplate>
+                                        <SingleVisitingCard
+                                            key={index}
+                                            CardComponent={CardComponet}
+                                            formValues={formValues}
+                                            selectedFile={selectedFile}
+                                            issubmitted={issubmitted}
+                                            hasStarted={hasStarted}
+                                        />
+                                    </VistingCardTemplate>
+                                    </div>    
                                 );
                             })
                         }

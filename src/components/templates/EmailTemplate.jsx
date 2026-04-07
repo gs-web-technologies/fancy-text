@@ -3,7 +3,7 @@
 import React from 'react';
 import { useState, useRef } from 'react';
 
-function Template({ children, issubmitted }) {
+function EmailTemplate({ children, issubmitted }) {
 
     const [status, setStatus] = useState('idle');
     const signatureRef = useRef(null);
@@ -133,4 +133,4 @@ function Template({ children, issubmitted }) {
     )
 }
 
-export default Template
+export default EmailTemplate

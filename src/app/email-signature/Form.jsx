@@ -76,19 +76,6 @@ function Form() {
         resolver: zodResolver(schema)
     });
 
-    const defaultValues = {
-        full_name: '',
-        email: '',
-        job_title: '',
-        phone_no: '',
-        organization_name: '',
-        linkedin: '',
-        instagram: '',
-        facebook: '',
-        twitter: '',
-        website: '',
-        slogan: '',
-    };
     const [hasStarted, sethasStarted] = useState(false);
     const [isloding, setLoading] = useState(false);
     const [issubmitted, setSubmitted] = useState(false);
@@ -97,8 +84,38 @@ function Form() {
     const [templatetype, SetTemplatetype] = useState("1");
 
 
+    let defaultValues = {
+        full_name: '',
+        email: '',
+        job_title: '',
+        phone_no: '',
+        organization_name: '',
+    };
+
+    if (templatetype == "1") {
+        defaultValues = {
+            ...defaultValues,
+            linkedin: '',
+            instagram: '',
+            facebook: '',
+            twitter: '',
+        }
+    }
+
+    if (templatetype == "2") {
+        defaultValues.website = '';
+        defaultValues.slogan = '';
+
+        defaultValues = {
+            ...defaultValues,
+            website: '',
+            slogan: '',
+        }
+    }
+
     useEffect(() => {
         const isSameAsDefault = Object.keys(defaultValues).every((key) => {
+            if (!(key) in formValues) return true;
             return formValues[key] === defaultValues[key];
         });
         sethasStarted(!isSameAsDefault);
@@ -192,7 +209,7 @@ function Form() {
                             error={errors.organization_name} />
 
 
-                        {/* {templatetype == "1" && ( */}
+                        {templatetype == "1" && (
                             <div>
                                 <div className="grid grid-cols-2 gap-2">
                                     <Input
@@ -227,9 +244,9 @@ function Form() {
                                         error={errors.twitter} />
                                 </div>
                             </div>
-                         {/* )} */}
+                        )}
 
-                        {/* {templatetype == "2" && ( */}
+                        {templatetype == "2" && (
                             <div>
                                 <Input
                                     name="website"
@@ -247,7 +264,7 @@ function Form() {
                                     error={errors.website}
                                 />
                             </div>
-                        {/* )} */}
+                        )}
 
                         <FileInput
                             name="logo"
