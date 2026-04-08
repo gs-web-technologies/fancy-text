@@ -80,13 +80,8 @@ function VisitingCardTemplate({ children, issubmitted }) {
     }
   };
   return (
-    <div className="text-start w-[700px] mt-2 mb-4 border-none rounded-xl shadow-sm  overflow-hidden">
+    <div className="gap-2 text-start w-[400px] mt-2 mb-4 border-none rounded-xl shadow-sm  overflow-hidden">
 
-      {/* Header bar with actions */}
-      <div className="flex items-center justify-between gap-3 px-5 py-3 border-b border-black-200 bg-gray-50 bg-white">
-        <span className="text-sm font-medium text-gray-500"></span>
-
-        <div className="flex items-center gap-2 m-3">
           {/* {downloading ? (
             <div className="flex items-center gap-2 mt-2">
               <div className="w-4 h-4 border-2 border-gray-300 border-t-black rounded-full animate-spin"></div>
@@ -113,11 +108,10 @@ function VisitingCardTemplate({ children, issubmitted }) {
           >
             Print
           </button>)}
-        </div>
-      </div>
+      
 
       {/* Card content area */}
-      <div className="p-5 flex items-center justify-center" ref={cardRef}>
+      <div className="p-2 flex items-center justify-center" ref={cardRef}>
         {children}
       </div>
 

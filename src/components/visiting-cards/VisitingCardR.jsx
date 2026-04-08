@@ -41,14 +41,13 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
     return (
         <table
             style={{
-                width: "520px",
-                height: "270px",
+                width: "350px", // Updated
+                height: "190px", // Updated
                 borderCollapse: "collapse",
                 borderRadius: "10px",
                 overflow: "hidden",
                 boxShadow: "0 16px 48px rgba(0,0,0,0.35)",
                 fontFamily: "'Segoe UI', sans-serif",
-                margin: "40px auto",
                 display: "block",
                 backgroundColor: "#1a1a1a",
                 wordBreak: "normal",
@@ -61,26 +60,26 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                     {/* ══ LEFT PANEL: pink diagonal with logo ══ */}
                     <td
                         style={{
-                            width: "200px",
+                            width: "130px", // Scaled down
                             backgroundColor: "#1a1a1a",
                             verticalAlign: "top",
                             padding: "0",
                         }}
                     >
-                        <table style={{ width: "200px", height: "200px", borderCollapse: "collapse" }}>
+                        <table style={{ width: "130px", height: "190px", borderCollapse: "collapse" }}>
                             <tbody>
                                 <tr>
 
                                     {/* Pink solid block */}
                                     <td
                                         style={{
-                                            width: "200px",
+                                            width: "130px", // Scaled down
                                             backgroundColor: "#d63384",
                                             verticalAlign: "top",
                                             padding: "0",
                                         }}
                                     >
-                                        <table style={{ width: "200px", height: "270px", borderCollapse: "collapse" }}>
+                                        <table style={{ width: "130px", height: "190px", borderCollapse: "collapse" }}>
                                             <tbody>
 
                                                 {/* Top pink area with logo */}
@@ -94,8 +93,8 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                                                                     <td style={{ textAlign: "center", paddingBottom: "10px" }}>
                                                                         <table
                                                                             style={{
-                                                                                width: "52px",
-                                                                                height: "52px",
+                                                                                width: "42px", // Scaled down
+                                                                                height: "42px", // Scaled down
                                                                                 borderCollapse: "collapse",
                                                                                 borderRadius: "50%",
                                                                                 border: "2.5px solid #ffffff",
@@ -111,17 +110,17 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                                                                                             style={{
                                                                                                 textAlign: "center",
                                                                                                 verticalAlign: "middle",
-                                                                                                fontSize: "28px",
+                                                                                                fontSize: "20px",
                                                                                                 lineHeight: "1",
                                                                                             }}
                                                                                         >
                                                                                             <img
                                                                                                 src={imageSrc}
-                                                                                                width="62"
-                                                                                                height="62"
+                                                                                                width="42"
+                                                                                                height="42"
                                                                                                 style={{
-                                                                                                    objectFit: "cover", objectPosition: "center", display: "inline-block", width: "62px",
-                                                                                                    height: "62px",
+                                                                                                    objectFit: "cover", objectPosition: "center", display: "inline-block", width: "42px",
+                                                                                                    height: "42px",
                                                                                                 }}
                                                                                             />
                                                                                         </td>
@@ -130,7 +129,7 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                                                                                             style={{
                                                                                                 textAlign: "center",
                                                                                                 verticalAlign: "middle",
-                                                                                                fontSize: "22px",
+                                                                                                fontSize: "18px",
                                                                                                 lineHeight: "1",
                                                                                             }}
                                                                                         >
@@ -149,7 +148,7 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                                                                     <td style={{ textAlign: "center" }}>
                                                                         <span
                                                                             style={{
-                                                                                fontSize: "13px",
+                                                                                fontSize: "10px", // Scaled down
                                                                                 fontWeight: "900",
                                                                                 color: "#ffffff",
                                                                                 letterSpacing: "1px",
@@ -168,10 +167,10 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                                                                         <td style={{ textAlign: "center" }}>
                                                                             <span
                                                                                 style={{
-                                                                                    fontSize: "9px",
+                                                                                    fontSize: "7px", // Scaled down
                                                                                     fontWeight: "100",
                                                                                     color: "#f5e0e0",
-                                                                                    letterSpacing: "2px",
+                                                                                    letterSpacing: "1px",
                                                                                     display: "block",
                                                                                     lineHeight: "1.2",
                                                                                 }}
@@ -200,7 +199,7 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                     {/* ══ RIGHT PANEL: dark with name + contact + QR ══ */}
                     <td
                         style={{
-                            width: "320px",
+                            width: "220px", // Updated to fill remaining space (350 - 130)
                             backgroundColor: "#1a1a1a",
                             verticalAlign: "top",
                             padding: "0",
@@ -211,14 +210,14 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                             <tbody>
 
                                 {/* Name + Title top-right */}
-                                <tr style={{ height: "120px" }}>
+                                <tr style={{ height: "80px" }}> {/* Scaled down height */}
                                     <td
                                         colSpan="2"
-                                        style={{ padding: "22px 20px 0 10px", verticalAlign: "middle", textAlign: "right" }}
+                                        style={{ padding: "15px 15px 0 10px", verticalAlign: "middle", textAlign: "right" }}
                                     >
                                         {name && (<span
                                             style={{
-                                                fontSize: "20px",
+                                                fontSize: "16px", // Scaled down
                                                 fontWeight: "900",
                                                 color: "#ffffff",
                                                 letterSpacing: "1px",
@@ -231,11 +230,11 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                                         </span>)}
                                         {job_title && (<span
                                             style={{
-                                                fontSize: "10px",
+                                                fontSize: "9px", // Scaled down
                                                 color: "#d63384",
                                                 fontWeight: "600",
                                                 display: "block",
-                                                marginTop: "4px",
+                                                marginTop: "2px",
                                                 letterSpacing: "1px",
                                                 textTransform: "uppercase",
                                             }}
@@ -244,12 +243,12 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                                         </span>)}
 
                                         {/* Pink underline */}
-                                        {(name || job_title) && (<table style={{ borderCollapse: "collapse", marginLeft: "auto", marginTop: "8px" }}>
+                                        {(name || job_title) && (<table style={{ borderCollapse: "collapse", marginLeft: "auto", marginTop: "6px" }}>
                                             <tbody>
                                                 <tr>
                                                     <td
                                                         style={{
-                                                            width: "50px",
+                                                            width: "35px", // Scaled down
                                                             height: "2px",
                                                             backgroundColor: "#d63384",
                                                             borderRadius: "2px",
@@ -268,17 +267,17 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                                             <tbody>
                                                 {contacts.map((item, i) => (
                                                     <tr key={i}>
-                                                        <td style={{ padding:"0 10px 3px 0" }}>
+                                                        <td style={{ padding:"0 10px 2px 0" }}>
                                                             <table style={{ borderCollapse: "collapse", width: "100%" }}>
                                                                 <tbody>
                                                                     <tr>
                                                                         <td style={{
-                                                                            paddingRight: "8px",
+                                                                            paddingRight: "6px",
                                                                             verticalAlign: "middle",
-                                                                            fontSize: "12px",
+                                                                            fontSize: "10px", // Scaled down
                                                                             color: "#cccccc",
                                                                             width: "100%",
-                                                                            lineHeight: "1.4",
+                                                                            lineHeight: "1.3",
                                                                             textAlign: "right"
                                                                         }}>
                                                                             {item.text}
@@ -286,11 +285,11 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                                                                         <td style={{
                                                                             verticalAlign: "middle",
                                                                             textAlign: "right",
-                                                                            width: "30px",
+                                                                            width: "25px",
                                                                         }}>
                                                                             <table style={{
-                                                                                width: "22px",
-                                                                                height: "22px",
+                                                                                width: "18px",
+                                                                                height: "18px",
                                                                                 borderCollapse: "collapse",
                                                                                 margin: "auto 3px auto auto",
                                                                             }}>
@@ -299,7 +298,7 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                                                                                         <td style={{
                                                                                             textAlign: "center",
                                                                                             verticalAlign: "middle",
-                                                                                            fontSize: "10px",
+                                                                                            fontSize: "9px",
                                                                                             lineHeight: "1",
                                                                                         }}>
                                                                                             {item.icon}
