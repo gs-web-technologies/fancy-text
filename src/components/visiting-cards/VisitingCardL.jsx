@@ -27,7 +27,6 @@ function VisitingCardL({ name, email, job_title, phone_no, organization, logo, w
                 borderRadius: "10px",
                 boxShadow: "0 15px 40px rgba(0,0,0,0.4)",
                 fontFamily: "'Segoe UI', sans-serif",
-                margin: "20px auto",
                 display: "block",
                 backgroundColor: "#1a1a1a",
                 wordBreak: "break-all",
