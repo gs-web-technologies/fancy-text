@@ -25,11 +25,11 @@ function VisitingCardD({ name, email, job_title, phone_no, organization, logo, w
                     </span>)}
                     <table>
                       <tbody>
-                          <tr>
-                            <td style={{ padding: "0 11px" }}>
-                              {job_title && (<span style={{ fontSize: "8px", color: "#90caf9", fontFamily: "Georgia,serif", letterSpacing: "1px" }}>{job_title}</span>)}
-                            </td>
-                          </tr>
+                        <tr>
+                          <td style={{ padding: "0 11px" }}>
+                            {job_title && (<span style={{ fontSize: "8px", color: "#90caf9", fontFamily: "Georgia,serif", letterSpacing: "1px" }}>{job_title}</span>)}
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
                   </td>
@@ -62,7 +62,9 @@ function VisitingCardD({ name, email, job_title, phone_no, organization, logo, w
           <td style={{ width: "182px", height: "190px", background: "#ffffff", verticalAlign: "top", padding: "0" }}>
             <table style={{ width: "182px", height: "190px", borderCollapse: "collapse" }}>
               <tbody>
-                <tr><td style={{ height: "5px", background: "#f5f5f5", padding: "0" }}></td></tr>
+                <tr>
+                  <td style={{ height: "5px", background: "#f5f5f5", padding: "0" }}></td>
+                </tr>
                 <tr>
                   <td style={{ padding: "9px 19px 0 11px", textAlign: "end", verticalAlign: "top" }}>
                     <table style={{ borderCollapse: "collapse", marginLeft: "auto" }}>
