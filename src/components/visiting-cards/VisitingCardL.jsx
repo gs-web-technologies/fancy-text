@@ -12,43 +12,21 @@ function VisitingCardL({ name, email, job_title, phone_no, organization, logo, w
         slogan = "Your slogan goes here";
     }
 
-
     const contacts = [];
-
-    if (phone_no) {
-        contacts.push(
-            { icon: "📞", text: phone_no }
-        );
-    }
-
-    if (email) {
-        contacts.push(
-            { icon: "✉️", text: email }
-        );
-    }
-
-    if (website) {
-        contacts.push(
-            { icon: "🌐", text: website }
-        );
-    }
-
-    if (organization) {
-        contacts.push(
-            { icon: "📍", text: organization }
-        );
-    }
+    if (phone_no) contacts.push({ icon: "📞", text: phone_no });
+    if (email) contacts.push({ icon: "✉️", text: email });
+    if (website) contacts.push({ icon: "🌐", text: website });
+    if (organization) contacts.push({ icon: "📍", text: organization });
 
     return (
         <table
             style={{
-                width: "520px",
-                height: "270px",
+                width: "350px", // Reduced width
+                height: "190px", // Reduced height
                 borderCollapse: "collapse",
-                borderRadius: "14px",
-                boxShadow: "0 20px 60px rgba(0,0,0,0.4)",
+                borderRadius: "10px",
+                boxShadow: "0 15px 40px rgba(0,0,0,0.4)",
                 fontFamily: "'Segoe UI', sans-serif",
-                margin: "40px auto",
                 display: "block",
                 backgroundColor: "#1a1a1a",
                 wordBreak: "break-all",
@@ -58,7 +36,6 @@ function VisitingCardL({ name, email, job_title, phone_no, organization, logo, w
         >
             <tbody>
                 <tr>
-
                     {/* ══ LEFT DARK PANEL ══ */}
                     <td
                         style={{
@@ -66,73 +43,43 @@ function VisitingCardL({ name, email, job_title, phone_no, organization, logo, w
                             backgroundColor: "#1c1c1c",
                             verticalAlign: "middle",
                             padding: "0",
-                            borderRadius: "14px",
+                            borderRadius: "10px",
                         }}
                     >
-                        <table style={{ width: "100%", height: "250px", borderCollapse: "collapse" }}>
+                        <table style={{ width: "100%", height: "190px", borderCollapse: "collapse" }}>
                             <tbody>
                                 <tr style={{ width: "100%" }}>
-
-                                    {/* Orange diagonal strips column */}
-                                    <td style={{ width: "18px", padding: "0", verticalAlign: "top" }}>
-                                        <table style={{ width: "18px", height: "270px", borderCollapse: "collapse" }}>
-                                            <tbody>
-                                            </tbody>
+                                    {/* Thinner decorative strips */}
+                                    <td style={{ width: "12px", padding: "0", verticalAlign: "top" }}>
+                                        <table style={{ width: "12px", height: "190px", borderCollapse: "collapse" }}>
+                                            <tbody></tbody>
                                         </table>
                                     </td>
 
-                                    {/* Second thinner strip */}
-                                    <td style={{ width: "8px", padding: "0", verticalAlign: "top" }}>
-                                        <table style={{ width: "8px", height: "270px", borderCollapse: "collapse" }}>
+                                    <td style={{ width: "6px", padding: "0", verticalAlign: "top" }}>
+                                        <table style={{ width: "6px", height: "190px", borderCollapse: "collapse" }}>
                                             <tbody>
                                                 <tr>
-                                                    <td
-                                                        style={{
-                                                            height: "12px",
-                                                            width: "6px",
-                                                            backgroundColor: "#e09010",
-                                                            borderRadius: "0",
-                                                            padding: "0",
-                                                        }}
-                                                    />
+                                                    <td style={{ height: "8px", width: "4px", backgroundColor: "#e09010", padding: "0" }} />
                                                 </tr>
                                                 <tr>
-                                                    <td style={{ height: "20px", backgroundColor: "#1c1c1c", padding: "0" }} />
+                                                    <td style={{ height: "15px", backgroundColor: "#1c1c1c", padding: "0" }} />
                                                 </tr>
                                                 <tr>
-                                                    <td
-                                                        style={{
-                                                            height: "12px",
-                                                            width: "6px",
-                                                            backgroundColor: "#e09010",
-                                                            borderRadius: "0",
-                                                            padding: "0",
-                                                        }}
-                                                    />
+                                                    <td style={{ height: "8px", width: "4px", backgroundColor: "#e09010", padding: "0" }} />
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </td>
 
                                     {/* Main content area */}
-                                    <td style={{ verticalAlign: "top", padding: "28px 20px 12px 16px", width: "100%" }}>
+                                    <td style={{ verticalAlign: "top", padding: "18px 12px 10px 10px", width: "100%" }}>
                                         <table style={{ borderCollapse: "collapse", width: "100%" }}>
                                             <tbody>
-
                                                 {/* Name */}
                                                 {name && (<tr>
-                                                    <td style={{ paddingBottom: "2px" }}>
-                                                        <span
-                                                            style={{
-                                                                fontSize: "24px",
-                                                                fontWeight: "900",
-                                                                color: "#ffffff",
-                                                                letterSpacing: "1px",
-                                                                textTransform: "uppercase",
-                                                                wordBreak: "normal",
-                                                                overflowWrap: "break-word"
-                                                            }}
-                                                        >
+                                                    <td style={{ paddingBottom: "1px" }}>
+                                                        <span style={{ fontSize: "16px", fontWeight: "900", color: "#ffffff", letterSpacing: "0.5px", textTransform: "uppercase", wordBreak: "normal", overflowWrap: "break-word" }}>
                                                             {name}
                                                         </span>
                                                     </td>
@@ -140,28 +87,21 @@ function VisitingCardL({ name, email, job_title, phone_no, organization, logo, w
 
                                                 {/* Job Title */}
                                                 {job_title && (<tr>
-                                                    <td style={{ paddingBottom: "13px" }}>
-                                                        <span
-                                                            style={{
-                                                                fontSize: "11px",
-                                                                color: "#f5a623",
-                                                                fontWeight: "500",
-                                                                letterSpacing: "1px",
-                                                            }}
-                                                        >
+                                                    <td style={{ paddingBottom: "8px" }}>
+                                                        <span style={{ fontSize: "8px", color: "#f5a623", fontWeight: "500", letterSpacing: "0.5px" }}>
                                                             {job_title}
                                                         </span>
                                                     </td>
-                                                </tr>
-                                                )}
-                                                {/* Orange divider line */}
+                                                </tr>)}
+
+                                                {/* Divider */}
                                                 {(name || job_title) && (<tr>
-                                                    <td style={{ paddingBottom: "13px" }}>
+                                                    <td style={{ paddingBottom: "10px" }}>
                                                         <table style={{ borderCollapse: "collapse", width: "100%" }}>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td style={{ height: "2px", backgroundColor: "#f5a623", width: "40px", borderRadius: "2px" }} />
-                                                                    <td style={{ height: "2px", backgroundColor: "#333" }} />
+                                                                    <td style={{ height: "1.5px", backgroundColor: "#f5a623", width: "30px", borderRadius: "1px" }} />
+                                                                    <td style={{ height: "1.5px", backgroundColor: "#333" }} />
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -171,47 +111,22 @@ function VisitingCardL({ name, email, job_title, phone_no, organization, logo, w
                                                 {/* Contact rows */}
                                                 {contacts.map((item, i) => (
                                                     <tr key={i}>
-                                                        <td style={{ paddingBottom: i < 4 ? "5px" : "0" }}>
+                                                        <td style={{ paddingBottom: i < 4 ? "4px" : "0" }}>
                                                             <table style={{ borderCollapse: "collapse" }}>
                                                                 <tbody>
                                                                     <tr>
                                                                         <td style={{ verticalAlign: "middle" }}>
-                                                                            <table
-                                                                                style={{
-                                                                                    width: "24px",
-                                                                                    height: "24px",
-                                                                                    borderCollapse: "collapse",
-                                                                                    borderRadius: "50%",
-                                                                                    border: "1.5px solid #f5a623",
-                                                                                    backgroundColor: "rgba(245,166,35,0.12)",
-                                                                                    overflow: "hidden",
-                                                                                }}
-                                                                            >
+                                                                            <table style={{ width: "18px", height: "18px", borderCollapse: "collapse", borderRadius: "50%", overflow: "hidden" }}>
                                                                                 <tbody>
                                                                                     <tr>
-                                                                                        <td
-                                                                                            style={{
-                                                                                                textAlign: "center",
-                                                                                                verticalAlign: "middle",
-                                                                                                fontSize: "11px",
-                                                                                                lineHeight: "1",
-                                                                                            }}
-                                                                                        >
+                                                                                        <td style={{ textAlign: "center", verticalAlign: "middle", fontSize: "8px", lineHeight: "1" }}>
                                                                                             {item.icon}
                                                                                         </td>
                                                                                     </tr>
                                                                                 </tbody>
                                                                             </table>
                                                                         </td>
-                                                                        <td
-                                                                            style={{
-                                                                                paddingLeft: "9px",
-                                                                                verticalAlign: "middle",
-                                                                                fontSize: "13px",
-                                                                                color: "#cccccc",
-                                                                                whiteSpace: "nowrap",
-                                                                            }}
-                                                                        >
+                                                                        <td style={{ paddingLeft: "6px", verticalAlign: "middle", fontSize: "9px", color: "#cccccc", whiteSpace: "nowrap" }}>
                                                                             {item.text}
                                                                         </td>
                                                                     </tr>
@@ -220,7 +135,6 @@ function VisitingCardL({ name, email, job_title, phone_no, organization, logo, w
                                                         </td>
                                                     </tr>
                                                 ))}
-
                                             </tbody>
                                         </table>
                                     </td>
@@ -237,74 +151,46 @@ function VisitingCardL({ name, email, job_title, phone_no, organization, logo, w
                             backgroundColor: "#1c1c1c",
                             verticalAlign: "top",
                             padding: "0",
-                            borderRadius: "14px",
+                            borderRadius: "10px",
                         }}
                     >
-                        <table style={{ width: "100%", height: "270px", borderCollapse: "collapse" }}>
+                        <table style={{ width: "100%", height: "190px", borderCollapse: "collapse" }}>
                             <tbody>
-
                                 <tr style={{ width: "100%" }}>
-                                    <td style={{ verticalAlign: "middle", padding: "0 30px", textAlign: "center" }}>
+                                    <td style={{ verticalAlign: "middle", padding: "0 15px", textAlign: "center" }}>
                                         <table style={{ borderCollapse: "collapse", margin: "0 auto" }}>
                                             <tbody>
-
                                                 <tr>
-                                                    <td style={{ padding: "4px" }}>
+                                                    <td style={{ padding: "3px" }}>
                                                         <img
                                                             src={imageSrc}
-                                                            width="62"
-                                                            height="62"
-                                                            style={{
-                                                                objectFit: "cover", objectPosition: "center", display: "inline-block", width: "62px",
-                                                                height: "62px",
-                                                            }}
+                                                            width="45"
+                                                            height="45"
+                                                            style={{ objectFit: "cover", objectPosition: "center", display: "inline-block", width: "45px", height: "45px" }}
                                                         />
                                                     </td>
                                                 </tr>
-
-                                                {/* Brand Name */}
-                                                {(organization) && (<tr>
+                                                {organization && (<tr>
                                                     <td style={{ textAlign: "center" }}>
-                                                        <span
-                                                            style={{
-                                                                fontSize: "15px",
-                                                                fontWeight: "900",
-                                                                color: "#fcf6f6",
-                                                                letterSpacing: "1spx",
-                                                                textTransform: "uppercase",
-                                                            }}
-                                                        >
+                                                        <span style={{ fontSize: "10px", fontWeight: "900", color: "#fcf6f6", letterSpacing: "0.5px", textTransform: "uppercase" }}>
                                                             {organization}
                                                         </span>
                                                     </td>
                                                 </tr>)}
-
-                                                {/* Tagline */}
-                                                {(slogan) && (<tr>
-                                                    <td style={{ textAlign: "center", paddingTop: "4px" }}>
-                                                        <span
-                                                            style={{
-                                                                fontSize: "9px",
-                                                                color: "#f7f3f3",
-                                                                letterSpacing: "2px",
-                                                                textTransform: "uppercase",
-                                                                display: "block",
-                                                            }}
-                                                        >
+                                                {slogan && (<tr>
+                                                    <td style={{ textAlign: "center", paddingTop: "2px" }}>
+                                                        <span style={{ fontSize: "6px", color: "#f7f3f3", letterSpacing: "1px", textTransform: "uppercase", display: "block" }}>
                                                             {slogan}
                                                         </span>
                                                     </td>
                                                 </tr>)}
-
                                             </tbody>
                                         </table>
                                     </td>
                                 </tr>
-
                             </tbody>
                         </table>
                     </td>
-
                 </tr>
             </tbody>
         </table>

@@ -41,8 +41,8 @@ function VisitingCardH({ name, email, job_title, phone_no, organization, logo, w
     <table
       className="visiting-card"
       style={{
-        width: "550px",
-        height: "260px",
+        width: "350px", // Reduced width
+        height: "190px", // Reduced height
         borderCollapse: "collapse",
         tableLayout: "fixed",
         borderRadius: "8px",
@@ -55,22 +55,22 @@ function VisitingCardH({ name, email, job_title, phone_no, organization, logo, w
         <tr>
 
           {/* ── LEFT WHITE PANEL ── */}
-          <td style={{ width: "260px", verticalAlign: "top", padding: "0", background: "#ffffff" }}>
-            <table style={{ width: "260px", height: "270px", borderCollapse: "collapse", tableLayout: "fixed" }}>
+          <td style={{ width: "165px", verticalAlign: "top", padding: "0", background: "#ffffff" }}>
+            <table style={{ width: "165px", height: "190px", borderCollapse: "collapse", tableLayout: "fixed" }}>
               <tbody>
 
                 {/* Top-left orange diagonal */}
                 <tr>
                   <td style={{ padding: "0", verticalAlign: "top" }}>
-                    <table style={{ width: "340px", borderCollapse: "collapse", tableLayout: "fixed" }}>
+                    <table style={{ width: "100%", borderCollapse: "collapse", tableLayout: "fixed" }}>
                       <tbody>
-                        {topLeftRows.map(([orange, white], i) => (
+                        {topLeftRows.slice(0, 6).map(([orange, white], i) => (
                           <tr key={i}>
-                            <td style={{ width: `${orange}px`, height: "5px", background: "#e8440a", padding: "0" }}></td>
-                            <td style={{ width: `${white}px`, height: "5px", background: "#ffffff", padding: "0" }}></td>
+                            <td style={{ width: `${orange / 2}px`, height: "4px", background: "#e8440a", padding: "0" }}></td>
+                            <td style={{ width: `${white / 2}px`, height: "4px", background: "#ffffff", padding: "0" }}></td>
                           </tr>
                         ))}
-                        <tr><td colSpan={2} style={{ height: "10px", background: "#ffffff", padding: "0" }}></td></tr>
+                        <tr><td colSpan={2} style={{ height: "5px", background: "#ffffff", padding: "0" }}></td></tr>
                       </tbody>
                     </table>
                   </td>
@@ -78,58 +78,44 @@ function VisitingCardH({ name, email, job_title, phone_no, organization, logo, w
 
                 {/* Center: Diamond logo + org + slogan */}
                 <tr>
-                  <td style={{ verticalAlign: "middle", textAlign: "center", padding: "10px 30px 0 30px" }}>
+                  <td style={{ verticalAlign: "middle", textAlign: "center", padding: "5px 10px 0 10px" }}>
                     <table style={{ borderCollapse: "collapse", margin: "0 auto" }}>
                       <tbody>
-                        {/* Diamond icon */}
                         <tr>
-                          <td style={{ textAlign: "center", paddingBottom: "14px" }}>
+                          <td style={{ textAlign: "center", paddingBottom: "8px" }}>
                             <table style={{ borderCollapse: "collapse", margin: "0 auto" }}>
                               <tbody>
                                 <tr>
-                                  <td style={{ width: "52px", height: "52px", border: "3px solid #e8440a", borderRadius: "10px", textAlign: "center", verticalAlign: "middle", transform: imageSrc ? "" : "rotate(45deg)" }}>
-                                    <table style={{ borderCollapse: "collapse", margin: "0 auto" }}>
-                                      <tbody>
-                                        <tr>
-                                          <td>
-                                            {imageSrc ? (
-                                              <img
-                                                src={imageSrc}
-                                                width="62"
-                                                height="62"
-                                                style={{
-                                                  objectFit: "cover", objectPosition: "center", display: "inline-block", width: "62px",
-                                                  height: "62px",
-                                                }}
-                                              />
-                                            ) : (
-                                              <div style={{ width: "20px", height: "20px", border: "2px solid #e8440a", borderRadius: "4px" }}></div>
-                                            )}
-                                          </td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
+                                  <td style={{ width: "35px", height: "35px", border: "2px solid #e8440a", borderRadius: "6px", textAlign: "center", verticalAlign: "middle", transform: imageSrc ? "" : "rotate(45deg)" }}>
+                                    {imageSrc ? (
+                                      <img
+                                        src={imageSrc}
+                                        width="35"
+                                        height="35"
+                                        style={{ objectFit: "cover", display: "block" }}
+                                      />
+                                    ) : (
+                                      <div style={{ width: "12px", height: "12px", border: "1.5px solid #e8440a", borderRadius: "2px", margin: "0 auto" }}></div>
+                                    )}
                                   </td>
                                 </tr>
                               </tbody>
                             </table>
                           </td>
                         </tr>
-                        {/* Org name */}
                         {organization && (
                           <tr>
-                            <td style={{ textAlign: "center", paddingBottom: "2px" }}>
-                              <span style={{ fontSize: "17px", fontWeight: "800", color: "#1a1a2e", fontFamily: "Georgia,serif", letterSpacing: "4px", textTransform: "uppercase", wordBreak: "normal",overflowWrap:"break-word" }}>
+                            <td style={{ textAlign: "center", paddingBottom: "1px" }}>
+                              <span style={{ fontSize: "11px", fontWeight: "800", color: "#1a1a2e", fontFamily: "Georgia,serif", letterSpacing: "2px", textTransform: "uppercase" }}>
                                 {organization}
                               </span>
                             </td>
                           </tr>
                         )}
-                        {/* Slogan */}
                         {slogan && (
                           <tr>
                             <td style={{ textAlign: "center" }}>
-                              <span style={{ fontSize: "10px", color: "#999999", fontFamily: "Georgia,serif", letterSpacing: "3px", textTransform: "uppercase" }}>
+                              <span style={{ fontSize: "7px", color: "#999999", fontFamily: "Georgia,serif", letterSpacing: "1px", textTransform: "uppercase" }}>
                                 {slogan}
                               </span>
                             </td>
@@ -145,11 +131,11 @@ function VisitingCardH({ name, email, job_title, phone_no, organization, logo, w
                   <td style={{ padding: "0", verticalAlign: "bottom" }}>
                     <table style={{ width: "100%", borderCollapse: "collapse", tableLayout: "fixed" }}>
                       <tbody>
-                        <tr><td colSpan={2} style={{ height: "5px", background: "#ffffff", padding: "0" }}></td></tr>
-                        {bottomRightRowsLeft.map(([white, orange], i) => (
+                        <tr><td colSpan={2} style={{ height: "4px", background: "#ffffff", padding: "0" }}></td></tr>
+                        {bottomRightRowsLeft.slice(0, 6).map(([white, orange], i) => (
                           <tr key={i}>
-                            <td style={{ width: `${white}px`, height: "5px", background: "#ffffff", padding: "0" }}></td>
-                            <td style={{ width: `${orange}px`, height: "5px", background: "#e8440a", padding: "0" }}></td>
+                            <td style={{ width: `${white / 2}px`, height: "4px", background: "#ffffff", padding: "0" }}></td>
+                            <td style={{ width: `${orange / 2}px`, height: "4px", background: "#e8440a", padding: "0" }}></td>
                           </tr>
                         ))}
                       </tbody>
@@ -162,22 +148,22 @@ function VisitingCardH({ name, email, job_title, phone_no, organization, logo, w
           </td>
 
           {/* ── RIGHT DARK NAVY PANEL ── */}
-          <td style={{ width: "100%", background: "#1a2244", verticalAlign: "top", padding: "0" }}>
-            <table style={{ width: "100%", height: "270px", borderCollapse: "collapse" }}>
+          <td style={{ width: "185px", background: "#1a2244", verticalAlign: "top", padding: "0" }}>
+            <table style={{ width: "100%", height: "190px", borderCollapse: "collapse" }}>
               <tbody>
 
                 {/* Top-right orange diagonal */}
                 <tr>
                   <td style={{ padding: "0", verticalAlign: "top" }}>
-                    <table style={{ width: "290px", borderCollapse: "collapse", tableLayout: "fixed" }}>
+                    <table style={{ width: "100%", borderCollapse: "collapse", tableLayout: "fixed" }}>
                       <tbody>
-                        {topRightRows.map(([navy, orange], i) => (
+                        {topRightRows.slice(0, 6).map(([navy, orange], i) => (
                           <tr key={i}>
-                            <td style={{ width: `${navy}px`, height: "5px", background: "#1a2244", padding: "0" }}></td>
-                            <td style={{ width: `${260 - navy}px`, height: "5px", background: "#e8440a", padding: "0" }}></td>
+                            <td style={{ width: `${navy / 2}px`, height: "4px", background: "#1a2244", padding: "0" }}></td>
+                            <td style={{ width: "100%", height: "4px", background: "#e8440a", padding: "0" }}></td>
                           </tr>
                         ))}
-                        <tr><td colSpan={2} style={{ height: "10px", background: "#1a2244", padding: "0" }}></td></tr>
+                        <tr><td colSpan={2} style={{ height: "5px", background: "#1a2244", padding: "0" }}></td></tr>
                       </tbody>
                     </table>
                   </td>
@@ -186,8 +172,8 @@ function VisitingCardH({ name, email, job_title, phone_no, organization, logo, w
                 {/* Name */}
                 {name && (
                   <tr>
-                    <td style={{ padding: "14px 25px 3px 25px" }}>
-                      <span style={{ fontSize: "22px", fontWeight: "800", color: "#ffffff", fontFamily: "Georgia,serif", letterSpacing: "1px", textTransform: "uppercase", display: "block" }}>
+                    <td style={{ padding: "10px 15px 2px 15px" }}>
+                      <span style={{ fontSize: "14px", fontWeight: "800", color: "#ffffff", fontFamily: "Georgia,serif", letterSpacing: "1px", textTransform: "uppercase", display: "block" }}>
                         {name}
                       </span>
                     </td>
@@ -197,8 +183,8 @@ function VisitingCardH({ name, email, job_title, phone_no, organization, logo, w
                 {/* Job title */}
                 {job_title && (
                   <tr>
-                    <td style={{ padding: "0 36px 14px 36px" }}>
-                      <span style={{ fontSize: "11px", color: "#e8440a", fontFamily: "Georgia,serif", letterSpacing: "3px", textTransform: "uppercase", fontWeight: "600", display: "block" }}>
+                    <td style={{ padding: "0 15px 8px 15px" }}>
+                      <span style={{ fontSize: "8px", color: "#e8440a", fontFamily: "Georgia,serif", letterSpacing: "2px", textTransform: "uppercase", fontWeight: "600", display: "block" }}>
                         {job_title}
                       </span>
                     </td>
@@ -208,12 +194,10 @@ function VisitingCardH({ name, email, job_title, phone_no, organization, logo, w
                 {/* Orange divider */}
                 {(name || job_title) && (
                   <tr>
-                    <td style={{ padding: "0 36px 16px 36px" }}>
+                    <td style={{ padding: "0 15px 10px 15px" }}>
                       <table style={{ borderCollapse: "collapse" }}>
                         <tbody>
-                          <tr><td style={{ width: "50px", height: "2px", background: "#e8440a" }}></td></tr>
-                          <tr><td style={{ height: "3px" }}></td></tr>
-                          <tr><td style={{ width: "32px", height: "2px", background: "#e8440a", opacity: "0.5" }}></td></tr>
+                          <tr><td style={{ width: "30px", height: "1.5px", background: "#e8440a" }}></td></tr>
                         </tbody>
                       </table>
                     </td>
@@ -221,32 +205,28 @@ function VisitingCardH({ name, email, job_title, phone_no, organization, logo, w
                 )}
 
                 {/* Contact rows */}
-                <tr style={{ padding: "4px" }}>
-                  <td style={{ padding: "0 36px" }}>
+                <tr>
+                  <td style={{ padding: "0 15px" }}>
                     <table style={{ borderCollapse: "collapse" }}>
                       <tbody>
                         {phone_no && (
                           <tr>
-                            <td style={{ paddingBottom: "6px" }}>
+                            <td style={{ paddingBottom: "4px" }}>
                               <table style={{ borderCollapse: "collapse" }}><tbody><tr>
-                                <td style={{ verticalAlign: "middle" }}>
-                                  <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#e8440a", verticalAlign: "middle" }}></div>
-                                </td>
-                                <td style={{ width: "10px" }}></td>
-                                <td><span style={{ fontSize: "13px", color: "#cccccc", fontFamily: "Georgia,serif", letterSpacing: "0.5px" }}>{phone_no}</span></td>
+                                <td style={{ verticalAlign: "middle" }}><div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#e8440a" }}></div></td>
+                                <td style={{ width: "8px" }}></td>
+                                <td><span style={{ fontSize: "9px", color: "#cccccc", fontFamily: "Georgia,serif" }}>{phone_no}</span></td>
                               </tr></tbody></table>
                             </td>
                           </tr>
                         )}
                         {email && (
                           <tr>
-                            <td style={{ paddingBottom: "6px" }}>
+                            <td style={{ paddingBottom: "4px" }}>
                               <table style={{ borderCollapse: "collapse" }}><tbody><tr>
-                                <td style={{ verticalAlign: "middle" }}>
-                                  <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#e8440a", verticalAlign: "middle" }}></div>
-                                </td>
-                                <td style={{ width: "10px" }}></td>
-                                <td><span style={{ fontSize: "13px", color: "#cccccc", fontFamily: "Georgia,serif", letterSpacing: "0.5px" }}>{email}</span></td>
+                                <td style={{ verticalAlign: "middle" }}><div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#e8440a" }}></div></td>
+                                <td style={{ width: "8px" }}></td>
+                                <td><span style={{ fontSize: "9px", color: "#cccccc", fontFamily: "Georgia,serif" }}>{email}</span></td>
                               </tr></tbody></table>
                             </td>
                           </tr>
@@ -255,11 +235,9 @@ function VisitingCardH({ name, email, job_title, phone_no, organization, logo, w
                           <tr>
                             <td>
                               <table style={{ borderCollapse: "collapse" }}><tbody><tr>
-                                <td style={{ verticalAlign: "middle" }}>
-                                  <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#e8440a", verticalAlign: "middle" }}></div>
-                                </td>
-                                <td style={{ width: "10px" }}></td>
-                                <td><span style={{ fontSize: "13px", color: "#cccccc", fontFamily: "Georgia,serif", letterSpacing: "0.5px" }}>{website}</span></td>
+                                <td style={{ verticalAlign: "middle" }}><div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#e8440a" }}></div></td>
+                                <td style={{ width: "8px" }}></td>
+                                <td><span style={{ fontSize: "9px", color: "#cccccc", fontFamily: "Georgia,serif" }}>{website}</span></td>
                               </tr></tbody></table>
                             </td>
                           </tr>
@@ -274,13 +252,13 @@ function VisitingCardH({ name, email, job_title, phone_no, organization, logo, w
                 {/* Bottom-right orange diagonal */}
                 <tr>
                   <td style={{ padding: "0", verticalAlign: "bottom" }}>
-                    <table style={{ width: "380px", borderCollapse: "collapse", tableLayout: "fixed" }}>
+                    <table style={{ width: "100%", borderCollapse: "collapse", tableLayout: "fixed" }}>
                       <tbody>
-                        <tr><td colSpan={2} style={{ height: "8px", background: "#1a2244", padding: "0" }}></td></tr>
-                        {bottomRightRowsRight.map(([navy, orange], i) => (
+                        <tr><td colSpan={2} style={{ height: "5px", background: "#1a2244", padding: "0" }}></td></tr>
+                        {bottomRightRowsRight.slice(0, 4).map(([navy, orange], i) => (
                           <tr key={i}>
-                            <td style={{ width: `${navy}px`, height: "5px", background: "#1a2244", padding: "0" }}></td>
-                            <td style={{ width: `${260 - navy}px`, height: "5px", background: "#e8440a", padding: "0" }}></td>
+                            <td style={{ width: `${navy / 2}px`, height: "4px", background: "#1a2244", padding: "0" }}></td>
+                            <td style={{ width: "100%", height: "4px", background: "#e8440a", padding: "0" }}></td>
                           </tr>
                         ))}
                       </tbody>

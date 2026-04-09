@@ -15,14 +15,13 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
     return (
         <table
             style={{
-                width: "600px",
-                height: "340px",
+                width: "350px",
+                height: "190px",
                 borderCollapse: "collapse",
                 borderRadius: "18px",
                 overflow: "hidden",
                 boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
                 fontFamily: "'Segoe UI', sans-serif",
-                margin: "40px auto",
                 display: "block",
                wordBreak: "normal",
                overflowWrap:"break-word"
@@ -33,26 +32,25 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
                     {/* LEFT PANEL - Dark */}
                     <td
                         style={{
-                            width: "300px",
+                            width: "175px",
                             backgroundColor: "#1e1e1e",
                             verticalAlign: "middle",
-                            padding: "40px 36px",
+                            padding: "18px 16px",
                         }}
                     >
                         <table style={{ width: "100%", borderCollapse: "collapse" }}>
                             <tbody>
-                                {/* Logo Icon - table-based hexagon feel */}
+                                {/* Logo Icon */}
                                 <tr>
-                                    <td style={{ paddingBottom: "14px" }}>
+                                    <td style={{ paddingBottom: "7px" }}>
                                         <table
                                             style={{
                                                 borderCollapse: "collapse",
-                                                width: "64px",
-                                                height: "64px",
-                                                borderRadius: "16px",
+                                                width: "36px",
+                                                height: "36px",
+                                                borderRadius: "9px",
                                                 overflow: "hidden",
-                                                background:
-                                                    "linear-gradient(135deg, #ff6b6b, #f7971e, #ffd200)",
+                                                background: "linear-gradient(135deg, #ff6b6b, #f7971e, #ffd200)",
                                             }}
                                         >
                                             <tbody>
@@ -61,7 +59,7 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
                                                         style={{
                                                             textAlign: "center",
                                                             verticalAlign: "middle",
-                                                            fontSize: "30px",
+                                                            fontSize: "16px",
                                                             lineHeight: "1",
                                                         }}
                                                     >
@@ -83,10 +81,10 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
                                     <td>
                                         <span
                                             style={{
-                                                fontSize: "20px",
+                                                fontSize: "11px",
                                                 fontWeight: "800",
                                                 letterSpacing: "1px",
-                                                color:"#f7971e",
+                                                color: "#f7971e",
                                                 display: "block",
                                                 textTransform: "uppercase",
                                             }}
@@ -98,11 +96,11 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
 
                                 {/* Slogan */}
                                 {slogan && (<tr>
-                                    <td style={{ paddingTop: "4px" }}>
+                                    <td style={{ paddingTop: "2px" }}>
                                         <span
                                             style={{
-                                                fontSize: "11px",
-                                                letterSpacing: "4px",
+                                                fontSize: "7px",
+                                                letterSpacing: "2px",
                                                 fontWeight: "600",
                                                 color: "#f7971e",
                                                 textTransform: "uppercase",
@@ -116,15 +114,14 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
 
                                 {/* Divider */}
                                 {(organization || slogan) && (<tr>
-                                    <td style={{ paddingTop: "24px", paddingBottom: "20px" }}>
+                                    <td style={{ paddingTop: "10px", paddingBottom: "8px" }}>
                                         <table style={{ borderCollapse: "collapse", width: "100%" }}>
                                             <tbody>
                                                 <tr>
                                                     <td
                                                         style={{
                                                             height: "1px",
-                                                            background:
-                                                                "linear-gradient(90deg, #f7971e, transparent)",
+                                                            background: "linear-gradient(90deg, #f7971e, transparent)",
                                                         }}
                                                     />
                                                 </tr>
@@ -139,29 +136,17 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
                                         <table style={{ borderCollapse: "collapse" }}>
                                             <tbody>
                                                 {email && (<tr>
-                                                    <td
-                                                        style={{
-                                                            color: "#ddd",
-                                                            fontSize: "12px",
-                                                            paddingBottom: "6px",
-                                                        }}
-                                                    >
+                                                    <td style={{ color: "#ddd", fontSize: "8px", paddingBottom: "4px" }}>
                                                         📧&nbsp; {email}
                                                     </td>
                                                 </tr>)}
                                                 {phone_no && (<tr>
-                                                    <td
-                                                        style={{
-                                                            color: "#ddd",
-                                                            fontSize: "12px",
-                                                            paddingBottom: "6px",
-                                                        }}
-                                                    >
+                                                    <td style={{ color: "#ddd", fontSize: "8px", paddingBottom: "4px" }}>
                                                         📞&nbsp; {phone_no}
                                                     </td>
                                                 </tr>)}
                                                 {website && (<tr>
-                                                    <td style={{ color: "#ddd", fontSize: "12px" }}>
+                                                    <td style={{ color: "#ddd", fontSize: "8px" }}>
                                                         🌐&nbsp; {website}
                                                     </td>
                                                 </tr>)}
@@ -173,10 +158,10 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
                         </table>
                     </td>
 
-                    {/* RIGHT PANEL - Gold with diagonal dark strips using table rows */}
+                    {/* RIGHT PANEL - Gold */}
                     <td
                         style={{
-                            width: "300px",
+                            width: "175px",
                             background: "linear-gradient(145deg, #f7c948 0%, #f7971e 100%)",
                             verticalAlign: "top",
                             padding: "0",
@@ -185,7 +170,7 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
                         <table
                             style={{
                                 width: "100%",
-                                height: "340px",
+                                height: "190px",
                                 borderCollapse: "collapse",
                             }}
                         >
@@ -194,29 +179,21 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
                                 <tr>
                                     <td
                                         style={{
-                                            height: "70px",
+                                            height: "40px",
                                             backgroundColor: "#1e1e1e",
                                             verticalAlign: "bottom",
                                             padding: "0",
                                         }}
                                     >
-                                        {/* Diagonal effect using a table with alternating dark/gold cells */}
-                                        <table
-                                            style={{
-                                                width: "100%",
-                                                borderCollapse: "collapse",
-                                                height: "30px",
-                                            }}
-                                        >
+                                        <table style={{ width: "100%", borderCollapse: "collapse", height: "18px" }}>
                                             <tbody>
                                                 <tr>
                                                     {[...Array(12)].map((_, i) => (
                                                         <td
                                                             key={i}
                                                             style={{
-                                                                height: `${10 + i * 2}px`,
-                                                                backgroundColor:
-                                                                    i < 6 ? "#1e1e1e" : "#f7c948",
+                                                                height: `${6 + i * 1.2}px`,
+                                                                backgroundColor: i < 6 ? "#1e1e1e" : "#f7c948",
                                                                 verticalAlign: "bottom",
                                                                 padding: "0",
                                                                 width: "8.33%",
@@ -231,19 +208,14 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
 
                                 {/* Middle: Name and Title */}
                                 <tr>
-                                    <td
-                                        style={{
-                                            verticalAlign: "middle",
-                                            padding: "18px 20px 18px 30px",
-                                        }}
-                                    >
+                                    <td style={{ verticalAlign: "middle", padding: "10px 10px 10px 14px" }}>
                                         <table style={{ borderCollapse: "collapse" }}>
                                             <tbody>
                                                 {name && (<tr>
                                                     <td>
                                                         <span
                                                             style={{
-                                                                fontSize: "26px",
+                                                                fontSize: "15px",
                                                                 fontWeight: "900",
                                                                 color: "#1a1a1a",
                                                                 letterSpacing: "-0.5px",
@@ -256,13 +228,13 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
                                                     </td>
                                                 </tr>)}
                                                 {job_title && (<tr>
-                                                    <td style={{ paddingTop: "6px" }}>
+                                                    <td style={{ paddingTop: "3px" }}>
                                                         <span
                                                             style={{
-                                                                fontSize: "12px",
+                                                                fontSize: "7px",
                                                                 color: "#3a3a3a",
                                                                 fontWeight: "600",
-                                                                letterSpacing: "1.5px",
+                                                                letterSpacing: "1px",
                                                                 textTransform: "uppercase",
                                                                 display: "block",
                                                             }}
@@ -273,28 +245,13 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
                                                 </tr>)}
                                                 {/* Underline accent */}
                                                 {(name || job_title) && (<tr>
-                                                    <td style={{ paddingTop: "12px" }}>
+                                                    <td style={{ paddingTop: "6px" }}>
                                                         <table style={{ borderCollapse: "collapse" }}>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td
-                                                                        style={{
-                                                                            width: "50px",
-                                                                            height: "3px",
-                                                                            backgroundColor: "#1a1a1a",
-                                                                            borderRadius: "2px",
-                                                                        }}
-                                                                    />
-                                                                    <td style={{ width: "8px" }} />
-                                                                    <td
-                                                                        style={{
-                                                                            width: "20px",
-                                                                            height: "3px",
-                                                                            backgroundColor: "#1a1a1a",
-                                                                            opacity: "0.4",
-                                                                            borderRadius: "2px",
-                                                                        }}
-                                                                    />
+                                                                    <td style={{ width: "28px", height: "2px", backgroundColor: "#1a1a1a", borderRadius: "2px" }} />
+                                                                    <td style={{ width: "5px" }} />
+                                                                    <td style={{ width: "12px", height: "2px", backgroundColor: "#1a1a1a", opacity: "0.4", borderRadius: "2px" }} />
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -305,32 +262,25 @@ function VisitingCardC({ name, email, job_title, phone_no, organization, logo, w
                                     </td>
                                 </tr>
 
-                                {/* Bottom dark strip - stepped diagonal */}
+                                {/* Bottom dark strip */}
                                 <tr>
                                     <td
                                         style={{
-                                            height: "70px",
+                                            height: "40px",
                                             backgroundColor: "#1a1a1a",
                                             verticalAlign: "top",
                                             padding: "0",
                                         }}
                                     >
-                                        <table
-                                            style={{
-                                                width: "100%",
-                                                borderCollapse: "collapse",
-                                                height: "30px",
-                                            }}
-                                        >
+                                        <table style={{ width: "100%", borderCollapse: "collapse", height: "18px" }}>
                                             <tbody>
                                                 <tr>
                                                     {[...Array(12)].map((_, i) => (
                                                         <td
                                                             key={i}
                                                             style={{
-                                                                height: `${30 - i * 2}px`,
-                                                                backgroundColor:
-                                                                    i < 6 ? "#f7971e" : "#1a1a1a",
+                                                                height: `${18 - i * 1.2}px`,
+                                                                backgroundColor: i < 6 ? "#f7971e" : "#1a1a1a",
                                                                 verticalAlign: "top",
                                                                 padding: "0",
                                                                 width: "8.33%",
