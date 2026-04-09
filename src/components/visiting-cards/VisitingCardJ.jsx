@@ -30,7 +30,8 @@ function VisitingCardJ({ name, email, job_title, phone_no, organization, logo, w
         boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
         fontFamily: "'Segoe UI', sans-serif",
         backgroundColor: "#ffffff",
-        wordBreak: "break-all",
+        wordBreak: "normal",
+        overflowWrap:"break-word",
         tableLayout: "fixed"
       }}
     >

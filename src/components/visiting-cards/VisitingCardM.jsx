@@ -14,8 +14,8 @@ function VisitingCardM({ name, email, job_title, phone_no, organization, logo, w
   }
 
   const IconBox = ({ type, color = "#1a2540" }) => (
-    <td style={{ textAlign: "center", verticalAlign: "middle" }}>
-      <table style={{ borderCollapse: "collapse", margin: "0 auto" }}>
+    <td style={{ textAlign: "right", verticalAlign: "middle" }}>
+      <table style={{ borderCollapse: "collapse", textAlign:"right" }}>
         <tbody>
           {type === "phone" && (
             <tr><td style={{ width: "10px", height: "12px" }}>📞</td></tr>
@@ -144,7 +144,7 @@ function VisitingCardM({ name, email, job_title, phone_no, organization, logo, w
                                 {job_title && <tr><td>
                                   <span style={{ fontSize: "8px", color: "#888888", fontFamily: "Georgia,serif", letterSpacing: "1px", textTransform: "uppercase", display: "block" }}>{job_title}</span>
                                 </td></tr>}
-                                {(name && job_title) && (<tr><td style={{ paddingTop: "4px" }}>
+                                {(name && job_title) && (<tr><td style={{ paddingTop: "7px" }}>
                                   <table style={{ borderCollapse: "collapse" }}>
                                     <tbody>
                                       <tr>

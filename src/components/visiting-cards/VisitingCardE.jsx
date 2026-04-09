@@ -116,9 +116,6 @@ function VisitingCardE({ name, email, job_title, phone_no, organization, logo, w
                                                                                     height: "14px",
                                                                                     borderCollapse: "collapse",
                                                                                     borderRadius: "50%",
-                                                                                    border: "1px solid #66bb6a",
-                                                                                    backgroundColor: "#f1f8e9",
-                                                                                    overflow: "hidden",
                                                                                     textAlign: "center",
                                                                                     verticalAlign: "middle",
                                                                                 }}

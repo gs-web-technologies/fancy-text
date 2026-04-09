@@ -7,32 +7,6 @@ function VisitingCardTemplate({ children, issubmitted }) {
   const cardRef = useRef(null);
   const [downloading, setDownloading] = useState(false);
   const [printing, setPrinting] = useState(false);
-  // const handelDownload = async () => {
-  //   setDownloading(true);
-  //   const node = cardRef.current;
-  //   if (!node) {
-  //     setDownloading(false);
-  //     return;
-  //   }
-
-  //   try {
-  //     const canvas = await html2canvas(node, {
-  //       scale: 3,
-  //       useCORS: true,
-  //       backgroundColor: null,
-  //     });
-
-  //     const link = document.createElement('a');
-  //     link.download = 'visiting-card.png';
-  //     link.href = canvas.toDataURL('image/png');
-  //     link.click();
-
-  //   } catch (err) {
-  //     console.log("Download Failed:", err);
-  //   } finally {
-  //     setDownloading(false);
-  //   }
-  // }
 
   const handelPrint = async () => {
     setPrinting(true);
@@ -79,36 +53,54 @@ function VisitingCardTemplate({ children, issubmitted }) {
       setPrinting(false);
     }
   };
+
   return (
-    <div className="gap-2 text-start w-[400px] mt-2 mb-4 border-none rounded-xl shadow-sm  overflow-hidden">
+    <div className="gap-2 text-start w-[400px] mt-2 mb-4  overflow-hidden">
 
-          {/* {downloading ? (
-            <div className="flex items-center gap-2 mt-2">
-              <div className="w-4 h-4 border-2 border-gray-300 border-t-black rounded-full animate-spin"></div>
-              <span className="text-sm text-gray-600">Downloading...</span>
-            </div>
-          ) : (
-            <button
-              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 text-sm font-medium text-gray-700 bg-white border-none rounded-lg hover:bg-gray-50 active:scale-95 transition-all duration-150 underline ${!issubmitted ? "opacity-50 cursor-not-allowed" : ""
-                }`}
-              onClick={handelDownload}
-            >
-              Download
-            </button>
-          )} */}
+      {/* {printing ? (
+        <div className="flex items-center gap-2 mt-2">
+          <div className="w-4 h-4 border-2 border-gray-300 border-t-black rounded-full animate-spin"></div>
+          <span className="text-sm text-gray-600">Printing...</span>
+        </div>
+      ) : (<button
+        className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+        onClick={handelPrint}
+      >
+        Print
+      </button>)} */}
 
-          {printing ? (
-            <div className="flex items-center gap-2 mt-2">
-              <div className="w-4 h-4 border-2 border-gray-300 border-t-black rounded-full animate-spin"></div>
-              <span className="text-sm text-gray-600">Printing...</span>
-            </div>
-          ) : (<button
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-sm font-medium text-gray-700 bg-white border-none rounded-lg hover:bg-gray-50 active:scale-95 transition-all duration-150 p-2 underline"
+
+      <div className="mb-2 flex items-center gap-3">
+        {printing ? (
+          <div className="flex items-center gap-2 mt-2">
+            <div className="w-4 h-4 border-2 border-gray-300 border-t-black rounded-full animate-spin"></div>
+            <span className="text-sm text-gray-600">Printing...</span>
+          </div>
+        ) : (
+          <button
             onClick={handelPrint}
+            style={{
+              backgroundColor: !issubmitted ? '#c0baba' : '#080808',
+              color: '#ffffff',
+              border: 'none',
+              padding: '7px 16px',
+              borderRadius: '6px',
+              fontSize: '12px',
+              fontWeight: '600',
+              fontFamily: 'Arial, sans-serif',
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              transition: 'background-color 0.2s ease',
+              boxShadow: '0 1px 4px rgba(0,0,0,0.12)',
+              cursor: !issubmitted ? 'not-allowed' : 'pointer',
+            }}
+            disabled={!issubmitted}
           >
             Print
           </button>)}
-      
+      </div>
 
       {/* Card content area */}
       <div className="p-2 flex items-center justify-center" ref={cardRef}>

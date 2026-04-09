@@ -54,7 +54,6 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
                                                 height: "48px",
                                                 borderRadius: "50%",
                                                 backgroundColor: "#f3e8ff",
-                                                border: "2px solid #5b1f6e",
                                                 overflow: "hidden",
                                             }}
                                         >
@@ -221,20 +220,19 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
                                                                         <table>
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <td
-                                                                                        style={{
-                                                                                            width: "24px",
-                                                                                            height: "24px",
-                                                                                            borderCollapse: "collapse",
+                                                                                    <td style={{  width: "24px",
+                                                                                            height: "24px", borderCollapse: "collapse" }}>
+                                                                                        <div style={{
+                                                                                            width:"100%",
+                                                                                            height:"100%",
                                                                                             borderRadius: "50%",
-                                                                                            backgroundColor: "#ffffff",
                                                                                             overflow: "hidden",
-                                                                                            textAlign: "center",
-                                                                                            verticalAlign: "middle",
                                                                                             fontSize: "12px",
-                                                                                        }}
-                                                                                    >
-                                                                                        📞
+                                                                                            lineHeight: "12px",
+                                                                                            padding:"5px"
+                                                                                        }}>
+                                                                                            📞
+                                                                                        </div>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -262,7 +260,6 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
                                                                                 height: "24px",
                                                                                 borderCollapse: "collapse",
                                                                                 borderRadius: "50%",
-                                                                                backgroundColor: "#ffffff",
                                                                                 overflow: "hidden",
                                                                             }}
                                                                         >
@@ -298,7 +295,6 @@ function VisitingCardB({ name, email, job_title, phone_no, organization, logo, w
                                                                                     height: "24px",
                                                                                     borderCollapse: "collapse",
                                                                                     borderRadius: "50%",
-                                                                                    backgroundColor: "#ffffff",
                                                                                     overflow: "hidden",
                                                                                 }}
                                                                             >

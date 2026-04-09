@@ -96,8 +96,6 @@ function VisitingCardO({ name, email, job_title, phone_no, organization, website
                                         width: "16px", // Reduced icon size
                                         height: "16px",
                                         borderRadius: "50%",
-                                        border: "1px solid #cc1f1f",
-                                        backgroundColor: "#fff0f0",
                                         textAlign: "center",
                                         fontSize: "8px",
                                         lineHeight: "14px"

@@ -56,8 +56,6 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
         >
             <tbody>
                 <tr>
-
-                    {/* ══ LEFT PANEL: pink diagonal with logo ══ */}
                     <td
                         style={{
                             width: "130px", // Scaled down
@@ -96,9 +94,6 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                                                                                 width: "42px", // Scaled down
                                                                                 height: "42px", // Scaled down
                                                                                 borderCollapse: "collapse",
-                                                                                borderRadius: "50%",
-                                                                                border: "2.5px solid #ffffff",
-                                                                                backgroundColor: "rgba(255,255,255,0.15)",
                                                                                 overflow: "hidden",
                                                                                 margin: "0 auto",
                                                                             }}

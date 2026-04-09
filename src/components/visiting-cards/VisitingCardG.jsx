@@ -109,13 +109,13 @@ function VisitingCardG({ name, email, job_title, phone_no, organization, logo, w
                                                                                 height: "17px",
                                                                                 borderCollapse: "collapse",
                                                                                 borderRadius: "50%",
-                                                                                border: "1px solid #1976d2",
-                                                                                backgroundColor: "#e3f2fd",
                                                                                 overflow: "hidden",
                                                                             }}>
                                                                                 <tbody>
                                                                                     <tr>
-                                                                                        <td style={{ textAlign: "center", verticalAlign: "middle", fontSize: "8px", lineHeight: "1" }}>
+                                                                                        <td style={{ textAlign: "center", verticalAlign: "middle", fontSize: "8px", display:"flex",
+                                                                                alignItems:"center",
+                                                                                justifyContent:"center" }}>
                                                                                             {item.icon}
                                                                                         </td>
                                                                                     </tr>
@@ -204,15 +204,18 @@ function VisitingCardG({ name, email, job_title, phone_no, organization, logo, w
                                                             height: "42px",
                                                             borderCollapse: "collapse",
                                                             borderRadius: "50%",
-                                                            border: "1px solid rgba(255,255,255,0.6)",
-                                                            backgroundColor: "rgba(255,255,255,0.15)",
                                                             overflow: "hidden",
                                                         }}>
                                                             <tbody>
                                                                 <tr>
                                                                     <td style={{ textAlign: "center", verticalAlign: "middle", fontSize: "19px", lineHeight: "1" }}>
                                                                         {imageSrc ? (
-                                                                            <img src={imageSrc} width="42" height="42" style={{ objectFit: "cover", objectPosition: "center", display: "inline-block", width: "42px", height: "42px" }} />
+                                                                            <img src={imageSrc} width="42" height="42" style={{ 
+                                                                                objectFit: "cover", 
+                                                                                objectPosition: "center", 
+                                                                                display: "inline-block", 
+                                                                                width: "42px",
+                                                                                 height: "42px" }} />
                                                                         ) : "💼"}
                                                                     </td>
                                                                 </tr>

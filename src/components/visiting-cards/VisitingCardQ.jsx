@@ -139,9 +139,8 @@ function VisitingCardQ({ name, email, job_title, phone_no, organization, website
                                         {contact1.map((item, i) => (
                                             <div key={i} style={{ marginBottom: i === 0 ? "8px" : "0", display: "flex", alignItems: "center" }}>
                                                 <div style={{
-                                                    width: "18px", height: "18px", borderRadius: "50%", border: "1px solid #f0a500",
+                                                    width: "18px", height: "18px", borderRadius: "50%",
                                                     display: "flex", justifyContent: "center", alignItems: "center", fontSize: "9px", color: "#fff",
-                                                    backgroundColor: "rgba(240,165,0,0.1)"
                                                 }}>
                                                     {item.icon}
                                                 </div>
@@ -158,9 +157,8 @@ function VisitingCardQ({ name, email, job_title, phone_no, organization, website
                                         {contact2.map((item, i) => (
                                             <div key={i} style={{ marginBottom: i === 0 ? "8px" : "0", display: "flex", alignItems: "center" }}>
                                                 <div style={{
-                                                    width: "18px", height: "18px", borderRadius: "50%", border: "1px solid #f0a500",
+                                                    width: "18px", height: "18px", borderRadius: "50%",
                                                     display: "flex", justifyContent: "center", alignItems: "center", fontSize: "9px", color: "#fff",
-                                                    backgroundColor: "rgba(240,165,0,0.1)"
                                                 }}>
                                                     {item.icon}
                                                 </div>

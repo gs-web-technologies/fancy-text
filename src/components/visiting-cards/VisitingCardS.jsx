@@ -77,19 +77,20 @@ function VisitingCardS({ name, email, job_title, phone_no, organization, website
                 {/* Red middle banner */}
                 <tr>
                     <td colSpan={2} style={{ padding: "0" }}>
-                        <table style={{ width: "350px", borderCollapse: "collapse", tableLayout: "fixed" }}>
+                        <table style={{ width: "350px", borderCollapse: "collapse", tableLayout: "fixed", padding: "3px" }}>
                             <tbody>
                                 <tr><td style={{ height: "4px", background: "#ffffff" }}></td></tr>
                                 <tr>
-                                    <td style={{ height: "24px", background: "#cc0000", textAlign: "right", paddingRight:"8px", verticalAlign: "middle" }}>
+                                    <td style={{ height: "24px", background: "#cc0000", textAlign: "right", paddingRight: "8px", verticalAlign: "middle" }}>
                                         {organization && <span style={{ fontSize: "11px", fontWeight: "800", color: "#ffffff", fontFamily: "Georgia,serif", letterSpacing: "1px", textTransform: "uppercase" }}>{organization}</span>}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style={{ height: "16px", background: "#cc0000", textAlign: "right", paddingRight:"8px", verticalAlign: "top" }}>
-                                        {slogan && <span style={{ fontSize: "9px", color: "#ffcccc", fontFamily: "Georgia,serif" }}>{slogan}</span>}
+                                    <td style={{ height: "16px", background: "#cc0000", textAlign: "right", paddingRight: "8px", verticalAlign: "middle", padding: "2px", lineHeight: "16px" }}>
+                                        {slogan && <span style={{ fontSize: "9px", color: "#ffcccc", fontFamily: "Georgia,serif", padding: "5px" }}>{slogan}</span>}
                                     </td>
                                 </tr>
+                                <tr><td style={{ height: "2px", background: "#b30000" }}></td></tr>
                                 <tr><td style={{ height: "2px", background: "#b30000" }}></td></tr>
                             </tbody>
                         </table>
@@ -98,7 +99,7 @@ function VisitingCardS({ name, email, job_title, phone_no, organization, website
 
                 {/* Bottom Block: Contact Info */}
                 <tr style={{ height: "70px" }}>
-                    <td colSpan={2} style={{ verticalAlign: "top", padding: "8px 15px 0 15px", background: "#ffffff" }}>
+                    <td colSpan={2} style={{ verticalAlign: "top", padding: "3px 15px 0 15px", background: "#ffffff" }}>
                         <table style={{ borderCollapse: "collapse", width: "100%" }}>
                             <tbody>
                                 {phone_no && (<tr>

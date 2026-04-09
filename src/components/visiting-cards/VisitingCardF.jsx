@@ -36,7 +36,7 @@ function VisitingCardF({ name, email, job_title, phone_no, organization, logo, w
 
           {/* LEFT: Navy Panel */}
           <td style={{ width: "121px", verticalAlign: "top", padding: "0" }}>
-            <table style={{ width: "121px", height: "190px", borderCollapse: "collapse", tableLayout: "fixed" }}>
+            <table style={{ width: "121px", height: "195px", borderCollapse: "collapse", tableLayout: "fixed" }}>
               <tbody>
                 <tr><td style={{ height: "41px", background: "#1a2244", padding: "0" }}></td></tr>
                 <tr><td style={{ height: "7px", background: "#c8a84b", padding: "0" }}></td></tr>

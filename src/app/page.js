@@ -3,17 +3,17 @@ import Link from "next/link";
 
 export default function Home() {
     return (
-        <div className="row mb-2 mx-auto">
+        <div className="grid grid-cols-3 gap-10 my-auto mx-auto w-5/6">
 
             {/* Card 1 */}
-            <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200 hover:shadow-lg transition">
+            <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200 hover:shadow-lg transition"> 
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     Text Generator
                 </h3>
                 <p className="text-gray-600 mb-4">
                     Generate high-quality fancy text.
                 </p>
-                <Link href="/text-generator" className="btn px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-black-700 transition">
+                <Link href="/text-generator" className="btn px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-red-500 transition">
                    Generate Text
                 </Link>
             </div>

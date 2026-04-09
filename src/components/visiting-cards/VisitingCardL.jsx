@@ -117,7 +117,7 @@ function VisitingCardL({ name, email, job_title, phone_no, organization, logo, w
                                                                 <tbody>
                                                                     <tr>
                                                                         <td style={{ verticalAlign: "middle" }}>
-                                                                            <table style={{ width: "18px", height: "18px", borderCollapse: "collapse", borderRadius: "50%", border: "1px solid #f5a623", backgroundColor: "rgba(245,166,35,0.12)", overflow: "hidden" }}>
+                                                                            <table style={{ width: "18px", height: "18px", borderCollapse: "collapse", borderRadius: "50%", overflow: "hidden" }}>
                                                                                 <tbody>
                                                                                     <tr>
                                                                                         <td style={{ textAlign: "center", verticalAlign: "middle", fontSize: "8px", lineHeight: "1" }}>
