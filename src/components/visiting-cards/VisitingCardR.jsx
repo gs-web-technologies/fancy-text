@@ -67,8 +67,6 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                         <table style={{ width: "130px", height: "190px", borderCollapse: "collapse" }}>
                             <tbody>
                                 <tr>
-
-                                    {/* Pink solid block */}
                                     <td
                                         style={{
                                             width: "130px", // Scaled down
@@ -203,9 +201,7 @@ function VisitingCardR({ name, email, job_title, phone_no, organization, website
                     >
                         <table style={{ width: "100%", borderCollapse: "collapse" }}>
                             <tbody>
-
-                                {/* Name + Title top-right */}
-                                <tr style={{ height: "80px" }}> {/* Scaled down height */}
+                                <tr style={{ height: "80px" }}> 
                                     <td
                                         colSpan="2"
                                         style={{ padding: "15px 15px 0 10px", verticalAlign: "middle", textAlign: "right" }}
