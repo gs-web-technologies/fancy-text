@@ -1,13 +1,29 @@
 "use client";
 import Button from '@/components/forms/Button';
 import Input from '@/components/forms/Input';
+import SelectInput from '@/components/forms/SelectInput';
+import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
+import * as z from 'zod';
+
+
+const options = ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'PTR', 'SRV', 'SOA', 'TXT', 'CAA'];
+
+const schema = z.object({
+    domain: z.string().min(5, { message: "Domain must be at least 5 characters long." }),
+    dns_records: z.enum(['A', 'AAAA', 'CNAME', 'MX', 'NS', 'PTR', 'SRV', 'SOA', 'TXT', 'CAA'], {
+        errorMap: () => ({
+            message: "Please select a DNS record"
+        })
+    })
+});
 
 function Form() {
-    const options = ['A','AAAA','CNAME','MX','NS','PTR','SRV','SOA','TXT','CAA','DS'];
     const [isloding, setIsLoading] = useState(false);
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const options = ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'PTR', 'SRV', 'SOA', 'TXT', 'CAA'];
+    const { register, handleSubmit, formState: { errors } } = useForm({ resolver: zodResolver(schema) });
+    const [result, setResult] = useState([]);
     const submitForm = async (formdata) => {
         setIsLoading(true);
         try {
@@ -16,9 +32,14 @@ function Form() {
                 header: { "Content/type": "application/json" },
                 body: JSON.stringify(formdata)
             });
-    
+
             const result = await res.json();
-            console.log(result);
+            if (result) {
+                console.log(result);
+                if (result.success) {
+                    setResult(result.data);
+                }
+            }
 
         } catch (err) {
             console.log(err);
@@ -27,38 +48,70 @@ function Form() {
         }
     }
     return (
-        <div>
-            <form
-                onSubmit={handleSubmit(submitForm)}
-                className="max-w-md mx-auto fixed bg-white p-4 rounded rounded-base shadow-lg self-start overflow-y-auto max-h-[90vh] my-auto"
-            >
-                <Input
-                    name="domain"
-                    type="text"
-                    placeholder="www.example.com"
-                    register={register}
-                    error={errors.search}
-                />
+        <div className="grid grid-cols-2">
 
-                <div className="relative z-0 w-full mb-3 group">
-                    <select className=" p-3 block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" {...register('dns_records')}>
-                        <option value="1">A</option>
-                        <option value="1">AAAA</option>
-                        <option value="1">MX</option>
-                        <option value="1">NS</option>
-                        <option value="1">TXT</option>
-                        <option value="1">CNAME</option>
-                        <option value="1">SOA</option>
-                        <option value="1">PTR</option>
-                        <option value="1">NAPTR</option>
-                    </select>
+            <div className="flex flex-col px-9">
+                <div>
+                    <form
+                        onSubmit={handleSubmit(submitForm)}
+                        className="flex gap-5 w-full bg-white p-4 rounded rounded-base shadow-lg self-start overflow-y-auto max-h-[90vh] my-auto"
+                    >
+                        <div className="w-2/5 pt-1">
+                            <Input
+                                name="domain"
+                                type="text"
+                                placeholder="www.example.com"
+                                register={register}
+                                error={errors.domain}
+                            />
+                        </div>
+                        <div className="w-2/5">
+                            <SelectInput
+                                name="dns_records"
+                                placeholder="Select DNS record"
+                                register={register}
+                                option={options}
+                                error={errors.dns_records}
+                            />
+                        </div>
+                        <div className="w-1/5 pt-2">
+                            <Button
+                                type="submit"
+                                label="Search"
+                                pending={isloding} />
+                        </div>
+                    </form>
                 </div>
 
-                <Button
-                    type="submit"
-                    label="Submit"
-                    pending={isloding} />
-            </form>
+                <div className='w-full'>
+                    {result && <div className="w-full pt-3 self-start">
+                        {result.map((item, index) => (
+                            <div key={index} className="bg-white rounded shadow-md p-2 mb-3 w-full flex gap-3 justify-between">
+                                <div className="flex flex-col gap-1 h-1/2">
+                                    <div>
+                                        <h3>{item.location}</h3>
+                                    </div>
+                                    <div>
+                                        <span>{item.provider}</span>
+                                    </div>
+                                </div>
+                                <div className='align-end flex gap-3'>
+                                    <div>
+                                        {item.records?.map((rec, i) => (
+                                            <p key={i}>{rec}</p>
+                                        ))}
+                                    </div>
+                                    <div>
+                                        <p>{item.success ? "✅" : "❌"}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>}
+                </div>
+            </div>
+
+
         </div>
     )
 }
