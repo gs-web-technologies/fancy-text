@@ -25,9 +25,9 @@ export default function Header() {
 
             <Link
               href="https://themesberg.com/product/tailwind-css/landing-page"
-              className="btn-main"
-            >
-              Download
+              className="btn-main" data-content="Download"
+            >        
+             <span className="button-text">Download</span> 
             </Link>
             <button
               data-collapse-toggle="mobile-menu-2"
@@ -35,7 +35,7 @@ export default function Header() {
               className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               aria-controls="mobile-menu-2"
               aria-expanded="true"
-            >
+            >   
               <span className="sr-only">Open main menu</span>
               <svg
                 className="w-6 h-6"

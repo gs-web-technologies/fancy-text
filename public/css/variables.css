@@ -5,4 +5,7 @@
   --secondary-1: #A146FC;
   --body-heading-font: "Poppins", sans-serif;  
   --paragraph-font: "Montserrat", sans-serif;
+  --primary: #080707;
+  --animation-style: cubic-bezier(0.56, 0.51, 0.85, 0.84);
+  --buton-text-transition-delay: 400ms;
 }
