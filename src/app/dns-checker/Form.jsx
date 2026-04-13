@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import * as z from 'zod';
+import CountryTable from './CountryTable';
 
 
 const options = ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'PTR', 'SRV', 'SOA', 'TXT', 'CAA'];
@@ -19,58 +20,6 @@ const schema = z.object({
     })
 });
 
-function renderRecords(record) {
-    if (!record) return <p>-</p>;
-
-    if (Array.isArray(record) && record.length) {
-        return record.map((rec, i) => {
-
-            // 🔹 Case 1: rec is array
-            if (Array.isArray(rec)) {
-                return (
-                    <div key={i}>
-                        {rec.map((item, index) => (
-                            <span key={index} style={{ marginRight: "10px" }}>
-                                {item}
-                            </span>
-                        ))}
-                    </div>
-                );
-            }
-
-            // 🔹 Case 2: rec is object
-            if (typeof rec === 'object' && rec !== null) {
-                return (
-                    <div key={i}>
-                        {Object.entries(rec).map(([key, value]) =>
-                            key !== 'type' ? (
-                                <span key={key} style={{ marginRight: "10px" }}>
-                                    {key}: {value}
-                                </span>
-                            ) : null
-                        )}
-                    </div>
-                );
-            }
-
-            // 🔹 Case 3: primitive (string, number)
-            return (
-                <div key={i}>
-                    <span>{rec}</span>
-                </div>
-            );
-        });
-    }
-
-    
-    if (!Array.isArray(record) && typeof record === 'object' && Object.keys(record).length) {
-        return Object.entries(record).map(([key, value]) => (
-            <span key={key}>{value}</span>
-        ));
-    }
-
-    return <p>-</p>;
-}
 
 function Form() {
     const [isloding, setIsLoading] = useState(false);
@@ -101,13 +50,13 @@ function Form() {
         }
     }
     return (
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-2 items-start">
 
             <div className="flex flex-col px-9">
                 <div>
                     <form
                         onSubmit={handleSubmit(submitForm)}
-                        className="flex gap-5 w-full bg-white p-4 rounded rounded-base shadow-lg self-start overflow-y-auto max-h-[90vh] my-auto"
+                        className="flex gap-5 w-full bg-white p-4 rounded rounded-base shadow-lg self-start max-h-[90vh]"
                     >
                         <div className="w-2/5 pt-1">
                             <Input
@@ -136,47 +85,11 @@ function Form() {
                     </form>
                 </div>
 
-                <div className='w-full'>
-                    {result && <div className="w-full pt-3 self-start">
-                        {result.map((item, index) => (
-                            <div key={index} className="bg-white rounded shadow-md p-2 mb-3 w-full flex gap-3 justify-between">
-                                <div className="flex flex-col gap-1 h-1/2">
-                                    <div>
-                                        <h3>{item.location}</h3>
-                                    </div>
-                                    <div>
-                                        <span>{item.provider}</span>
-                                    </div>
-                                </div>
-                                <div className='align-end flex flex-col gap-1'>
-
-                                    {/* {(item.success && item.records && item.records.length > 0) ? (
-                                        <div>
-                                            {item.records?.map((rec, i) => (
-                                                <p key={i}>{rec.exchange ? rec.exchange : rec}</p>
-                                            ))}
-                                        </div>
-                                    ) : (<p>-</p>)} */}
-
-                                    {item.success ? ((Array.isArray(item.success) && item.success.length) ?
-                                        renderRecords(item.records) : (typeof item.success === 'object' && Object.keys(item.success).length ?
-                                            renderRecords(item.records) : (<p>-</p>))) : (
-                                        <p>-</p>
-                                    )}
-
-                                    {(!item.success && item.message) && (
-                                        <div>{item.message}</div>
-                                    )}
-                                </div>
-                                <div>
-                                    <p>{item.success ? ((Array.isArray(item.success) && item.success.length) ? "✅" : (typeof item.success === 'object' && Object.keys(item.success).length ? "✅" : "❌")) : "❌"}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>}
+                <div className="flex flex-col">
+                    <CountryTable result={result} />
                 </div>
             </div>
-
+ 
 
         </div>
     )
