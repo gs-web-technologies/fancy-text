@@ -19,6 +19,59 @@ const schema = z.object({
     })
 });
 
+function renderRecords(record) {
+    if (!record) return <p>-</p>;
+
+    if (Array.isArray(record) && record.length) {
+        return record.map((rec, i) => {
+
+            // 🔹 Case 1: rec is array
+            if (Array.isArray(rec)) {
+                return (
+                    <div key={i}>
+                        {rec.map((item, index) => (
+                            <span key={index} style={{ marginRight: "10px" }}>
+                                {item}
+                            </span>
+                        ))}
+                    </div>
+                );
+            }
+
+            // 🔹 Case 2: rec is object
+            if (typeof rec === 'object' && rec !== null) {
+                return (
+                    <div key={i}>
+                        {Object.entries(rec).map(([key, value]) =>
+                            key !== 'type' ? (
+                                <span key={key} style={{ marginRight: "10px" }}>
+                                    {key}: {value}
+                                </span>
+                            ) : null
+                        )}
+                    </div>
+                );
+            }
+
+            // 🔹 Case 3: primitive (string, number)
+            return (
+                <div key={i}>
+                    <span>{rec}</span>
+                </div>
+            );
+        });
+    }
+
+    
+    if (!Array.isArray(record) && typeof record === 'object' && Object.keys(record).length) {
+        return Object.entries(record).map(([key, value]) => (
+            <span key={key}>{value}</span>
+        ));
+    }
+
+    return <p>-</p>;
+}
+
 function Form() {
     const [isloding, setIsLoading] = useState(false);
     const options = ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'PTR', 'SRV', 'SOA', 'TXT', 'CAA'];
@@ -74,7 +127,7 @@ function Form() {
                                 error={errors.dns_records}
                             />
                         </div>
-                        <div className="w-1/5 pt-2">
+                        <div className="w-1/5 p-2">
                             <Button
                                 type="submit"
                                 label="Search"
@@ -95,15 +148,28 @@ function Form() {
                                         <span>{item.provider}</span>
                                     </div>
                                 </div>
-                                <div className='align-end flex gap-3'>
-                                    <div>
-                                        {item.records?.map((rec, i) => (
-                                            <p key={i}>{rec}</p>
-                                        ))}
-                                    </div>
-                                    <div>
-                                        <p>{item.success ? "✅" : "❌"}</p>
-                                    </div>
+                                <div className='align-end flex flex-col gap-1'>
+
+                                    {/* {(item.success && item.records && item.records.length > 0) ? (
+                                        <div>
+                                            {item.records?.map((rec, i) => (
+                                                <p key={i}>{rec.exchange ? rec.exchange : rec}</p>
+                                            ))}
+                                        </div>
+                                    ) : (<p>-</p>)} */}
+
+                                    {item.success ? ((Array.isArray(item.success) && item.success.length) ?
+                                        renderRecords(item.records) : (typeof item.success === 'object' && Object.keys(item.success).length ?
+                                            renderRecords(item.records) : (<p>-</p>))) : (
+                                        <p>-</p>
+                                    )}
+
+                                    {(!item.success && item.message) && (
+                                        <div>{item.message}</div>
+                                    )}
+                                </div>
+                                <div>
+                                    <p>{item.success ? ((Array.isArray(item.success) && item.success.length) ? "✅" : (typeof item.success === 'object' && Object.keys(item.success).length ? "✅" : "❌")) : "❌"}</p>
                                 </div>
                             </div>
                         ))}

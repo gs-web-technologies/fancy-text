@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resolver } from 'dns/promises';
+import { success } from "zod";
 
 
 export async function POST(req) {
@@ -95,26 +96,89 @@ export async function POST(req) {
                     case 'TXT':
                         result = await resolver.resolveTxt(domain);
                         break;
+                    case 'PTR':
+                        result = await resolver.resolvePtr(domain);
+                        break;
+                    case 'SRV':
+                        result = await resolver.resolveSrv(domain);
+                        break;
+                    case 'SOA':
+                        result = await resolver.resolveSoa(domain);
+                        break;
+                    case 'CAA':
+                        result = await resolver.resolveCaa(domain);
+                        break;
                     default:
                         result = await resolver.resolveAny(domain);
+                        break;
                 }
- 
+
                 return {
                     location,
                     server,
                     provider,
-                    success: result ? true : false,
+                    success: result,
                     records: result || []
                 };
 
             } catch (error) {
-                return {
-                    location,
-                    server,
-                    provider,
-                    success: false,
-                    records: error.message
-                };
+                // Handle specific DNS errors
+                switch (error.code) {
+                    case "ENOTFOUND":
+                        return {
+                            success: false,
+                            message: "Domain not found",
+                            location: location,
+                            server: server,
+                            provider: provider
+                        };
+
+                    case "ENODATA":
+                        return {
+                            success: false,
+                            message: "No records found",
+                            location: location,
+                            server: server,
+                            provider: provider
+                        };
+
+                    case "ETIMEOUT":
+                        return {
+                            success: false,
+                            message: "DNS request timed out",
+                            location: location,
+                            server: server,
+                            provider: provider
+                        };
+
+                    case "ECONNREFUSED":
+                        return {
+                            success: false,
+                            message: "DNS server refused connection",
+                            location: location,
+                            server: server,
+                            provider: provider
+                        };
+
+                    case "ENOTIMP":
+                        return {
+                            success: false,
+                            message: "DNS query type is not supported",
+                            location: location,
+                            server: server,
+                            provider: provider
+                        }
+
+                    default:
+                        return {
+                            success: false,
+                            message: "Unknown error",
+                            error,
+                            location: location,
+                            server: server,
+                            provider: provider
+                        };
+                }
             }
         };
 
