@@ -35,7 +35,7 @@ function Form() {
 
             const result = await res.json();
             if (result) {
-                console.log(result);
+                // console.log(result);
                 if (result.success) {
                     setResult(result.data);
                 }
