@@ -18,18 +18,17 @@ function renderRecordChild(child) {
         case 'MX': {
             return (<>
                 {child.priority && <span className='text-xs'>{child.priority}</span>}
-                {(child.priority && child.exchange) && <span className="text-sm">:</span>}
-                {child.exchange && <span className='text-xs'>{child.exchange}</span>}
+                {child.exchange && <span className='text-xs'> {child.exchange}</span>}
             </>);
             break;
         }
 
         case 'CAA': {
-            console.log(child);
             return (<>
                 {child.critical && <span className='text-xs'>{child.critical}</span>}
                 {child.issue && <span className='text-xs'> issue {child.issue}</span>}
-                {child.issuewild && <span className='text-xs'>issue {child.issuewild}</span>}
+                {child.issuewild && <span className='text-xs'> issuewild {child.issuewild}</span>}
+                 {child.iodef && <span className='text-xs'> iodef {child.iodef}</span>}
             </>);
             break;
         }
