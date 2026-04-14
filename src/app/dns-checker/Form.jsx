@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import * as z from 'zod';
 import CountryTable from './CountryTable';
+import CountryMap from './CountryMap';
 
 
 const options = ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'PTR', 'SRV', 'SOA', 'TXT', 'CAA'];
@@ -50,33 +51,35 @@ function Form() {
         }
     }
     return (
-        <div className="grid grid-cols-2 items-start">
+        <div className="grid grid-cols-3 items-start">
 
             <div className="flex flex-col px-9">
                 <div>
                     <form
                         onSubmit={handleSubmit(submitForm)}
-                        className="flex gap-5 w-full bg-white p-4 rounded rounded-base shadow-lg self-start max-h-[90vh]"
+                        className="w-full bg-white p-4 rounded rounded-base shadow-lg self-start max-h-[90vh]"
                     >
-                        <div className="w-2/5 pt-1">
-                            <Input
-                                name="domain"
-                                type="text"
-                                placeholder="www.example.com"
-                                register={register}
-                                error={errors.domain}
-                            />
+                        <div className='flex gap-5 w-full'>
+                            <div className="w-1/2 pt-1">
+                                <Input
+                                    name="domain"
+                                    type="text"
+                                    placeholder="www.example.com"
+                                    register={register}
+                                    error={errors.domain}
+                                />
+                            </div>
+                            <div className="w-1/2">
+                                <SelectInput
+                                    name="dns_records"
+                                    placeholder="Select DNS record"
+                                    register={register}
+                                    option={options}
+                                    error={errors.dns_records}
+                                />
+                            </div>
                         </div>
-                        <div className="w-2/5">
-                            <SelectInput
-                                name="dns_records"
-                                placeholder="Select DNS record"
-                                register={register}
-                                option={options}
-                                error={errors.dns_records}
-                            />
-                        </div>
-                        <div className="w-1/5 p-2">
+                        <div className="flex align-center justify-end">
                             <Button
                                 type="submit"
                                 label="Search"
@@ -89,7 +92,11 @@ function Form() {
                     <CountryTable result={result} />
                 </div>
             </div>
- 
+
+            <div className='col-span-2'>
+                <CountryMap result={result} />
+            </div>
+
 
         </div>
     )

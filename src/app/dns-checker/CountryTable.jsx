@@ -8,7 +8,6 @@ function renderRecords(record) {
     if (Array.isArray(record) && record.length) {
         return record.map((rec, i) => {
 
-            // 🔹 Case 1: rec is array
             if (Array.isArray(rec)) {
                 return (
                     <div key={i}>
@@ -21,7 +20,6 @@ function renderRecords(record) {
                 );
             }
 
-            // 🔹 Case 2: rec is object
             if (typeof rec === 'object' && rec !== null) {
                 return (
                     <div key={i}>
@@ -36,7 +34,6 @@ function renderRecords(record) {
                 );
             }
 
-            // 🔹 Case 3: primitive (string, number)
             return (
                 <div key={i}>
                     <span>{rec}</span>
@@ -60,19 +57,27 @@ function CountryTable({ result }) {
     const data = dns_server;
     return (
         <div className="pt-5 w-full h-full">
-            <div className="w-[680px] h-full overflow-y-auto">
+            <div className="w-[430px] h-full overflow-y-auto">
                 <Table className="w-full h-full">
                     <TableHead>
                         <TableRow>
                         </TableRow>
                     </TableHead>
                     <TableBody className="divide-y">
-                        {(result && result.length>0) ? (result.map((item, index) => (
+                        {(result && result.length > 0) ? (result.map((item, index) => (
                             <TableRow key={index} className="bg-white border-bottom dark:border-gray-700 dark:bg-gray-800">
-                                <TableCell className="p-2 break-words align-center">
-                                    {item.location} <br />
-                                    <p>{item.provider}</p>
+                                <TableCell className="pl-2">
+                                    <div className='flex align-center gap-2'>
+                                        <div className='rounded'>
+                                            <img src={item.flag} className='rounded' />
+                                        </div>
+                                        <div>
+                                            {item.location} <br />
+                                        </div>
+                                    </div>
+                                    <p className='pt-2'>{item.provider}</p>
                                 </TableCell>
+
                                 <TableCell className="whitespace-normal break-all font-medium text-gray-900 dark:text-white align-center">
                                     {item.success ? ((Array.isArray(item.success) && item.success.length) ?
                                         renderRecords(item.records) : (typeof item.success === 'object' && Object.keys(item.success).length ?
@@ -91,10 +96,16 @@ function CountryTable({ result }) {
                         ))) : (
                             dns_server.map((item, index) => (
                                 <TableRow key={index} className="bg-white border-b">
-
-                                    <TableCell className="p-2">
-                                        {item.location} <br />
-                                        <p>{item.provider}</p>
+                                    <TableCell className="pl-2">
+                                        <div className='flex align-center gap-2'>
+                                            <div className='rounded'>
+                                                <img src={item.flag} className='rounded' />
+                                            </div>
+                                            <div>
+                                                {item.location} <br />
+                                            </div>
+                                        </div>
+                                        <p className='pt-2'>{item.provider}</p>
                                     </TableCell>
 
                                     <TableCell>-</TableCell>
