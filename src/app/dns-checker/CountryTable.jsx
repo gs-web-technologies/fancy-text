@@ -50,7 +50,7 @@ function renderRecords(record) {
         ));
     }
 
-    return <p>-</p>;
+    return '';
 }
 
 
@@ -58,7 +58,7 @@ function CountryTable({ result }) {
     const data = dns_server;
     return (
         <div className="pt-5 w-full h-full">
-            <div className="w-[430px] h-full overflow-y-auto">
+            <div className=" h-full overflow-y-auto">
                 <Table className="w-full h-full">
                     <TableHead>
                         <TableRow>
@@ -67,7 +67,7 @@ function CountryTable({ result }) {
                     <TableBody className="divide-y">
                         {(result && result.length > 0) ? (result.map((item, index) => (
                             <TableRow key={index} className="bg-white border-bottom dark:border-gray-700 dark:bg-gray-800">
-                                <TableCell className="pl-2">
+                                <TableCell className="pl-2 w-2/5">
                                     <div className='flex align-center gap-2'>
                                         <div className='rounded'>
                                             <img src={item.flag} className='rounded' />
@@ -79,20 +79,20 @@ function CountryTable({ result }) {
                                     <p className='pt-2'>{item.provider}</p>
                                 </TableCell>
 
-                                <TableCell className="whitespace-normal break-all font-medium text-gray-900 dark:text-white align-center">
-                                    {item.success ? ((Array.isArray(item.success) && item.success.length) ?
-                                        renderRecords(item.records) : (typeof item.success === 'object' && Object.keys(item.success).length ?
-                                            renderRecords(item.records) : (<p>-</p>))) : (
-                                        <p>-</p>
+                                <TableCell className="whitespace-normal break-all font-small text-gray-900 dark:text-white align-center justify-start w-2/5 p-2">
+                                    {item.success ? ((Array.isArray(item.success) && item.success.length > 0) ?
+                                        renderRecords(item.records) : (typeof item.success === 'object' && Object.keys(item.success).length > 0 ?
+                                            renderRecords(item.records) : (''))) : (
+                                        ''
                                     )}
 
                                     {(!item.success && item.message) && (
                                         <div>{item.message}</div>
                                     )}
                                 </TableCell>
-                                <TableCell className="align-center px-4 justify-center">
+                                <TableCell className="mx-auto my-auto w-1/5">
                                     {item.success ? ((Array.isArray(item.success) && item.success.length) ?
-                                     ( <Svgs type="tick" /> ) : (typeof item.success === 'object' && Object.keys(item.success).length ? ( <Svgs type="tick" /> ) : ( <Svgs type="cross" /> ))) : ( <Svgs type="cross" /> )}
+                                        (<Svgs type="tick" />) : (typeof item.success === 'object' && Object.keys(item.success).length ? (<Svgs type="tick" />) : (<Svgs type="cross" />))) : (<Svgs type="cross" />)}
                                 </TableCell>
                             </TableRow>
                         ))) : (

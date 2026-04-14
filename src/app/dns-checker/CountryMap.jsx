@@ -11,7 +11,7 @@ function CountryMap({ result, isloding }) {
             <ComposableMap
                 width={800}
                 height={400}
-                style={{ width: "100%", height: "auto" }}
+                style={{ width: "100%", height: "auto", overflow:"auto" }}
             >
                 <Geographies geography={geoUrl}>
                     {({ geographies, errors }) => {

@@ -88,7 +88,7 @@ function Form() {
                     </form>
                 </div>
 
-                <div className="flex flex-col">
+                <div className="flex flex-col w-full">
                     <CountryTable result={result} />
                 </div>
             </div>
