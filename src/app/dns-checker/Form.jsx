@@ -51,7 +51,7 @@ function Form() {
         }
     }
     return (
-        <div className="grid grid-cols-3 items-start">
+        <div className="grid grid-cols-3 gap-2 items-start">
 
             <div className="flex flex-col px-9">
                 <div>
@@ -94,7 +94,7 @@ function Form() {
             </div>
 
             <div className='col-span-2'>
-                <CountryMap result={result} />
+                <CountryMap result={result} isloding={isloding} />
             </div>
 
 

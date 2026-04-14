@@ -1,6 +1,7 @@
 import React from 'react';
 import { Checkbox, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "flowbite-react";
 import { dns_server } from '@/utils/dns-servers';
+import Svgs from '@/components/svg-componet/Svgs';
 
 function renderRecords(record) {
     if (!record) return <p>-</p>;
@@ -89,8 +90,9 @@ function CountryTable({ result }) {
                                         <div>{item.message}</div>
                                     )}
                                 </TableCell>
-                                <TableCell className="align-center px-4">
-                                    {item.success ? ((Array.isArray(item.success) && item.success.length) ? "✅" : (typeof item.success === 'object' && Object.keys(item.success).length ? "✅" : "❌")) : "❌"}
+                                <TableCell className="align-center px-4 justify-center">
+                                    {item.success ? ((Array.isArray(item.success) && item.success.length) ?
+                                     ( <Svgs type="tick" /> ) : (typeof item.success === 'object' && Object.keys(item.success).length ? ( <Svgs type="tick" /> ) : ( <Svgs type="cross" /> ))) : ( <Svgs type="cross" /> )}
                                 </TableCell>
                             </TableRow>
                         ))) : (
@@ -108,9 +110,9 @@ function CountryTable({ result }) {
                                         <p className='pt-2'>{item.provider}</p>
                                     </TableCell>
 
-                                    <TableCell>-</TableCell>
+                                    <TableCell></TableCell>
 
-                                    <TableCell>⏳</TableCell>
+                                    <TableCell className='align-center px-4 justify-center'><Svgs type="hourglass" /></TableCell>
 
                                 </TableRow>
                             ))

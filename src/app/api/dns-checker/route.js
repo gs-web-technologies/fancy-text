@@ -18,7 +18,7 @@ export async function POST(req) {
 
         const dnsservers = dns_server;
 
-        const checkDNS = async ({ location, server, provider, flag }) => {
+        const checkDNS = async ({ location, server, provider, flag, coordinates }) => {
             const resolver = new Resolver();
             resolver.setServers([server]);
 
@@ -67,6 +67,7 @@ export async function POST(req) {
                     provider,
                     success: result,
                     flag,
+                    coordinates,
                     records: result || []
                 };
 
@@ -80,7 +81,8 @@ export async function POST(req) {
                             location: location,
                             server: server,
                             provider: provider,
-                            flag: flag
+                            flag: flag,
+                            coordinates: coordinates
                         };
 
                     case "ENODATA":
@@ -90,7 +92,8 @@ export async function POST(req) {
                             location: location,
                             server: server,
                             provider: provider,
-                            flag: flag
+                            flag: flag,
+                            coordinates: coordinates
                         };
 
                     case "ETIMEOUT":
@@ -100,7 +103,8 @@ export async function POST(req) {
                             location: location,
                             server: server,
                             provider: provider,
-                            flag: flag
+                            flag: flag,
+                            coordinates: coordinates
                         };
 
                     case "ECONNREFUSED":
@@ -110,7 +114,8 @@ export async function POST(req) {
                             location: location,
                             server: server,
                             provider: provider,
-                            flag: flag
+                            flag: flag,
+                            coordinates: coordinates
                         };
 
                     case "ENOTIMP":
@@ -120,7 +125,8 @@ export async function POST(req) {
                             location: location,
                             server: server,
                             provider: provider,
-                            flag: flag
+                            flag: flag,
+                            coordinates: coordinates
                         }
 
                     default:
@@ -131,7 +137,8 @@ export async function POST(req) {
                             location: location,
                             server: server,
                             provider: provider,
-                            flag: flag
+                            flag: flag,
+                            coordinates: coordinates
                         };
                 }
             }
