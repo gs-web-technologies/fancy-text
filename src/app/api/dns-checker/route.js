@@ -3,7 +3,6 @@ import { Resolver } from 'dns/promises';
 import { success } from "zod";
 import { dns_server } from "@/utils/dns-servers";
 
-
 export async function POST(req) {
     try {
         const body = await req.json();
@@ -45,7 +44,7 @@ export async function POST(req) {
                         result = await resolver.resolveTxt(domain);
                         break;
                     case 'PTR':
-                        result = await resolver.resolvePtr(domain);
+                        result = await resolver.reverse(domain);
                         break;
                     case 'SRV':
                         result = await resolver.resolveSrv(domain);
