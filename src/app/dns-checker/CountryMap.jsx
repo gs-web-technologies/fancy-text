@@ -27,42 +27,51 @@ function CountryMap({ result, isloding }) {
                             if (errors) {
                                 console.log(errors);
                             }
-                            return geographies.map((geo,index) => (
-                                <Geography key={index} geography={geo} fill="#4A9BE8" />
-                            ))
+                            return (
+                                <>
+                                    {geographies.map((geo, index) => (
+                                        <Geography key={index} geography={geo} fill="#4A9BE8" />
+                                    ))}
+
+                                    {(geographies.length > 0) && (
+                                        <>
+                                            {(!isloding && result && result.length >= 0) && (result.map((item, index) => (
+                                                <Marker key={index} coordinates={item.coordinates}>
+                                                    {item.success ? (
+                                                        (Array.isArray(item.success) && item.success.length > 0) ? (
+                                                            <Svgs type="tick" translate={true} />
+                                                        ) : ((typeof item.success === 'object' && Object.keys(item.success).length > 0) ?
+                                                            (
+                                                                <Svgs type="tick" translate={true} />
+                                                            ) : (
+                                                                <Svgs type="cross" translate={true} />
+                                                            )
+                                                        )
+                                                    ) : (
+                                                        <Svgs type="cross" translate={true} />
+                                                    )}
+
+                                                </Marker>
+                                            )))}
+
+                                            {(!result || result.length === 0) &&
+                                                dns_server.map((item, index) =>
+                                                    item.coordinates ? (
+                                                        <Marker key={index} coordinates={item.coordinates}>
+                                                            <Svgs type="location" translate={true} />
+                                                        </Marker>
+                                                    ) : null
+                                                )
+                                            }
+                                        </>
+                                    )}
+                                </>
+                            )
                         }
                         }
                     </Geographies>
 
 
-                    {(!isloding && result && result.length >= 0) && (result.map((item, index) => (
-                        <Marker key={index} coordinates={item.coordinates}>
-                            {item.success ? (
-                                (Array.isArray(item.success) && item.success.length > 0) ? (
-                                    <Svgs type="tick" translate={true} />
-                                ) : ((typeof item.success === 'object' && Object.keys(item.success).length > 0) ?
-                                    (
-                                        <Svgs type="tick" translate={true} />
-                                    ) : (
-                                        <Svgs type="cross" translate={true} />
-                                    )
-                                )
-                            ) : (
-                                <Svgs type="cross" translate={true} />
-                            )}
-
-                        </Marker>
-                    )))}
-
-                    {(!result || result.length === 0) &&
-                        dns_server.map((item, index) =>
-                            item.coordinates ? (
-                                <Marker key={index} coordinates={item.coordinates}>
-                                    <Svgs type="location" translate={true} />
-                                </Marker>
-                            ) : null
-                        )
-                    }
                 </ComposableMap>
             </div>
         </div >
