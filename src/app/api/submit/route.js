@@ -36,7 +36,6 @@ export async function POST(req) {
             ]],
          },
       });
-      console.log('done');
       return NextResponse.json({
          success: true
       });

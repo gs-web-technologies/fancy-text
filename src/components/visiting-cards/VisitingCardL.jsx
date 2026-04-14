@@ -29,7 +29,7 @@ function VisitingCardL({ name, email, job_title, phone_no, organization, logo, w
                 fontFamily: "'Segoe UI', sans-serif",
                 display: "block",
                 backgroundColor: "#1a1a1a",
-                wordBreak: "break-all",
+                wordBreak: "normal",
                 overflowWrap: "break-word",
                 tableLayout: "fixed"
             }}
