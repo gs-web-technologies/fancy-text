@@ -30,16 +30,16 @@ function CountryMap({ result, isloding }) {
                     <Marker key={index} coordinates={item.coordinates}>
                         {item.success ? (
                             (Array.isArray(item.success) && item.success.length > 0) ? (
-                                <Svgs type="tick" />
+                                <Svgs type="tick" translate={true} />
                             ) : ((typeof item.success === 'object' && Object.keys(item.success).length > 0) ?
                                 (
-                                    <Svgs type="tick" />
+                                    <Svgs type="tick" translate={true} />
                                 ) : (
-                                <Svgs type="cross" />    
+                                <Svgs type="cross" translate={true} />    
                                 )
                             )
                         ) : (
-                           <Svgs type="cross" />
+                           <Svgs type="cross" translate={true} />
                         )}
 
                     </Marker>
@@ -49,7 +49,7 @@ function CountryMap({ result, isloding }) {
                     dns_server.map((item, index) =>
                         item.coordinates ? (
                             <Marker key={index} coordinates={item.coordinates}>
-                                <Svgs type="location" />
+                                <Svgs type="location" translate={true} />
                             </Marker>
                         ) : null
                     )

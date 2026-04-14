@@ -1,13 +1,14 @@
 import React from 'react'
 
-function Svgs({ type }) {
+function Svgs({ type, translate=false }) {
     let result = '';
     switch (type) {
         case "tick": {
             result = (<svg
-                width="30"
-                height="30"
+                width="25"
+                height="25"
                 viewBox="0 0 24 24"
+                transform={translate ? "translate(-15, -15)" : ""}
             >
                 <circle cx="12" cy="12" r="10" fill="#50d32f" />
                 <path
@@ -26,6 +27,7 @@ function Svgs({ type }) {
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
+                transform={translate ? "translate(-12, -12)" : ""}
             >
                 <circle cx="12" cy="12" r="10" fill="red" />
                 <line
@@ -56,7 +58,7 @@ function Svgs({ type }) {
                 height="24"
                 viewBox="0 0 24 24"
                 fill="red"
-                transform="translate(-12, -24)"
+                transform= {translate ? "translate(-12, -24)" : ""}
             >
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
                 <circle cx="12" cy="9" r="2.5" fill="white" />
