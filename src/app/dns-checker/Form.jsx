@@ -9,9 +9,6 @@ import * as z from 'zod';
 import CountryTable from './CountryTable';
 import CountryMap from './CountryMap';
 
-
-const options = ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'PTR', 'SRV', 'SOA', 'TXT', 'CAA'];
-
 const schema = z.object({
     domain: z.string().min(5, { message: "Domain must be at least 5 characters long." }),
     dns_records: z.enum(['A', 'AAAA', 'CNAME', 'MX', 'NS', 'PTR', 'SRV', 'SOA', 'TXT', 'CAA'], {
@@ -24,7 +21,7 @@ const schema = z.object({
 
 function Form() {
     const [isloding, setIsLoading] = useState(false);
-    const options = ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'PTR', 'SRV', 'SOA', 'TXT', 'CAA'];
+    const options = ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'PTR', 'SRV', 'SOA', 'TXT', 'CAA' ];
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: zodResolver(schema) });
     const [result, setResult] = useState([]);
     const submitForm = async (formdata) => {

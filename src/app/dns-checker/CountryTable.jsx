@@ -3,17 +3,63 @@ import { Checkbox, Table, TableBody, TableCell, TableHead, TableHeadCell, TableR
 import { dns_server } from '@/utils/dns-servers';
 import Svgs from '@/components/svg-componet/Svgs';
 
+function renderRecordChild(child) {
+    switch (child.type) {
+        case 'SRV': {
+            return (<>
+                {child.weight && <span className='text-xs'> {child.weight}</span>}
+                {child.priority && <span className='text-xs'> {child.priority}</span>}
+                {child.port && (<> <span className='text-xs'> {child.port}</span> <br /> </>)}
+                {child.name && <span className='text-xs'> {child.name}</span>}
+            </>);
+            break;
+        }
+
+        case 'MX': {
+            return (<>
+                {child.priority && <span className='text-xs'>{child.priority}</span>}
+                {(child.priority && child.exchange) && <span className="text-sm">:</span>}
+                {child.exchange && <span className='text-xs'>{child.exchange}</span>}
+            </>);
+            break;
+        }
+
+        case 'CAA': {
+            console.log(child);
+            return (<>
+                {child.critical && <span className='text-xs'>{child.critical}</span>}
+                {child.issue && <span className='text-xs'> issue {child.issue}</span>}
+                {child.issuewild && <span className='text-xs'>issue {child.issuewild}</span>}
+            </>);
+            break;
+        }
+
+        default: {
+            {
+                Object.entries(child).map(([key, value]) =>
+                    key !== 'type' ? (
+                        <span className='text-xs' key={key} style={{ marginRight: "10px" }}>
+                            {key}: {value}
+                        </span>
+                    ) : null
+                )
+            }
+        }
+    }
+
+}
+
 function renderRecords(record) {
     if (!record) return <p>-</p>;
 
-    if (Array.isArray(record) && record.length) {
+    if (Array.isArray(record) && record.length) { //[]
         return record.map((rec, i) => {
 
-            if (Array.isArray(rec)) {
+            if (Array.isArray(rec)) { //[[]]
                 return (
                     <div key={i}>
                         {rec.map((item, index) => (
-                            <span key={index} style={{ marginRight: "10px" }}>
+                            <span className='text-xs' key={index} style={{ marginRight: "10px" }}>
                                 {item}
                             </span>
                         ))}
@@ -21,23 +67,17 @@ function renderRecords(record) {
                 );
             }
 
-            if (typeof rec === 'object' && rec !== null) {
+            if (typeof rec === 'object' && rec !== null) { //[{}]
                 return (
                     <div key={i}>
-                        {Object.entries(rec).map(([key, value]) =>
-                            key !== 'type' ? (
-                                <span key={key} style={{ marginRight: "10px" }}>
-                                    {key}: {value}
-                                </span>
-                            ) : null
-                        )}
+                        {renderRecordChild(rec)}
                     </div>
                 );
             }
 
             return (
                 <div key={i}>
-                    <span>{rec}</span>
+                    <span className='text-xs'>{rec}</span>
                 </div>
             );
         });
@@ -46,7 +86,7 @@ function renderRecords(record) {
 
     if (!Array.isArray(record) && typeof record === 'object' && Object.keys(record).length) {
         return Object.entries(record).map(([key, value]) => (
-            <span key={key}>{value}</span>
+            <span key={key}> {value} </span>
         ));
     }
 
