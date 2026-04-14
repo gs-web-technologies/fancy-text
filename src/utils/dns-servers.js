@@ -12,7 +12,7 @@ export const dns_server = [
   // Asia
   { location: "India (Mumbai)", server: "1.1.1.1", provider: "Cloudflare", flag: "https://flagcdn.com/w40/in.png", coordinates: [72.8777, 19.076] },
   { location: "India (Delhi)", server: "8.8.8.8", provider: "Google", flag: "https://flagcdn.com/w40/in.png", coordinates: [77.209, 28.6139] },
-  { location: "India (Chandigarh)", server: "1.1.1.1", provider: "Cloudflare", flag: "https://flagcdn.com/w40/in.png", coordinates: [76.7794, 30.7333] },
+  { location: "Pakistan (Islamabad)", server: "9.9.9.9", provider: "Quad9", flag: "https://flagcdn.com/w40/pk.png", coordinates: [73.0479, 33.6844] },
   { location: "Japan (Tokyo)", server: "8.8.8.8", provider: "Google", flag: "https://flagcdn.com/w40/jp.png", coordinates: [139.6503, 35.6762] },
   { location: "Singapore", server: "1.1.1.1", provider: "Cloudflare", flag: "https://flagcdn.com/w40/sg.png", coordinates: [103.8198, 1.3521] },
   { location: "South Korea (Seoul)", server: "208.67.222.222", provider: "OpenDNS", flag: "https://flagcdn.com/w40/kr.png", coordinates: [126.978, 37.5665] },
