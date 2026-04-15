@@ -2,6 +2,8 @@ import React from 'react';
 import { Checkbox, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "flowbite-react";
 import { dns_server } from '@/utils/dns-servers';
 import Svgs from '@/components/svg-componet/Svgs';
+import Fallbacks from '@/components/fallbacks/Fallbacks';
+
 
 function renderRecordChild(child) {
     switch (child.type) {
@@ -28,7 +30,7 @@ function renderRecordChild(child) {
                 {child.critical && <span className='text-xs'>{child.critical}</span>}
                 {child.issue && <span className='text-xs'> issue {child.issue}</span>}
                 {child.issuewild && <span className='text-xs'> issuewild {child.issuewild}</span>}
-                 {child.iodef && <span className='text-xs'> iodef {child.iodef}</span>}
+                {child.iodef && <span className='text-xs'> iodef {child.iodef}</span>}
             </>);
             break;
         }
@@ -93,11 +95,11 @@ function renderRecords(record) {
 }
 
 
-function CountryTable({ result }) {
+function CountryTable({ result, refreshing }) {
     const data = dns_server;
     return (
         <div className="pt-5 w-full h-full">
-            <div className=" h-full overflow-y-auto">
+            <div className=" h-[75rem] overflow-y-auto">
                 <Table className="w-full h-full">
                     <TableHead>
                         <TableRow>
@@ -105,7 +107,7 @@ function CountryTable({ result }) {
                     </TableHead>
                     <TableBody className="divide-y">
                         {(result && result.length > 0) ? (result.map((item, index) => (
-                            <TableRow key={index} className="bg-white border-bottom dark:border-gray-700 dark:bg-gray-800">
+                            <TableRow key={index} className="border-bottom bg-white text-black">
                                 <TableCell className="pl-2 w-2/5">
                                     <div className='flex align-center gap-2'>
                                         <div className='rounded'>
@@ -118,7 +120,7 @@ function CountryTable({ result }) {
                                     <p className='pt-2'>{item.provider}</p>
                                 </TableCell>
 
-                                <TableCell className="whitespace-normal break-all font-small text-gray-900 dark:text-white align-center justify-start w-2/5 p-2">
+                                <TableCell className="whitespace-normal break-all font-small text-gray-900 align-center justify-start w-2/5 p-2">
                                     {item.success ? ((Array.isArray(item.success) && item.success.length > 0) ?
                                         renderRecords(item.records) : (typeof item.success === 'object' && Object.keys(item.success).length > 0 ?
                                             renderRecords(item.records) : (''))) : (
@@ -130,8 +132,21 @@ function CountryTable({ result }) {
                                     )}
                                 </TableCell>
                                 <TableCell className="mx-auto my-auto w-1/5">
-                                    {item.success ? ((Array.isArray(item.success) && item.success.length) ?
-                                        (<Svgs type="tick" />) : (typeof item.success === 'object' && Object.keys(item.success).length ? (<Svgs type="tick" />) : (<Svgs type="cross" />))) : (<Svgs type="cross" />)}
+                                    {
+                                        refreshing ? (
+                                             <Fallbacks />
+                                        ) : (
+                                            item.success
+                                                ? (
+                                                    Array.isArray(item.success) && item.success.length
+                                                        ? <Svgs type="tick" />
+                                                        : (typeof item.success === 'object' && Object.keys(item.success).length
+                                                            ? <Svgs type="tick" />
+                                                            : <Svgs type="cross" />)
+                                                )
+                                                : <Svgs type="cross" />
+                                        )
+                                    }
                                 </TableCell>
                             </TableRow>
                         ))) : (

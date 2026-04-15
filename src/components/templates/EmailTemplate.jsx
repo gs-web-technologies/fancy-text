@@ -27,7 +27,7 @@ function EmailTemplate({ children, issubmitted }) {
             setStatus('copied');
             setTimeout(() => setStatus('idle'), 2500);
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             setStatus('error');
             setTimeout(() => {
                 setStatus('idle');

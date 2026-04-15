@@ -131,9 +131,9 @@ function Form({template = "1"}) {
             });
 
             const result = await res.json();
-            console.log(result);
+            // console.log(result);
             if (result.success) {
-                console.log("success");
+                // console.log("success");
                 setSubmitted(true);
             }
             // reset();
