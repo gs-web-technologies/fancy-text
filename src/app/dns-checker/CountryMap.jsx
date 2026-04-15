@@ -3,7 +3,7 @@ import { dns_server } from "@/utils/dns-servers";
 import { ComposableMap, Geographies, Geography, Marker } from '@vnedyalk0v/react19-simple-maps';
 import geoUrl from 'world-atlas/countries-110m.json';
 
-function CountryMap({ result, isloding }) {
+function CountryMap({ result, isloding, refreshing }) {
 
     return (
         <div className="fixed flex flex-col items-start justify-start">
@@ -35,7 +35,7 @@ function CountryMap({ result, isloding }) {
 
                                     {(geographies.length > 0) && (
                                         <>
-                                            {(!isloding && result && result.length >= 0) && (result.map((item, index) => (
+                                            {(!isloding && !refreshing && result && result.length >= 0) && (result.map((item, index) => (
                                                 <Marker key={index} coordinates={item.coordinates}>
                                                     {item.success ? (
                                                         (Array.isArray(item.success) && item.success.length > 0) ? (
