@@ -6,9 +6,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useState, useCallback } from 'react';
 import { useForm } from "react-hook-form";
 import * as z from 'zod';
-import CountryTable from './CountryTable';
-import CountryMap from './CountryMap';
-import RefreshTable from './RefreshTable';
+import CountryTable from '@/components/dns-checker/CountryTable';
+import CountryMap from '@/components/dns-checker/CountryMap';
+import RefreshTable from '@/components/dns-checker/RefreshTable';
 
 const schema = z.object({
     domain: z.string().min(5, { message: "Domain must be at least 5 characters long." }),
@@ -68,7 +68,7 @@ function Form() {
     return (
         <div className="grid grid-cols-3 gap-2 items-start">
 
-            <div className="flex flex-col px-9 bg-white rounded rounded-base shadow-lg">
+            <div className="flex flex-col pl-2 bg-white rounded rounded-base shadow-lg">
                 <div>
                     <form
                         onSubmit={handleSubmit(submitForm)}

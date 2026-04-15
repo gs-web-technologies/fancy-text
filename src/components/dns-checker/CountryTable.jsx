@@ -99,7 +99,7 @@ function CountryTable({ result, refreshing }) {
     const data = dns_server;
     return (
         <div className="pt-5 w-full h-full">
-            <div className=" h-full overflow-y-auto">
+            <div className=" h-[75rem] overflow-y-auto">
                 <Table className="w-full h-full">
                     <TableHead>
                         <TableRow>
