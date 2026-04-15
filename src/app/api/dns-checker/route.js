@@ -131,7 +131,7 @@ export async function POST(req) {
                     default:
                         return {
                             success: false,
-                            message: "Unknown error",
+                            message: "-",
                             error,
                             location: location,
                             server: server,
