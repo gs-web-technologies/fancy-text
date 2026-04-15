@@ -59,6 +59,20 @@ export default function Home() {
             </div>
 
 
+            {/* Card 5 */}
+            <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200 hover:shadow-lg transition">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Dummy Email
+                </h3>
+                <p className="text-gray-600 mb-4">
+                   Use Dummy email to receive and send mails online.
+                </p>
+                <Link href="/dummy-email" className="btn px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                    Dummy Email
+                </Link>
+            </div>
+
+
         </div>
     )
 }
