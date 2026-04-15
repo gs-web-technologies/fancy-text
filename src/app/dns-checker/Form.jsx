@@ -22,7 +22,7 @@ const schema = z.object({
 
 function Form() {
     const [isloding, setIsLoading] = useState(false);
-    const options = ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'PTR', 'SRV', 'SOA', 'TXT', 'CAA' ];
+    const options = ['A', 'AAAA', 'CNAME', 'MX', 'NS', 'PTR', 'SRV', 'SOA', 'TXT', 'CAA'];
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: zodResolver(schema) });
     const [result, setResult] = useState([]);
     const [lastFormData, SetLastFormData] = useState();
@@ -50,7 +50,7 @@ function Form() {
             setIsLoading(false);
             setRefreshing(false);
         }
-    },[]);
+    }, []);
 
     const submitForm = (formData) => {
         setIsLoading(true);
@@ -58,12 +58,12 @@ function Form() {
         fetchDns(formData);
     }
 
-     const handleRefresh = useCallback(() => {
-          if(lastFormData){
+    const handleRefresh = useCallback(() => {
+        if (lastFormData) {
             setRefreshing(true);
             fetchDns(lastFormData);
-          }
-     },[lastFormData, fetchDns]);
+        }
+    }, [lastFormData, fetchDns]);
 
     return (
         <div className="grid grid-cols-3 gap-2 items-start">
@@ -102,9 +102,8 @@ function Form() {
                         </div>
                     </form>
                 </div>
-
+                <RefreshTable onRefresh={handleRefresh} />
                 <div className="flex flex-col w-full">
-                    <RefreshTable onRefresh={handleRefresh} />
                     <CountryTable result={result} refreshing={isRefreshing} />
                 </div>
             </div>
