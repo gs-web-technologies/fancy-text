@@ -15,7 +15,7 @@ function RefreshTable({ onRefresh }) {
     }, [refresh, time, onRefresh]);
 
     return (
-        <div className="flex justify-end gap-1 bg-white p-2">
+        <div className="flex text-black justify-end gap-1 bg-white p-2">
             <div>
                 <input
                     type="checkbox"

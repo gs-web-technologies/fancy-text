@@ -3,11 +3,11 @@ import Svgs from '../svg-componet/Svgs'
 
 function DnsOverview() {
   return (
-    <div className="mr-4 w-[90%] mt-2 bg-white p-4 rounded shadow-lg">
+    <div className="text-black mt-2 bg-white p-4 rounded shadow-lg">
       <h1><b>How to Use the DNS Checker?</b></h1>
       <div className='w-[85%] text-justify'>
         <p>
-          Quickly check DNS propagation for any domain using our tool. It connects to 100+ DNS servers across the globe, allowing you to verify DNS updates from multiple regions with ease. Instead of showing only text-based results, it also visualizes propagation status on a map.
+          Quickly check DNS propagation for any domain using our tool. It connects to numbers of DNS servers across the globe, allowing you to verify DNS updates from multiple regions with ease. Instead of showing only text-based results, it also visualizes propagation status on a map.
         </p>
 
         <p>

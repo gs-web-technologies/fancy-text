@@ -107,7 +107,7 @@ function CountryTable({ result, refreshing }) {
                     </TableHead>
                     <TableBody className="divide-y">
                         {(result && result.length > 0) ? (result.map((item, index) => (
-                            <TableRow key={index} className="border-bottom dark:border-gray-700 dark:bg-gray-800">
+                            <TableRow key={index} className="border-bottom bg-white text-black">
                                 <TableCell className="pl-2 w-2/5">
                                     <div className='flex align-center gap-2'>
                                         <div className='rounded'>
@@ -120,7 +120,7 @@ function CountryTable({ result, refreshing }) {
                                     <p className='pt-2'>{item.provider}</p>
                                 </TableCell>
 
-                                <TableCell className="whitespace-normal break-all font-small text-gray-900 dark:text-white align-center justify-start w-2/5 p-2">
+                                <TableCell className="whitespace-normal break-all font-small text-gray-900 align-center justify-start w-2/5 p-2">
                                     {item.success ? ((Array.isArray(item.success) && item.success.length > 0) ?
                                         renderRecords(item.records) : (typeof item.success === 'object' && Object.keys(item.success).length > 0 ?
                                             renderRecords(item.records) : (''))) : (

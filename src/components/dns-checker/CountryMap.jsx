@@ -15,7 +15,7 @@ function CountryMap({ result, isloding, refreshing }) {
             <Description />
 
             <div className="flex flex-col items-start justify-start  bg-white p-4 rounded rounded-base shadow-lg w-[850px] h-[450px]">
-                <h2 className="text-lg font-bold text-heading align-top">DNS Propagation Map</h2>
+                <h2 className="text-lg text-black font-bold text-heading align-top">DNS Propagation Map</h2>
                 <ComposableMap
                     width={800}
                     height={400}

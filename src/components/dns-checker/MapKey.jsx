@@ -3,7 +3,7 @@ import Svgs from "@/components/svg-componet/Svgs";
 
 function MapKey() {
     return (
-        <div className="flex gap-5 align-center justify-center pt-3 w-full">
+        <div className="flex gap-5 text-black align-center justify-center pt-3 w-full">
             <div className="flex gap-1">
                 <Svgs type="location" /> <span>Server Location</span>
             </div>

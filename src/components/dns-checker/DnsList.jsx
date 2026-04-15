@@ -4,7 +4,7 @@ import React from 'react'
 
 function DnsList() {
     return (
-        <div className="w-[850px] mt-2 bg-white p-4 rounded rounded-base shadow-lg">
+        <div className="w-[850px] text-black mt-2 bg-white p-4 rounded rounded-base shadow-lg">
             <h2 className="text-lg font-bold text-heading align-top">DNS List</h2>
 
             <div className='flex flex-col gap-10'>

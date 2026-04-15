@@ -2,7 +2,7 @@ import React from 'react'
 
 function Description() {
     return (
-        <div className="w-[850px] mb-2 bg-white p-4 rounded rounded-base shadow-lg">
+        <div className="w-[850px] mb-2 bg-white text-black p-4 rounded rounded-base shadow-lg">
             <span className="text-lg font-bold text-heading align-top">Check Your DNS Propogation</span> <br />
             <span className="">
                 Monitor how your domain resolves across the globe with real-time DNS insights. Whether you're updating records, migrating servers, or launching a new website, our DNS checker helps you instantly verify how changes are reflected across multiple DNS resolvers worldwide.
