@@ -10,10 +10,11 @@ function Form({ email }) {
 
   const copyEmail = async (formdata) => {
     const email = document.getElementById('email').value;
-    await navigator.clipboard.writeText(email);
-    setCopied(true);
-
-    setTimeout(() => setCopied(false), 1000);
+    if (typeof email != 'undefined' && email != '') {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1000);
+    }
   };
 
   const submitForm = (formdata) => {
