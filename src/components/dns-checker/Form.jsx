@@ -30,6 +30,8 @@ function Form() {
 
     const fetchDns = useCallback(async (formdata) => {
         try {
+            // remove https to wwww
+            formdata.domain = formdata.domain.trim().replace(/^https?:\/\/(www\.)?/, 'www.').replace(/\/.*$/, '');
             const res = await fetch('api/dns-checker', {
                 method: "post",
                 header: { "Content/type": "application/json" },

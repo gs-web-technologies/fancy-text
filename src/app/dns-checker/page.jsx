@@ -1,6 +1,6 @@
 
 import DnsOverview from '@/components/dns-checker/DnsOverview';
-import Form from './Form';
+import Form from '@/components/dns-checker/Form';
 
 
 export default function DnsCheckerPage() {
